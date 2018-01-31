@@ -1415,3 +1415,24 @@ pre .deletion {
   color: #fff;
   cursor: pointer;
 }
+ul.search-result-list {
+  margin-top: 0.5em;
+  max-height: 22.5em;
+  overflow: scroll;
+  border: 1px solid #ddd;
+  -webkit-box-shadow: -1px 1px 5px #ccc;
+  -webkit-box-shadow: -1px 1px 5px #ccc;
+  box-shadow: -1px 1px 5px #ccc;
+  padding-left: 20px;
+  padding-right: 15px;
+}
+ul.search-result-list li {
+  border-bottom: 1px solid #ddd;
+}
+a.search-result-title {
+  font-weight: bold;
+}
+em.search-keyword {
+  border-bottom: 1px dashed #4088b8;
+  font-weight: bold;
+}

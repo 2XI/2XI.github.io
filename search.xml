@@ -1,101 +1,11 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="utf-8">
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
   
-  <title>Shengxihu&#39;s Blog&#39;</title>
-  <meta name="author" content="2XI">
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  
-  <meta property="og:site_name" content="Shengxihu&#39;s Blog&#39;"/>
-
-  
-    <meta property="og:image" content=""/>
-  
-
-  <link rel="alternate" href="/atom.xml" title="Shengxihu&#39;s Blog&#39;" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
-  <!-- wumiiVerification -->
-  <meta name="wumiiVerification" content="fb50a101-84fe-4ca2-91a7-ae8cf792978b" />
-  <meta name="wumiiVerification" content="d73b5866-c390-4156-a4dd-51b526b5335e" />
-  <!-- favicon -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <!-- Font-Awesome -->
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-
-</head>
-
-<body>
-  <header id="header"><div class= "header-content inner">
-	<div class = "alignleft col-one">
-		
-			<div class='avatar'>
-				<img src = "/img/default/avatar.png">
-              </div>
-		
-		<div class="header-div">
-		    <h1><a href="/">Shengxihu&#39;s Blog&#39;</a></h1>
-		    <h2><a href="/"></a></h2>
-		</div>
-	</div>
-	<div class = "alignright col-two">
-		
-	</div>
-	<div class="clearfix"></div>
-</div>
-
-<div class= "header-nav">
-	<div class='header-nav-content inner'>
-		<div id="main-nav" class="alignleft">
-		    		
-		    		  <a href="/"><i class="fa fa-home"></i>首页</a>
-		    		
-		    		  <a href="/archives"><i class="fa fa-archive"></i>归档</a>
-		    		
-		</div>
-		<div id="sub-nav" class="alignright">
-		    
-		      <a href="/atom.xml"><i class="fa fa-rss"></i>订阅</a>
-		    
-		      <a href="/customization"><i class="fa fa-question-circle"></i>留言</a>
-		    
-		      <a href="/about"><i class="fa fa-"></i>关于我</a>
-		    
-		</div>
-	</div>
-	<div class="clearfix"></div>
-</div>
-</header>
-  
-    <div id="content" class="inner">
-      <div id="main-col" class="alignleft"><div id="wrapper">
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-        <div class="icon"></div>
-        
-        <time datetime="2018-01-31T16:15:32.000Z"><a href="/2018/02/01/mobile-layout/">2018-02-01</a></time>
-        
-  
-    <h1 class="title"><a href="/2018/02/01/mobile-layout/">mobile-layout</a></h1>
-  
-
-    </header>
-
-    <div class="entry">
-      
-        
-    <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mobile-layout"><span class="toc-text">mobile-layout</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#布局方案"><span class="toc-text">布局方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#百分比布局"><span class="toc-text">百分比布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#media-queries"><span class="toc-text">media queries</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flexbox布局"><span class="toc-text">flexbox布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rem布局"><span class="toc-text">rem布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rem适配进阶"><span class="toc-text">rem适配进阶</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结："><span class="toc-text">总结：</span></a></li></ol></li></ol>
-    </div>
-
-        <h1 id="mobile-layout"><a href="#mobile-layout" class="headerlink" title="mobile-layout"></a>mobile-layout</h1><ol>
+    
+    <entry>
+      <title><![CDATA[mobile-layout]]></title>
+      <url>/2018/02/01/mobile-layout/</url>
+      <content type="html"><![CDATA[<h1 id="mobile-layout"><a href="#mobile-layout" class="headerlink" title="mobile-layout"></a>mobile-layout</h1><ol>
 <li><a href="#布局方案">布局方案</a><ol>
 <li><a href="#百分比布局">百分比布局</a></li>
 <li><a href="#media-queries">media queries</a></li>
@@ -252,48 +162,15 @@ padding-left: 10px;
 <p>这种适配是一件比较麻烦的事情，淘宝前端为我们提供了一个解决方案。<a href="https://github.com/amfe/article/issues/17" target="_blank" rel="noopener">使用Flexible实现手淘H5页面的终端适配</a>，它使用rem和viewport完美的解决了移动端元素大小自适应和高清屏幕的适配问题。</p>
 <h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><a href="#总结：" title="总结："></a>总结：</h2><p>前面谈到的适配方案没有优劣之分，具体如何选用还是要看业务的需求。比如我们有一个像腾讯新闻这样的资讯展示型网站，使用百分比布局就可以实现。对于天猫、京东、淘宝这类展示型多图片网站，涉及到图片的宽高比例问题，使用百分比结合padding+绝对定位、或者百分比结合flex也是不错的选择，当然我觉得采用淘宝这样使用rem布局的方式会更加简单，如果要适配高清屏那么建议你使用它的适配工具<a href="https://github.com/amfe/lib-flexible" target="_blank" rel="noopener">lib-flexible</a>可以简单快速的满足业务需求。我们在实际开发过程中也会面临各种各样的业务场景，具体选用还要根据是否多图片、是否适配高清屏等业务要求来搭配布局方式作出最好的选择。</p>
 <p><a href="/tags/Wireless-front-end/">Wireless-front-end</a></p>
-
-      
-    </div>
-    <footer>
+]]></content>
       
         
-        
-        <div class="alignright">
-          <a href="/2018/02/01/mobile-layout/#comment" class="comment-link">Comments</a>
-        </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-        <div class="icon"></div>
-        
-        <time datetime="2018-01-31T16:14:08.000Z"><a href="/2018/02/01/How-CSS-pseudo-classes-work-explained-with-code-and-lots-of-diagrams/">2018-02-01</a></time>
-        
-  
-    <h1 class="title"><a href="/2018/02/01/How-CSS-pseudo-classes-work-explained-with-code-and-lots-of-diagrams/">How CSS pseudo-classes work, explained with code and lots of diagrams</a></h1>
-  
-
-    </header>
-
-    <div class="entry">
-      
-        
-    <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#How-CSS-pseudo-classes-work-explained-with-code-and-lots-of-diagrams"><span class="toc-text">How CSS pseudo-classes work, explained with code and lots of diagrams</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML和DOM树"><span class="toc-text">HTML和DOM树</span></a></li></ol></li></ol></li></ol>
-    </div>
-
-        <h1 id="How-CSS-pseudo-classes-work-explained-with-code-and-lots-of-diagrams"><a href="#How-CSS-pseudo-classes-work-explained-with-code-and-lots-of-diagrams" class="headerlink" title="How CSS pseudo-classes work, explained with code and lots of diagrams"></a>How CSS pseudo-classes work, explained with code and lots of diagrams</h1><ol>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[How CSS pseudo-classes work, explained with code and lots of diagrams]]></title>
+      <url>/2018/02/01/How-CSS-pseudo-classes-work-explained-with-code-and-lots-of-diagrams/</url>
+      <content type="html"><![CDATA[<h1 id="How-CSS-pseudo-classes-work-explained-with-code-and-lots-of-diagrams"><a href="#How-CSS-pseudo-classes-work-explained-with-code-and-lots-of-diagrams" class="headerlink" title="How CSS pseudo-classes work, explained with code and lots of diagrams"></a>How CSS pseudo-classes work, explained with code and lots of diagrams</h1><ol>
 <li><a href="#HTML和DOM树">HTML和DOM树</a></li>
 </ol>
 <p>原文：<a href="https://medium.freecodecamp.com/explained-css-pseudo-classes-cef3c3177361#.s76ufr89z" target="_blank" rel="noopener">How CSS pseudo-classes work, explained with code and lots of diagrams</a></p>
@@ -531,48 +408,15 @@ padding-left: 10px;
 <p>the anchor elements will get selected as shown below.</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*XBmBun1e7jY0aaHsBlZHlg.png" alt="fig-20"></p>
 <p>Quite straightforward isn’t it? This selector also very comfortably accepts formulas (of form an + b) and even/odd strings, the selections though, are made from the opposite end.<br>OK, this is where our journey together ends. You can pay for your ticket by tweeting this article to your developer buddies.<br>I hope you enjoyed reading this and learned something new, including some shiny new English words.<br>This is Nash signing off. I’ll see you in the next article. Follow me on Twitter to keep in touch. I tweet about dev-related stuff. A lot.</p>
-
-      
-    </div>
-    <footer>
+]]></content>
       
         
-        
-        <div class="alignright">
-          <a href="/2018/02/01/How-CSS-pseudo-classes-work-explained-with-code-and-lots-of-diagrams/#comment" class="comment-link">Comments</a>
-        </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-        <div class="icon"></div>
-        
-        <time datetime="2018-01-31T16:12:18.000Z"><a href="/2018/02/01/What-s-the-difference-between-a-JavaScript-framework-and-a-library/">2018-02-01</a></time>
-        
-  
-    <h1 class="title"><a href="/2018/02/01/What-s-the-difference-between-a-JavaScript-framework-and-a-library/">What&#39;s the difference between a JavaScript framework and a library</a></h1>
-  
-
-    </header>
-
-    <div class="entry">
-      
-        
-    <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What’s-the-difference-between-a-JavaScript-framework-and-a-library"><span class="toc-text">What’s the difference between a JavaScript framework and a library</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Javascript-library"><span class="toc-text">Javascript library</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Toolkit"><span class="toc-text">Toolkit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Javascript-framework"><span class="toc-text">Javascript framework</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Difference"><span class="toc-text">Difference</span></a></li></ol></li></ol></li></ol>
-    </div>
-
-        <h1 id="What’s-the-difference-between-a-JavaScript-framework-and-a-library"><a href="#What’s-the-difference-between-a-JavaScript-framework-and-a-library" class="headerlink" title="What’s the difference between a JavaScript framework and a library"></a>What’s the difference between a JavaScript framework and a library</h1><ol>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[What's the difference between a JavaScript framework and a library]]></title>
+      <url>/2018/02/01/What-s-the-difference-between-a-JavaScript-framework-and-a-library/</url>
+      <content type="html"><![CDATA[<h1 id="What’s-the-difference-between-a-JavaScript-framework-and-a-library"><a href="#What’s-the-difference-between-a-JavaScript-framework-and-a-library" class="headerlink" title="What’s the difference between a JavaScript framework and a library"></a>What’s the difference between a JavaScript framework and a library</h1><ol>
 <li><a href="#Javascript-library">Javascript library</a></li>
 <li><a href="#Toolkit">Toolkit</a></li>
 <li><a href="#Javascript-framework">Javascript framework</a></li>
@@ -604,48 +448,15 @@ padding-left: 10px;
 </ul>
 <p>在使用framework的时候，自定义代码仅仅关注处理事件本身，由event loop 和 dispatch的events/messages机制来进行事件调用，它们是由framework或者运行时环境提供的。</p>
 <p>Inversion of Control是一个framework和一个library的根本区别，library从本质上来讲是一组你可以调用的函数，这些通常组织成类，每次调用做些处理然后将控制权返还给客户端。一个框架包含了一些抽象的设计，内置更多的钩子，为了使用这些钩子，你需你需要通过将框架子类化或者在这些地方插入自己的类。然后框架会在这些地方调用你的自定义代码。</p>
-
-      
-    </div>
-    <footer>
+]]></content>
       
         
-        
-        <div class="alignright">
-          <a href="/2018/02/01/What-s-the-difference-between-a-JavaScript-framework-and-a-library/#comment" class="comment-link">Comments</a>
-        </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-        <div class="icon"></div>
-        
-        <time datetime="2018-01-31T16:11:09.000Z"><a href="/2018/02/01/Just-For-Fun/">2018-02-01</a></time>
-        
-  
-    <h1 class="title"><a href="/2018/02/01/Just-For-Fun/">Just For Fun</a></h1>
-  
-
-    </header>
-
-    <div class="entry">
-      
-        
-    <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Just-For-Fun"><span class="toc-text">Just For Fun</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#写在前面："><span class="toc-text">写在前面：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技术上的成长"><span class="toc-text">技术上的成长</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#南京之行"><span class="toc-text">南京之行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#得与失"><span class="toc-text">得与失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于责任"><span class="toc-text">关于责任</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017"><span class="toc-text">2017</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写在最后"><span class="toc-text">写在最后</span></a></li></ol></li></ol></li></ol>
-    </div>
-
-        <h1 id="Just-For-Fun"><a href="#Just-For-Fun" class="headerlink" title="Just For Fun"></a>Just For Fun</h1><ol>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Just For Fun]]></title>
+      <url>/2018/02/01/Just-For-Fun/</url>
+      <content type="html"><![CDATA[<h1 id="Just-For-Fun"><a href="#Just-For-Fun" class="headerlink" title="Just For Fun"></a>Just For Fun</h1><ol>
 <li><a href="#写在前面：">写在前面：</a></li>
 <li><a href="#技术上的成长">技术上的成长</a></li>
 <li><a href="#南京之行">南京之行</a></li>
@@ -695,48 +506,15 @@ padding-left: 10px;
 <p>自己要做的项目：一个H5框架。</p>
 <p>团队项目：实现backbone、MUI。</p>
 <h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a><a href="#写在最后" title="写在最后"></a>写在最后</h3><p>2017，希望又是成长的一年，踏踏实实写代码，踏踏实实实现flag。愿有岁月可回首，Just For Fun。</p>
-
-      
-    </div>
-    <footer>
+]]></content>
       
         
-        
-        <div class="alignright">
-          <a href="/2018/02/01/Just-For-Fun/#comment" class="comment-link">Comments</a>
-        </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-        <div class="icon"></div>
-        
-        <time datetime="2018-01-31T16:09:35.000Z"><a href="/2018/02/01/sprite/">2018-02-01</a></time>
-        
-  
-    <h1 class="title"><a href="/2018/02/01/sprite/">sprite</a></h1>
-  
-
-    </header>
-
-    <div class="entry">
-      
-        
-    <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sprite"><span class="toc-text">sprite</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#关于雪碧图"><span class="toc-text">关于雪碧图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#制作雪碧图"><span class="toc-text">制作雪碧图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用background-position调整雪碧图"><span class="toc-text">使用background-position调整雪碧图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无自适应效果的雪碧图"><span class="toc-text">无自适应效果的雪碧图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#容器大小自适应"><span class="toc-text">容器大小自适应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片大小自适应"><span class="toc-text">图片大小自适应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片偏移量自适应（background-position）"><span class="toc-text">图片偏移量自适应（background-position）</span></a></li></ol></li></ol>
-    </div>
-
-        <h1 id="sprite"><a href="#sprite" class="headerlink" title="sprite"></a>sprite</h1><ol>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[sprite]]></title>
+      <url>/2018/02/01/sprite/</url>
+      <content type="html"><![CDATA[<h1 id="sprite"><a href="#sprite" class="headerlink" title="sprite"></a>sprite</h1><ol>
 <li><a href="#关于雪碧图">关于雪碧图</a></li>
 <li><a href="#制作雪碧图">制作雪碧图</a></li>
 <li><a href="#使用background-position调整雪碧图">使用background-position调整雪碧图</a></li>
@@ -1372,48 +1150,15 @@ background-position: 0  $sprite-y;
 <p>我写了一个<a href="https://gist.github.com/shengxihu/d00e38a0d17c71a11fdead6da45b93e4" target="_blank" rel="noopener">gist代码片段</a>，使用的时候将webpack-spritesmith输出的SCSS文件中对应的部分替换就可以实现.</p>
 <p>备注：实现请参考<a href="https://github.com/Muxi-Studio/freshman-h5" target="_blank" rel="noopener">项目地址</a>。</p>
 <p><a href="/tags/Img/">Img</a></p>
-
-      
-    </div>
-    <footer>
+]]></content>
       
         
-        
-        <div class="alignright">
-          <a href="/2018/02/01/sprite/#comment" class="comment-link">Comments</a>
-        </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-        <div class="icon"></div>
-        
-        <time datetime="2018-01-31T16:08:39.000Z"><a href="/2018/02/01/Vuejs-event-system/">2018-02-01</a></time>
-        
-  
-    <h1 class="title"><a href="/2018/02/01/Vuejs-event-system/">Vuejs-event-system</a></h1>
-  
-
-    </header>
-
-    <div class="entry">
-      
-        
-    <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vuejs-event-system"><span class="toc-text">Vuejs-event-system</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#组件之间通信的原则"><span class="toc-text">组件之间通信的原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义事件"><span class="toc-text">自定义事件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#全局事件总线-global-event-bus"><span class="toc-text">全局事件总线(global event bus)</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text"></span></a></li></ol>
-    </div>
-
-        <h1 id="Vuejs-event-system"><a href="#Vuejs-event-system" class="headerlink" title="Vuejs-event-system"></a>Vuejs-event-system</h1><ol>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Vuejs-event-system]]></title>
+      <url>/2018/02/01/Vuejs-event-system/</url>
+      <content type="html"><![CDATA[<h1 id="Vuejs-event-system"><a href="#Vuejs-event-system" class="headerlink" title="Vuejs-event-system"></a>Vuejs-event-system</h1><ol>
 <li><a href="#组件之间通信的原则">组件之间通信的原则</a></li>
 <li><a href="#实现">实现</a><ol>
 <li><a href="#自定义事件">自定义事件</a></li>
@@ -1759,48 +1504,15 @@ methods:{
 }
 </code></pre><p>}</p>
 <p><a href="/tags/Vue-js/">Vue.js</a></p>
-
-      
-    </div>
-    <footer>
+]]></content>
       
         
-        
-        <div class="alignright">
-          <a href="/2018/02/01/Vuejs-event-system/#comment" class="comment-link">Comments</a>
-        </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-        <div class="icon"></div>
-        
-        <time datetime="2018-01-31T16:07:18.000Z"><a href="/2018/02/01/Build-Your-First-Node-App/">2018-02-01</a></time>
-        
-  
-    <h1 class="title"><a href="/2018/02/01/Build-Your-First-Node-App/">Build Your First Node App</a></h1>
-  
-
-    </header>
-
-    <div class="entry">
-      
-        
-    <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Build-Your-First-Node-App"><span class="toc-text">Build Your First Node App</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hello-World"><span class="toc-text">Hello World</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一个完整的node的web应用"><span class="toc-text">一个完整的node的web应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用构建"><span class="toc-text">应用构建</span></a></li></ol></li></ol></li></ol>
-    </div>
-
-        <h1 id="Build-Your-First-Node-App"><a href="#Build-Your-First-Node-App" class="headerlink" title="Build Your First Node App"></a>Build Your First Node App</h1><ol>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Build Your First Node App]]></title>
+      <url>/2018/02/01/Build-Your-First-Node-App/</url>
+      <content type="html"><![CDATA[<h1 id="Build-Your-First-Node-App"><a href="#Build-Your-First-Node-App" class="headerlink" title="Build Your First Node App"></a>Build Your First Node App</h1><ol>
 <li><a href="#Hello-World">Hello World</a></li>
 <li><a href="#一个完整的node的web应用">一个完整的node的web应用</a></li>
 <li><a href="#应用构建">应用构建</a></li>
@@ -2325,48 +2037,15 @@ response.end();
 <p>exports.hello = hello;</p>
 <p>启动服务器，打开<a href="http://localhost:8080/,输入用户名，页面就会跳转并输出欢迎信息.查看[源码](https://github.com/shengxihu/Exercise/tree/master/node/node-1" target="_blank" rel="noopener">http://localhost:8080/,输入用户名，页面就会跳转并输出欢迎信息.查看[源码](https://github.com/shengxihu/Exercise/tree/master/node/node-1</a>)</p>
 <p>到目前为止，我们已经实现了一个简单的web应用，虽然它很简单，但是我们在编写过程中注重采用了模块化、解耦合的思想，这给了我们继续完善的空间，随着我们对node了解不断加深，我们可以基于它打造出功能更加强大的应用。</p>
-
-      
-    </div>
-    <footer>
+]]></content>
       
         
-        
-        <div class="alignright">
-          <a href="/2018/02/01/Build-Your-First-Node-App/#comment" class="comment-link">Comments</a>
-        </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-        <div class="icon"></div>
-        
-        <time datetime="2018-01-31T16:05:28.000Z"><a href="/2018/02/01/Properties-in-JavaScript-definition-versus-assignment/">2018-02-01</a></time>
-        
-  
-    <h1 class="title"><a href="/2018/02/01/Properties-in-JavaScript-definition-versus-assignment/">Properties in JavaScript/ definition versus assignment</a></h1>
-  
-
-    </header>
-
-    <div class="entry">
-      
-        
-    <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Properties-in-JavaScript-definition-versus-assignment"><span class="toc-text">Properties in JavaScript/ definition versus assignment</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#属性定义和属性赋值"><span class="toc-text">属性定义和属性赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#概述：属性特性和内部属性"><span class="toc-text">概述：属性特性和内部属性</span></a></li></ol></li></ol></li></ol>
-    </div>
-
-        <h1 id="Properties-in-JavaScript-definition-versus-assignment"><a href="#Properties-in-JavaScript-definition-versus-assignment" class="headerlink" title="Properties in JavaScript/ definition versus assignment"></a>Properties in JavaScript/ definition versus assignment</h1><ol>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Properties in JavaScript/ definition versus assignment]]></title>
+      <url>/2018/02/01/Properties-in-JavaScript-definition-versus-assignment/</url>
+      <content type="html"><![CDATA[<h1 id="Properties-in-JavaScript-definition-versus-assignment"><a href="#Properties-in-JavaScript-definition-versus-assignment" class="headerlink" title="Properties in JavaScript/ definition versus assignment"></a>Properties in JavaScript/ definition versus assignment</h1><ol>
 <li><a href="#属性定义和属性赋值">属性定义和属性赋值</a></li>
 <li><a href="#概述：属性特性和内部属性">概述：属性特性和内部属性</a></li>
 </ol>
@@ -2776,48 +2455,15 @@ TypeError: obj.foo is read-only
 <p>1.<a href="http://www.2ality.com/2011/06/prototypes-as-classes.html" target="_blank" rel="noopener">Prototypes as classes – an introduction to JavaScript inheritance</a>;</p>
 <p>2.<a href="http://www.2ality.com/2011/07/js-properties.html" target="_blank" rel="noopener">JavaScript properties: inheritance and enumerability</a>;</p>
 <p>3.<a href="http://wiki.ecmascript.org/doku.php?id=strawman:fixing_override_mistake" target="_blank" rel="noopener">Fixing the Read-only Override Prohibition Mistake [ECMAScript wiki]</a>.</p>
-
-      
-    </div>
-    <footer>
+]]></content>
       
         
-        
-        <div class="alignright">
-          <a href="/2018/02/01/Properties-in-JavaScript-definition-versus-assignment/#comment" class="comment-link">Comments</a>
-        </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-        <div class="icon"></div>
-        
-        <time datetime="2018-01-31T16:04:05.000Z"><a href="/2018/02/01/JavaScript-Modules/">2018-02-01</a></time>
-        
-  
-    <h1 class="title"><a href="/2018/02/01/JavaScript-Modules/">JavaScript-Modules</a></h1>
-  
-
-    </header>
-
-    <div class="entry">
-      
-        
-    <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript-Modules"><span class="toc-text">JavaScript-Modules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模块化"><span class="toc-text">模块化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要进行模块化"><span class="toc-text">为什么要进行模块化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS模块化的发展过程（从function，IIFE到Commonjs）"><span class="toc-text">JS模块化的发展过程（从function，IIFE到Commonjs）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Function"><span class="toc-text">Function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IIFE"><span class="toc-text">IIFE</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#放大模式"><span class="toc-text">放大模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#宽放大模式（Loose-augmentation）"><span class="toc-text">宽放大模式（Loose augmentation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#紧扩充模式"><span class="toc-text">紧扩充模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入全局变量"><span class="toc-text">输入全局变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Commonjs"><span class="toc-text">Commonjs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在浏览器中使用-CommonJS"><span class="toc-text">在浏览器中使用 CommonJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AMD"><span class="toc-text">AMD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结："><span class="toc-text">总结：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#模块接口的设设计原则："><span class="toc-text">模块接口的设设计原则：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ECMAScript-6-Modules"><span class="toc-text">ECMAScript 6 Modules</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#export-multiply"><span class="toc-text">export multiply;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#import"><span class="toc-text">import:</span></a></li></ol></li></ol></li></ol></li></ol>
-    </div>
-
-        <h1 id="JavaScript-Modules"><a href="#JavaScript-Modules" class="headerlink" title="JavaScript-Modules"></a>JavaScript-Modules</h1><ol>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[JavaScript-Modules]]></title>
+      <url>/2018/02/01/JavaScript-Modules/</url>
+      <content type="html"><![CDATA[<h1 id="JavaScript-Modules"><a href="#JavaScript-Modules" class="headerlink" title="JavaScript-Modules"></a>JavaScript-Modules</h1><ol>
 <li><a href="#模块化">模块化</a></li>
 <li><a href="#为什么要进行模块化">为什么要进行模块化</a></li>
 <li><a href="#JS模块化的发展过程（从function，IIFE到Commonjs）">JS模块化的发展过程（从function，IIFE到Commonjs）</a><ol>
@@ -3277,48 +2923,15 @@ function ( foo, bar ) {
 <p>7.<a href="http://lishaopeng.com/2016/02/05/js-module/" target="_blank" rel="noopener">后端程序员的 JavaScript 之旅 - 模块化（一） | 简书</a></p>
 <p>8.<a href="http://lishaopeng.com/2016/02/11/js-module2/" target="_blank" rel="noopener">后端程序员的 JavaScript 之旅 - 模块化（二） | 简书</a></p>
 <p>9.<a href="http://lishaopeng.com/2016/02/19/js-module3/" target="_blank" rel="noopener">后端程序员的 JavaScript 之旅 - 模块化（三） | 简书</a></p>
-
-      
-    </div>
-    <footer>
+]]></content>
       
         
-        
-        <div class="alignright">
-          <a href="/2018/02/01/JavaScript-Modules/#comment" class="comment-link">Comments</a>
-        </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-        <div class="icon"></div>
-        
-        <time datetime="2018-01-31T16:02:55.000Z"><a href="/2018/02/01/JavaScript-Scope/">2018-02-01</a></time>
-        
-  
-    <h1 class="title"><a href="/2018/02/01/JavaScript-Scope/">JavaScript Scope</a></h1>
-  
-
-    </header>
-
-    <div class="entry">
-      
-        
-    <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript-Scope"><span class="toc-text">JavaScript Scope</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造块作用域："><span class="toc-text">构造块作用域：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#let"><span class="toc-text">let</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const"><span class="toc-text">const</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提升"><span class="toc-text">提升</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#变量提升"><span class="toc-text">变量提升</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数优先"><span class="toc-text">函数优先</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包"><span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#块作用域与闭包"><span class="toc-text">块作用域与闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用IIFE来创建块作用域"><span class="toc-text">使用IIFE来创建块作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模块"><span class="toc-text">模块</span></a></li></ol></li></ol></li></ol>
-    </div>
-
-        <h1 id="JavaScript-Scope"><a href="#JavaScript-Scope" class="headerlink" title="JavaScript Scope"></a>JavaScript Scope</h1><ol>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[JavaScript Scope]]></title>
+      <url>/2018/02/01/JavaScript-Scope/</url>
+      <content type="html"><![CDATA[<h1 id="JavaScript-Scope"><a href="#JavaScript-Scope" class="headerlink" title="JavaScript Scope"></a>JavaScript Scope</h1><ol>
 <li><a href="#构造块作用域：">构造块作用域：</a></li>
 <li><a href="#let">let</a></li>
 <li><a href="#const">const</a></li>
@@ -3462,149 +3075,481 @@ console.log(i)}, i*1000);
 <p>块作用域与闭包联手天下无敌，HH.</p>
 <h3 id="使用IIFE来创建块作用域"><a href="#使用IIFE来创建块作用域" class="headerlink" title="使用IIFE来创建块作用域"></a><a href="#使用IIFE来创建块作用域" title="使用IIFE来创建块作用域"></a>使用IIFE来创建块作用域</h3><p>try/catch的性能很糟糕，使用期创建块作用域运行会很慢；使用try／catch异常最大的开销是创建异常时需要回溯栈信息，如果没有异常的时候几乎不会影响性能。<br>但是将一段代码中的任意部分拿出来进行函数包装会改变吧这段代码的含义，其中的this、return、break和continue都会发生变化。IIFE并不是一个普遍适合的解决方案，它只适合在某些情况下进行手动操作。</p>
 <h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a><a href="#模块" title="模块"></a>模块</h3><p>模块模式应该具备的条件：<br>1.必须有外部的封闭函数，该函数至少被调用一次。<br>2.封闭函数至少返回一个内部函数。</p>
-
-      
-    </div>
-    <footer>
+]]></content>
       
         
-        
-        <div class="alignright">
-          <a href="/2018/02/01/JavaScript-Scope/#comment" class="comment-link">Comments</a>
-        </div>
-        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CSS reset]]></title>
+      <url>/2018/02/01/CSS-reset/</url>
+      <content type="html"><![CDATA[<h1 id="CSS-reset"><a href="#CSS-reset" class="headerlink" title="CSS reset"></a>CSS reset</h1><ol>
+<li><a href="#什么是CSS－reset">什么是CSS－reset</a></li>
+<li><a href="#为什么要进行CSS-reset">为什么要进行CSS-reset</a></li>
+<li><a href="#html标签默认样式">html标签默认样式</a></li>
+<li><a href="#浏览器默认样式">浏览器默认样式</a></li>
+<li><a href="#一份CSS－reset代码">一份CSS－reset代码</a></li>
+<li><a href="#到底要不要用CSS－reset">到底要不要用CSS－reset</a></li>
+<li><a href="#总结">总结</a></li>
+</ol>
+<h3 id="什么是CSS－reset"><a href="#什么是CSS－reset" class="headerlink" title="什么是CSS－reset"></a><a href="#什么是CSS－reset" title="什么是CSS－reset"></a>什么是CSS－reset</h3><p>CSS-reset是指在开发一开始就将浏览器的默认样式全部去掉，更准确说就是通过重新定义标签样式。“覆盖”浏览器的CSS默认属性。最最简单的说法就是把浏览器提供的默认样式覆盖掉！这就是CSS reset。</p>
+<h3 id="为什么要进行CSS-reset"><a href="#为什么要进行CSS-reset" class="headerlink" title="为什么要进行CSS-reset"></a><a href="#为什么要进行CSS-reset" title="为什么要进行CSS-reset"></a>为什么要进行CSS-reset</h3><p>在HTML标签在浏览器里有默认的样式，例如 p 标签有上下边距，strong标签有字体加粗样式，em标签有字体倾斜样式。不同浏览器的默认样式之间也会有差别，例如ul默认带有缩进的样式，在IE下，它的缩进是通过margin实现的，而Firefox下，它的缩进是由padding实现的。在切换页面的时候，浏览器的默认样式往往会给我们带来麻烦，影响开发效率。同时，因为浏览器的品种很多，每个浏览器的默认样式也是不同的，比如标签，在IE浏览器、Firefox浏览器以及Safari浏览器中的样式都是不同的，所以，通过重置button标签的CSS属性，然后再将它统一定义，就可以产生相同的显示效果。</p>
+<h3 id="html标签默认样式"><a href="#html标签默认样式" class="headerlink" title="html标签默认样式"></a><a href="#html标签默认样式" title="html标签默认样式"></a>html标签默认样式</h3><p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>15</p>
+<p>16</p>
+<p>17</p>
+<p>18</p>
+<p>19</p>
+<p>20</p>
+<p>21</p>
+<p>22</p>
+<p>23</p>
+<p>24</p>
+<p>25</p>
+<p>26</p>
+<p>27</p>
+<p>28</p>
+<p>29</p>
+<p>30</p>
+<p>31</p>
+<p>32</p>
+<p>33</p>
+<p>34</p>
+<p>35</p>
+<p>36</p>
+<p>37</p>
+<p>38</p>
+<p>39</p>
+<p>40</p>
+<p>41</p>
+<p>42</p>
+<p>43</p>
+<p>44</p>
+<p>45</p>
+<p>46</p>
+<p>47</p>
+<p>48</p>
+<p>49</p>
+<p>50</p>
+<p>51</p>
+<p>52</p>
+<p>53</p>
+<p>54</p>
+<p>55</p>
+<p>li { display: list-item }/<em>默认以列表显示</em>/</p>
+<p>head { display: none }/<em>默认不显示</em>/</p>
+<p>table { display: table }/<em>默认为表格显示</em>/</p>
+<p>tr { display: table-row }/<em>默认为表格行显示</em>/</p>
+<p>thead { display: table-header-group }/<em>默认为表格头部分组显示</em>/</p>
+<p>tbody { display: table-row-group }/<em>默认为表格行分组显示</em>/</p>
+<p>tfoot { display: table-footer-group }/<em>默认为表格底部分组显示</em>/</p>
+<p>col { display: table-column }/<em>默认为表格列显示</em>/</p>
+<p>colgroup { display: table-column-group }/<em>默认为表格列分组显示</em>/</p>
+<p>td, th { display: table-cell; }/<em>默认为单元格显示</em>/</p>
+<p>caption { display: table-caption }/<em>默认为表格标题显示</em>/</p>
+<p>th { font-weight: bolder; text-align: center }/<em>默认为表格标题显示，呈现加粗居中状态</em>/</p>
+<p>caption { text-align: center }/<em>默认为表格标题显示，呈现居中状态</em>/</p>
+<p>body { margin: 8px; line-height: 1.12 }</p>
+<p>h1 { font-size: 2em; margin: .67em 0 }</p>
+<p>h2 { font-size: 1.5em; margin: .75em 0 }</p>
+<p>h3 { font-size: 1.17em; margin: .83em 0 }</p>
+<p>h4, p, blockquote, ul, fieldset, form, ol, dl, dir, menu { margin: 1.12em 0 }</p>
+<p>h5 { font-size: .83em; margin: 1.5em 0 }</p>
+<p>h6 { font-size: .75em; margin: 1.67em 0 }</p>
+<p>h1, h2, h3, h4, h5, h6, b,strong { font-weight: bolder }</p>
+<p>blockquote { margin-left: 40px; margin-right: 40px }</p>
+<p>i, cite, em,var, address { font-style: italic }</p>
+<p>pre, tt, code, kbd, samp { font-family: monospace }</p>
+<p>pre { white-space: pre }</p>
+<p>button, textarea, input, object, select { display:inline-block; }</p>
+<p>big { font-size: 1.17em }</p>
+<p>small, sub, sup { font-size: .83em }</p>
+<p>sub { vertical-align: sub }/<em>定义sub元素默认为下标显示</em>/</p>
+<p>sup { vertical-align: super }/<em>定义sub元素默认为上标显示</em>/</p>
+<p>table { border-spacing: 2px; }</p>
+<p>thead, tbody, tfoot { vertical-align: middle }/<em>定义表头、主体表、表脚元素默认为垂直对齐</em>/</p>
+<p>td, th { vertical-align: inherit }/<em>定义单元格、列标题默认为垂直对齐默认为继承</em>/</p>
+<p>s, strike, del { text-decoration: line-through }/<em>定义这些元素默认为删除线显示</em>/</p>
+<p>hr { border: 1px inset }/<em>定义分割线默认为1px宽的3D凹边效果</em>/</p>
+<p>ol, ul, dir, menu, dd { margin-left: 40px }</p>
+<p>ol { list-style-type: decimal }</p>
+<p>ol ul, ul ol, ul ul, ol ol { margin-top: 0; margin-bottom: 0 }</p>
+<p>u, ins { text-decoration: underline }</p>
+<p>br:before { content: “”A” }/<em>定义换行元素的伪对象内容样式</em>/</p>
+<p>:before, :after { white-space: pre-line }/<em>定义伪对象空格字符的默认样式</em>/</p>
+<p>center { text-align: center }</p>
+<p>abbr, acronym { font-variant: small-caps; letter-spacing: 0.1em }</p>
+<p>:link, :visited { text-decoration: underline }</p>
+<p>:focus { outline: thin dotted invert }</p>
+<p>/* Begin bidirectionality settings (do not change) */</p>
+<p>BDO[DIR=”ltr”] { direction: ltr; unicode-bidi: bidi-override }/<em>定义BDO元素当其属性为DIR=”ltr”时的默认文本读写显示顺序</em>/</p>
+<p>BDO[DIR=”rtl”] { direction: rtl; unicode-bidi: bidi-override }/<em>定义BDO元素当其属性为DIR=”rtl”时的默认文本读写显示顺序</em>/</p>
+<p><em>[DIR=”ltr”] { direction: ltr; unicode-bidi: embed }/</em>定义任何元素当其属性为DIR=”ltr”时的默认文本读写显示顺序*/</p>
+<p><em>[DIR=”rtl”] { direction: rtl; unicode-bidi: embed }/</em>定义任何元素当其属性为DIR=”rtl”时的默认文本读写显示顺序*/</p>
+<p>@media print { /<em>定义标题和列表默认的打印样式</em>/</p>
+<p>h1 { page-break-before: always }</p>
+<p>h1, h2, h3, h4, h5, h6 { page-break-after: avoid }</p>
+<p>ul, ol, dl { page-break-before: avoid }</p>
+<p>}</p>
+<h3 id="浏览器默认样式"><a href="#浏览器默认样式" class="headerlink" title="浏览器默认样式"></a><a href="#浏览器默认样式" title="浏览器默认样式"></a>浏览器默认样式</h3><p>1.页边距<br>IE默认为10px，通过body的margin属性设置<br>FF默认为8px，通过body的padding属性设置<br>要清除页边距一定要清除这两个属性值</p>
+<p>代码如下:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>body {</p>
+<pre><code>margin:0;
+
+padding:0;
+</code></pre><p>}</p>
+<p>2.段间距<br>IE默认为19px，通过p的margin-top属性设置<br>FF默认为1.12em，通过p的margin-bottom属性设<br>p默认为块状显示，要清除段间距，一般可以设置</p>
+<p>代码如下:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>p {</p>
+<pre><code>margin-top:0;
+
+margin-bottom:0;
+</code></pre><p>}</p>
+<p>3.标题样式<br>h1~h6默认加粗显示：font-weight:bold;。<br>默认大小请参上表<br>还有是这样的写的</p>
+<p>代码如下:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>h1 {font-size:xx-large;}</p>
+<p>h2 {font-size:x-large;}</p>
+<p>h3 {font-size:large;}</p>
+<p>h4 {font-size:medium;}</p>
+<p>h5 {font-size:small;}</p>
+<p>h6 {font-size:x-small;}</p>
+<p>各大浏览器默认字体大小为16px，即等于medium，h1~h6元素默认以块状显示字体显示为粗体，<br>要清除标题样式，一般可以设置</p>
+<p>代码如下:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>hx {</p>
+<pre><code>font-weight:normal;
+
+font-size:value;
+</code></pre><p>}</p>
+<p>4.列表样式<br>IE默认为40px，通过ul、ol的margin属性设置<br>FF默认为40px，通过ul、ol的padding属性设置<br>dl无缩进，但起内部的说明元素dd默认缩进40px，而名称元素dt没有缩进。<br>要清除列表样式，一般可以设置</p>
+<p>代码如下:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>ul, ol, dd {</p>
+<pre><code>list-style-type:none;/*清楚列表样式符*/
+
+margin-left:0;/*清楚IE左缩进*/
+
+padding-left:0;/*清楚非IE左缩进*/
+</code></pre><p>}</p>
+<p>5.元素居中<br>IE默认为<code>text-align:center;</code><br>FF默认为<code>margin-left:auto;margin-right:auto;</code></p>
+<p>6.超链接样式<br>a 样式默认带有下划线，显示颜色为蓝色，被访问过的超链接变紫色，要清除链接样式，一般可以设置</p>
+<p>代码如下:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>a {</p>
+<pre><code>text-decoration:none;
+
+color:#colorname;
+</code></pre><p>}</p>
+<p>7 鼠标样式<br>IE默认为<code>cursor:hand;</code>.<br>FF默认为<code>cursor:pointer;</code>.该声明在IE中也有效</p>
+<p>8 图片链接样式<br>IE默认为紫色2px的边框线<br>FF默认为蓝色2px的边框线<br>要清除图片链接样式，一般可以设置</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>img {</p>
+<pre><code>border:0;
+</code></pre><p>}</p>
+<h3 id="一份CSS－reset代码"><a href="#一份CSS－reset代码" class="headerlink" title="一份CSS－reset代码"></a><a href="#一份CSS－reset代码" title="一份CSS－reset代码"></a>一份CSS－reset代码</h3><p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>15</p>
+<p>16</p>
+<p>17</p>
+<p>18</p>
+<p>19</p>
+<p>20</p>
+<p>21</p>
+<p>22</p>
+<p>23</p>
+<p>24</p>
+<p>25</p>
+<p>26</p>
+<p>27</p>
+<p>28</p>
+<p>29</p>
+<p>30</p>
+<p>31</p>
+<p>32</p>
+<p>33</p>
+<p>34</p>
+<p>35</p>
+<p>36</p>
+<p>37</p>
+<p>38</p>
+<p>39</p>
+<p>40</p>
+<p>41</p>
+<p>42</p>
+<p>43</p>
+<p>44</p>
+<p>45</p>
+<p>46</p>
+<p>47</p>
+<p>48</p>
+<p>49</p>
+<p>50</p>
+<p>51</p>
+<p>52</p>
+<p>53</p>
+<p>54</p>
+<p>55</p>
+<p>56</p>
+<p>57</p>
+<p>58</p>
+<p>59</p>
+<p>60</p>
+<p>61</p>
+<p>62</p>
+<p>63</p>
+<p>64</p>
+<p>65</p>
+<p>66</p>
+<p>67</p>
+<p>68</p>
+<p>69</p>
+<p>70</p>
+<p>71</p>
+<p>72</p>
+<p>73</p>
+<p>74</p>
+<p>75</p>
+<p>76</p>
+<p>77</p>
+<p>78</p>
+<p>79</p>
+<p>80</p>
+<p>81</p>
+<p>82</p>
+<p>83</p>
+<p>84</p>
+<p>85</p>
+<p>86</p>
+<p>87</p>
+<p>88</p>
+<p>/*</p>
+<p>html5doctor.com Reset Stylesheet</p>
+<p>v1.4.1</p>
+<p>2010-03-01</p>
+<p>Author: Richard Clark - <a href="http://richclarkdesign.com" target="_blank" rel="noopener">http://richclarkdesign.com</a></p>
+<p>*/</p>
+<p>html, body, div, span, object, iframe,</p>
+<p>h1, h2, h3, h4, h5, h6, p, blockquote, pre,</p>
+<p>abbr, address, cite, code,</p>
+<p>del, dfn, em, img, ins, kbd, q, samp,</p>
+<p>small, strong, sub, sup, var,</p>
+<p>b, i,</p>
+<p>dl, dt, dd, ol, ul, li,</p>
+<p>fieldset, form, label, legend,</p>
+<p>table, caption, tbody, tfoot, thead, tr, th, td,</p>
+<p>article, aside, canvas, details, figcaption, figure,</p>
+<p>footer, header, hgroup, menu, nav, section, summary,</p>
+<p>time, mark, audio, video {</p>
+<pre><code>margin:0;
+
+padding:0;
+
+border:0;
+
+outline:0;
+
+font-size:100%;
+
+vertical-align:baseline;
+
+background:transparent;
+</code></pre><p>}</p>
+<p>body {</p>
+<pre><code>line-height:1;
+</code></pre><p>}</p>
+<p>:focus {</p>
+<pre><code>outline: 1;
+</code></pre><p>}</p>
+<p>article,aside,canvas,details,figcaption,figure,</p>
+<p>footer,header,hgroup,menu,nav,section,summary {</p>
+<pre><code>display:block;
+</code></pre><p>}</p>
+<p>nav ul {</p>
+<pre><code>list-style:none;
+</code></pre><p>}</p>
+<p>blockquote, q {</p>
+<pre><code>quotes:none;
+</code></pre><p>}</p>
+<p>blockquote:before, blockquote:after,</p>
+<p>q:before, q:after {</p>
+<pre><code>content:&apos;&apos;;
+
+content:none;
+</code></pre><p>}</p>
+<p>a {</p>
+<pre><code>margin:0;
+
+padding:0;
+
+border:0;
+
+font-size:100%;
+
+vertical-align:baseline;
+
+background:transparent;
+</code></pre><p>}</p>
+<p>ins {</p>
+<pre><code>background-color:#ff9;
+
+color:#000;
+
+text-decoration:none;
+</code></pre><p>}</p>
+<p>mark {</p>
+<pre><code>background-color:#ff9;
+
+color:#000;
+
+font-style:italic;
+
+font-weight:bold;
+</code></pre><p>}</p>
+<p>del {</p>
+<pre><code>text-decoration: line-through;
+</code></pre><p>}</p>
+<p>abbr[title], dfn[title] {</p>
+<pre><code>border-bottom:1px dotted #000;
+
+cursor:help;
+</code></pre><p>}</p>
+<p>table {</p>
+<pre><code>border-collapse:collapse;
+
+border-spacing:0;
+</code></pre><p>}</p>
+<p>hr {</p>
+<pre><code>display:block;
+
+height:1px;
+
+border:0;
+
+border-top:1px solid #cccccc;
+
+margin:1em 0;
+
+padding:0;
+</code></pre><p>}</p>
+<p>input, select {</p>
+<pre><code>vertical-align:middle;
+</code></pre><p>}</p>
+<h3 id="到底要不要用CSS－reset"><a href="#到底要不要用CSS－reset" class="headerlink" title="到底要不要用CSS－reset"></a><a href="#到底要不要用CSS－reset" title="到底要不要用CSS－reset"></a>到底要不要用CSS－reset</h3><p>那些所谓的需要重置的标签<br>我现在问您一个问题，在您制作的或参与开发的页面中，h1~h6标签您使用了几个，我想不可能全部都使用吧，使用三种类型的标题标签就不多了。您有必要对h1~h6所有标签都使用margin的清除吗？ OK，我们现在换个角度思考，假如我们没有对h1~h6标签设置{margin:0;}的重置怎么办？从SEO的角度讲，一个页面最多只能出现一个h1标签，所以，显然，h1标签的CSS reset完全没有必要，页面什么地方用就设置相应的样式，只要你记住，h1标签是有个默认的margin-top与margin-bottom值的，所以，我们就可以由这样的属性：</p>
+<p>1</p>
+<p>h1{margin:10px 0 0;}</p>
+<p>对比下CSS reset下的使用：</p>
+<p>1</p>
+<p>2</p>
+<p>h1, h2, h3, h4, h5, h6{margin:0;}</p>
+<p>h1{margin-top:10px;}</p>
+<p>使用CSS reset不仅文件大小增加了，CSS代码属性也发生了重置，CSS渲染也增加了。显然不及没有CSS reset来的高效。我们将这些标签重置，在后面的css中很大程度上又要重新设置它，这反而增加了浏览器的渲染，与其这样，还不如在使用它的地方直接将它设定到合适的值，这样不仅达到了效果，反而减少了渲染。回过来，就算有一些差异，为何非得在头部CSS reset的位置统一呢？当需要的时候，再设置，反而更合理，更高效！</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><a href="#总结" title="总结"></a>总结</h3><p>对于CSS－reset,我也觉得没有太大的使用必要，在开发过程中，开发者只要熟悉各个标签的默认样式，对于需要重新设置的属性在合适的地方显式的设置。在学习过程中渐渐熟悉在不同浏览器中表现有所不同的标签，并且合理的设置属性值就可以了。</p>
+]]></content>
       
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
- 
-<nav id="pagination">
-  
-  
-    <a href="/page/2/" class="alignright next">下一页</a>
-  
-  <div class="clearfix"></div>
-</nav>
-</div></div>
-      <aside id="sidebar" class="alignright">
-  <div class="search" id="site_search">
-  <input class="st-default-search-input" type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
-  <div class="local-search-result" id="local-search-result"></div>
-</div>
-
-
-   
-
-
-  <div class="widget tag">
-  <h3 class="title">日历云</h3>
-  <div id="calendar"></div>
-</div>
-
-
-  
-
-
-  
-
-  
-
-
-  
-  <div class="widget tag">
-    <h3 class="title">归档</h3>
-	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">13</span></li></ul>
-  </div>
-
-</aside>
-      <div class="clearfix"></div>
-    </div>
-  
-  <footer id="footer"><div class="footer-content inner">
-  <div class="alignleft">
-  
-    &copy; 2018 2XI
+        
+    </entry>
     
-  </div>
-  <div class="alignright">
-    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme
-    <a href="https://github.com/pengloo53/Hexo-theme-light_cn">light_cn</a>, 
-    <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
-  </div>
-  
-  <div class="visit">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-  </div>
-  
-  <div class="clearfix"></div>
-</div></footer>
-  <script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/search.js"></script>
-
-<!-- calendar widget -->
-
-  <script src="/js/calendar.js"></script>
-  <script src="/js/languages.js"></script>
-  <script type="text/javascript">
-    $(function() {
+    <entry>
+      <title><![CDATA[line－height的作用对象]]></title>
+      <url>/2018/01/31/line%EF%BC%8Dheight%E7%9A%84%E4%BD%9C%E7%94%A8%E5%AF%B9%E8%B1%A1/</url>
+      <content type="html"><![CDATA[<h1 id="line－height的作用对象"><a href="#line－height的作用对象" class="headerlink" title="line－height的作用对象"></a>line－height的作用对象</h1><ol>
+<li><a href="#line-height作用于行内元素或者原生的行内块级元素">line-height作用于行内元素或者原生的行内块级元素</a></li>
+<li><a href="#步入主题：">步入主题：</a></li>
+</ol>
+<h3 id="line-height作用于行内元素或者原生的行内块级元素"><a href="#line-height作用于行内元素或者原生的行内块级元素" class="headerlink" title="line-height作用于行内元素或者原生的行内块级元素"></a><a href="#line-height作用于行内元素或者原生的行内块级元素" title="line-height作用于行内元素或者原生的行内块级元素"></a>line-height作用于行内元素或者原生的行内块级元素</h3><hr>
+<p>这个文章设及到继承和line-height的相关知识:<br>阅读中遇到问题可以回来参考：<a href="http://www.cnphp.info/css-style-inheritance.html" target="_blank" rel="noopener">css继承</a>和<a href="http://www.w3school.com.cn/cssref/pr_dim_line-height.asp" target="_blank" rel="noopener">line-height之w3c</a></p>
+<h3 id="步入主题："><a href="#步入主题：" class="headerlink" title="步入主题："></a><a href="#步入主题：" title="步入主题："></a>步入主题：</h3><hr>
+<p>先来看个例子：</p>
+<p>为什么box这个div包住了cont而没有包住input呢？首先我们要明确line-height只对行内元素或者原生的行内块级元素有效。当我们尝试把cont的显示方式改为inline-block发现显示cont并没有改变位置，说明它对非原生行内块级元素无效。box中的cont是块级元素会正常显示，但是由于cont继承了box的行高属性值，所以元素会把300像素作为自己的行高，从cont的左上角开始计算自己的显示位置，就会出现文章开始出现的情况。</p>
+]]></content>
+      
+        
+    </entry>
     
-      $('#calendar').aCalendar('zh-CN',{single:false, root:'calendar'});
+    <entry>
+      <title><![CDATA[The poem and song]]></title>
+      <url>/2018/01/31/The-poem-and-song/</url>
+      <content type="html"><![CDATA[<ol>
+<li><a href="#今天听了一首歌">今天听了一首歌</a></li>
+<li><a href="#博客又出问题了">博客又出问题了</a></li>
+<li><a href="#看书学习">看书学习</a></li>
+<li><a href="#不错的博文">不错的博文</a></li>
+</ol>
+<h3 id="今天听了一首歌"><a href="#今天听了一首歌" class="headerlink" title="今天听了一首歌"></a><a href="#今天听了一首歌" title="今天听了一首歌"></a>今天听了一首歌</h3><hr>
+<p>今天听了一首歌：诗与岁月同歌<br>有回忆过去的怀旧感，然而感性大于理性是不好的👎。<br>那时我们有梦，关于文学，关于爱情，关于穿越世界的旅行。如今我们深夜饮酒，杯子碰到一起，都是梦破碎的声音。 —北岛《波兰来客》</p>
+<blockquote>
+<p>推一扇被晨昏折旧的木漆门，<br>点一盏被时光淹没的夜星灯，<br>照一纸冬夜梦醒的来路与归程。<br>谁会记得你，爱恨都如此认真。<br>听杯酒碰撞后的可是梦碎声？<br>看荒原盛开过的可是心中城？<br>路过的青川孤岛都曾唤作天真。<br>谁还记得你，眉宇之间擦过多少人。<br>诗与岁月同歌，<br>爱情随风吟哦。<br>一瓣落红没入长河，<br>倒映你眼眸如昔明澈。<br>诗与岁月同歌，<br>天涯只身跋涉。<br>一如远山长青巍峨，<br>那个你却再无人记得。<br>折朵玫瑰写封信寄给旧时分，<br>衔枝翠羽裁寸光送给梦里人。<br>才看清那无畏赤诚已刻作掌纹。<br>也终于明白，原来这残酷便是人生。<br>诗与岁月同歌，<br>天涯只身跋涉。<br>一如远山长青巍峨，<br>那个你如果有人识得。<br>诗与岁月同歌，<br>都是浪子归客。<br>一样平凡一样独特，<br>光彩耀目或隐忍沉默。<br>万千人里，你，是哪个？<br>万千人里，你，是那个？</p>
+</blockquote>
+<h3 id="博客又出问题了"><a href="#博客又出问题了" class="headerlink" title="博客又出问题了"></a><a href="#博客又出问题了" title="博客又出问题了"></a>博客又出问题了</h3><hr>
+<blockquote>
+<p>昨天晚上第一次写了一篇博客，确发现图片无法正常显示，后来把它放到theme的images里面解决了，应该还有其他的解决方法的，关键是路径，尝试了一下没有搞出来其它的方法。把它和主题的图片放在一起可能会带来维护问题。<br>然后今天上午值班的时候又发现（卧槽）点击题目链接直接返回404.由摸索了好久。上传原文件到Github啦，以后再也不怕再出什么问题。</p>
+</blockquote>
+<h3 id="看书学习"><a href="#看书学习" class="headerlink" title="看书学习"></a><a href="#看书学习" title="看书学习"></a>看书学习</h3><hr>
+<blockquote>
+<p>下午就是看书学习了（值班真特么浪费时间），看《javascript高级程序设计》第五章（这章好长啊）里面的函数章节，函数是对象，所以函数具有所有引用类型的方法和属性，明天要总结一下。<br>也看了一下慕课网对bootstrap框架的简单介绍，框架虽好，但是不是长久之计哈！</p>
+</blockquote>
+<h3 id="不错的博文"><a href="#不错的博文" class="headerlink" title="不错的博文"></a><a href="#不错的博文" title="不错的博文"></a>不错的博文</h3><hr>
+<ul>
+<li>下学期该多逃课：<a href="http://selfboot.cn/2015/11/25/skip-classes/#more" target="_blank" rel="noopener">让我们一起愉快地逃课吧</a></li>
+<li>各种大学生创业比赛：<a href="https://www.v2ex.com/t/245821#reply49" target="_blank" rel="noopener">如今这各种大学生创业比赛啊</a>。。。人心开始越来越浮躁了 ~</li>
+<li>刻意练习：<a href="https://www.v2ex.com/t/246749#reply3" target="_blank" rel="noopener">通过「刻意练习」，你才能成为顶尖的程序员</a></li>
+</ul>
+]]></content>
+      
+        
+    </entry>
     
-    });
-  </script>
-
-
-<!-- 『不蒜子』计数服务 -->
-<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<!-- wumii关联推荐 -->
-<script type="text/javascript" src="http://widget.wumii.cn/ext/relatedItemsWidget"></script>
-
-<!-- 百度推荐 -->
-
-	<script>
-	var _hmt = _hmt || [];
-	(function() {
-	  var hm = document.createElement("script");
-	  hm.src = "//hm.baidu.com/hm.js?9acf0cedd48dc53be256ede5a98c2aaa";
-	  var s = document.getElementsByTagName("script")[0]; 
-	  s.parentNode.insertBefore(hm, s);
-	})();
-	</script>
-
-
-<!-- 返回顶部 -->
-<div id="toTop">
-	<a href="#">▲</a>
-	<a href="#footer">▼</a>
-</div>
-
-<!-- 站内搜索 -->
-<script type="text/javascript">      
-  var search_path = "search.xml";
-  if (search_path.length == 0) {
-    search_path = "search.xml";
-  }
-  var path = "/" + search_path;
-  searchFunc(path, 'local-search-input', 'local-search-result');
-</script>
-
-<!-- fancybox -->
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
-</script>
-
-
-</body>
-</html>
+  
+  
+</search>

@@ -1,0 +1,679 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Properties in JavaScript/ definition versus assignment | Shengxihu&#39;s Blog&#39;</title>
+  <meta name="author" content="2XI">
+  
+  <meta name="description" content="Properties in JavaScript/ definition versus assignment
+属性定义和属性赋值
+概述：属性特性和内部属性
+
+原文链接:Properties in JavaScript: definition versus assignment;
+在JavaScrip">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Properties in JavaScript/ definition versus assignment"/>
+  <meta property="og:site_name" content="Shengxihu&#39;s Blog&#39;"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link rel="alternate" href="/atom.xml" title="Shengxihu&#39;s Blog&#39;" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <!-- wumiiVerification -->
+  <meta name="wumiiVerification" content="fb50a101-84fe-4ca2-91a7-ae8cf792978b" />
+  <meta name="wumiiVerification" content="d73b5866-c390-4156-a4dd-51b526b5335e" />
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Font-Awesome -->
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <header id="header"><div class= "header-content inner">
+	<div class = "alignleft col-one">
+		
+			<div class='avatar'>
+				<img src = "/img/default/avatar.png">
+              </div>
+		
+		<div class="header-div">
+		    <h1><a href="/">Shengxihu&#39;s Blog&#39;</a></h1>
+		    <h2><a href="/"></a></h2>
+		</div>
+	</div>
+	<div class = "alignright col-two">
+		
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+<div class= "header-nav">
+	<div class='header-nav-content inner'>
+		<div id="main-nav" class="alignleft">
+		    		
+		    		  <a href="/"><i class="fa fa-home"></i>首页</a>
+		    		
+		    		  <a href="/archives"><i class="fa fa-archive"></i>归档</a>
+		    		
+		</div>
+		<div id="sub-nav" class="alignright">
+		    
+		      <a href="/atom.xml"><i class="fa fa-rss"></i>订阅</a>
+		    
+		      <a href="/customization"><i class="fa fa-question-circle"></i>留言</a>
+		    
+		      <a href="/about"><i class="fa fa-"></i>关于我</a>
+		    
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+</header>
+  
+    <div id="content" class="inner">
+      <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+        <div class="icon"></div>
+        
+        <time datetime="2018-01-31T16:05:28.000Z"><a href="/2018/02/01/Properties-in-JavaScript-definition-versus-assignment/">2018-02-01</a></time>
+        
+  
+    <h1 class="title">Properties in JavaScript/ definition versus assignment</h1>
+  
+
+    </header>
+
+    <div class="entry">
+      
+        
+    <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Properties-in-JavaScript-definition-versus-assignment"><span class="toc-text">Properties in JavaScript/ definition versus assignment</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#属性定义和属性赋值"><span class="toc-text">属性定义和属性赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#概述：属性特性和内部属性"><span class="toc-text">概述：属性特性和内部属性</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+        <h1 id="Properties-in-JavaScript-definition-versus-assignment"><a href="#Properties-in-JavaScript-definition-versus-assignment" class="headerlink" title="Properties in JavaScript/ definition versus assignment"></a>Properties in JavaScript/ definition versus assignment</h1><ol>
+<li><a href="#属性定义和属性赋值">属性定义和属性赋值</a></li>
+<li><a href="#概述：属性特性和内部属性">概述：属性特性和内部属性</a></li>
+</ol>
+<p>原文链接:Properties in JavaScript: definition versus assignment;</p>
+<p>在JavaScript，属性的定义和赋值两个不同的操作，这篇博客致力于解释这两种操作的差异和造成这些差异的原因。</p>
+<h3 id="属性定义和属性赋值"><a href="#属性定义和属性赋值" class="headerlink" title="属性定义和属性赋值"></a><a href="#属性定义和属性赋值" title="属性定义和属性赋值"></a>属性定义和属性赋值</h3><p>1.属性定义：定义属性将会使用一个如下的属性定义函数：、</p>
+<p>1</p>
+<p>Object.defineProperty(obj, propName, propDesc)</p>
+<p>这个函数的主要功能是直接在obj对象上添加一个属性，通过propDesc配置属性特性（例如writable）。<br>这个函数的另一个功能是用来改变一个属性的特性，包括属性的值。</p>
+<p>2.属性赋值：为了给一个属性赋值，使用如下的赋值表达式：</p>
+<p>1</p>
+<p>obj.prop = value</p>
+<p>这个表达式的主要功能是改变一个属性的值，为了完成这个操作，JavaScript将会查询obj对象的原型链。如果obj对象或者它的原型链上定义了setter方法，赋值操作将会通过调用这个setter方法来完成。如果被赋值的这个属性在obj对象上不存在，这个赋值操作将会产生另一个结果——在obj对象上定义一个拥有默认特性（writable等）的prop属性。</p>
+<p>接下来的两个部分将会探讨更多关于属性定义和赋值是如何工作的细节。及时你跳过它们，你应该依然能够理解第四部分以及后续段落。</p>
+<h3 id="概述：属性特性和内部属性"><a href="#概述：属性特性和内部属性" class="headerlink" title="概述：属性特性和内部属性"></a><a href="#概述：属性特性和内部属性" title="概述：属性特性和内部属性"></a>概述：属性特性和内部属性</h3><p>在我们解释属性定义和赋值是如何工作之前，让我们快速回顾一下什么事属性特性和内部属性。</p>
+<p>1.属性的种类：</p>
+<p>JavaScript中存在3种属性</p>
+<p>命名访问器属性：一个通过getter或者setter定义的属性。</p>
+<p>命名数据属性：拥有一个确定值得属性，这是最常见的属性，它们有自己的方法。</p>
+<p>内部属性：由JavaScript引擎内部使用的属性，不能通过直接JavaScript代码操作。然而，然而我们可以间接的方式来操作它们。例如，每一个对象都有一个叫做[[Prototype]]的内部属性，你不可以直接的读取到它，但是依然可以通过Object.getPrototypeOf()来获取它的值。尽管内部属性通常由双中括号包围的名称来表示，但这并不是它们的名字， 这是一种抽象的表示，它们并没有字符串值表示的属性名。</p>
+<p>2.属性特性：</p>
+<p>每个属性都拥有以下的属性特性，并且被它们所影响。</p>
+<p>所有属性都有的特性：</p>
+<p>[Enumerable]]：如果一个属性是不可枚举的,则在一些操作下,这个属性是不可见的,比如for…in和Object.keys().</p>
+<p>[[Configurable]]: 如果一个属性是不可配置的,则该属性的除了[[Value]]的所有特性都不可改变.</p>
+<p>命名数据特性：</p>
+<p>[[Value]]: 属性的值.</p>
+<p>[[Writable]]:决定属性值是否可变.</p>
+<p>命名访问器属性:</p>
+<p>[[Get]]:拥有getter方法.</p>
+<p>[[Set]]:拥有setter方法.</p>
+<p>3.属性描述符：</p>
+<p>属性操作符可以写成一个包含一系列属性特性的对象。例如：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>{</p>
+<pre><code>value: 123,
+
+writable: false
+</code></pre><p>}</p>
+<p>如你所见，对象的属性名对应着[[Value]]和[[Writable]]这样的属性特性名。属性操作符使用在Object.defineProperty, Object.getOwnPropertyDescriptor, Object.create这样的改变或者返回属性特性的函数中.如果某个属性特性缺失，属性操作符将使用下表对应的默认值.</p>
+<p>属性 默认值<br>value undefined<br>get undefined<br>set undefined<br>writable false<br>enumerable false<br>configurable false</p>
+<p>4.内部属性:</p>
+<p>每个对象都包含如下四个属性在内的一些内部属性：</p>
+<p>[[Prototype]]: 对象的原型.</p>
+<p>[[Extensible]]: 对象是否可扩展，即是否可添加新的属性.</p>
+<p>[[DefineOwnProperty]]: 定义一个属性的内部方法.</p>
+<p>[[Put]]: 为一个属性赋值的内部方法.</p>
+<p>属性定义和属性赋值详解</p>
+<p>1.属性定义</p>
+<p>属性定义是通过如下的内部方法来操作的：</p>
+<p>1</p>
+<p>[[DefineOwnProperty]] (P, Desc, Throw)</p>
+<p>p是将要定义的属性名，Desc是属性描述符，Throw明确了如何处理操作异常:如果Throw为true,则抛出异常.否则,操作只会静默失败.当调用[[DefineOwnProperty]]时,会下面的操作步骤执行操作.</p>
+<ul>
+<li><p>如果对象上没有名为P的属性：</p>
+<ul>
+<li><p>如果属性可扩展，创建一个新的属性P.</p>
+</li>
+<li><p>如果对象不可扩展，拒绝操作.</p>
+</li>
+</ul>
+</li>
+<li><p>如果对象上已经有一个名为P的属性:</p>
+<ul>
+<li><p>如果属性可配置,则重新配置属性.</p>
+</li>
+<li><p>如果属性不可配置,如下操作将会被拒绝（不在如下范围内的操作可以进行）:</p>
+<ul>
+<li><p>将一个数据属性转换成访问器属性,反之亦然.</p>
+</li>
+<li><p>改变[[Configurable]]或[[Enumerable]].</p>
+</li>
+<li><p>该变[[Writable]].</p>
+</li>
+<li><p>在[[Writable]]为false时改变[[Value]].</p>
+</li>
+<li><p>改变[[Get]]或[[Set]].</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>如果P的属性操作符和和当前属性操作符一致，操作可以进行.</p>
+<p>使用Object.defineProperty和Object.defineProperties这两个函数用来定义属性，例如：</p>
+<p>1</p>
+<p>Object.defineProperty(obj, propName, desc)</p>
+<p>JavaScript引擎内部将会将其转换成如下的方法调用:</p>
+<p>1</p>
+<p>obj.[[DefineOwnProperty]](propName, desc, true)</p>
+<p>2.属性赋值:</p>
+<p>为一个属性赋值操作时JavaScript引擎会调用如下的内部方法:</p>
+<p>1</p>
+<p>[[Put]] (P, Value, Throw)</p>
+<p>P 和 Throw 和 [[DefineOwnProperty]]中的对应参数作用相同.[[Put]]方法调用时会按照如下情况执行操作:</p>
+<ul>
+<li><p>如果在原型链上存在一个名为P的只读属性(只读的数据属性或者没有setter的访问器属性),拒绝操作.</p>
+</li>
+<li><p>如果在原型链上存在一个名为P的且拥有setter的访问器属性:调用这个setter.</p>
+</li>
+<li><p>如果没有名为P的自身属性:</p>
+<ul>
+<li><p>如果对象不可扩展：拒绝操作.</p>
+</li>
+<li><p>如果这个对象是可扩展的,就使用下面的操作创建一个新属性:</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>this.[[DefineOwnProperty]](</p>
+<pre><code>P,
+
+{
+
+    value: Value,
+
+    writable: true,
+
+    enumerable: true,
+
+    configurable: true
+
+},
+
+Throw
+</code></pre><p>)</p>
+<p>如果已经存在一个可写的名为P的自身属性.则调用:</p>
+<p>1</p>
+<p>this.[[DefineOwnProperty]](P, { value: Value }, Throw)</p>
+<p>这会改变P的值，其它特性值保持不变。</p>
+<p>如下赋值操作将会调用[[Put]].</p>
+<p>1</p>
+<p>obj.prop = v;</p>
+<p>在浏览器引擎内部将其会转换成如下的方法调用:</p>
+<p>1</p>
+<p>obj.[[Put]](“prop”, v, isStrictModeOn)</p>
+<p>这个赋值操作只会在严格模式下抛出异常，并且[[Put]]方法没有返回值（赋值操作会产生返回值）.</p>
+<p>结论</p>
+<p>这部分我们将会探讨关于属性定义和属性赋值的一些结论.</p>
+<p>1.赋值可能会调用原型链上的setter方法，定义会创建一个自身属性.</p>
+<p>给定一个原型proto上有名为foo访问器属性的对象.</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>var proto = {</p>
+<pre><code>get foo() {
+
+    console.log(&quot;Getter&quot;);
+
+    return &quot;a&quot;;
+
+},
+
+set foo(x) {
+
+    console.log(&quot;Setter: &quot;+x);
+
+},
+</code></pre><p>};</p>
+<p>var obj = Object.create(proto);</p>
+<p>在对象obj上定义一个名为foo的属性或者为名为foo的属性赋值会有什么区别呢？</p>
+<p>如果是定义操作，你将会创建一个新的属性.在这种条件下的定义操作总会在原型链的第一个object上创建一个新属性.如本例中的obj:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>> Object.defineProperty(obj, “foo”, { value: “b” });</p>
+<p>> obj.foo</p>
+<p>‘b’</p>
+<p>> proto.foo</p>
+<p>Getter</p>
+<p>‘a’</p>
+<p>如果在obj上进行赋值操作，意味着你的目的是改变某个已经存在的属性的值.这个操作将会由setter方法来完成.下面的结果表明操作的确调用了原型链上的setter方法：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>> obj.foo = “b”;</p>
+<p>Setter: b</p>
+<p>‘b’</p>
+<p>你可以通过只定义一个getter方法创建一个只读属性，如下，对象proto2的bar属性就是一个只读属性，它被obj2继承.</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>“use strict”;</p>
+<p>var proto2 = {</p>
+<pre><code>get bar() {
+
+    console.log(&quot;Getter&quot;);
+
+    return &quot;a&quot;;
+
+},
+</code></pre><p>};</p>
+<p>var obj2 = Object.create(proto2);</p>
+<p>我们使用严格模式来保证赋值操作可以抛出异常.我们想使用赋值操作来改变被bar属性的值，但是因为bar是read-only属性，操作被禁止.</p>
+<p>1</p>
+<p>2</p>
+<p>> obj2.bar = “b”;</p>
+<p>TypeError: obj.bar is read-only</p>
+<p>但是我们可以在obj2上定义一个新的自身属性来覆盖原型proto上的bar属性:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>> Object.defineProperty(obj2, “bar”, { value: “b” });</p>
+<p>> obj2.bar</p>
+<p>‘b’</p>
+<p>> proto2.bar</p>
+<p>Getter</p>
+<p>‘a’</p>
+<p>2.原型中的只读属性会阻止赋值操作，但不会阻止定义操作.</p>
+<p>原型中的只读属性会阻止通过赋值操作的方式为对象添加一个自身属性，你需要使用定义操作来达到这个目的.这个限制在ECMAScript 5.1中被引入. 下面的示范操作中obj的原型proto上有一个只读属性foo，它展示了如果对象原型上有一个值为a的foo只读属性，则赋值操作obj.foo = “b”不会再对象obj上创建一个自身属性foo.</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<pre><code>&quot;use strict&quot;;
+
+var proto = Object.defineProperties(
+
+    {},
+
+    {
+
+        foo: {  // attributes of property foo:
+
+            value: &quot;a&quot;,
+
+            writable: false,  // read-only
+
+            configurable: true  // explained later
+
+        }
+
+    });
+
+var obj = Object.create(proto);
+</code></pre><p>/* Assignment. Assignment results in an exception: */</p>
+<pre><code>\&gt; obj.foo = &quot;b&quot;;
+
+TypeError: obj.foo is read-only
+</code></pre><p>一个继承属性竟然能够影响在对象自身属性的创建，这真是一个奇怪的表现。然而这也非常合理的，它正是一个只读属性的的特性.</p>
+<p>通过定义的方式,我们可以成功创建一个新的自身属性:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>> Object.defineProperty(obj, “foo”, { value: “b” });</p>
+<p>> obj.foo</p>
+<p>‘b’</p>
+<p>> proto.foo</p>
+<p>‘a’</p>
+<p>3.赋值操作不会改变原型链上的属性</p>
+<p>给出下面的例子，obj将会从proto上继承foo属性.</p>
+<p>1</p>
+<p>2</p>
+<p>var proto = { foo: “a” };</p>
+<p>var obj = Object.create(proto);</p>
+<p>赋值操作obj.foo不会改变proto.foo,但是会为obj创建一个新的自身属性.</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>> obj.foo = “b”;</p>
+<p>‘b’</p>
+<p>> obj.foo</p>
+<p>‘b’</p>
+<p>> proto.foo</p>
+<p>‘a’</p>
+<p>这种表现的原因是：原型引用的属性值能够被它所有的后代共享，如果试图在它的后代对象上改变这个属性值，就会在这个后代对象上创建一个新的同名自身属性，这个自身属性不会影响它的原型或这个后代对象的后代. 鉴于此, 只读属性的表现可以概括为: 通过阻止自身属性的创建来阻止属性更改. 然而为什么要重写一个原型属性而不是更改一个属性呢？可能有以下两种运用：</p>
+<p>方法：仅仅允许在原型上直接修改原型对象上定义的方法，防止通过原型后代对方法进行意外修改.</p>
+<p>无方法属性：原型可以提供一个能够提供一个被所有后代共享的值，这个值可以通过后代对象重写但是不能通过后代对象改变.有人认为这是一种反模式，并且他们也不鼓励使用这种技术.因为使用构造器函数来初始化默认值是一种改为简洁的方法.</p>
+<p>4.我们只能通过定义操作来创建一个拥有指定特性的属性</p>
+<p>如果通过赋值操作创建一个自身属性，它将只有默认属性特性.如果你想指定属性特性，你只能使用定义操作，这包括定义getter和setter方法.</p>
+<p>5.对象字面量方法添加的属性实质是通过定义操作来完成的.</p>
+<p>例如下面的对象字面量：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>var obj = {</p>
+<pre><code>foo: 123
+</code></pre><p>};</p>
+<p>使用对象字面量添加的属性在浏览器内部可能被转化为一系列的声明，有两种实现：</p>
+<p>第一种转化为赋值操作来实现：</p>
+<p>1</p>
+<p>2</p>
+<p>var obj = new Object();</p>
+<p>obj.foo = 123;</p>
+<p>第二种是转化为定义操作来实现：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>var obj = new Object();</p>
+<p>Object.defineProperties(obj, {</p>
+<pre><code>foo: {
+
+    value: 123,
+
+    enumerable: true,
+
+    configurable: true,
+
+    writable: true
+
+}
+</code></pre><p>});</p>
+<p>第二种实现更好的表现了对象字面量的语义：创建新的属性.同样，Object.create方法通过第二个参数接受一个属性描述符.</p>
+<p>6.作为方法的对象属性</p>
+<p>方法属性的一种实现如下:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>“use strict”;</p>
+<p>function Stack() {</p>
+<p>}</p>
+<p>Object.defineProperties(Stack.prototype, {</p>
+<pre><code>push: {
+
+    writable: false,
+
+    configurable: true,
+
+                value: function (x) { /* ... */ }
+
+}
+</code></pre><p>});</p>
+<p>这么做的目的是防止对方法属性进行意外赋值:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>> var s = new Stack();</p>
+<p>> s.push = 5;</p>
+<p>TypeError: s.push is read-only</p>
+<p>然而，正因为push是可配置的，我们可以通过属性定义来覆盖这个方法.</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>> var s = new Stack();</p>
+<p>> Object.defineProperty(s, “push”,</p>
+<pre><code>{ value: function () { return &quot;yes&quot; }})
+</code></pre><p>> s.push()</p>
+<p>‘yes’</p>
+<p>我们甚至可以通过定义操作来重写Stack.prototype.push方法.</p>
+<p>结论</p>
+<p>属性赋值经常被用来为一个对象添加一个新的属性,这篇文字解释了这种做法可能带来的问题. 因此，我们最好遵循以下的规则:</p>
+<p>1.使用定义操作来创建新的属性.</p>
+<p>2.使用赋值操作来改变属性的值.</p>
+<p>在评论中,medikoo提醒了我们使用属性描述符来创建属性可能会有点慢，因此他经常通过为属性赋值来创建新属性,因为这样很方便.值得高兴的是,ECMAScript.next也许会把属性的定义操作变的既快又方便:已经存在一个“定义属性的运算符”的提案,可以作为Object.defineProperties的替代用法.由于属性定义和属性赋值之间存在微妙但是至关重要的差别,这种改进应该会很受欢迎.</p>
+<p>参考资料：</p>
+<p>1.<a href="http://www.2ality.com/2011/06/prototypes-as-classes.html" target="_blank" rel="noopener">Prototypes as classes – an introduction to JavaScript inheritance</a>;</p>
+<p>2.<a href="http://www.2ality.com/2011/07/js-properties.html" target="_blank" rel="noopener">JavaScript properties: inheritance and enumerability</a>;</p>
+<p>3.<a href="http://wiki.ecmascript.org/doku.php?id=strawman:fixing_override_mistake" target="_blank" rel="noopener">Fixing the Read-only Override Prohibition Mistake [ECMAScript wiki]</a>.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        <div class = "counter">
+  <span id="busuanzi_container_page_pv" style="display:none">
+      总访问&nbsp<span id="busuanzi_value_page_pv"></span>&nbsp次
+  </span>
+</div>
+        
+  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a><a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a><a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a><a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a><a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a></div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+  
+<section id = "relate">
+	
+                <div id=""></div>
+	
+</section>
+
+
+  
+    <section id="comment">
+    <!--   <h1 class="title">留言</h1> -->
+    
+        <script type="text/javascript" id="wumiiComments">
+            var wumiiPermaLink = "http://yoursite.com/2018/02/01/Properties-in-JavaScript-definition-versus-assignment/"; //请用代码生成文章永久的链接
+            var wumiiTitle = "Properties in JavaScript/ definition versus assignment"; //请用代码生成文章标题
+            var wumiiSitePrefix = "http://lupeng.me"; 
+            var wumiiCommentParams = "&pf=JAVASCRIPT";
+        </script>
+        <script type="text/javascript" src="http://widget.wumii.cn/ext/cw/widget"></script>
+      
+    </section>
+
+
+
+
+</div></div>
+      <aside id="sidebar" class="alignright">
+  <div class="search" id="site_search">
+  <input class="st-default-search-input" type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+  <div class="local-search-result" id="local-search-result"></div>
+</div>
+
+
+   
+
+
+  <div class="widget tag">
+  <h3 class="title">日历云</h3>
+  <div id="calendar"></div>
+</div>
+
+
+  
+
+
+  
+
+  
+
+
+  
+  <div class="widget tag">
+    <h3 class="title">归档</h3>
+	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">13</span></li></ul>
+  </div>
+
+</aside>
+      <div class="clearfix"></div>
+    </div>
+  
+  <footer id="footer"><div class="footer-content inner">
+  <div class="alignleft">
+  
+    &copy; 2018 2XI
+    
+  </div>
+  <div class="alignright">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme
+    <a href="https://github.com/pengloo53/Hexo-theme-light_cn">light_cn</a>, 
+    <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+  </div>
+  
+  <div class="visit">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </div>
+  
+  <div class="clearfix"></div>
+</div></footer>
+  <script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/search.js"></script>
+
+<!-- calendar widget -->
+
+  <script src="/js/calendar.js"></script>
+  <script src="/js/languages.js"></script>
+  <script type="text/javascript">
+    $(function() {
+    
+      $('#calendar').aCalendar('zh-CN',{single:false, root:'calendar'});
+    
+    });
+  </script>
+
+
+<!-- 『不蒜子』计数服务 -->
+<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- wumii关联推荐 -->
+<script type="text/javascript" src="http://widget.wumii.cn/ext/relatedItemsWidget"></script>
+
+<!-- 百度推荐 -->
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?9acf0cedd48dc53be256ede5a98c2aaa";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+<!-- 返回顶部 -->
+<div id="toTop">
+	<a href="#">▲</a>
+	<a href="#footer">▼</a>
+</div>
+
+<!-- 站内搜索 -->
+<script type="text/javascript">      
+  var search_path = "search.xml";
+  if (search_path.length == 0) {
+    search_path = "search.xml";
+  }
+  var path = "/" + search_path;
+  searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+
+<!-- fancybox -->
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+</html>
