@@ -53,18 +53,18 @@
 	<div class='header-nav-content inner'>
 		<div id="main-nav" class="alignleft">
 		    		
-		    		  <a href="/"><i class="fa fa-home"></i>首页</a>
+		    		  <a href="/"><i class="fa fa-home"></i>Home</a>
 		    		
-		    		  <a href="/archives"><i class="fa fa-archive"></i>归档</a>
+		    		  <a href="/archives"><i class="fa fa-archive"></i>Archives</a>
 		    		
 		</div>
 		<div id="sub-nav" class="alignright">
 		    
-		      <a href="/atom.xml"><i class="fa fa-rss"></i>订阅</a>
+		      <a href="/atom.xml"><i class="fa fa-rss"></i>Rss</a>
 		    
-		      <a href="/customization"><i class="fa fa-question-circle"></i>留言</a>
+		      <a href="/customization"><i class="fa fa-question-circle"></i>Customization</a>
 		    
-		      <a href="/about"><i class="fa fa-"></i>关于我</a>
+		      <a href="/about"><i class="fa fa-"></i>About</a>
 		    
 		</div>
 	</div>
@@ -74,6 +74,88 @@
   
     <div id="content" class="inner">
       <div id="main-col" class="alignleft"><div id="wrapper">
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+        <div class="icon"></div>
+        
+        <time datetime="2018-02-05T08:27:56.000Z"><a href="/2018/02/05/水平垂直居中/">2018-02-05</a></time>
+        
+  
+    <h1 class="title"><a href="/2018/02/05/水平垂直居中/">水平垂直居中</a></h1>
+  
+
+    </header>
+
+    <div class="entry">
+      
+        
+    <div id="toc">
+        
+    </div>
+
+        <p>水平垂直居中是前端CSS编码中很常见的需求，本文将总结几种不同的写法。</p>
+<p>一、垂直居中</p>
+<p>1.line-height</p>
+<p>如果元素内容是单行文本元素，将父元素的高度和行高设为一样就能实现垂直居中效果：</p>
+<iframe height="265" scrolling="no" title="eVZaRN" src="//codepen.io/no1024/embed/eVZaRN/?height=265&theme-id=0&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/no1024/pen/eVZaRN/" target="_blank" rel="noopener">eVZaRN</a> by shengxihu (<a href="https://codepen.io/no1024" target="_blank" rel="noopener">@no1024</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
+
+<p>如果要居中元素是行内元素或者行内块级元素，居中方法为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.father_class &#123;</span><br><span class="line">    /* $height为父元素高度 */</span><br><span class="line">    height: $height;</span><br><span class="line">    line-height: $height;</span><br><span class="line">    font-size: 0;</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">.child_class &#123;</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>居中效果如下：</p>
+<iframe height="265" scrolling="no" title="KQzLVE" src="//codepen.io/no1024/embed/KQzLVE/?height=265&theme-id=0&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/no1024/pen/KQzLVE/" target="_blank" rel="noopener">KQzLVE</a> by shengxihu (<a href="https://codepen.io/no1024" target="_blank" rel="noopener">@no1024</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
+
+<p>2.absolute + 负margin</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.father_class &#123;</span><br><span class="line">    /* $height_father为父元素高度 */</span><br><span class="line">    height: $height_father;</span><br><span class="line">    position: relative;</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">.child_class &#123;</span><br><span class="line">    /* $height_child为子元素高度 */</span><br><span class="line">    height: $height_child;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 50%;</span><br><span class="line">    margin-top: -($height_child/2);</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>position: absolute + margin: auto<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.father_class &#123;</span><br><span class="line">    /* $height_father为父元素高度 */</span><br><span class="line">    height: $height_father;</span><br><span class="line">    position: relative;</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">.child_class &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    margin: auto;</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>居中效果如下：</p>
+<iframe height="265" scrolling="no" title="aqNgbL" src="//codepen.io/no1024/embed/aqNgbL/?height=265&theme-id=0&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/no1024/pen/aqNgbL/" target="_blank" rel="noopener">aqNgbL</a> by shengxihu (<a href="https://codepen.io/no1024" target="_blank" rel="noopener">@no1024</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
+
+<p>4.absolute + calc<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.father_class &#123;</span><br><span class="line">    /* $height_father为父元素高度 */</span><br><span class="line">    height: $height_father;</span><br><span class="line">    position: relative;</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">.child_class &#123;</span><br><span class="line">    /* $height_child为父元素高度 */</span><br><span class="line">    height: $height_child;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: calc(50% -$height_child/2);</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>居中效果如图：</p>
+<iframe height="265" scrolling="no" title="mXPNdJ" src="//codepen.io/no1024/embed/mXPNdJ/?height=265&theme-id=0&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/no1024/pen/mXPNdJ/" target="_blank" rel="noopener">mXPNdJ</a> by shengxihu (<a href="https://codepen.io/no1024" target="_blank" rel="noopener">@no1024</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
+
+<p>5.absolute + transform</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.father_class &#123;</span><br><span class="line">    /* $height_father为父元素高度 */</span><br><span class="line">    height: $height_father;</span><br><span class="line">    position: relative;</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">.child_class &#123;</span><br><span class="line">    /* $height_child为父元素高度 */</span><br><span class="line">    height: $height_child;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 50%;</span><br><span class="line">    transform: translateY(-50%);</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>居中效果如下：</p>
+<iframe height="265" scrolling="no" title="RQaXaW" src="//codepen.io/no1024/embed/RQaXaW/?height=265&theme-id=0&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/no1024/pen/RQaXaW/" target="_blank" rel="noopener">RQaXaW</a> by shengxihu (<a href="https://codepen.io/no1024" target="_blank" rel="noopener">@no1024</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
+
+<p>6.table + vertical-align:middle<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.father_class &#123;</span><br><span class="line">    display:table-cell; </span><br><span class="line">    vertical-align:middle;</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>居中效果如下：</p>
+<iframe height="265" scrolling="no" title="table-cell" src="//codepen.io/no1024/embed/LQZVjW/?height=265&theme-id=0&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/no1024/pen/LQZVjW/" target="_blank" rel="noopener">table-cell</a> by shengxihu (<a href="https://codepen.io/no1024" target="_blank" rel="noopener">@no1024</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
+
+<p>7.css table</p>
+<p>将要居中的元素包裹在完整的表结构中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;tbody&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td class=&quot;box&quot;&gt;</span><br><span class="line">                &lt;p class=&quot;content&quot;&gt;Hello World!!!&lt;/p&gt;</span><br><span class="line">            &lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">    &lt;/tbody&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+<p>居中效果如下：</p>
+<iframe height="265" scrolling="no" title="css table" src="//codepen.io/no1024/embed/XZKmVz/?height=265&theme-id=0&default-tab=html,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/no1024/pen/XZKmVz/" target="_blank" rel="noopener">css table</a> by shengxihu (<a href="https://codepen.io/no1024" target="_blank" rel="noopener">@no1024</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
+
+<p>8.flex</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.father_class &#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    align-items: center;</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>居中效果如下:</p>
+<iframe height="265" scrolling="no" title="flex" src="//codepen.io/no1024/embed/zRBrOJ/?height=265&theme-id=0&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/no1024/pen/zRBrOJ/" target="_blank" rel="noopener">flex</a> by shengxihu (<a href="https://codepen.io/no1024" target="_blank" rel="noopener">@no1024</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
+      
+    </div>
+    <footer>
+      
+        
+        
+        <div class="alignright">
+          <a href="/2018/02/05/水平垂直居中/#comment" class="comment-link">Comments</a>
+        </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
     <article class="post">
   
   <div class="post-content">
@@ -3296,196 +3378,11 @@ function ( foo, bar ) {
 
 
 
-
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-        <div class="icon"></div>
-        
-        <time datetime="2018-01-31T16:02:55.000Z"><a href="/2018/02/01/JavaScript-Scope/">2018-02-01</a></time>
-        
-  
-    <h1 class="title"><a href="/2018/02/01/JavaScript-Scope/">JavaScript Scope</a></h1>
-  
-
-    </header>
-
-    <div class="entry">
-      
-        
-    <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript-Scope"><span class="toc-text">JavaScript Scope</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造块作用域："><span class="toc-text">构造块作用域：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#let"><span class="toc-text">let</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const"><span class="toc-text">const</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提升"><span class="toc-text">提升</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#变量提升"><span class="toc-text">变量提升</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数优先"><span class="toc-text">函数优先</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包"><span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#块作用域与闭包"><span class="toc-text">块作用域与闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用IIFE来创建块作用域"><span class="toc-text">使用IIFE来创建块作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模块"><span class="toc-text">模块</span></a></li></ol></li></ol></li></ol>
-    </div>
-
-        <h1 id="JavaScript-Scope"><a href="#JavaScript-Scope" class="headerlink" title="JavaScript Scope"></a>JavaScript Scope</h1><ol>
-<li><a href="#构造块作用域：">构造块作用域：</a></li>
-<li><a href="#let">let</a></li>
-<li><a href="#const">const</a></li>
-<li><a href="#提升">提升</a><ol>
-<li><a href="#变量提升">变量提升</a></li>
-</ol>
-</li>
-</ol>
-<ul>
-<li><a href="#函数优先">函数优先</a></li>
-<li><a href="#闭包">闭包</a></li>
-<li><a href="#块作用域与闭包">块作用域与闭包</a></li>
-<li><a href="#使用IIFE来创建块作用域">使用IIFE来创建块作用域</a></li>
-<li><a href="#模块">模块</a></li>
-</ul>
-<h3 id="构造块作用域："><a href="#构造块作用域：" class="headerlink" title="构造块作用域："></a><a href="#构造块作用域：" title="构造块作用域："></a>构造块作用域：</h3><h3 id="let"><a href="#let" class="headerlink" title="let"></a><a href="#let" title="let"></a>let</h3><p>let创建块作用域的例子：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>if(i){</p>
-<pre><code>let bar=i\*2; /\*let会将bar绑定在{......}之间*/
-
-bar =something(bar);
-
-console.log(bar);
-</code></pre><p>}</p>
-<p> &lt;!-- 并且let声明的变量不会被提升 –&gt;</p>
-<h3 id="const"><a href="#const" class="headerlink" title="const"></a><a href="#const" title="const"></a>const</h3><p>const创建块作用域的例子：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>if(i){</p>
-<pre><code>const bar=2; /\*let会将bar绑定在{......}之间\*/
-
-console.log(bar);
-</code></pre><p>}</p>
-<p>&lt;!-- const创建的作用变量为常量，不能被修改,并且let声明的变量不会被提升 –&gt;</p>
-<h3 id="提升"><a href="#提升" class="headerlink" title="提升"></a><a href="#提升" title="提升"></a>提升</h3><h5 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a><a href="#变量提升" title="变量提升"></a>变量提升</h5><p>Javascript代码执行时并不是从上往下执行的：<br>示例一：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a=2;</p>
-<p>var a;</p>
-<p>alert(a);  /*2*/</p>
-<p>我们可能认为会输出undefined，事实并非如此。这是因为变量声明var a;被提升了。<br>示例二：</p>
-<p>1</p>
-<p>2</p>
-<p>alert(a);  /*undefined*/</p>
-<p>var a=2;</p>
-<p>这是因为变量声明被提升，而赋值操作并不会被提升。</p>
-<p>函数声明同样会被提升，但是函数表达式中的函数名标示符在赋值之前不会被加到作用域中。</p>
-<h3 id="函数优先"><a href="#函数优先" class="headerlink" title="函数优先"></a><a href="#函数优先" title="函数优先"></a>函数优先</h3><p>一个普通块内部的函数声明通常会被提升到所在作用域的顶部。<br>例如：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>foo(); /*1*/</p>
-<p>var foo;</p>
-<p>function foo(){</p>
-<pre><code>console.log(1);
-</code></pre><p>};</p>
-<p>foo=function(){</p>
-<pre><code>console.log(2);
-</code></pre><p>};</p>
-<p>这是因为引擎会把这段代码理解为：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>function foo(){</p>
-<pre><code>console.log(1);
-</code></pre><p>};</p>
-<p>foo(); /*1*/</p>
-<p>foo=function(){</p>
-<pre><code>console.log(2);
-</code></pre><p>};</p>
-<p>变量提升与引擎的工作机制有关，引擎处理程序中的声明发生在编译阶段，数值处理发生在执行阶段，因此声明会被提升。</p>
-<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a><a href="#闭包" title="闭包"></a>闭包</h3><p>当执行函数可以记住并访问所在的词法作用域时，就产生了闭包，即时函数是在当前词法作用域之外执行。</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>13</p>
-<p>var fn;</p>
-<p>function foo(){</p>
-<pre><code>var a=2;
-
-function baz(){
-
-    console.log(a);
-
-}
-
-fn=baz;
-</code></pre><p>}</p>
-<p>function bar(){</p>
-<pre><code>fn();
-</code></pre><p>}</p>
-<p>foo();</p>
-<p>bar();</p>
-<p>无论通过何种手段将内部函数传递到所在的词法作用域以外，它都会持有对原始定义作用域的引用，无论在何处执行这个函数都将产生闭包。</p>
-<h3 id="块作用域与闭包"><a href="#块作用域与闭包" class="headerlink" title="块作用域与闭包"></a><a href="#块作用域与闭包" title="块作用域与闭包"></a>块作用域与闭包</h3><p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>for(var i=1;i&lt;=5;i++){</p>
-<pre><code>setTimeout(function(){
-
-console.log(i)}, i*1000);
-</code></pre><p>}</p>
-<p>这段代码输出5次6；因为setTimeout函数公用全局作用域的i,解决办法：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>for(let i=1;i&lt;=5;i++){</p>
-<pre><code>setTimeout(function(){
-
-console.log(i)}, i*1000);
-</code></pre><p>}</p>
-<p>块作用域与闭包联手天下无敌，HH.</p>
-<h3 id="使用IIFE来创建块作用域"><a href="#使用IIFE来创建块作用域" class="headerlink" title="使用IIFE来创建块作用域"></a><a href="#使用IIFE来创建块作用域" title="使用IIFE来创建块作用域"></a>使用IIFE来创建块作用域</h3><p>try/catch的性能很糟糕，使用期创建块作用域运行会很慢；使用try／catch异常最大的开销是创建异常时需要回溯栈信息，如果没有异常的时候几乎不会影响性能。<br>但是将一段代码中的任意部分拿出来进行函数包装会改变吧这段代码的含义，其中的this、return、break和continue都会发生变化。IIFE并不是一个普遍适合的解决方案，它只适合在某些情况下进行手动操作。</p>
-<h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a><a href="#模块" title="模块"></a>模块</h3><p>模块模式应该具备的条件：<br>1.必须有外部的封闭函数，该函数至少被调用一次。<br>2.封闭函数至少返回一个内部函数。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-        <div class="alignright">
-          <a href="/2018/02/01/JavaScript-Scope/#comment" class="comment-link">Comments</a>
-        </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
  
 <nav id="pagination">
   
   
-    <a href="/page/2/" class="alignright next">下一页</a>
+    <a href="/page/2/" class="alignright next">Next</a>
   
   <div class="clearfix"></div>
 </nav>
@@ -3501,7 +3398,7 @@ console.log(i)}, i*1000);
 
 
   <div class="widget tag">
-  <h3 class="title">日历云</h3>
+  <h3 class="title">Calendar</h3>
   <div id="calendar"></div>
 </div>
 
@@ -3517,7 +3414,7 @@ console.log(i)}, i*1000);
   
   <div class="widget tag">
     <h3 class="title">归档</h3>
-	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">13</span></li></ul>
+	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">14</span></li></ul>
   </div>
 
 </aside>
