@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-05T13:57:33.000Z</updated>
+  <updated>2018-02-26T10:12:05.200Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,90 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>函数节流和函数去抖</title>
+    <link href="http://yoursite.com/2018/02/26/Throttling%20and%20Debouncing%20in%20JavaScrip/"/>
+    <id>http://yoursite.com/2018/02/26/Throttling and Debouncing in JavaScrip/</id>
+    <published>2018-02-26T10:09:45.000Z</published>
+    <updated>2018-02-26T10:12:05.200Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>元素尺寸</title>
+    <link href="http://yoursite.com/2018/02/26/element-size/"/>
+    <id>http://yoursite.com/2018/02/26/element-size/</id>
+    <published>2018-02-26T10:09:32.000Z</published>
+    <updated>2018-02-26T10:11:25.378Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Cross-domain</title>
+    <link href="http://yoursite.com/2018/02/23/Cross-domain/"/>
+    <id>http://yoursite.com/2018/02/23/Cross-domain/</id>
+    <published>2018-02-23T08:34:45.000Z</published>
+    <updated>2018-02-23T08:34:45.743Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CSS sticky positioning</title>
+    <link href="http://yoursite.com/2018/02/23/CSS-sticky-positioning/"/>
+    <id>http://yoursite.com/2018/02/23/CSS-sticky-positioning/</id>
+    <published>2018-02-23T07:54:59.000Z</published>
+    <updated>2018-02-23T07:54:59.495Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>FED Interview</title>
+    <link href="http://yoursite.com/2018/02/23/FED-Interview/"/>
+    <id>http://yoursite.com/2018/02/23/FED-Interview/</id>
+    <published>2018-02-23T05:53:44.000Z</published>
+    <updated>2018-02-24T09:30:44.839Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>定位<br>  position的值：<br>  absolute, relative, fixed, static, sticky, inherit. </li></ul><table><thead><tr><th>值</th><th>描述</th></tr></thead><tbody><tr><td>absolute</td><td>生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位.</td></tr><tr><td>relative</td><td>生成相对定位的元素，相对于其正常位置进行定位。</td></tr><tr><td>fixed</td><td>生成绝对定位的元素，相对于浏览器窗口进行定位。</td></tr><tr><td>static</td><td>默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）.</td></tr><tr><td>sticky(css3草案)</td><td>盒位置根据正常流计算(这称为正常流动中的位置)，然后相对于该元素在流中的 flow root（BFC）和 containing block（最近的块级祖先元素）定位。在所有情况下，该元素定位均不对后续元素造成影响。</td></tr></tbody></table><ul><li>跨域问题</li></ul><ol><li>jsonp</li></ol><p>原理：动态插入script标签，通过script标签指定URL，在URL参数中指定回调函数，服务器端收到请求后会执行我们在URL参数中指定的函数，并且会把我们需要的json数据作为参数传入回调函数。</p><ol><li>跨域资源共享 CORS</li></ol><p>原理：服务器设置Access-Control-Allow-OriginHTTP响应头之后，浏览器将会允许跨域请求</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Origin: *              # 允许所有域名访问，或者</span><br><span class="line">Access-Control-Allow-Origin: http://a.com   # 只允许所有域名访问</span><br></pre></td></tr></table></figure><ol><li>设置 document.domain</li></ol><p>原理：相同主域名不同子域名下的页面，可以设置document.domain让它们同域</p><p>如：URL是<a href="http://a.com/foo的页面，它对http://b.a.com/bar的DOM访问要求后者将" target="_blank" rel="noopener">http://a.com/foo的页面，它对http://b.a.com/bar的DOM访问要求后者将</a> document.domain往上设置一级.</p><p>限制：<code>document.domain</code>只能从子域设置到主域，往下设置以及往其他域名设置都是不允许的.</p><ol><li>有src的标签</li></ol><p>原理：所有具有src或href属性的HTML标签都是可以跨域的，包括<code>&lt;img&gt;</code>, <code>&lt;script&gt;</code><br>限制：需要创建一个DOM对象，只能用于GET方法</p><ol><li>window.postMessage</li></ol><p>原理：HTML5允许窗口之间发送消息<br>限制：浏览器需要支持HTML5，获取窗口句柄后才能相互通信</p><p>JSONP要成功获取数据，需要跨域资源所在服务器的配合，资源所在服务器需要回调一个合适的函数。</p><p>跨域的标准方案还是要使用HTML5提供的CORS头字段以及window.postMessage， 可以支持POST, PUT等HTTP方法，从机制上解决跨域问题。 值得注意的是Access-Control-Allow-Origin头字段是资源所在服务器设置的， 访问控制的责任仍然是在提供资源的服务器一方，这和JSONP是一样的.</p><ul><li>XML和json的区别</li></ul><ol><li><p>数据体积<br>XML的数据体积比json大.</p></li><li><p>数据交互方面<br>json数据与javascript的交互更加方便，便于解析和处理.</p></li><li><p>数据描述方面<br>XML对数据的描述性更好.</p></li><li><p>传输速度方面<br>json的传输速度更快.</p></li></ol><ul><li>webpack</li></ul><p>webpack是一个模块打包工具，使用webpack可以管理模块依赖。当使用webpack处理应用程序时，它会递归的构建一个依赖关系图，其中包含应用程序需要的每一个模块，然后依据依赖关系将模块打包成一个或多个bundle。</p><p>webpack的几大特色：</p><ol><li><p>插件<br>webpack有丰富的插件，在应用开发中可以根据不同的资源，针对不同的需要安装配置插件，非常灵活。webpack的插件非常丰富，并且用户也可以编写自定义的插件。</p></li><li><p>性能</p></li><li><p>兼容性<br>webpack兼容AMD、CommonJs和ES6的语法风格。</p></li><li><p>优化<br>webpack支持代码分割、代码压缩、图片编码等多种优化方式，减小应用程序的体积。可实现按需加载，减少页面初始化时间，优化应用体验。</p></li></ol><p>5、开发<br>webpack支持SourceUrls和SourceMaps，方便调试，可以监控文件大小、打包情况，也可以通过插件搭建服务器实现自动刷新，对开发友好。</p><p>loader和plugin的主要区别：</p><p>loader 用于加载某些资源文件。 因为webpack 本身只能打包commonjs规范的js文件，对于其他资源例如 css，图片，或者其他的语法集，比如 jsx， coffee，是没有办法加载的。 这就需要对应的loader将资源转化，加载进来。loader是用于加载的，它作用于一个个文件上。</p><p>plugin 用于扩展webpack的功能。它直接作用于 webpack，扩展了它的功能。当然loader也时变相的扩展了 webpack ，但是它只专注于转化文件（transform）这一个领域。而plugin的功能更加的丰富，而不仅局限于资源的加载。</p><ul><li>TCP/IP</li></ul><p><a href="https://juejin.im/post/58e36d35b123db15eb748856" target="_blank" rel="noopener">https://juejin.im/post/58e36d35b123db15eb748856</a><br><a href="https://www.jianshu.com/p/f9c8e4f8c65c" target="_blank" rel="noopener">https://www.jianshu.com/p/f9c8e4f8c65c</a></p><ul><li>GET/POST</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;定位&lt;br&gt;  position的值：&lt;br&gt;  absolute, relative, fixed, static, sticky, inherit. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;值&lt;/th&gt;
+&lt;th&gt;描述&lt;/th
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>水平垂直居中</title>

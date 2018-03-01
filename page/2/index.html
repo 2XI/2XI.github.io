@@ -80,6 +80,2588 @@
     <header>
         <div class="icon"></div>
         
+        <time datetime="2018-01-31T16:09:35.000Z"><a href="/2018/02/01/sprite/">2018-02-01</a></time>
+        
+  
+    <h1 class="title"><a href="/2018/02/01/sprite/">sprite</a></h1>
+  
+
+    </header>
+
+    <div class="entry">
+      
+        
+    <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sprite"><span class="toc-text">sprite</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#关于雪碧图"><span class="toc-text">关于雪碧图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#制作雪碧图"><span class="toc-text">制作雪碧图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用background-position调整雪碧图"><span class="toc-text">使用background-position调整雪碧图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无自适应效果的雪碧图"><span class="toc-text">无自适应效果的雪碧图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#容器大小自适应"><span class="toc-text">容器大小自适应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片大小自适应"><span class="toc-text">图片大小自适应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片偏移量自适应（background-position）"><span class="toc-text">图片偏移量自适应（background-position）</span></a></li></ol></li></ol>
+    </div>
+
+        <h1 id="sprite"><a href="#sprite" class="headerlink" title="sprite"></a>sprite</h1><ol>
+<li><a href="#关于雪碧图">关于雪碧图</a></li>
+<li><a href="#制作雪碧图">制作雪碧图</a></li>
+<li><a href="#使用background-position调整雪碧图">使用background-position调整雪碧图</a></li>
+<li><a href="#无自适应效果的雪碧图">无自适应效果的雪碧图</a></li>
+<li><a href="#容器大小自适应">容器大小自适应</a></li>
+<li><a href="#图片大小自适应">图片大小自适应</a></li>
+<li><a href="#图片偏移量自适应（background-position）">图片偏移量自适应（background-position）</a></li>
+</ol>
+<p>做移动开发的时候，有时会遇到使用很多图片的需求，然而<strong>过多图片会导致很多的http请求</strong>，带来很差的用户体验，为了解决这个问题，我们目前解决的办法是将图片合并成雪碧图，然后设置雪碧图为容器背景图。</p>
+<h2 id="关于雪碧图"><a href="#关于雪碧图" class="headerlink" title="关于雪碧图"></a><a href="#关于雪碧图" title="关于雪碧图"></a>关于雪碧图</h2><p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/CSS_Image_Sprites" target="_blank" rel="noopener">雪碧图</a></p>
+<p>CSS雪碧图即CSS Sprite，也有人叫它CSS精灵，是一种CSS图像合并技术，该方法是将小图标和背景图像合并到一张图片上，然后利用css的背景定位<code>backgroun-position</code>和<code>background-size</code>来控制显示需要显示的图片部分。为了<strong>减少http请求数量，加速网页内容显示</strong>，很多网站的导航栏图标、登录框图片等，使用的并不是<code>&lt;img&gt;</code>标签，而是CSS Sprite雪碧图。</p>
+<p><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1478744586/u9z0nzc5s3s4g7ja27uf.png" alt="sprite合成图片-1"></p>
+<h2 id="制作雪碧图"><a href="#制作雪碧图" class="headerlink" title="制作雪碧图"></a><a href="#制作雪碧图" title="制作雪碧图"></a>制作雪碧图</h2><p>首先需要使用雪碧图制作工具来生成雪碧图，gulp、grunt、webpack都有相关工具。关键是要得到每个子图片在整张雪碧图中的<strong>高度、宽度、偏移量以及整张雪碧图的宽度和高度</strong>，然后再对这些值做计算<strong>转换</strong>使其可以适应页面。</p>
+<p>下面我将以<code>webpack</code>+<code>webpack-spritesmith</code>为例来讲解如何制作雪碧图：</p>
+<p><a href="https://github.com/mixtur/webpack-spritesmith" target="_blank" rel="noopener">webpack-spritesmith</a>是一个在<a href="https://github.com/Ensighten/spritesmith" target="_blank" rel="noopener">spritesmith</a>的基础上制作的一个工具，关于如何配合webpack使用可以阅读相关文档，也可以参考<a href="http://kyon-df.com/2016/03/16/webpack_auto_sprites/" target="_blank" rel="noopener">webpack自动雪碧图生成</a>。我在这里给出一种配置方式:</p>
+<p>webpack.config.js：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>15</p>
+<p>16</p>
+<p>17</p>
+<p>18</p>
+<p>19</p>
+<p>20</p>
+<p>21</p>
+<p>22</p>
+<p>23</p>
+<p>24</p>
+<p>25</p>
+<p>var SpritesmithPlugin = require(‘webpack-spritesmith’)</p>
+<p>new SpritesmithPlugin({</p>
+<pre><code>/*合成之前对源图片文件的配置*/
+
+src: {
+
+    /*子图片存放的路径（相对于更路径）*/
+
+    cwd: &apos;./static/img&apos;,
+
+    /*规定后缀名为png的图片合并成雪碧图*/
+
+    glob: &apos;*.png&apos;
+
+},
+
+/*对合成之后产生文件的配置*/
+
+target: {
+
+    /*雪碧图存放的路径（相对于更路径）*/
+
+    image: &apos;./src/assets/sprite.png&apos;,
+
+    /*合成生成的scss文件存放的路径（相对于更路径）*/
+
+    css: &apos;./static/style/_sprite.scss&apos;
+
+},
+
+apiOptions: {
+
+    /*合成生成的scss中雪碧图的路径，将用于background-image的url*/
+
+    cssImageRef: &apos;../assets/sprite.png&apos;
+
+},
+
+spritesmithOptions: {
+
+    /*合成之后雪碧图中子图片的排列方式，top-down为从上往下排列*/
+
+    algorithm: &apos;top-down&apos;
+
+}
+</code></pre><p>})</p>
+<p>做好相关配置后，运行<code>webpack-spritesmith</code>会生成一份<code>_sprite.scss</code>文件(文件名与配置有关)。我们可以看到在这份文件中自动生成了合并之前的每个单份图片的<strong>尺寸、偏移量、名称、路径</strong>。同时还贴心的给我们写好了<code>mixin</code>,我们在使用的时候只需要引入这份scss文件，然后引入mixin就可以引入图片了。代码示例如下,我在代码注释中也对重要的部分做了说明：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>15</p>
+<p>16</p>
+<p>17</p>
+<p>18</p>
+<p>19</p>
+<p>20</p>
+<p>21</p>
+<p>22</p>
+<p>23</p>
+<p>24</p>
+<p>25</p>
+<p>26</p>
+<p>27</p>
+<p>28</p>
+<p>29</p>
+<p>30</p>
+<p>31</p>
+<p>32</p>
+<p>33</p>
+<p>34</p>
+<p>35</p>
+<p>36</p>
+<p>37</p>
+<p>38</p>
+<p>39</p>
+<p>40</p>
+<p>41</p>
+<p>42</p>
+<p>43</p>
+<p>44</p>
+<p>45</p>
+<p>46</p>
+<p>47</p>
+<p>48</p>
+<p>49</p>
+<p>50</p>
+<p>51</p>
+<p>52</p>
+<p>53</p>
+<p>54</p>
+<p>55</p>
+<p>56</p>
+<p>57</p>
+<p>58</p>
+<p>59</p>
+<p>60</p>
+<p>61</p>
+<p>62</p>
+<p>63</p>
+<p>64</p>
+<p>65</p>
+<p>66</p>
+<p>67</p>
+<p>68</p>
+<p>69</p>
+<p>70</p>
+<p>71</p>
+<p>72</p>
+<p>73</p>
+<p>74</p>
+<p>75</p>
+<p>76</p>
+<p>77</p>
+<p>78</p>
+<p>79</p>
+<p>80</p>
+<p>81</p>
+<p>82</p>
+<p>83</p>
+<p>84</p>
+<p>85</p>
+<p>86</p>
+<p>87</p>
+<p>88</p>
+<p>89</p>
+<p>90</p>
+<p>91</p>
+<p>92</p>
+<p>93</p>
+<p>94</p>
+<p>95</p>
+<p>96</p>
+<p>97</p>
+<p>98</p>
+<p>99</p>
+<p>100</p>
+<p>101</p>
+<p>102</p>
+<p>103</p>
+<p>104</p>
+<p>105</p>
+<p>106</p>
+<p>107</p>
+<p>108</p>
+<p>109</p>
+<p>110</p>
+<p>111</p>
+<p>112</p>
+<p>113</p>
+<p>114</p>
+<p>115</p>
+<p>116</p>
+<p>117</p>
+<p>118</p>
+<p>119</p>
+<p>120</p>
+<p>121</p>
+<p>122</p>
+<p>123</p>
+<p>124</p>
+<p>125</p>
+<p>126</p>
+<p>127</p>
+<p>128</p>
+<p>129</p>
+<p>130</p>
+<p>131</p>
+<p>132</p>
+<p>133</p>
+<p>134</p>
+<p>135</p>
+<p>136</p>
+<p>137</p>
+<p>138</p>
+<p>139</p>
+<p>140</p>
+<p>141</p>
+<p>142</p>
+<p>143</p>
+<p>144</p>
+<p>145</p>
+<p>146</p>
+<p>147</p>
+<p>148</p>
+<p>149</p>
+<p>150</p>
+<p>151</p>
+<p>152</p>
+<p>153</p>
+<p>154</p>
+<p>155</p>
+<p>156</p>
+<p>157</p>
+<p>158</p>
+<p>159</p>
+<p>160</p>
+<p>161</p>
+<p>162</p>
+<p>163</p>
+<p>164</p>
+<p>/*</p>
+<p>SCSS variables are information about icon’s compiled state, stored under its original file name</p>
+<p>.icon-home {</p>
+<pre><code>width: $icon-home-width;
+</code></pre><p>}</p>
+<p>The large array-like variables contain all information about a single icon</p>
+<p>$icon-home: x y offset_x offset_y width height total_width total_height image_path;</p>
+<p>At the bottom of this section, we provide information about the spritesheet itself</p>
+<p>$spritesheet: width height image $spritesheet-sprites;</p>
+<p>*/</p>
+<p>$img-1-name: ‘img_1’;    /<em>子图片名（去掉了后缀名），在引入子图时作为参数传入mixin</em>/</p>
+<p>$img-1-x: 0px;    /<em>子图片img-1，在x轴上的坐标</em>/</p>
+<p>$img-1-y: 0px;    /<em>子图片img-1，在y轴上的坐标</em>/</p>
+<p>/<em>在引入子图片img-1，在x轴上的偏移量，将用于background-position</em>/</p>
+<p>$img-1-offset-x: 0px;    </p>
+<p>/<em>在引入子图片img-1，在y轴上的偏移量，将用于background-position</em>/</p>
+<p>$img-1-offset-y: 0px;    </p>
+<p>$img-1-width: 1444px;    /<em>子图片img-1的宽度</em>/</p>
+<p>$img-1-height: 893px;    /<em>子图片img-1的高度</em>/</p>
+<p>$img-1-total-width: 1920px;    /<em>整张雪碧图的宽度</em>/</p>
+<p>$img-1-total-height: 3009px;    /<em>整张雪碧图的高度</em>/</p>
+<p>/<em>雪碧图的路径，用于background-image的url</em>/</p>
+<p>$img-1-image: ‘../assets/sprite.png’;</p>
+<p>/<em>定义一个数据地图（可以理解为数组）,方便mixin中对上面的各个值引用,要使用每个子图的偏移量、高度、宽度等数据时直接使用nth(img-1-name, n)</em>/ </p>
+<p>$img-1: (0px, 0px, 0px, 0px, 1444px, 893px, 1920px, 3009px, ‘../assets/sprite.png’, ‘img_1’, );</p>
+<p>$img-2-name: ‘img_2’;</p>
+<p>$img-2-x: 0px;</p>
+<p>$img-2-y: 893px;</p>
+<p>$img-2-offset-x: 0px;</p>
+<p>$img-2-offset-y: -893px;</p>
+<p>$img-2-width: 1719px;</p>
+<p>$img-2-height: 1037px;</p>
+<p>$img-2-total-width: 1920px;</p>
+<p>$img-2-total-height: 3009px;</p>
+<p>$img-2-image: ‘../assets/sprite.png’;</p>
+<p>$img-2: (0px, 893px, 0px, -893px, 1719px, 1037px, 1920px, 3009px, ‘../assets/sprite.png’, ‘img_2’, );</p>
+<p>$img-3-name: ‘img_3’;</p>
+<p>$img-3-x: 0px;</p>
+<p>$img-3-y: 1930px;</p>
+<p>$img-3-offset-x: 0px;</p>
+<p>$img-3-offset-y: -1930px;</p>
+<p>$img-3-width: 1920px;</p>
+<p>$img-3-height: 1079px;</p>
+<p>$img-3-total-width: 1920px;</p>
+<p>$img-3-total-height: 3009px;</p>
+<p>$img-3-image: ‘../assets/sprite.png’;</p>
+<p>$img-3: (0px, 1930px, 0px, -1930px, 1920px, 1079px, 1920px, 3009px, ‘../assets/sprite.png’, ‘img_3’, );</p>
+<p>$spritesheet-width: 1920px;</p>
+<p>$spritesheet-height: 3009px;</p>
+<p>$spritesheet-image: ‘../assets/sprite.png’;</p>
+<p>$spritesheet-sprites: ($img-1, $img-2, $img-3, );</p>
+<p>$spritesheet: (1920px, 3009px, ‘../assets/sprite.png’, $spritesheet-sprites, );</p>
+<p>/*</p>
+<p>The provided mixins are intended to be used with the array-like variables</p>
+<p>.icon-home {</p>
+<pre><code>@include sprite-width($icon-home);
+</code></pre><p>}</p>
+<p>.icon-email {</p>
+<pre><code>@include sprite($icon-email);
+</code></pre><p>}</p>
+<p>Example usage in HTML:</p>
+<p>`display: block` sprite:</p>
+<div class="icon-home"></div>
+
+<p>To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:</p>
+<p>// CSS</p>
+<p>.icon {</p>
+<pre><code>display: inline-block;
+</code></pre><p>}</p>
+<p>// HTML</p>
+<p><i class="icon icon-home"></i></p>
+<p>*/</p>
+<p>/*</p>
+<p>定义一个使用雪碧图的宽度值的width属性</p>
+<p> */</p>
+<p>@mixin sprite-width($sprite) {</p>
+<pre><code>width: nth($sprite, 5);
+</code></pre><p>}</p>
+<p>/*</p>
+<p>定义一个使用雪碧图的高度值的height属性</p>
+<p> */</p>
+<p>@mixin sprite-height($sprite) {</p>
+<pre><code>height: nth($sprite, 6);
+</code></pre><p>}</p>
+<p>/*</p>
+<p>使用子图偏移量来设置background-position的值</p>
+<p> */</p>
+<p>@mixin sprite-position($sprite) {</p>
+<pre><code>$sprite-offset-x: nth($sprite, 3);
+
+$sprite-offset-y: nth($sprite, 4);
+
+background-position: $sprite-offset-x  $sprite-offset-y;
+</code></pre><p>}</p>
+<p>/*</p>
+<p>定义雪碧图的路径</p>
+<p> */</p>
+<p>@mixin sprite-image($sprite) {</p>
+<pre><code>$sprite-image: nth($sprite, 9);
+
+background-image: url(#{$sprite-image});
+</code></pre><p>}</p>
+<p>/*</p>
+<p>把上面的代码块导入到名为sprite的mixin中，使用时导入这个代码块就同时配置了背景图片的路径、显示位置、宽度、高度</p>
+<p>*/</p>
+<p>@mixin sprite($sprite) {</p>
+<pre><code>/*定义雪碧图的路径*/
+
+@include sprite-image($sprite);
+
+//使用background-position来让雪碧图只显示某个特定部分*/
+
+@include sprite-position($sprite);
+
+//定义使用雪碧图的容器的宽度*/
+
+@include sprite-width($sprite);
+
+//定义使用雪碧图的容器的高*/
+
+@include sprite-height($sprite);
+</code></pre><p>}</p>
+<p>/*</p>
+<p>The `sprites` mixin generates identical output to the CSS template</p>
+<p>but can be overridden inside of SCSS</p>
+<p>@include sprites($spritesheet-sprites);</p>
+<p>*/</p>
+<p>/*</p>
+<p>使用这个mixin传入多个参数可以循环引入多张子图</p>
+<p>如：</p>
+<p>$sprites:($img_1,$img_2,$img_3)</p>
+<p>body {</p>
+<pre><code>@include sprites($sprites)
+</code></pre><p>}</p>
+<p>效果等同与：</p>
+<p>body {</p>
+<pre><code>.img_1 {
+
+    @include sprite($img_1)
+
+}
+
+.img_2 {
+
+    @include sprite($img_2)
+
+}
+
+.img_2 {
+
+    @include sprite($img_2)
+
+}
+</code></pre><p>}</p>
+<p> */</p>
+<p>@mixin sprites($sprites) {</p>
+<pre><code>@each $sprite in $sprites {
+
+    $sprite-name: nth($sprite, 10);
+
+    .#{$sprite-name} {
+
+        @include sprite($sprite);
+
+    }
+
+}
+</code></pre><p>}</p>
+<p>为了在线演示，将背景图片的url改成了在线地址.</p>
+<p>如果在某个地方需要使用雪碧图作为背景，我们只要引入这份SCSS文件，然后再使用它的地方导入mixin就可以了。例如有如下的HTML结构需要使用雪碧图作为背景：</p>
+<p>1</p>
+<p>2</p>
+<p>/<em>这个div需要使用img_1.png作为背景图片.</em>/</p>
+<div class="icon\_img\_1"></div>
+
+<p>我们只需要在这样写SCSS代码：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>/*假设雪碧图生成的SCSS文件的相对路径是_sprite.scss.</p>
+<p>/<em>引入雪碧图生成的SCSS文件</em>/</p>
+<p>@import url(‘./scss/_sprite.scss’)</p>
+<p>/<em>导入mixin</em>/</p>
+<p>.icon_img_1 {</p>
+<pre><code>/*
+
+其他定义类名为icon\_img\_1的div样式的SCSS代码
+
+ */
+
+/*参数为以美元符号开头的去掉后缀的子图片文件名*/
+
+@include sprite($img_1)
+</code></pre><p>}</p>
+<h2 id="使用background-position调整雪碧图"><a href="#使用background-position调整雪碧图" class="headerlink" title="使用background-position调整雪碧图"></a><a href="#使用background-position调整雪碧图" title="使用background-position调整雪碧图"></a>使用background-position调整雪碧图</h2><p>首先介绍一下使用background-position调整雪碧图位置的原理，非小白可以直接看下一部分。</p>
+<p>我们要引入雪碧图张的一张子图作为容器的背景图，我们必须控制只有这个子图显示在容器里，CSS设置背景图的众多属性中有一个属性background-position是设置背景图在容器里面显示位置的,我们称这个值为偏移量，我们只要使用这个属性控制背景图在容器里面的显示位置，刚好使子图出现在容器中，而雪碧图的其它部分刚好不显示。</p>
+<p><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1478744586/u9z0nzc5s3s4g7ja27uf.png" alt="sprite合成图片-2"></p>
+<p>如果在引入雪碧图过程中不要求自适应的话，那么整张雪碧图和以雪碧图为背景的容器的大小都是固定的，此时background-position值也是固定的数值，<code>background-position: xpos ypos</code>是数值时，第一个值是水平位置，第二个值是垂直位置，参照点是父元素的左上角 0 0.</p>
+<p>如果要求自适应,那么整张雪碧图和以雪碧图为背景的容器的大小都是不固定的.此时背景图片的大小要用<code>background-size</code>设置，<code>background-position</code>的值也应该是一个比例，这篇文章主要就是讨论这种情况下怎么设置这两个值，我们将在文中讨论.</p>
+<h2 id="无自适应效果的雪碧图"><a href="#无自适应效果的雪碧图" class="headerlink" title="无自适应效果的雪碧图"></a><a href="#无自适应效果的雪碧图" title="无自适应效果的雪碧图"></a>无自适应效果的雪碧图</h2><p>现在我们<strong>不做任何修改</strong>，将雪碧图引入：</p>
+<p>引入子图img_1：<a href="http://codepen.io/no1024/pen/mAKvrA" target="_blank" rel="noopener">点击查看代码效果</a></p>
+<p>引入子图img_2：<a href="http://codepen.io/no1024/pen/jrpAaR/" target="_blank" rel="noopener">点击查看代码效果</a></p>
+<p>我们现在已经成功引入雪碧图作为背景图片了，这在图片大小是固定的情况下是没有任何问题的。但是如果要求背景图片大小可以随着浏览器窗口大小不同而能够自适应，我们调整浏览器窗口大小，我们发现图片宽高并不能自适应屏幕的宽高.</p>
+<h2 id="容器大小自适应"><a href="#容器大小自适应" class="headerlink" title="容器大小自适应"></a><a href="#容器大小自适应" title="容器大小自适应"></a>容器大小自适应</h2><p>要实现随着浏览器宽度或者高度调整，我们要将雪碧图容器的宽度或者高度设置为百分比，然后再设置背景图片填满容器。这个百分比的计算方式为：</p>
+<p>1</p>
+<p>2</p>
+<p>width:设计图中图片的的宽度/图片所在页面的宽度</p>
+<p>height:设计图中图片的的高度/图片所在页面的高度</p>
+<p>下面我们修改一下代码：</p>
+<p>把：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>@mixin sprite-width($sprite) {</p>
+<pre><code>width: nth($sprite, 5);
+</code></pre><p>}</p>
+<p>@mixin sprite-height($sprite) {</p>
+<pre><code>height: nth($sprite, 6);
+</code></pre><p>}</p>
+<p>改为：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>/<em>把容器的宽高改成百分比，这个百分比应该是按照图片占设计图的宽高的百分比，假设改为90%</em>/</p>
+<p>@mixin sprite-width($sprite) {</p>
+<pre><code>width: 90%;
+</code></pre><p>}</p>
+<p>@mixin sprite-height($sprite) {</p>
+<pre><code>height: 90%;
+</code></pre><p>}</p>
+<p><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1478744787/jesf6spf2r9tuqpjppvg.jpg" alt="sprite合成图片-3"></p>
+<p>引入子图img_1：<a href="http://codepen.io/no1024/pen/BLOoqP" target="_blank" rel="noopener">点击查看代码效果</a></p>
+<p><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1478744879/bmmhimkj8gati5vjgf9l.png" alt="sprite合成图片-4"></p>
+<p>引入子图img_2：<a href="http://codepen.io/no1024/pen/ORoyaw" target="_blank" rel="noopener">点击查看代码效果</a></p>
+<p>现在调整屏幕宽高，我们发现容器的大小自适应屏幕的宽高了，但是图片还没有自适应。</p>
+<h2 id="图片大小自适应"><a href="#图片大小自适应" class="headerlink" title="图片大小自适应"></a><a href="#图片大小自适应" title="图片大小自适应"></a>图片大小自适应</h2><p>容器大小自适应了，但是为什么背景图片的大小不能自适应呢？因为我们给<code>background-size</code>设了定值，所以即使容器大小改变，背景图片的大小始终是一个定值。我们要让背景图片大小跟着容器大小一起调整，显然我们需要使用<code>background-size</code>给图片设置一个<strong>相对于容器大小的百分比</strong>。但是这个百分比是多少呢？我们要先明确<code>background-size</code>的计算方式，当<code>background-size</code>的值是<strong>百分比</strong>时，<code>background-size</code>的计算值（浏览器渲染是使用的值）是<code>百分比*容器宽度或高度的计算值</code>，也就是：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>background-size的设置值：</p>
+<p>background-size: x%  y%;</p>
+<p>background-size的计算值：</p>
+<p>background-size: x%<em>容器的宽度  y%</em>容器的高度;</p>
+<p>所以背景图片的展示的时候会被调整为以<code>width:x%*父容器的宽度</code>,<code>height:y%*父容器的高度</code>的图片;</p>
+<p>下面我们看看这个百分比究竟应该设为多少。我们要引入一个子图到一个容器中，那么这个子图要填满容器，子图就应该被设置成容器大小，也就是子图的背景大小应该设置为<code>background-size：100% 100%；</code>，然而<code>background-size</code>会作用到整张雪碧图上，如下：</p>
+<p>我们添加一个<code>background-size</code>的mixin,设置<code>background-size</code>值为100%:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>@mixin sprite-size($sprite) {</p>
+<pre><code>background-size: 100%  100%;
+</code></pre><p>}</p>
+<p><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1478745366/sfc2fokc8jcvxpku8ytn.png" alt="sprite合成图片-5"></p>
+<p>引入子图img_1：<a href="http://codepen.io/no1024/pen/mAGZgx" target="_blank" rel="noopener">点击查看效果</a></p>
+<p>我们看到<code>background-size</code>作用在了整张雪碧图上而不是作用在子图上，通过为背景图片设置<code>backgroun-size:100% 100%;</code>后<strong>整张雪碧图</strong>刚好填满了容器。我们要的只是<strong>其中的某一个子图来填充容器</strong>，那么我们要思考当这个值是多少的时候<strong>整张雪碧图中的子图</strong>刚好是容器的大小。我们知道，生成雪碧图后子图和整张雪碧图都是固定大小的，那么<strong>子图的宽高和整张雪碧图的宽高比例是固定的</strong>，所以我们应当设置整张雪碧图的宽高到<code>(整张雪碧图的宽高/子图的宽高)*100%</code>，此时子图的宽高刚好等于容器的宽高。即backgroun-size`的计算方式应该为：</p>
+<p>1</p>
+<p>background-size: (雪碧图的宽度/子图的宽度)*100% (雪碧图的高度/子图的高度)*100%;</p>
+<p>在实际应用中，一般会根据浏览器的宽度或者高度来做自适应，如果两个方向上的值都设置会造成图片的拉伸或者压缩，所以background-size只用设置x或者y方向上的值。在下面的例子中我们将讲解如何设置y方向上的值，让x方向上自适应，这样可以保证图片原始的宽高比例。所以我们将:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>@mixin sprite-size($sprite) {</p>
+<pre><code>background-size: 100%  100%;
+</code></pre><p>}</p>
+<p>改为：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>@mixin sprite-size($sprite,$img_height) {</p>
+<pre><code>$sprite-total-height: nth($sprite, 8);
+
+background-size: auto  ($sprite-total-height / $img_height) \* 100%;
+</code></pre><p>}</p>
+<p>对应的我们也要修改引入mixin的方式：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>@mixin sprite($sprite,$img_height) {</p>
+<pre><code>/*增加参数$img_height*/
+
+@include sprite-size($sprite,$img_height);
+
+@include sprite-image($sprite);
+
+@include sprite-width($sprite);
+
+@include sprite-height($sprite);
+</code></pre><p>}</p>
+<p>.box {</p>
+<pre><code>/*增加参数$img_height*/
+
+@include sprite($img-1,893px);
+</code></pre><p>}</p>
+<p><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1478745545/vp2tjvkeom75qahcltof.png" alt="sprite合成图片-6"></p>
+<p>引入子图img_1：<a href="http://codepen.io/no1024/pen/xEakxq" target="_blank" rel="noopener">点击查看代码效果</a></p>
+<p><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1478745777/mhvopunmcuwmyvssffr4.png" alt="sprite合成图片-7"></p>
+<p>引入子图img_2：<a href="http://codepen.io/no1024/pen/bwxEGk" target="_blank" rel="noopener">点击查看代码效果</a></p>
+<p>不妨调节浏览器的高度，你会发现子图img_1的高度完美自适应了，但是子图img_2并不能正常引入.</p>
+<h2 id="图片偏移量自适应（background-position）"><a href="#图片偏移量自适应（background-position）" class="headerlink" title="图片偏移量自适应（background-position）"></a><a href="#图片偏移量自适应（background-position）" title="图片偏移量自适应（background-position）"></a>图片偏移量自适应（background-position）</h2><p>在引入img_2,我们看到效果很糟糕，这是因为针对不同的屏幕高度，在上面的讨论中我们的得到到的代码会将<strong>雪碧图放大到了不同的倍数</strong>，然而我们代码中的<code>background-position</code>依然是一个<strong>定值</strong>,所以我们现在要重新的计算雪碧图的偏移量<code>background-position</code>值.既然雪碧图的大小是一个比例，那么<strong>background-position这个值也应该是一个比例</strong>，这个比例怎么计算呢？我们要先明确当其值为百分比时它的实际值的计算方式：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>background-postion:x y;</p>
+<p>x：{容器(container)的宽度—背景图片的宽度}*x百分比，超出的部分隐藏。</p>
+<p>y：{容器(container)的高度—背景图片的高度}*y百分比，超出的部分隐藏。</p>
+<p>也是就是说我们需要设置的这个百分比的计算方式应该是：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>background-postion:x y;</p>
+<p>x百分比：background-postion-x实际值/{容器(container)的宽度—背景图片的宽度}*100%。</p>
+<p>y百分比：background-postion-y实际值/{容器(container)的高度—背景图片的高度}*100%。</p>
+<p>所以求<code>background-position</code>的偏移量的代码块：</p>
+<p>由：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>@mixin sprite-position($sprite) {</p>
+<pre><code>$sprite-offset-x: nth($sprite, 3);
+
+$sprite-offset-y: nth($sprite, 4);
+
+background-position: $sprite-offset-x  $sprite-offset-y;
+</code></pre><p>}</p>
+<p>改为：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>@mixin sprite-position($sprite,$img_height) {</p>
+<pre><code>$sprite-total-height: nth($sprite, 8);
+
+$sprite-total-width: nth($sprite, 7);
+
+$sprite-y: nth($sprite, 2) / ($sprite-total-height \- $img_height) \* 100%;
+
+background-position: 0  $sprite-y;
+</code></pre><p>}</p>
+<p>现在我们再来看一下效果:</p>
+<p><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1478745915/rc9amrquhgxtokcm0x6u.png" alt="sprite合成图片-8"></p>
+<p>引入子图img_1：<a href="http://codepen.io/no1024/pen/YGOwXZ" target="_blank" rel="noopener">点击查看代码效果</a></p>
+<p><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1478745876/sq3jkq7c7kfdrvxghpqu.png" alt="sprite合成图片-9"></p>
+<p>引入子图img_2：<a href="http://codepen.io/no1024/pen/KgxVpP" target="_blank" rel="noopener">点击查看代码效果</a></p>
+<p>自此我们实现了雪碧图按照浏览器高度来实现自适应，宽度的自适应是同样的思考和计算方式.</p>
+<p>我写了一个<a href="https://gist.github.com/shengxihu/d00e38a0d17c71a11fdead6da45b93e4" target="_blank" rel="noopener">gist代码片段</a>，使用的时候将webpack-spritesmith输出的SCSS文件中对应的部分替换就可以实现.</p>
+<p>备注：实现请参考<a href="https://github.com/Muxi-Studio/freshman-h5" target="_blank" rel="noopener">项目地址</a>。</p>
+<p><a href="/tags/Img/">Img</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        <div class="alignright">
+          <a href="/2018/02/01/sprite/#comment" class="comment-link">Comments</a>
+        </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+        <div class="icon"></div>
+        
+        <time datetime="2018-01-31T16:08:39.000Z"><a href="/2018/02/01/Vuejs-event-system/">2018-02-01</a></time>
+        
+  
+    <h1 class="title"><a href="/2018/02/01/Vuejs-event-system/">Vuejs-event-system</a></h1>
+  
+
+    </header>
+
+    <div class="entry">
+      
+        
+    <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vuejs-event-system"><span class="toc-text">Vuejs-event-system</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#组件之间通信的原则"><span class="toc-text">组件之间通信的原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义事件"><span class="toc-text">自定义事件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#全局事件总线-global-event-bus"><span class="toc-text">全局事件总线(global event bus)</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text"></span></a></li></ol>
+    </div>
+
+        <h1 id="Vuejs-event-system"><a href="#Vuejs-event-system" class="headerlink" title="Vuejs-event-system"></a>Vuejs-event-system</h1><ol>
+<li><a href="#组件之间通信的原则">组件之间通信的原则</a></li>
+<li><a href="#实现">实现</a><ol>
+<li><a href="#自定义事件">自定义事件</a></li>
+<li><a href="#全局事件总线-global-event-bus">全局事件总线(global event bus)</a></li>
+</ol>
+</li>
+</ol>
+<p>在开发多组件应用是，经常涉及到不同组件之间的通信问题，组件的作用域是相互独立的，我们当然可以直接引用父子组件来同步组件之间的状态，然而这种实现是高耦合的，与我们组件化的思想刚好相悖。<br>使用一种合理的组件之间的通信方式有利于提高组件的健壮性与可维护性。</p>
+<h3 id="组件之间通信的原则"><a href="#组件之间通信的原则" class="headerlink" title="组件之间通信的原则"></a><a href="#组件之间通信的原则" title="组件之间通信的原则"></a>组件之间通信的原则</h3><p>使用props从父组件向子组件传递数据</p>
+<p>使用event从子组件通知父组件改变数据</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a><a href="#实现" title="实现"></a>实现</h3><h4 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a><a href="#自定义事件" title="自定义事件"></a>自定义事件</h4><p>使用自定义事件，我们可以在子组件触发事件，在父组件监听事件。</p>
+<p>于是父子组件的通信可以实现为：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>15</p>
+<p>16</p>
+<p>17</p>
+<p>18</p>
+<p>19</p>
+<p>20</p>
+<p>21</p>
+<p>22</p>
+<p>23</p>
+<p>24</p>
+<p>25</p>
+<p>26</p>
+<p>27</p>
+<p>28</p>
+<p>29</p>
+<p>30</p>
+<p>31</p>
+<p>32</p>
+<p>33</p>
+<p>34</p>
+<p>35</p>
+<p>36</p>
+<p>37</p>
+<p>&lt;!-- 父组件 –&gt;</p>
+<div id="example"><br><br>    <p></p><br><br>    <app v-on:incre="incrementTotal"></app><br><br></div>
+
+<p>new Vue({</p>
+<pre><code>el: &apos;#example&apos;,
+
+    data: {
+
+        total: 0
+
+    },
+
+components:{
+
+    App: App
+
+},
+
+methods: {
+
+    incrementTotal() {
+
+        this.total += 1
+
+    }
+
+}
+</code></pre><p>})</p>
+<p>&lt;!-- 子组件 –&gt;</p>
+<template><br><br>    <button v-on:click="increment"></button><br><br></template>
+
+<p>export default {</p>
+<p>  name: ‘app’,</p>
+<p>  data: function () {</p>
+<pre><code>return {
+
+  counter: 0
+
+}
+</code></pre><p>  },</p>
+<p>  methods: {</p>
+<pre><code>increment() {
+
+  this.counter += 1
+
+  this.$emit(&apos;incre&apos;)
+
+}
+</code></pre><p>  }</p>
+<p>}</p>
+<h4 id="全局事件总线-global-event-bus"><a href="#全局事件总线-global-event-bus" class="headerlink" title="全局事件总线(global event bus)"></a><a href="#全局事件总线-global-event-bus" title="全局事件总线(global event bus)"></a>全局事件总线(global event bus)</h4><p>Vue本身实现了一套独立于原生事件之外的的事件系统，我们可以实例化一个Vue构造函数，在父组件中利用这个实例注册注册一个监听事件，然后在子组件中触发这个事件。</p>
+<p>于是父子组件之间的通信可以实现为：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>15</p>
+<p>16</p>
+<p>17</p>
+<p>18</p>
+<p>19</p>
+<p>20</p>
+<p>21</p>
+<p>22</p>
+<p>23</p>
+<p>24</p>
+<p>25</p>
+<p>26</p>
+<p>27</p>
+<p>28</p>
+<p>29</p>
+<p>30</p>
+<p>31</p>
+<p>32</p>
+<p>33</p>
+<p>34</p>
+<p>35</p>
+<p>36</p>
+<p>37</p>
+<p>38</p>
+<p>39</p>
+<p>40</p>
+<p>41</p>
+<p>42</p>
+<p>&lt;!-- 父组件 –&gt;</p>
+<template><br><br>    <div id="app"><br><br>        <msg :bus="bus"></msg><br><br>    </div><br><br></template>
+
+<p>var bus = new Vue()</p>
+<p>this.bus.$on(‘evt’,function () {</p>
+<pre><code>console.log(&apos;On!&apos;);
+</code></pre><p>})</p>
+<p>export default {</p>
+<pre><code>name: &apos;app&apos;,
+
+data(){
+
+    return {
+
+        bus: bus
+
+    }
+
+},
+
+components: {
+
+    Msg
+
+}
+</code></pre><p>}</p>
+<p>&lt;!-- 子组件 –&gt;</p>
+<template><br><br>    <div class="hello"><br><br>        <h1 @click="test"></h1><br><br>    </div><br><br></template>
+
+<p>export default {</p>
+<pre><code>name: &apos;hello&apos;,
+
+props: \[&apos;bus&apos;\],
+
+data () {
+
+    return {
+
+        msg: &apos;Welcome to Your Vue.js App&apos;
+
+    }
+
+},
+
+methods:{
+
+    test(){
+
+        console.log(&apos;Emit!&apos;);
+
+        this.bus.$emit(&apos;evt&apos;);
+
+    }
+
+}
+</code></pre><p>}</p>
+<p>在同一个Vue实例上可以触发并监听事件，因此我们可以在父组件中实例化一个Vue构造函数，在一个组件中绑定监听函数，在另一个平行组件中触发这个函数。</p>
+<p>于是同级组件之间的通信可以实现为：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>15</p>
+<p>16</p>
+<p>17</p>
+<p>18</p>
+<p>19</p>
+<p>20</p>
+<p>21</p>
+<p>22</p>
+<p>23</p>
+<p>24</p>
+<p>25</p>
+<p>26</p>
+<p>27</p>
+<p>28</p>
+<p>29</p>
+<p>30</p>
+<p>31</p>
+<p>32</p>
+<p>33</p>
+<p>34</p>
+<p>35</p>
+<p>36</p>
+<p>37</p>
+<p>38</p>
+<p>39</p>
+<p>40</p>
+<p>41</p>
+<p>42</p>
+<p>43</p>
+<p>44</p>
+<p>45</p>
+<p>46</p>
+<p>47</p>
+<p>48</p>
+<p>49</p>
+<p>50</p>
+<p>51</p>
+<p>52</p>
+<p>53</p>
+<p>54</p>
+<p>55</p>
+<p>56</p>
+<p>57</p>
+<p>58</p>
+<p>59</p>
+<p>60</p>
+<p>61</p>
+<p>&lt;!-- 父组件 –&gt;</p>
+<template><br><br>    <div id="app"><br><br>        <hello :bus="bus"></hello><br><br>        <msg :bus="bus"></msg><br><br>    </div><br><br></template>
+
+<p>var bus = new Vue();</p>
+<p>export default {</p>
+<pre><code>name: &apos;app&apos;,
+
+data(){
+
+    return {
+
+        bus: bus
+
+    }
+
+},
+
+components: {
+
+    Hello,
+
+    Msg
+
+}
+</code></pre><p>}</p>
+<p>&lt;!-- 子组件A –&gt;</p>
+<template><br><br>    <div class="hello"><br><br>        <h1></h1><br><br>    </div><br><br></template>
+
+<p>export default {</p>
+<pre><code>name: &apos;hello&apos;,
+
+props: \[&apos;bus&apos;\],
+
+data () {
+
+    return {
+
+        msg: &apos;Welcome to Your Vue.js App&apos;
+
+    }
+
+},
+
+mounted(){
+
+    this.bus.$on(&apos;evt&apos;,function () {
+
+        console.log(&apos;On!&apos;);
+
+    })
+</code></pre><p>  }</p>
+<p>}</p>
+<p>&lt;!-- 子组件B –&gt;</p>
+<template><br><br>    <div class="msg"><br><br>        <h1 @click="test"></h1><br><br>    </div><br><br></template>
+
+<p>export default {</p>
+<pre><code>name: &apos;hello&apos;,
+
+props: \[&apos;bus&apos;\],
+
+data () {
+
+    return {
+
+        msg: &apos;Welcome to Your Vue.js App&apos;
+
+    }
+
+  },
+
+methods:{
+
+    test(){
+
+        console.log(&apos;Emit!&apos;);
+
+        this.bus.$emit(&apos;evt&apos;);
+
+    }
+
+}
+</code></pre><p>}</p>
+<p><a href="/tags/Vue-js/">Vue.js</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        <div class="alignright">
+          <a href="/2018/02/01/Vuejs-event-system/#comment" class="comment-link">Comments</a>
+        </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+        <div class="icon"></div>
+        
+        <time datetime="2018-01-31T16:07:18.000Z"><a href="/2018/02/01/Build-Your-First-Node-App/">2018-02-01</a></time>
+        
+  
+    <h1 class="title"><a href="/2018/02/01/Build-Your-First-Node-App/">Build Your First Node App</a></h1>
+  
+
+    </header>
+
+    <div class="entry">
+      
+        
+    <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Build-Your-First-Node-App"><span class="toc-text">Build Your First Node App</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hello-World"><span class="toc-text">Hello World</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一个完整的node的web应用"><span class="toc-text">一个完整的node的web应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用构建"><span class="toc-text">应用构建</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+        <h1 id="Build-Your-First-Node-App"><a href="#Build-Your-First-Node-App" class="headerlink" title="Build Your First Node App"></a>Build Your First Node App</h1><ol>
+<li><a href="#Hello-World">Hello World</a></li>
+<li><a href="#一个完整的node的web应用">一个完整的node的web应用</a></li>
+<li><a href="#应用构建">应用构建</a></li>
+</ol>
+<p>这是一片node入门级别的文章，着重介绍使用node实现一个小型web应用的过程，不会涉及关于原理方面的知识，作为一个初学者，文章中如有不合理的地方还请指正。</p>
+<h3 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a><a href="#Hello-World" title="Hello World"></a>Hello World</h3><p>首先我们来实现一个Hello World。</p>
+<p>打开编辑器，创建一个helloWord.js文件，写入以下代码：</p>
+<p>1</p>
+<p>console.log(‘Hello World!’)</p>
+<p>保存文件后通过在命令行执行：</p>
+<p>1</p>
+<p>node helloWord.js</p>
+<p>你会看到命令行输出’Hello World!’。<br>这个应用太小儿科了对吧，那我们来点‘干货’。</p>
+<h3 id="一个完整的node的web应用"><a href="#一个完整的node的web应用" class="headerlink" title="一个完整的node的web应用"></a><a href="#一个完整的node的web应用" title="一个完整的node的web应用"></a>一个完整的node的web应用</h3><p>对于初学者来说，我们不太可能写出复杂的web应用，那我们来个简单点儿的！</p>
+<p>我将这个应用的需求设定为：</p>
+<p>用户可以使用浏览器访问我们的应用。<br>用户在浏览器中输入 ‘<a href="http://domain/start‘" target="_blank" rel="noopener">http://domain/start‘</a> 时页面中会出现一个表单。<br>用户在表单中输入用户名并提交，页面跳转到 ‘<a href="http://domain/hello‘" target="_blank" rel="noopener">http://domain/hello‘</a> 并显示欢迎信息。<br>下面我们来分析这个应用如何分布实现；</p>
+<p>我们需要提供web页面，并且可以提交表单，所以我们需要一个HTTP服务器。<br>我们需要在不同的URL之间跳转，针对不同URL给出响应，所以我们需要一个路由.<br>路由需要处理表单提交的数据，所以我们需要事件处理程序。<br>我们来一步步实现：</p>
+<h3 id="应用构建"><a href="#应用构建" class="headerlink" title="应用构建"></a><a href="#应用构建" title="应用构建"></a>应用构建</h3><p>在开始编码之前，我们需要考虑如何组织我们的代码，我们当然可以在一个单独文件中编写所有代码，但这个不利于后期修改和拓展，并且代码可读性也会变得很差，如果你有模块化相关得知识，你应该很清楚这样做的缺点。</p>
+<p>所以我们选择将不同功能的代码放入不同的模块中，使用不同模块时只需在主文件中引入即可。<br>首先我们创建’index.js’作为我们的入口文件（主文件），执行应用时直接运行入口文件即可。</p>
+<p>然后我们创建一个用于启动服务器的文件，语义化的将其命名为’server.js’，并写入以下代码：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>var http = require(“http”);</p>
+<p>function onRequest(request, response) {</p>
+<pre><code>//下面一行为增加部分
+
+console.log(&quot;Request received.&quot;);
+
+response.writeHead(200, {&quot;Content-Type&quot;: &quot;text/plain&quot;});
+
+response.write(&quot;Hello World&quot;);
+
+response.end();
+</code></pre><p>}</p>
+<p>http.createServer(onRequest).listen(8888);</p>
+<p>console.log(“Server has started.”);</p>
+<p>console.log(‘在浏览器中打开 <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a> 查看效果！’);</p>
+<p>现在我们实现了一个可以工作的HTTP服务器，这当然不是最终代码，在构建的过程中我们还是需要了解一下实现的细节。</p>
+<p>使用node执行脚本：</p>
+<p>1</p>
+<p>node server.js</p>
+<p>接下来在浏览器中打开 ‘<a href="http://localhost:8080/‘" target="_blank" rel="noopener">http://localhost:8080/‘</a> ，你就会看到一个写着 ‘Hello World!’ 的页面。</p>
+<p>分析代码实现：</p>
+<p>第一行请求（require）Node.js内置的 http 模块，并且把它赋值给 http 变量。</p>
+<p>接下来我们调用http模块提供的函数： ‘createServer’ 。这个函数会返回一个对象，这个对象有一个叫做 ‘listen’ 的方法，这个方法有一个数值参数，指定这个HTTP服务器监听的端口号。</p>
+<p>‘http.createServer ‘方法接受一个回调函数，侦听指定端口的服务器在收到一个HTTP请求的时会调用这个函数。</p>
+<p>当收到请求时，使用 response.writeHead() 回调函数发送一个HTTP状态200和HTTP头的内容类型（content-type），使用 response.write() 回调函数在HTTP相应主体中发送文本“Hello World”。response.end()结束响应。</p>
+<p>现在我们将服务器代码变成一个可供调用的模块：<br>将服务器脚本放到一个叫做 start 的函数里，然后导出这个函数。</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>var http = require(“http”);</p>
+<p>function start(){</p>
+<pre><code>function onRequest(request, response) {
+
+    //下面一行为增加部分
+
+    console.log(&quot;Request received.&quot;);
+
+    response.writeHead(200, {&quot;Content-Type&quot;: &quot;text/plain&quot;});
+
+    response.write(&quot;Hello World&quot;);
+
+    response.end();
+
+}
+
+http.createServer(onRequest).listen(8080);
+
+console.log(&quot;Server has started.&quot;);
+
+console.log(&apos;Open http://localhost:8080/ in browser to checkout！&apos;);
+</code></pre><p>}</p>
+<p>exports.start = start;</p>
+<p>创建 index.js 文件并写入以下内容：</p>
+<p>1</p>
+<p>2</p>
+<p>var server = require(“./server”);</p>
+<p>server.start();</p>
+<p>我们现在已经创建了一个启动服务器的模块，并在入口文件中调用这个模块，通过执行入口来启动服务器：</p>
+<p>1</p>
+<p>node index.js</p>
+<p>你可能会好奇为什么输出了两次 ‘Request received’这是因为访问’<a href="http://localhost:8080/‘" target="_blank" rel="noopener">http://localhost:8080/‘</a> 时浏览器会尝试读取 ‘<a href="http://localhost:8888/favicon.ico‘" target="_blank" rel="noopener">http://localhost:8888/favicon.ico‘</a> 文件。</p>
+<p>进行路由选择</p>
+<p>还记得我们的我们给服务器代码的回调函数传入了两个参数吗？我们还没有使用 request 参数，这是一个对象，包含请求信息。</p>
+<p>要针对不同路由实现不同操作，我们需要使用node的url模块解析请求的URL。</p>
+<p>修改服务器代码：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>15</p>
+<p>var http = require(“http”),</p>
+<p>url = require(‘url’);</p>
+<p>function start(){</p>
+<pre><code>function onRequest(request, response) {
+
+    var pathname = url.parse(request.url).pathname;
+
+    console.log(&apos;Request for&apos; + pathname +&apos;received.&apos;)
+
+    response.writeHead(200, {&quot;Content-Type&quot;: &quot;text/plain&quot;});
+
+    response.write(&quot;Hello World&quot;);
+
+    response.end();
+
+}
+
+http.createServer(onRequest).listen(8080);
+
+console.log(&quot;Server has started.&quot;);
+</code></pre><p>   console.log(‘Open <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a> in browser to checkout！’);</p>
+<p>}</p>
+<p>exports.start = start;</p>
+<p>启动服务器我们可以看到URL可以被正确解析。</p>
+<p>现在我们开始编写路由，创建一个 router.js 文件,添加路由函数：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>function route(pathname) {</p>
+<pre><code>return &quot;A request for &quot; + pathname;
+</code></pre><p>}</p>
+<p>exports.route = route;</p>
+<p>修改start函数将路由函数传递过去：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>15</p>
+<p>16</p>
+<p>var http = require(“http”);</p>
+<p>var url = require(“url”);</p>
+<p>function start(route) {</p>
+<pre><code>function onRequest(request, response) {
+
+    var pathname = url.parse(request.url).pathname;
+
+    console.log(&quot;Request for &quot; + pathname + &quot; received.&quot;);
+
+    var res=route(pathname);
+
+    response.writeHead(200, {&quot;Content-Type&quot;: &quot;text/plain&quot;});
+
+    response.write(res);
+
+    response.end();
+
+}
+
+http.createServer(onRequest).listen(8080);
+
+console.log(&quot;Server has started.&quot;);
+
+console.log(&apos;Open http://localhost:8080/ in browser to checkout！&apos;);
+</code></pre><p>}</p>
+<p>exports.start = start;</p>
+<p>启动服务器，打开<a href="http://localhost:8080/,我们可以看到服务器可以正常使用路由模块了。" target="_blank" rel="noopener">http://localhost:8080/,我们可以看到服务器可以正常使用路由模块了。</a></p>
+<p>接下来我们要扩展路由函数使它可以完成我们的应用需求，我们很自然的想到将处理请求的代码写在路由函数里面，但是如果我们有多个路由需要处理，每个请求处理函数又比较复杂，路由函数就会显得比较臃肿，代码也不利于维护。</p>
+<p>所以我们将请求处理模块与路由模块分离开来，创建requestHandlers.js，并写入以下代码：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>function start() {</p>
+<pre><code>console.log(&quot;Request handler &apos;start&apos; was called.&quot;);
+</code></pre><p>}</p>
+<p>function hello() {</p>
+<pre><code>console.log(&quot;Request handler &apos;hello&apos; was called.&quot;);
+</code></pre><p>}</p>
+<p>exports.start = start;</p>
+<p>exports.hello = hello;</p>
+<p>修改index.js:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>var server = require(“./server”);</p>
+<p>var router = require(“./router”);</p>
+<p>var requestHandlers = require(“./requestHandlers”);</p>
+<p>var handle = {}</p>
+<p>handle[“/“] = requestHandlers.start;</p>
+<p>handle[“/start”] = requestHandlers.start;</p>
+<p>handle[“/hello”] = requestHandlers.hello;</p>
+<p>server.start(router.route, handle);</p>
+<p>我们把handle对象作为额外的参数传递给服务器，为此将server.js修改如下：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>15</p>
+<p>16</p>
+<p>var http = require(“http”);</p>
+<p>var url = require(“url”);</p>
+<p>function start(route, handle) {</p>
+<pre><code>function onRequest(request, response) {
+
+    var pathname = url.parse(request.url).pathname;
+
+    console.log(&quot;Request for &quot; + pathname + &quot; received.&quot;);
+
+    route(handle, pathname);
+
+    response.writeHead(200, {&quot;Content-Type&quot;: &quot;text/plain&quot;});
+
+    response.write(&quot;Hello World&quot;);
+
+    response.end();
+
+}
+
+http.createServer(onRequest).listen(8888);
+
+console.log(&quot;Server has started.&quot;);
+
+console.log(&apos;Open http://localhost:8080/ in browser to checkout！&apos;);
+</code></pre><p>}</p>
+<p>exports.start = start;</p>
+<p>这样我们就在start()函数里添加了handle参数，并且把handle对象作为第一个参数传递给了route()回调函数。</p>
+<p>然后我们相应地在route.js文件中修改route()函数：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>function route(handle, pathname) {</p>
+<p>  console.log(“About to route a request for “ + pathname);</p>
+<p>  if (typeof handle[pathname] === ‘function’) {</p>
+<pre><code>handle\[pathname\]();
+</code></pre><p>  } else {</p>
+<pre><code>console.log(&quot;No request handler found for &quot; + pathname);
+</code></pre><p>  }</p>
+<p>}</p>
+<p>exports.route = route;</p>
+<p>处理post请求</p>
+<p>为了实现提交一个表单路由跳转并且输出提交信息，我们需要显示一个输入框供用户输入内容，然后通过POST请求提交给服务器。最后，服务器接受到请求，通过处理程序将输入的内容展示到浏览器中。</p>
+<p>/start请求处理程序用于生成带输入框的表单，我们将requestHandlers.js修改为如下形式：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>15</p>
+<p>16</p>
+<p>17</p>
+<p>18</p>
+<p>19</p>
+<p>20</p>
+<p>21</p>
+<p>22</p>
+<p>23</p>
+<p>24</p>
+<p>25</p>
+<p>26</p>
+<p>function start(response) {</p>
+<p>  console.log(“Request handler ‘start’ was called.”);</p>
+<p>  var body = ‘<html>‘+</html></p>
+<pre><code>&apos;&lt;head&gt;&apos;+
+
+&apos;&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; &apos;+
+
+&apos;charset=UTF-8&quot; /&gt;&apos;+
+
+&apos;&lt;/head&gt;&apos;+
+
+&apos;&lt;body&gt;&apos;+
+
+&apos;&lt;form action=&quot;/hello&quot; method=&quot;post&quot;&gt;&apos;+
+
+&apos;&lt;textarea name=&quot;text&quot; rows=&quot;1&quot; cols=&quot;10&quot;&gt;&lt;/textarea&gt;&apos;+
+
+&apos;&lt;input type=&quot;submit&quot; value=&quot;Submit text&quot; /&gt;&apos;+
+
+&apos;&lt;/form&gt;&apos;+
+
+&apos;&lt;/body&gt;&apos;+
+
+&apos;&lt;/html&gt;&apos;;
+
+response.writeHead(200, {&quot;Content-Type&quot;: &quot;text/html&quot;});
+
+response.write(body);
+
+response.end();
+</code></pre><p>}</p>
+<p>function hello(response) {</p>
+<p>  console.log(“Request handler ‘hello’ was called.”);</p>
+<p>  response.writeHead(200, {“Content-Type”: “text/plain”});</p>
+<p>  response.write(“Hello hello”);</p>
+<p>  response.end();</p>
+<p>}</p>
+<p>exports.start = start;</p>
+<p>exports.hello = hello;</p>
+<p>服务器需要获取所有来自表单的数据，然后将数据传递给请求路由和请求处理函数进行进一步的处理。为了使整个过程非阻塞，Node.js会将POST数据拆分成很多小的数据块，然后通过触发特定的事件，将这些小数据块传递给回调函数。这里的特定的事件有data事件（表示新的小数据块到达了）以及end事件（表示所有的数据都已经接收完毕）。我们需要告诉Node.js当这些事件触发的时候，回调哪些函数。</p>
+<p>下面开始修改server.js：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>15</p>
+<p>16</p>
+<p>17</p>
+<p>18</p>
+<p>19</p>
+<p>20</p>
+<p>21</p>
+<p>22</p>
+<p>var http = require(“http”);</p>
+<p>var url = require(“url”);</p>
+<p>function start(route, handle) {</p>
+<p>  function onRequest(request, response) {</p>
+<pre><code>var postData = &quot;&quot;;
+
+var pathname = url.parse(request.url).pathname;
+
+console.log(&quot;Request for &quot; + pathname + &quot; received.&quot;);
+
+request.setEncoding(&quot;utf8&quot;);
+
+request.addListener(&quot;data&quot;, function(postDataChunk) {
+
+  postData += postDataChunk;
+
+  console.log(&quot;Received POST data chunk &apos;&quot;+
+
+  postDataChunk + &quot;&apos;.&quot;);
+
+});
+
+request.addListener(&quot;end&quot;, function() {
+
+  route(handle, pathname, response, postData);
+
+});
+</code></pre><p>  }</p>
+<p>  http.createServer(onRequest).listen(8080);</p>
+<p>  console.log(“Server has started.”);</p>
+<p>  console.log(‘Open <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a> in browser to checkout！’);</p>
+<p>}</p>
+<p>exports.start = start;</p>
+<p>我们接下来在/hello页面，展示用户输入的内容。要实现该功能，我们需要将postData传递给请求处理程序，修改router.js为如下形式：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>function route(handle, pathname, response, postData) {</p>
+<p>  console.log(“About to route a request for “ + pathname);</p>
+<p>  if (typeof handle[pathname] === ‘function’) {</p>
+<pre><code>handle\[pathname\](response, postData);
+</code></pre><p>  } else {</p>
+<pre><code>console.log(&quot;No request handler found for &quot; + pathname);
+
+response.writeHead(404, {&quot;Content-Type&quot;: &quot;text/plain&quot;});
+
+response.write(&quot;404 Not found&quot;);
+
+response.end();
+</code></pre><p>  }</p>
+<p>}</p>
+<p>exports.route = route;</p>
+<p>我们现在可以接收POST数据并在请求处理程序中处理该数据了。</p>
+<p>我们最后要做的是： 把POST数据中，我们感兴趣的部分传递给请求路由和请求处理程序。在我们这个例子中，我们感兴趣的其实只是text字段。</p>
+<p>我们可以使用node内置的querystring模块来实现,修改requestHandlers.js:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>15</p>
+<p>16</p>
+<p>17</p>
+<p>18</p>
+<p>19</p>
+<p>20</p>
+<p>21</p>
+<p>22</p>
+<p>23</p>
+<p>24</p>
+<p>25</p>
+<p>26</p>
+<p>27</p>
+<p>28</p>
+<p>var querystring = require(“querystring”);</p>
+<p>function start(response, postData) {</p>
+<p>  console.log(“Request handler ‘start’ was called.”);</p>
+<p>  var body = ‘<html>‘+</html></p>
+<pre><code>&apos;&lt;head&gt;&apos;+
+
+&apos;&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; &apos;+
+
+&apos;charset=UTF-8&quot; /&gt;&apos;+
+
+&apos;&lt;/head&gt;&apos;+
+
+&apos;&lt;body&gt;&apos;+
+
+&apos;&lt;form action=&quot;/hello&quot; method=&quot;post&quot;&gt;&apos;+
+
+&apos;&lt;textarea name=&quot;text&quot; rows=&quot;1&quot; cols=&quot;10&quot;&gt;&lt;/textarea&gt;&apos;+
+
+&apos;&lt;input type=&quot;submit&quot; value=&quot;Submit text&quot; /&gt;&apos;+
+
+&apos;&lt;/form&gt;&apos;+
+
+&apos;&lt;/body&gt;&apos;+
+
+&apos;&lt;/html&gt;&apos;;
+
+response.writeHead(200, {&quot;Content-Type&quot;: &quot;text/html&quot;});
+
+response.write(body);
+
+response.end();
+</code></pre><p>}</p>
+<p>function hello(response, postData) {</p>
+<p>  console.log(“Request handler ‘hello’ was called.”);</p>
+<p>  response.writeHead(200, {“Content-Type”: “text/plain”});</p>
+<p>  response.write(“Hello: “+</p>
+<p>  querystring.parse(postData).text);</p>
+<p>  response.end();</p>
+<p>}</p>
+<p>exports.start = start;</p>
+<p>exports.hello = hello;</p>
+<p>启动服务器，打开<a href="http://localhost:8080/,输入用户名，页面就会跳转并输出欢迎信息.查看[源码](https://github.com/shengxihu/Exercise/tree/master/node/node-1" target="_blank" rel="noopener">http://localhost:8080/,输入用户名，页面就会跳转并输出欢迎信息.查看[源码](https://github.com/shengxihu/Exercise/tree/master/node/node-1</a>)</p>
+<p>到目前为止，我们已经实现了一个简单的web应用，虽然它很简单，但是我们在编写过程中注重采用了模块化、解耦合的思想，这给了我们继续完善的空间，随着我们对node了解不断加深，我们可以基于它打造出功能更加强大的应用。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        <div class="alignright">
+          <a href="/2018/02/01/Build-Your-First-Node-App/#comment" class="comment-link">Comments</a>
+        </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+        <div class="icon"></div>
+        
+        <time datetime="2018-01-31T16:05:28.000Z"><a href="/2018/02/01/Properties-in-JavaScript-definition-versus-assignment/">2018-02-01</a></time>
+        
+  
+    <h1 class="title"><a href="/2018/02/01/Properties-in-JavaScript-definition-versus-assignment/">Properties in JavaScript/ definition versus assignment</a></h1>
+  
+
+    </header>
+
+    <div class="entry">
+      
+        
+    <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Properties-in-JavaScript-definition-versus-assignment"><span class="toc-text">Properties in JavaScript/ definition versus assignment</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#属性定义和属性赋值"><span class="toc-text">属性定义和属性赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#概述：属性特性和内部属性"><span class="toc-text">概述：属性特性和内部属性</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+        <h1 id="Properties-in-JavaScript-definition-versus-assignment"><a href="#Properties-in-JavaScript-definition-versus-assignment" class="headerlink" title="Properties in JavaScript/ definition versus assignment"></a>Properties in JavaScript/ definition versus assignment</h1><ol>
+<li><a href="#属性定义和属性赋值">属性定义和属性赋值</a></li>
+<li><a href="#概述：属性特性和内部属性">概述：属性特性和内部属性</a></li>
+</ol>
+<p>原文链接:Properties in JavaScript: definition versus assignment;</p>
+<p>在JavaScript，属性的定义和赋值两个不同的操作，这篇博客致力于解释这两种操作的差异和造成这些差异的原因。</p>
+<h3 id="属性定义和属性赋值"><a href="#属性定义和属性赋值" class="headerlink" title="属性定义和属性赋值"></a><a href="#属性定义和属性赋值" title="属性定义和属性赋值"></a>属性定义和属性赋值</h3><p>1.属性定义：定义属性将会使用一个如下的属性定义函数：、</p>
+<p>1</p>
+<p>Object.defineProperty(obj, propName, propDesc)</p>
+<p>这个函数的主要功能是直接在obj对象上添加一个属性，通过propDesc配置属性特性（例如writable）。<br>这个函数的另一个功能是用来改变一个属性的特性，包括属性的值。</p>
+<p>2.属性赋值：为了给一个属性赋值，使用如下的赋值表达式：</p>
+<p>1</p>
+<p>obj.prop = value</p>
+<p>这个表达式的主要功能是改变一个属性的值，为了完成这个操作，JavaScript将会查询obj对象的原型链。如果obj对象或者它的原型链上定义了setter方法，赋值操作将会通过调用这个setter方法来完成。如果被赋值的这个属性在obj对象上不存在，这个赋值操作将会产生另一个结果——在obj对象上定义一个拥有默认特性（writable等）的prop属性。</p>
+<p>接下来的两个部分将会探讨更多关于属性定义和赋值是如何工作的细节。及时你跳过它们，你应该依然能够理解第四部分以及后续段落。</p>
+<h3 id="概述：属性特性和内部属性"><a href="#概述：属性特性和内部属性" class="headerlink" title="概述：属性特性和内部属性"></a><a href="#概述：属性特性和内部属性" title="概述：属性特性和内部属性"></a>概述：属性特性和内部属性</h3><p>在我们解释属性定义和赋值是如何工作之前，让我们快速回顾一下什么事属性特性和内部属性。</p>
+<p>1.属性的种类：</p>
+<p>JavaScript中存在3种属性</p>
+<p>命名访问器属性：一个通过getter或者setter定义的属性。</p>
+<p>命名数据属性：拥有一个确定值得属性，这是最常见的属性，它们有自己的方法。</p>
+<p>内部属性：由JavaScript引擎内部使用的属性，不能通过直接JavaScript代码操作。然而，然而我们可以间接的方式来操作它们。例如，每一个对象都有一个叫做[[Prototype]]的内部属性，你不可以直接的读取到它，但是依然可以通过Object.getPrototypeOf()来获取它的值。尽管内部属性通常由双中括号包围的名称来表示，但这并不是它们的名字， 这是一种抽象的表示，它们并没有字符串值表示的属性名。</p>
+<p>2.属性特性：</p>
+<p>每个属性都拥有以下的属性特性，并且被它们所影响。</p>
+<p>所有属性都有的特性：</p>
+<p>[Enumerable]]：如果一个属性是不可枚举的,则在一些操作下,这个属性是不可见的,比如for…in和Object.keys().</p>
+<p>[[Configurable]]: 如果一个属性是不可配置的,则该属性的除了[[Value]]的所有特性都不可改变.</p>
+<p>命名数据特性：</p>
+<p>[[Value]]: 属性的值.</p>
+<p>[[Writable]]:决定属性值是否可变.</p>
+<p>命名访问器属性:</p>
+<p>[[Get]]:拥有getter方法.</p>
+<p>[[Set]]:拥有setter方法.</p>
+<p>3.属性描述符：</p>
+<p>属性操作符可以写成一个包含一系列属性特性的对象。例如：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>{</p>
+<pre><code>value: 123,
+
+writable: false
+</code></pre><p>}</p>
+<p>如你所见，对象的属性名对应着[[Value]]和[[Writable]]这样的属性特性名。属性操作符使用在Object.defineProperty, Object.getOwnPropertyDescriptor, Object.create这样的改变或者返回属性特性的函数中.如果某个属性特性缺失，属性操作符将使用下表对应的默认值.</p>
+<p>属性 默认值<br>value undefined<br>get undefined<br>set undefined<br>writable false<br>enumerable false<br>configurable false</p>
+<p>4.内部属性:</p>
+<p>每个对象都包含如下四个属性在内的一些内部属性：</p>
+<p>[[Prototype]]: 对象的原型.</p>
+<p>[[Extensible]]: 对象是否可扩展，即是否可添加新的属性.</p>
+<p>[[DefineOwnProperty]]: 定义一个属性的内部方法.</p>
+<p>[[Put]]: 为一个属性赋值的内部方法.</p>
+<p>属性定义和属性赋值详解</p>
+<p>1.属性定义</p>
+<p>属性定义是通过如下的内部方法来操作的：</p>
+<p>1</p>
+<p>[[DefineOwnProperty]] (P, Desc, Throw)</p>
+<p>p是将要定义的属性名，Desc是属性描述符，Throw明确了如何处理操作异常:如果Throw为true,则抛出异常.否则,操作只会静默失败.当调用[[DefineOwnProperty]]时,会下面的操作步骤执行操作.</p>
+<ul>
+<li><p>如果对象上没有名为P的属性：</p>
+<ul>
+<li><p>如果属性可扩展，创建一个新的属性P.</p>
+</li>
+<li><p>如果对象不可扩展，拒绝操作.</p>
+</li>
+</ul>
+</li>
+<li><p>如果对象上已经有一个名为P的属性:</p>
+<ul>
+<li><p>如果属性可配置,则重新配置属性.</p>
+</li>
+<li><p>如果属性不可配置,如下操作将会被拒绝（不在如下范围内的操作可以进行）:</p>
+<ul>
+<li><p>将一个数据属性转换成访问器属性,反之亦然.</p>
+</li>
+<li><p>改变[[Configurable]]或[[Enumerable]].</p>
+</li>
+<li><p>该变[[Writable]].</p>
+</li>
+<li><p>在[[Writable]]为false时改变[[Value]].</p>
+</li>
+<li><p>改变[[Get]]或[[Set]].</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>如果P的属性操作符和和当前属性操作符一致，操作可以进行.</p>
+<p>使用Object.defineProperty和Object.defineProperties这两个函数用来定义属性，例如：</p>
+<p>1</p>
+<p>Object.defineProperty(obj, propName, desc)</p>
+<p>JavaScript引擎内部将会将其转换成如下的方法调用:</p>
+<p>1</p>
+<p>obj.[[DefineOwnProperty]](propName, desc, true)</p>
+<p>2.属性赋值:</p>
+<p>为一个属性赋值操作时JavaScript引擎会调用如下的内部方法:</p>
+<p>1</p>
+<p>[[Put]] (P, Value, Throw)</p>
+<p>P 和 Throw 和 [[DefineOwnProperty]]中的对应参数作用相同.[[Put]]方法调用时会按照如下情况执行操作:</p>
+<ul>
+<li><p>如果在原型链上存在一个名为P的只读属性(只读的数据属性或者没有setter的访问器属性),拒绝操作.</p>
+</li>
+<li><p>如果在原型链上存在一个名为P的且拥有setter的访问器属性:调用这个setter.</p>
+</li>
+<li><p>如果没有名为P的自身属性:</p>
+<ul>
+<li><p>如果对象不可扩展：拒绝操作.</p>
+</li>
+<li><p>如果这个对象是可扩展的,就使用下面的操作创建一个新属性:</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>this.[[DefineOwnProperty]](</p>
+<pre><code>P,
+
+{
+
+    value: Value,
+
+    writable: true,
+
+    enumerable: true,
+
+    configurable: true
+
+},
+
+Throw
+</code></pre><p>)</p>
+<p>如果已经存在一个可写的名为P的自身属性.则调用:</p>
+<p>1</p>
+<p>this.[[DefineOwnProperty]](P, { value: Value }, Throw)</p>
+<p>这会改变P的值，其它特性值保持不变。</p>
+<p>如下赋值操作将会调用[[Put]].</p>
+<p>1</p>
+<p>obj.prop = v;</p>
+<p>在浏览器引擎内部将其会转换成如下的方法调用:</p>
+<p>1</p>
+<p>obj.[[Put]](“prop”, v, isStrictModeOn)</p>
+<p>这个赋值操作只会在严格模式下抛出异常，并且[[Put]]方法没有返回值（赋值操作会产生返回值）.</p>
+<p>结论</p>
+<p>这部分我们将会探讨关于属性定义和属性赋值的一些结论.</p>
+<p>1.赋值可能会调用原型链上的setter方法，定义会创建一个自身属性.</p>
+<p>给定一个原型proto上有名为foo访问器属性的对象.</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>var proto = {</p>
+<pre><code>get foo() {
+
+    console.log(&quot;Getter&quot;);
+
+    return &quot;a&quot;;
+
+},
+
+set foo(x) {
+
+    console.log(&quot;Setter: &quot;+x);
+
+},
+</code></pre><p>};</p>
+<p>var obj = Object.create(proto);</p>
+<p>在对象obj上定义一个名为foo的属性或者为名为foo的属性赋值会有什么区别呢？</p>
+<p>如果是定义操作，你将会创建一个新的属性.在这种条件下的定义操作总会在原型链的第一个object上创建一个新属性.如本例中的obj:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>> Object.defineProperty(obj, “foo”, { value: “b” });</p>
+<p>> obj.foo</p>
+<p>‘b’</p>
+<p>> proto.foo</p>
+<p>Getter</p>
+<p>‘a’</p>
+<p>如果在obj上进行赋值操作，意味着你的目的是改变某个已经存在的属性的值.这个操作将会由setter方法来完成.下面的结果表明操作的确调用了原型链上的setter方法：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>> obj.foo = “b”;</p>
+<p>Setter: b</p>
+<p>‘b’</p>
+<p>你可以通过只定义一个getter方法创建一个只读属性，如下，对象proto2的bar属性就是一个只读属性，它被obj2继承.</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>“use strict”;</p>
+<p>var proto2 = {</p>
+<pre><code>get bar() {
+
+    console.log(&quot;Getter&quot;);
+
+    return &quot;a&quot;;
+
+},
+</code></pre><p>};</p>
+<p>var obj2 = Object.create(proto2);</p>
+<p>我们使用严格模式来保证赋值操作可以抛出异常.我们想使用赋值操作来改变被bar属性的值，但是因为bar是read-only属性，操作被禁止.</p>
+<p>1</p>
+<p>2</p>
+<p>> obj2.bar = “b”;</p>
+<p>TypeError: obj.bar is read-only</p>
+<p>但是我们可以在obj2上定义一个新的自身属性来覆盖原型proto上的bar属性:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>> Object.defineProperty(obj2, “bar”, { value: “b” });</p>
+<p>> obj2.bar</p>
+<p>‘b’</p>
+<p>> proto2.bar</p>
+<p>Getter</p>
+<p>‘a’</p>
+<p>2.原型中的只读属性会阻止赋值操作，但不会阻止定义操作.</p>
+<p>原型中的只读属性会阻止通过赋值操作的方式为对象添加一个自身属性，你需要使用定义操作来达到这个目的.这个限制在ECMAScript 5.1中被引入. 下面的示范操作中obj的原型proto上有一个只读属性foo，它展示了如果对象原型上有一个值为a的foo只读属性，则赋值操作obj.foo = “b”不会再对象obj上创建一个自身属性foo.</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<pre><code>&quot;use strict&quot;;
+
+var proto = Object.defineProperties(
+
+    {},
+
+    {
+
+        foo: {  // attributes of property foo:
+
+            value: &quot;a&quot;,
+
+            writable: false,  // read-only
+
+            configurable: true  // explained later
+
+        }
+
+    });
+
+var obj = Object.create(proto);
+</code></pre><p>/* Assignment. Assignment results in an exception: */</p>
+<pre><code>\&gt; obj.foo = &quot;b&quot;;
+
+TypeError: obj.foo is read-only
+</code></pre><p>一个继承属性竟然能够影响在对象自身属性的创建，这真是一个奇怪的表现。然而这也非常合理的，它正是一个只读属性的的特性.</p>
+<p>通过定义的方式,我们可以成功创建一个新的自身属性:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>> Object.defineProperty(obj, “foo”, { value: “b” });</p>
+<p>> obj.foo</p>
+<p>‘b’</p>
+<p>> proto.foo</p>
+<p>‘a’</p>
+<p>3.赋值操作不会改变原型链上的属性</p>
+<p>给出下面的例子，obj将会从proto上继承foo属性.</p>
+<p>1</p>
+<p>2</p>
+<p>var proto = { foo: “a” };</p>
+<p>var obj = Object.create(proto);</p>
+<p>赋值操作obj.foo不会改变proto.foo,但是会为obj创建一个新的自身属性.</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>> obj.foo = “b”;</p>
+<p>‘b’</p>
+<p>> obj.foo</p>
+<p>‘b’</p>
+<p>> proto.foo</p>
+<p>‘a’</p>
+<p>这种表现的原因是：原型引用的属性值能够被它所有的后代共享，如果试图在它的后代对象上改变这个属性值，就会在这个后代对象上创建一个新的同名自身属性，这个自身属性不会影响它的原型或这个后代对象的后代. 鉴于此, 只读属性的表现可以概括为: 通过阻止自身属性的创建来阻止属性更改. 然而为什么要重写一个原型属性而不是更改一个属性呢？可能有以下两种运用：</p>
+<p>方法：仅仅允许在原型上直接修改原型对象上定义的方法，防止通过原型后代对方法进行意外修改.</p>
+<p>无方法属性：原型可以提供一个能够提供一个被所有后代共享的值，这个值可以通过后代对象重写但是不能通过后代对象改变.有人认为这是一种反模式，并且他们也不鼓励使用这种技术.因为使用构造器函数来初始化默认值是一种改为简洁的方法.</p>
+<p>4.我们只能通过定义操作来创建一个拥有指定特性的属性</p>
+<p>如果通过赋值操作创建一个自身属性，它将只有默认属性特性.如果你想指定属性特性，你只能使用定义操作，这包括定义getter和setter方法.</p>
+<p>5.对象字面量方法添加的属性实质是通过定义操作来完成的.</p>
+<p>例如下面的对象字面量：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>var obj = {</p>
+<pre><code>foo: 123
+</code></pre><p>};</p>
+<p>使用对象字面量添加的属性在浏览器内部可能被转化为一系列的声明，有两种实现：</p>
+<p>第一种转化为赋值操作来实现：</p>
+<p>1</p>
+<p>2</p>
+<p>var obj = new Object();</p>
+<p>obj.foo = 123;</p>
+<p>第二种是转化为定义操作来实现：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>var obj = new Object();</p>
+<p>Object.defineProperties(obj, {</p>
+<pre><code>foo: {
+
+    value: 123,
+
+    enumerable: true,
+
+    configurable: true,
+
+    writable: true
+
+}
+</code></pre><p>});</p>
+<p>第二种实现更好的表现了对象字面量的语义：创建新的属性.同样，Object.create方法通过第二个参数接受一个属性描述符.</p>
+<p>6.作为方法的对象属性</p>
+<p>方法属性的一种实现如下:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>“use strict”;</p>
+<p>function Stack() {</p>
+<p>}</p>
+<p>Object.defineProperties(Stack.prototype, {</p>
+<pre><code>push: {
+
+    writable: false,
+
+    configurable: true,
+
+                value: function (x) { /* ... */ }
+
+}
+</code></pre><p>});</p>
+<p>这么做的目的是防止对方法属性进行意外赋值:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>> var s = new Stack();</p>
+<p>> s.push = 5;</p>
+<p>TypeError: s.push is read-only</p>
+<p>然而，正因为push是可配置的，我们可以通过属性定义来覆盖这个方法.</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>> var s = new Stack();</p>
+<p>> Object.defineProperty(s, “push”,</p>
+<pre><code>{ value: function () { return &quot;yes&quot; }})
+</code></pre><p>> s.push()</p>
+<p>‘yes’</p>
+<p>我们甚至可以通过定义操作来重写Stack.prototype.push方法.</p>
+<p>结论</p>
+<p>属性赋值经常被用来为一个对象添加一个新的属性,这篇文字解释了这种做法可能带来的问题. 因此，我们最好遵循以下的规则:</p>
+<p>1.使用定义操作来创建新的属性.</p>
+<p>2.使用赋值操作来改变属性的值.</p>
+<p>在评论中,medikoo提醒了我们使用属性描述符来创建属性可能会有点慢，因此他经常通过为属性赋值来创建新属性,因为这样很方便.值得高兴的是,ECMAScript.next也许会把属性的定义操作变的既快又方便:已经存在一个“定义属性的运算符”的提案,可以作为Object.defineProperties的替代用法.由于属性定义和属性赋值之间存在微妙但是至关重要的差别,这种改进应该会很受欢迎.</p>
+<p>参考资料：</p>
+<p>1.<a href="http://www.2ality.com/2011/06/prototypes-as-classes.html" target="_blank" rel="noopener">Prototypes as classes – an introduction to JavaScript inheritance</a>;</p>
+<p>2.<a href="http://www.2ality.com/2011/07/js-properties.html" target="_blank" rel="noopener">JavaScript properties: inheritance and enumerability</a>;</p>
+<p>3.<a href="http://wiki.ecmascript.org/doku.php?id=strawman:fixing_override_mistake" target="_blank" rel="noopener">Fixing the Read-only Override Prohibition Mistake [ECMAScript wiki]</a>.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        <div class="alignright">
+          <a href="/2018/02/01/Properties-in-JavaScript-definition-versus-assignment/#comment" class="comment-link">Comments</a>
+        </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+        <div class="icon"></div>
+        
+        <time datetime="2018-01-31T16:04:05.000Z"><a href="/2018/02/01/JavaScript-Modules/">2018-02-01</a></time>
+        
+  
+    <h1 class="title"><a href="/2018/02/01/JavaScript-Modules/">JavaScript-Modules</a></h1>
+  
+
+    </header>
+
+    <div class="entry">
+      
+        
+    <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript-Modules"><span class="toc-text">JavaScript-Modules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模块化"><span class="toc-text">模块化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要进行模块化"><span class="toc-text">为什么要进行模块化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS模块化的发展过程（从function，IIFE到Commonjs）"><span class="toc-text">JS模块化的发展过程（从function，IIFE到Commonjs）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Function"><span class="toc-text">Function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IIFE"><span class="toc-text">IIFE</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#放大模式"><span class="toc-text">放大模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#宽放大模式（Loose-augmentation）"><span class="toc-text">宽放大模式（Loose augmentation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#紧扩充模式"><span class="toc-text">紧扩充模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入全局变量"><span class="toc-text">输入全局变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Commonjs"><span class="toc-text">Commonjs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在浏览器中使用-CommonJS"><span class="toc-text">在浏览器中使用 CommonJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AMD"><span class="toc-text">AMD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结："><span class="toc-text">总结：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#模块接口的设设计原则："><span class="toc-text">模块接口的设设计原则：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ECMAScript-6-Modules"><span class="toc-text">ECMAScript 6 Modules</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#export-multiply"><span class="toc-text">export multiply;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#import"><span class="toc-text">import:</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+
+        <h1 id="JavaScript-Modules"><a href="#JavaScript-Modules" class="headerlink" title="JavaScript-Modules"></a>JavaScript-Modules</h1><ol>
+<li><a href="#模块化">模块化</a></li>
+<li><a href="#为什么要进行模块化">为什么要进行模块化</a></li>
+<li><a href="#JS模块化的发展过程（从function，IIFE到Commonjs）">JS模块化的发展过程（从function，IIFE到Commonjs）</a><ol>
+<li><a href="#Function">Function</a></li>
+<li><a href="#IIFE">IIFE</a></li>
+</ol>
+</li>
+<li><a href="#放大模式">放大模式</a></li>
+<li><a href="#宽放大模式（Loose-augmentation）">宽放大模式（Loose augmentation）</a></li>
+<li><a href="#紧扩充模式">紧扩充模式</a></li>
+<li><a href="#输入全局变量">输入全局变量</a></li>
+<li><a href="#Commonjs">Commonjs</a></li>
+<li><a href="#在浏览器中使用-CommonJS">在浏览器中使用 CommonJS</a></li>
+<li><a href="#AMD">AMD</a></li>
+<li><a href="#总结：">总结：</a><ol>
+<li><a href="#模块接口的设设计原则：">模块接口的设设计原则：</a></li>
+</ol>
+</li>
+<li><a href="#ECMAScript-6-Modules">ECMAScript 6 Modules</a><ol>
+<li><a href="#export-multiply">export multiply;</a></li>
+<li><a href="#import">import:</a></li>
+</ol>
+</li>
+</ol>
+<h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a><a href="#模块化" title="模块化"></a>模块化</h3><p>当我们称一个应用程序是模块化的的时候，我们通常是指它由一组高度解耦的、存放在不同模块中的独特功能构成。你可能已经知道，松散耦合通过尽可能地去除依赖性来让可维护性更加简单易得。当这一点被有效实现的时候，系统中某一部分的变化将如何影响其它部分就会变得显而易见。</p>
+<p>JavaScript模块化是将JS代码按照功能的不同分成高度解耦的代码块，存放在模块中。与一些更传统的编程语言不同的是，JavaScript 6以前的版本并没有为开发者们提供以一种简洁、有条理地的方式来引入模块的方法。</p>
+<h3 id="为什么要进行模块化"><a href="#为什么要进行模块化" class="headerlink" title="为什么要进行模块化"></a><a href="#为什么要进行模块化" title="为什么要进行模块化"></a>为什么要进行模块化</h3><p>1.解决命名冲突问题<br>在传统的JavaScript语言中，位于全局作用域中的变量可以在任何地方被访问，然而随着网站逐渐变成”互联网应用程序”，嵌入网页的Javascript代码越来越庞大，越来越复杂。JS这种共享全局作用域的做法慢慢显现出可能带来命名冲突的弊端。</p>
+<p>2.代码复用<br>在一个大型的互联网应用程序中，很多不同功能会用到相同的代码，在这样的情况下，如果不使用模块化，我们的解决方案将是复制这段代码，然后粘贴到需要这段代码的地方。如果我们的这段代码出现了错误或者我们想要修改这段代码，必须找到所有使用这段代码的地方逐一修改。然而一旦我们引入了模块思想，这种问题就会迎刃而解。我们只需要将这段代码封装成一个模块，在需要使用它的地方引入这个模块，并且只用在模块中修改。<br>代码复用的另一个方面是指你的代码也可以被别人使用，或者你也可以使用别人的代码。理想情况下，开发者只需要实现核心的业务逻辑，其他都可以加载别人已经写好的模块。</p>
+<p>3.去耦合<br>模块化的一个很明显的，它可以将一段有特定功能的代码独立出来。这样可以一定程度上减小代码之间的耦合性，当一个页面应用需要的某些功能需要更新时，只要更新相关的模块就可以了，这些改动不会对其他的模块带来影响。同样，一个程序中的某一个模块的改动也不会影响这个模块的主要功能。</p>
+<p>4.保持模块内部的私有性<br>模块化需要给模块定义一个接口，主程序或者其它模块通过这个接口来调用模块，模块的接口是对外开放的，但是模块内部的代码不能被模块外部访问。这就保证了模块内部变量的私有性。</p>
+<h3 id="JS模块化的发展过程（从function，IIFE到Commonjs）"><a href="#JS模块化的发展过程（从function，IIFE到Commonjs）" class="headerlink" title="JS模块化的发展过程（从function，IIFE到Commonjs）"></a><a href="#JS模块化的发展过程（从function，IIFE到Commonjs）" title="JS模块化的发展过程（从function，IIFE到Commonjs）"></a>JS模块化的发展过程（从function，IIFE到Commonjs）</h3><p>虽然Javascript模块化编程，已经成为一个迫切的需求。但是，ECMAScript标准第六版出现之前，Javascript不是一种模块化编程语言，它不支持”类”（class），更遑论”模块”（module）了。（ECMAScript标准第六版，正式支持”类”和”模块”，但还需要很长时间才能投入实用。）</p>
+<p>Javascript社区做了很多努力，在现有的运行环境中，实现”模块”的效果。这一部分将总结当前＂Javascript模块化编程＂的最佳实践。</p>
+<h4 id="Function"><a href="#Function" class="headerlink" title="Function"></a><a href="#Function" title="Function"></a>Function</h4><p>模块就是实现特定功能的一组方法。</p>
+<p>只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。</p>
+<p>函数是JavaScript中唯一可以创建新的作用域的类型，我们可以利用函数来为模块创建作用域。<br>例如：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>var dayName=function(){</p>
+<pre><code>var names=\[&quot;Sunday&quot;,&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wedensday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;,&quot;Saturday&quot;\];
+
+return function(number){
+
+    return names\[number\];
+
+};
+</code></pre><p>}();</p>
+<p>console.log(dayName(1));</p>
+<p>这个例子通过将一个匿名函数的返回值赋给一个变量（dayName），返回值也是一个函数，也是这个模块想暴露到模块外的部分，这样变量dayName函数就变成了模块的接口。</p>
+<p>现在假如我们需要在这个模块中再加入一个函数，并且想把这个函数也作为模块接口，此时我们需要返回两个函数，解决方案是将两个函数封装在一个对象中，然后返回这个对象作为模块的接口。<br>代码如下：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>var weekDay = function() {</p>
+<pre><code>    var names = \[&quot;Sunday&quot;,&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wednesday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;,&quot;Saturday&quot;\];
+
+    return {
+
+        name: function(number){
+
+            return names\[number\];
+
+        },
+
+        number: function(name){
+
+            return names.indexOf(name);
+
+        }
+
+    }
+
+}();
+</code></pre><p>console.log(weekDay.number(“Sunday”));</p>
+<p>但是这种做法的一个很明显显的缺点是当返回部分很大时return语句要包裹很多代码，我们可以使用一个立即执行函数来解决这个问题。下面将对此进行介绍。</p>
+<h4 id="IIFE"><a href="#IIFE" class="headerlink" title="IIFE"></a><a href="#IIFE" title="IIFE"></a>IIFE</h4><p>JavaScript语法有一个怪癖，如果一个函数以function开始，它将会是一个函数声明，函数声明必须有一个函数名。而如果一个函数不以function开始，它将是一个函数表达式。我们可以使用一个括号强制将函数转换为<br>函数表达式。</p>
+<p>上面的函数可以改写成如下形式：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>(function(exports){</p>
+<pre><code>var names = \[&quot;Sunday&quot;,&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wednesday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;,&quot;Saturday&quot;\];
+
+exports.name = function(number) {
+
+    return names\[number\];
+
+}
+
+exports.number = function(name) {
+
+    return names.indexOf\[name\];
+
+};
+</code></pre><p>})(this.weekDay = {});</p>
+<p>console.log(weekDay.name(1));</p>
+<p>上面的代码块中，我们使用一个对象作为函数的参数，将要输出的接口作为对象的属性，这样我们就可以使用这个对象调用接口。</p>
+<h3 id="放大模式"><a href="#放大模式" class="headerlink" title="放大模式"></a><a href="#放大模式" title="放大模式"></a>放大模式</h3><p>如果一个模块很大，必须分成几个部分，或者一个模块需要继承另一个模块，这时就有必要采用”放大模式”（augmentation）。</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>　　var module1 = (function (mod){</p>
+<p>　　　　mod.m3 = function () {</p>
+<p>　　　　　　//…</p>
+<p>　　　　};</p>
+<p>　　　　return mod;</p>
+<p>　　})(module1);</p>
+<h3 id="宽放大模式（Loose-augmentation）"><a href="#宽放大模式（Loose-augmentation）" class="headerlink" title="宽放大模式（Loose augmentation）"></a><a href="#宽放大模式（Loose-augmentation）" title="宽放大模式（Loose augmentation）"></a>宽放大模式（Loose augmentation）</h3><p>在浏览器环境中，模块的各个部分通常都是从网上获取的，有时无法知道哪个部分会先加载。如果采用上一节的写法，第一个执行的部分有可能加载一个不存在空对象，这时就要采用”宽放大模式”。</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>　　var module1 = ( function (mod){</p>
+<p>　　　　//…</p>
+<p>　　　　return mod;</p>
+<p>　　})(window.module1 || {});</p>
+<p>与”放大模式”相比，＂宽放大模式＂就是”立即执行函数”的参数可以是空对象。</p>
+<p>上面的代码为module1模块添加了一个新方法m3()，然后返回新的module1模块。</p>
+<h3 id="紧扩充模式"><a href="#紧扩充模式" class="headerlink" title="紧扩充模式"></a><a href="#紧扩充模式" title="紧扩充模式"></a>紧扩充模式</h3><p>宽放大模式非常棒，但是有一个缺点是对无法安全地处理方法属性的重载。紧扩充模式保持对旧有方法的的引用，在定义的新方法中可以灵活地重用旧有方法的功能。</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>var MODULE = (function (my) {</p>
+<pre><code>var old_moduleMethod = my.moduleMethod;
+
+my.moduleMethod = function () {
+
+    // method override, has access to old through old_moduleMethod...
+
+};
+
+return my;
+</code></pre><p>}(MODULE));</p>
+<h3 id="输入全局变量"><a href="#输入全局变量" class="headerlink" title="输入全局变量"></a><a href="#输入全局变量" title="输入全局变量"></a>输入全局变量</h3><p>独立性是模块的重要特点，模块内部最好不与程序的其他部分直接交互。<br>为了在模块内部调用全局变量，必须显式地将其他变量输入模块。</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>　　var module1 = (function ($) {</p>
+<p>　　　　//…</p>
+<p>　　})(jQuery);</p>
+<p>但是上面的这种做法依然有不足之处，我们在使用这种方式定义的模块时，依然要通过全局作用域来访问模块，并且模块之间的依赖关系也不够明显。</p>
+<p>并且这种模式需要通过script标签将模块文件插入到文档中，被依赖的模块必须放在依赖它的模块之前，如果模块之间的依赖很复杂，那就悲剧了。为此，社区产生了下面更好的解决方法。</p>
+<h3 id="Commonjs"><a href="#Commonjs" class="headerlink" title="Commonjs"></a><a href="#Commonjs" title="Commonjs"></a>Commonjs</h3><p>上面介绍JavaScript中如何现实模块化的一些常见的模式，但是仅仅有这些模式是不够的，对于整个生态圈来说，JS 模块化缺失带来的一个严重问题是各社区开发一套组件都需要实现自己的模块化机制，不同社区重复制造轮子，导致组件与组件无法兼容、相互割裂，严重阻碍生态系统的发展，模块化规范的制定和遵守更加重要。</p>
+<p>为此， Mozilla 工程师 Kevin Dangoor 在 2009 年 1 月发起了 ServerJS，目标是为非浏览器（比如服务端、本地桌面应用、命令行应用）构建 JavaScript 生态系统，同年 8 月改名为 CommonJS，其目标也扩展到浏览器。CommonJS 的规范包括模块(Modules)、包(Package)、Promises 等多个方面，详情可查阅 CommonJS Wiki。CommonJS 规范有很多的实现，其中最著名的实现就是 Node.js，接下来就以它作为例子介绍 CommonJS 的模块规范。</p>
+<p>从结构的角度来看，一个CJS模块是一段可重用的JavaScript，它导出一系列特定的对象给依赖它的代码调用。</p>
+<p>简单来说来看，一个CJS模块主要包含两个部分：一个名叫exports的自由变量，它包含模块希望提供给其它模块的对象；以及一个 require 函数，让模块用来导入其它模块的导出。</p>
+<p>下面通过一个简单的例子来理解exports和require：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>// package/lib 是我们须的一个依赖项</p>
+<p>var lib = require(‘package/lib’);</p>
+<p>// 我们的模块的一些行为</p>
+<p>function foo(){</p>
+<pre><code>lib.log(&apos;hello world!&apos;);
+</code></pre><p>}</p>
+<p>// 把 foo 导出（暴露）给其它模块</p>
+<p>exports.foo = foo;</p>
+<p>exports 的基本用法</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>// 定义我们希望暴露的更多行为</p>
+<p>function foobar(){</p>
+<pre><code>this.foo = function(){
+
+        console.log(&apos;Hello foo&apos;);
+
+}
+
+this.bar = function(){
+
+        console.log(&apos;Hello bar&apos;);
+
+}
+</code></pre><p>}</p>
+<p>// 把 foobar 暴露给其它模块</p>
+<p>exports.foobar = foobar;</p>
+<p>require 的基本用法</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>// 一个使用了 ‘foobar’ 的应用</p>
+<p>// 相对于使用文件与模块文件所在的同一目录路径获取模块</p>
+<p>var foobar = require(‘./foobar’).foobar,</p>
+<pre><code>test = new foobar();
+</code></pre><p>test.bar(); // ‘Hello bar’</p>
+<h3 id="在浏览器中使用-CommonJS"><a href="#在浏览器中使用-CommonJS" class="headerlink" title="在浏览器中使用 CommonJS"></a><a href="#在浏览器中使用-CommonJS" title="在浏览器中使用 CommonJS"></a>在浏览器中使用 CommonJS</h3><p>浏览器并不不兼容CommonJS，要想在浏览器中加载 CommonJS ，我们需要使用模块加载器：Browserify 是目前最常用的 CommonJS 模块加载器。</p>
+<p>但是有些开发者觉得 CommonJS 更适合于服务器端开发，因为很多处理面向服务器端特性的 CommonJS API 根本无法用 JavaScript 在浏览器级别实现。并且，CommonJS 则采用了服务器优先的策略，采取同步行为、服务器端的资源可以保存在服务器本地的硬盘里面，从硬盘里读取资源的速度是很快的。但是当把这种模式运用到浏览器端之后，浏览器必须从web上下载需要的资源，而下载的速度会受到网速的限制，所以一旦我们所需加载的资源较多，或者用户的网速较慢，就会造成浏览器加载全部资源以前处于假死状态，严重影响我们的用户体验。</p>
+<p>所以，浏览器端的模块，不能采用”同步加载”（synchronous），最好采用”异步加载”（asynchronous）。AMD应运而生。</p>
+<h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a><a href="#AMD" title="AMD"></a>AMD</h3><p>AMD是”Asynchronous Module Definition”的缩写，意思就是”异步模块定义”。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。</p>
+<p>AMD帮助消除对全局变量的需求。 每个模块都通过局部变量引用或者返回对象来定义其依赖模块以及输出功能。因此，模块不需要引入全局变量就能够定义其功能并实现与其他模块的交互。AMD同时是“匿名的”，意味着模块不需要硬编码指向其路径的引用， 模块名仅依赖其文件名和目录路径。</p>
+<p>这里你须要先对下面这两个重要的概念有一定的了解：一个用来进行模块定义的 define 方法以及一个用来处理依赖项加载的 require 方法。define 根据如下的方法定义具名或匿名的模块：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>define(</p>
+<pre><code>module_id /*可选*/,
+
+\[dependencies\] /*可选*/,
+
+definition function /*用来初始化模块或对象的函数*/
+</code></pre><p>);</p>
+<p>正如上面展示的，define函数接受三个参数，第一个参数是模块名，可选。第二个参数定义了模块的依赖项，可选。第三个参数是一个初始化模块的函数，是必须的。<br>下面通过一个具体的例子来了解如何使用define定义一个模块：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>define(‘myModule’,</p>
+<pre><code>\[&apos;foo&apos;, &apos;bar&apos;\],
+
+function ( foo, bar ) {
+
+    // 在这里创建模块
+
+    var myModule = {
+
+        //这里可以使用foo模块和bar模块
+
+        doSomething:function(){
+
+            console.log(&apos;Hello world!&apos;);
+
+        }
+
+    }
+
+    return myModule;
+</code></pre><p>});</p>
+<p>AMD也采用require()语句加载模块，但是不同于CommonJS，它要求两个参数：</p>
+<p>1</p>
+<p>　　require([module], callback);</p>
+<p>第一个参数[module]，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。如果将前面的代码改写成AMD形式，就是下面这样：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>　　require([‘foobar’], function (foobar) {</p>
+<p>　　　　foobar.bar(); // ‘Hello bar’</p>
+<p>　　});</p>
+<p>AMD模块也不能在浏览器中直接加载，同样可以使用模块加载器来完成。webpack可以用来加载AMD模块。</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><a href="#总结：" title="总结："></a>总结：</h3><h4 id="模块接口的设设计原则："><a href="#模块接口的设设计原则：" class="headerlink" title="模块接口的设设计原则："></a><a href="#模块接口的设设计原则：" title="模块接口的设设计原则："></a>模块接口的设设计原则：</h4><p>为一个模块设计一个接口是一个非常精妙的工作，接口设计可以采用多种方法，但是我们在设计接口时一定要有远见性，要考虑到以后的使用。为此，模块接口的设计必须遵循以下原则：</p>
+<p>可预见原则：一个网页应用可能是由多个开发人员参与开发的，其他的开发人员可能要使用你的接口，为了不让他花费太多精力查看你的接口的使用方式，你应该尽量保持接口的可预测性。</p>
+<p>可共用原则：一个模块有时不仅仅只用到一个程序中，模块的一大优点就是可以进行代码复用。所以我们要尽量让我们的模块内部的数据结构和实现方法简单明了，让我们的接口可以被不同的模块使用。</p>
+<p>层次接口原则：一个模块应该提供不同层次的接口，如果我们要写一个复杂的程序，这个程序面向不同层次的使用者，我们应该给不同层次的使用者提供不同层次的使用接口。</p>
+<h3 id="ECMAScript-6-Modules"><a href="#ECMAScript-6-Modules" class="headerlink" title="ECMAScript 6 Modules"></a><a href="#ECMAScript-6-Modules" title="ECMAScript 6 Modules"></a>ECMAScript 6 Modules</h3><p>令人振奋的消息是 2015 年 6 月正式发布的 ECMAScript 6 包含了模块规范，采用申明式的语法，使用 import、export 这两个关键字，同时照顾到 Common.JS 社区和 AMD 社区的使用习惯，方便地实现模块的定义和导入。</p>
+<p>新的标准规定使用两个关键字：</p>
+<p>export： 声明了某个模块的本地绑定是外部可见的，这样其它模块就能够读取它们但却无法进行修改。有趣的是，模块可以导出子模块，却无法导出已经在别处定义过的模块。你同样可以给导出重命名来让它们不同于本地的名字。</p>
+<p>import：声明把某个模块的导出绑定为本地变量，并可以重命名来避免命名冲突。</p>
+<p>下面来分别讲解：</p>
+<p>export：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>15</p>
+<p>16</p>
+<p>17</p>
+<p>18</p>
+<p>19</p>
+<p>20</p>
+<p>21</p>
+<p>22</p>
+<p>23</p>
+<p>24</p>
+<p>// export data</p>
+<p>export var color = “red”;</p>
+<p>export let name = “Nicholas”;</p>
+<p>export const magicNumber = 7;</p>
+<p>// export function</p>
+<p>export function sum(num1, num2) {</p>
+<pre><code>return num1 + num1;
+</code></pre><p>}</p>
+<p>// export class</p>
+<p>export class Rectangle {</p>
+<pre><code>constructor(length, width) {
+
+    this.length = length;
+
+    this.width = width;
+
+}
+</code></pre><p>}</p>
+<p>// this function is private to the module</p>
+<p>function subtract(num1, num2) {</p>
+<pre><code>return num1 - num2;
+</code></pre><p>}</p>
+<p>// define a function</p>
+<p>function multiply(num1, num2) {</p>
+<pre><code>return num1 * num2;
+</code></pre><p>}</p>
+<p>// export later</p>
+<h4 id="export-multiply"><a href="#export-multiply" class="headerlink" title="export multiply;"></a><a href="#export-multiply" title="export multiply;"></a>export multiply;</h4><p>我们只需在在原JS的声明前加上export关键字就可以导出数据、类、函数。也可以先定义后导出。而模块中未加export关键字的数据、类和函数都将为模块所私有。</p>
+<p>但是需要注意的是该关键字只能在顶级作用域中使用，类似下面的用法是明显的语法错误：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>if (flag) {</p>
+<pre><code>export flag;    // syntax error
+</code></pre><p>}</p>
+<h4 id="import"><a href="#import" class="headerlink" title="import:"></a><a href="#import" title="import:"></a>import:</h4><p>一旦我们把一个模块导出，这个模块就可以使用关键字import导入，语法如下：</p>
+<p>1</p>
+<p>import { identifier1, identifier2 } from “module”;</p>
+<p>identifier1, identifier2是要导入的模块，module是被导入的模块的来源。</p>
+<p>identifiers的具体写法还没有确定下来，可能要等到浏览器和node.js开始原生的使用模块时才会确定identifiers的具体格式。</p>
+<p>可以使用import关键字从一个文件中导入多个模块。</p>
+<p>1</p>
+<p>import { module1, module2 [,module3,…]} from “example”;</p>
+<p>如果要从一个文件中导入所有的模块：</p>
+<p>1</p>
+<p>import * as example from “example”;</p>
+<p>源文件中的所有模块都被导入，并且被命名为example，源文件中所有的模块都变成example的属性，调用方式为：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>// import everything</p>
+<p>import * as example from “example”;</p>
+<p>console.log(example.sum(1,</p>
+<pre><code>example.magicNumber));          // 8
+</code></pre><p>console.log(example.multiply(1, 2));    // 2</p>
+<p>被导入的模块还可以重命名：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>import { add as sum } from “example”;</p>
+<p>console.log(typeof add);            // “undefined”</p>
+<p>console.log(sum(1, 2));             // 3</p>
+<p>从一个模块中导入一个标示符后，这个标示符将表现的和使用const关键字定义的标示符一样，不能被重新赋值：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>import { sum } from “example”;</p>
+<p>console.log(sum(1, 2));     // 3</p>
+<p>sum = 1;        // error</p>
+<p>每一个模块都可以且仅可以定义一个默认值，语法如下：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>//默认值可以是函数、变量或者类，这里以函数为例</p>
+<p>export default function(num1, num2) {</p>
+<pre><code>return num1 + num2;
+</code></pre><p>}</p>
+<p>导入时的语法：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>// import the default</p>
+<p>import sum from “example”;</p>
+<p>console.log(sum(1, 2));     // 3</p>
+<p>或者：</p>
+<p>1</p>
+<p>2</p>
+<p>import { default as sum} from “example”;</p>
+<p>console.log(sum(1, 2));     // 3</p>
+<p>再次导出：</p>
+<p>我们可以把已经导入的模块再次导出，并且可以在此过程中进行重命名：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>import { sum } from “example”;</p>
+<p>export { sum }</p>
+<p>//or</p>
+<p>export { sum as add } from “example”;</p>
+<p>//export everything from another module</p>
+<p>export * from “example”;</p>
+<p>需要注意的是，import关键字会将导入的变量、函数和类绑定到本地，你依然可以在本地通过导入的模块去修改它们。</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>export var name = “Nicholas”;</p>
+<p>export function setName(newName) {</p>
+<pre><code>name = newName;
+</code></pre><p>}</p>
+<p>import { name, setName } from “example”;</p>
+<p>console.log(name);       // “Nicholas”</p>
+<p>setName(“Greg”);</p>
+<p>console.log(name);       // “Greg”</p>
+<p>参考资料：</p>
+<p>1.<a href="https://www.safaribooksonline.com/library/view/eloquent-javascript-2nd/9781457189821/ch10.html" target="_blank" rel="noopener">Eloquent JavaScript-Chapter 10. Modules</a></p>
+<p>2.<a href="https://leanpub.com/understandinges6/read/#leanpub-auto-modules" target="_blank" rel="noopener">Understanding ECMAScript 6-Modules</a></p>
+<p>3.<a href="http://justineo.github.io/singles/writing-modular-js/" target="_blank" rel="noopener">使用 AMD、CommonJS 及 ES Harmony 编写模块化的 JavaScript</a></p>
+<p>4.<a href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html" target="_blank" rel="noopener">Javascript模块化编程（一）：模块的写法</a></p>
+<p>5.<a href="http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html" target="_blank" rel="noopener">Javascript模块化编程（二）：模块的写法</a></p>
+<p>6.<a href="http://www.ruanyifeng.com/blog/2012/11/require_js.html" target="_blank" rel="noopener">Javascript模块化编程（三）：模块的写法</a></p>
+<p>7.<a href="http://lishaopeng.com/2016/02/05/js-module/" target="_blank" rel="noopener">后端程序员的 JavaScript 之旅 - 模块化（一） | 简书</a></p>
+<p>8.<a href="http://lishaopeng.com/2016/02/11/js-module2/" target="_blank" rel="noopener">后端程序员的 JavaScript 之旅 - 模块化（二） | 简书</a></p>
+<p>9.<a href="http://lishaopeng.com/2016/02/19/js-module3/" target="_blank" rel="noopener">后端程序员的 JavaScript 之旅 - 模块化（三） | 简书</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        <div class="alignright">
+          <a href="/2018/02/01/JavaScript-Modules/#comment" class="comment-link">Comments</a>
+        </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+        <div class="icon"></div>
+        
         <time datetime="2018-01-31T16:02:55.000Z"><a href="/2018/02/01/JavaScript-Scope/">2018-02-01</a></time>
         
   
@@ -863,7 +3445,7 @@ padding:0;
   
   <div class="widget tag">
     <h3 class="title">归档</h3>
-	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">14</span></li></ul>
+	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">19</span></li></ul>
   </div>
 
 </aside>
