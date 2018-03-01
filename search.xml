@@ -3,6 +3,14 @@
   
     
     <entry>
+      <title><![CDATA[测试]]></title>
+      <url>/2018/03/01/%E6%B5%8B%E8%AF%95/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[函数节流和函数去抖]]></title>
       <url>/2018/02/26/Throttling%20and%20Debouncing%20in%20JavaScrip/</url>
       <content type="html"></content>
