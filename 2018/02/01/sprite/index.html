@@ -64,18 +64,18 @@
 	<div class='header-nav-content inner'>
 		<div id="main-nav" class="alignleft">
 		    		
-		    		  <a href="/"><i class="fa fa-home"></i>Home</a>
+		    		  <a href="/"><i class="fa fa-home"></i>首页</a>
 		    		
-		    		  <a href="/archives"><i class="fa fa-archive"></i>Archives</a>
+		    		  <a href="/archives"><i class="fa fa-archive"></i>归档</a>
 		    		
 		</div>
 		<div id="sub-nav" class="alignright">
 		    
-		      <a href="/atom.xml"><i class="fa fa-rss"></i>Rss</a>
+		      <a href="/atom.xml"><i class="fa fa-rss"></i>订阅</a>
 		    
-		      <a href="/customization"><i class="fa fa-question-circle"></i>Customization</a>
+		      <a href="/customization"><i class="fa fa-question-circle"></i>留言</a>
 		    
-		      <a href="/about"><i class="fa fa-"></i>About</a>
+		      <a href="/about"><i class="fa fa-"></i>关于我</a>
 		    
 		</div>
 	</div>
@@ -122,446 +122,18 @@
 <p>下面我将以<code>webpack</code>+<code>webpack-spritesmith</code>为例来讲解如何制作雪碧图：</p>
 <p><a href="https://github.com/mixtur/webpack-spritesmith" target="_blank" rel="noopener">webpack-spritesmith</a>是一个在<a href="https://github.com/Ensighten/spritesmith" target="_blank" rel="noopener">spritesmith</a>的基础上制作的一个工具，关于如何配合webpack使用可以阅读相关文档，也可以参考<a href="http://kyon-df.com/2016/03/16/webpack_auto_sprites/" target="_blank" rel="noopener">webpack自动雪碧图生成</a>。我在这里给出一种配置方式:</p>
 <p>webpack.config.js：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>13</p>
-<p>14</p>
-<p>15</p>
-<p>16</p>
-<p>17</p>
-<p>18</p>
-<p>19</p>
-<p>20</p>
-<p>21</p>
-<p>22</p>
-<p>23</p>
-<p>24</p>
-<p>25</p>
-<p>var SpritesmithPlugin = require(‘webpack-spritesmith’)</p>
-<p>new SpritesmithPlugin({</p>
-<pre><code>/*合成之前对源图片文件的配置*/
-
-src: {
-
-    /*子图片存放的路径（相对于更路径）*/
-
-    cwd: &apos;./static/img&apos;,
-
-    /*规定后缀名为png的图片合并成雪碧图*/
-
-    glob: &apos;*.png&apos;
-
-},
-
-/*对合成之后产生文件的配置*/
-
-target: {
-
-    /*雪碧图存放的路径（相对于更路径）*/
-
-    image: &apos;./src/assets/sprite.png&apos;,
-
-    /*合成生成的scss文件存放的路径（相对于更路径）*/
-
-    css: &apos;./static/style/_sprite.scss&apos;
-
-},
-
-apiOptions: {
-
-    /*合成生成的scss中雪碧图的路径，将用于background-image的url*/
-
-    cssImageRef: &apos;../assets/sprite.png&apos;
-
-},
-
-spritesmithOptions: {
-
-    /*合成之后雪碧图中子图片的排列方式，top-down为从上往下排列*/
-
-    algorithm: &apos;top-down&apos;
-
-}
-</code></pre><p>})</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var SpritesmithPlugin = require(&apos;webpack-spritesmith&apos;)</span><br><span class="line"></span><br><span class="line">new SpritesmithPlugin(&#123;</span><br><span class="line"></span><br><span class="line">    /*合成之前对源图片文件的配置*/</span><br><span class="line"></span><br><span class="line">    src: &#123;</span><br><span class="line"></span><br><span class="line">        /*子图片存放的路径（相对于更路径）*/</span><br><span class="line"></span><br><span class="line">        cwd: &apos;./static/img&apos;,</span><br><span class="line"></span><br><span class="line">        /*规定后缀名为png的图片合并成雪碧图*/</span><br><span class="line"></span><br><span class="line">        glob: &apos;*.png&apos;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    /*对合成之后产生文件的配置*/</span><br><span class="line"></span><br><span class="line">    target: &#123;</span><br><span class="line"></span><br><span class="line">        /*雪碧图存放的路径（相对于更路径）*/</span><br><span class="line"></span><br><span class="line">        image: &apos;./src/assets/sprite.png&apos;,</span><br><span class="line"></span><br><span class="line">        /*合成生成的scss文件存放的路径（相对于更路径）*/</span><br><span class="line"></span><br><span class="line">        css: &apos;./static/style/_sprite.scss&apos;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    apiOptions: &#123;</span><br><span class="line"></span><br><span class="line">        /*合成生成的scss中雪碧图的路径，将用于background-image的url*/</span><br><span class="line"></span><br><span class="line">        cssImageRef: &apos;../assets/sprite.png&apos;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    spritesmithOptions: &#123;</span><br><span class="line"></span><br><span class="line">        /*合成之后雪碧图中子图片的排列方式，top-down为从上往下排列*/</span><br><span class="line"></span><br><span class="line">        algorithm: &apos;top-down&apos;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>做好相关配置后，运行<code>webpack-spritesmith</code>会生成一份<code>_sprite.scss</code>文件(文件名与配置有关)。我们可以看到在这份文件中自动生成了合并之前的每个单份图片的<strong>尺寸、偏移量、名称、路径</strong>。同时还贴心的给我们写好了<code>mixin</code>,我们在使用的时候只需要引入这份scss文件，然后引入mixin就可以引入图片了。代码示例如下,我在代码注释中也对重要的部分做了说明：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>13</p>
-<p>14</p>
-<p>15</p>
-<p>16</p>
-<p>17</p>
-<p>18</p>
-<p>19</p>
-<p>20</p>
-<p>21</p>
-<p>22</p>
-<p>23</p>
-<p>24</p>
-<p>25</p>
-<p>26</p>
-<p>27</p>
-<p>28</p>
-<p>29</p>
-<p>30</p>
-<p>31</p>
-<p>32</p>
-<p>33</p>
-<p>34</p>
-<p>35</p>
-<p>36</p>
-<p>37</p>
-<p>38</p>
-<p>39</p>
-<p>40</p>
-<p>41</p>
-<p>42</p>
-<p>43</p>
-<p>44</p>
-<p>45</p>
-<p>46</p>
-<p>47</p>
-<p>48</p>
-<p>49</p>
-<p>50</p>
-<p>51</p>
-<p>52</p>
-<p>53</p>
-<p>54</p>
-<p>55</p>
-<p>56</p>
-<p>57</p>
-<p>58</p>
-<p>59</p>
-<p>60</p>
-<p>61</p>
-<p>62</p>
-<p>63</p>
-<p>64</p>
-<p>65</p>
-<p>66</p>
-<p>67</p>
-<p>68</p>
-<p>69</p>
-<p>70</p>
-<p>71</p>
-<p>72</p>
-<p>73</p>
-<p>74</p>
-<p>75</p>
-<p>76</p>
-<p>77</p>
-<p>78</p>
-<p>79</p>
-<p>80</p>
-<p>81</p>
-<p>82</p>
-<p>83</p>
-<p>84</p>
-<p>85</p>
-<p>86</p>
-<p>87</p>
-<p>88</p>
-<p>89</p>
-<p>90</p>
-<p>91</p>
-<p>92</p>
-<p>93</p>
-<p>94</p>
-<p>95</p>
-<p>96</p>
-<p>97</p>
-<p>98</p>
-<p>99</p>
-<p>100</p>
-<p>101</p>
-<p>102</p>
-<p>103</p>
-<p>104</p>
-<p>105</p>
-<p>106</p>
-<p>107</p>
-<p>108</p>
-<p>109</p>
-<p>110</p>
-<p>111</p>
-<p>112</p>
-<p>113</p>
-<p>114</p>
-<p>115</p>
-<p>116</p>
-<p>117</p>
-<p>118</p>
-<p>119</p>
-<p>120</p>
-<p>121</p>
-<p>122</p>
-<p>123</p>
-<p>124</p>
-<p>125</p>
-<p>126</p>
-<p>127</p>
-<p>128</p>
-<p>129</p>
-<p>130</p>
-<p>131</p>
-<p>132</p>
-<p>133</p>
-<p>134</p>
-<p>135</p>
-<p>136</p>
-<p>137</p>
-<p>138</p>
-<p>139</p>
-<p>140</p>
-<p>141</p>
-<p>142</p>
-<p>143</p>
-<p>144</p>
-<p>145</p>
-<p>146</p>
-<p>147</p>
-<p>148</p>
-<p>149</p>
-<p>150</p>
-<p>151</p>
-<p>152</p>
-<p>153</p>
-<p>154</p>
-<p>155</p>
-<p>156</p>
-<p>157</p>
-<p>158</p>
-<p>159</p>
-<p>160</p>
-<p>161</p>
-<p>162</p>
-<p>163</p>
-<p>164</p>
-<p>/*</p>
-<p>SCSS variables are information about icon’s compiled state, stored under its original file name</p>
-<p>.icon-home {</p>
-<pre><code>width: $icon-home-width;
-</code></pre><p>}</p>
-<p>The large array-like variables contain all information about a single icon</p>
-<p>$icon-home: x y offset_x offset_y width height total_width total_height image_path;</p>
-<p>At the bottom of this section, we provide information about the spritesheet itself</p>
-<p>$spritesheet: width height image $spritesheet-sprites;</p>
-<p>*/</p>
-<p>$img-1-name: ‘img_1’;    /<em>子图片名（去掉了后缀名），在引入子图时作为参数传入mixin</em>/</p>
-<p>$img-1-x: 0px;    /<em>子图片img-1，在x轴上的坐标</em>/</p>
-<p>$img-1-y: 0px;    /<em>子图片img-1，在y轴上的坐标</em>/</p>
-<p>/<em>在引入子图片img-1，在x轴上的偏移量，将用于background-position</em>/</p>
-<p>$img-1-offset-x: 0px;    </p>
-<p>/<em>在引入子图片img-1，在y轴上的偏移量，将用于background-position</em>/</p>
-<p>$img-1-offset-y: 0px;    </p>
-<p>$img-1-width: 1444px;    /<em>子图片img-1的宽度</em>/</p>
-<p>$img-1-height: 893px;    /<em>子图片img-1的高度</em>/</p>
-<p>$img-1-total-width: 1920px;    /<em>整张雪碧图的宽度</em>/</p>
-<p>$img-1-total-height: 3009px;    /<em>整张雪碧图的高度</em>/</p>
-<p>/<em>雪碧图的路径，用于background-image的url</em>/</p>
-<p>$img-1-image: ‘../assets/sprite.png’;</p>
-<p>/<em>定义一个数据地图（可以理解为数组）,方便mixin中对上面的各个值引用,要使用每个子图的偏移量、高度、宽度等数据时直接使用nth(img-1-name, n)</em>/ </p>
-<p>$img-1: (0px, 0px, 0px, 0px, 1444px, 893px, 1920px, 3009px, ‘../assets/sprite.png’, ‘img_1’, );</p>
-<p>$img-2-name: ‘img_2’;</p>
-<p>$img-2-x: 0px;</p>
-<p>$img-2-y: 893px;</p>
-<p>$img-2-offset-x: 0px;</p>
-<p>$img-2-offset-y: -893px;</p>
-<p>$img-2-width: 1719px;</p>
-<p>$img-2-height: 1037px;</p>
-<p>$img-2-total-width: 1920px;</p>
-<p>$img-2-total-height: 3009px;</p>
-<p>$img-2-image: ‘../assets/sprite.png’;</p>
-<p>$img-2: (0px, 893px, 0px, -893px, 1719px, 1037px, 1920px, 3009px, ‘../assets/sprite.png’, ‘img_2’, );</p>
-<p>$img-3-name: ‘img_3’;</p>
-<p>$img-3-x: 0px;</p>
-<p>$img-3-y: 1930px;</p>
-<p>$img-3-offset-x: 0px;</p>
-<p>$img-3-offset-y: -1930px;</p>
-<p>$img-3-width: 1920px;</p>
-<p>$img-3-height: 1079px;</p>
-<p>$img-3-total-width: 1920px;</p>
-<p>$img-3-total-height: 3009px;</p>
-<p>$img-3-image: ‘../assets/sprite.png’;</p>
-<p>$img-3: (0px, 1930px, 0px, -1930px, 1920px, 1079px, 1920px, 3009px, ‘../assets/sprite.png’, ‘img_3’, );</p>
-<p>$spritesheet-width: 1920px;</p>
-<p>$spritesheet-height: 3009px;</p>
-<p>$spritesheet-image: ‘../assets/sprite.png’;</p>
-<p>$spritesheet-sprites: ($img-1, $img-2, $img-3, );</p>
-<p>$spritesheet: (1920px, 3009px, ‘../assets/sprite.png’, $spritesheet-sprites, );</p>
-<p>/*</p>
-<p>The provided mixins are intended to be used with the array-like variables</p>
-<p>.icon-home {</p>
-<pre><code>@include sprite-width($icon-home);
-</code></pre><p>}</p>
-<p>.icon-email {</p>
-<pre><code>@include sprite($icon-email);
-</code></pre><p>}</p>
-<p>Example usage in HTML:</p>
-<p>`display: block` sprite:</p>
-<div class="icon-home"></div>
-
-<p>To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:</p>
-<p>// CSS</p>
-<p>.icon {</p>
-<pre><code>display: inline-block;
-</code></pre><p>}</p>
-<p>// HTML</p>
-<p><i class="icon icon-home"></i></p>
-<p>*/</p>
-<p>/*</p>
-<p>定义一个使用雪碧图的宽度值的width属性</p>
-<p> */</p>
-<p>@mixin sprite-width($sprite) {</p>
-<pre><code>width: nth($sprite, 5);
-</code></pre><p>}</p>
-<p>/*</p>
-<p>定义一个使用雪碧图的高度值的height属性</p>
-<p> */</p>
-<p>@mixin sprite-height($sprite) {</p>
-<pre><code>height: nth($sprite, 6);
-</code></pre><p>}</p>
-<p>/*</p>
-<p>使用子图偏移量来设置background-position的值</p>
-<p> */</p>
-<p>@mixin sprite-position($sprite) {</p>
-<pre><code>$sprite-offset-x: nth($sprite, 3);
-
-$sprite-offset-y: nth($sprite, 4);
-
-background-position: $sprite-offset-x  $sprite-offset-y;
-</code></pre><p>}</p>
-<p>/*</p>
-<p>定义雪碧图的路径</p>
-<p> */</p>
-<p>@mixin sprite-image($sprite) {</p>
-<pre><code>$sprite-image: nth($sprite, 9);
-
-background-image: url(#{$sprite-image});
-</code></pre><p>}</p>
-<p>/*</p>
-<p>把上面的代码块导入到名为sprite的mixin中，使用时导入这个代码块就同时配置了背景图片的路径、显示位置、宽度、高度</p>
-<p>*/</p>
-<p>@mixin sprite($sprite) {</p>
-<pre><code>/*定义雪碧图的路径*/
-
-@include sprite-image($sprite);
-
-//使用background-position来让雪碧图只显示某个特定部分*/
-
-@include sprite-position($sprite);
-
-//定义使用雪碧图的容器的宽度*/
-
-@include sprite-width($sprite);
-
-//定义使用雪碧图的容器的高*/
-
-@include sprite-height($sprite);
-</code></pre><p>}</p>
-<p>/*</p>
-<p>The `sprites` mixin generates identical output to the CSS template</p>
-<p>but can be overridden inside of SCSS</p>
-<p>@include sprites($spritesheet-sprites);</p>
-<p>*/</p>
-<p>/*</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"></span><br><span class="line">SCSS variables are information about icon&apos;s compiled state, stored under its original file name</span><br><span class="line"></span><br><span class="line">.icon-home &#123;</span><br><span class="line">    width: $icon-home-width;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">The large array-like variables contain all information about a single icon</span><br><span class="line"></span><br><span class="line">$icon-home: x y offset_x offset_y width height total_width total_height image_path;</span><br><span class="line"></span><br><span class="line">At the bottom of this section, we provide information about the spritesheet itself</span><br><span class="line"></span><br><span class="line">$spritesheet: width height image $spritesheet-sprites;</span><br><span class="line"></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">$img-1-name: &apos;img_1&apos;;    /*子图片名（去掉了后缀名），在引入子图时作为参数传入mixin*/</span><br><span class="line"></span><br><span class="line">$img-1-x: 0px;    /*子图片img-1，在x轴上的坐标*/</span><br><span class="line"></span><br><span class="line">$img-1-y: 0px;    /*子图片img-1，在y轴上的坐标*/</span><br><span class="line"></span><br><span class="line">/*在引入子图片img-1，在x轴上的偏移量，将用于background-position*/</span><br><span class="line"></span><br><span class="line">$img-1-offset-x: 0px;    </span><br><span class="line"></span><br><span class="line">/*在引入子图片img-1，在y轴上的偏移量，将用于background-position*/</span><br><span class="line"></span><br><span class="line">$img-1-offset-y: 0px;    </span><br><span class="line"></span><br><span class="line">$img-1-width: 1444px;    /*子图片img-1的宽度*/</span><br><span class="line"></span><br><span class="line">$img-1-height: 893px;    /*子图片img-1的高度*/</span><br><span class="line"></span><br><span class="line">$img-1-total-width: 1920px;    /*整张雪碧图的宽度*/</span><br><span class="line"></span><br><span class="line">$img-1-total-height: 3009px;    /*整张雪碧图的高度*/</span><br><span class="line"></span><br><span class="line">/*雪碧图的路径，用于background-image的url*/</span><br><span class="line"></span><br><span class="line">$img-1-image: &apos;../assets/sprite.png&apos;;</span><br><span class="line"></span><br><span class="line">/*定义一个数据地图（可以理解为数组）,方便mixin中对上面的各个值引用,要使用每个子图的偏移量、高度、宽度等数据时直接使用nth(img-1-name, n)*/ </span><br><span class="line"></span><br><span class="line">$img-1: (0px, 0px, 0px, 0px, 1444px, 893px, 1920px, 3009px, &apos;../assets/sprite.png&apos;, &apos;img_1&apos;, );</span><br><span class="line"></span><br><span class="line">$img-2-name: &apos;img_2&apos;;</span><br><span class="line"></span><br><span class="line">$img-2-x: 0px;</span><br><span class="line"></span><br><span class="line">$img-2-y: 893px;</span><br><span class="line"></span><br><span class="line">$img-2-offset-x: 0px;</span><br><span class="line"></span><br><span class="line">$img-2-offset-y: -893px;</span><br><span class="line"></span><br><span class="line">$img-2-width: 1719px;</span><br><span class="line"></span><br><span class="line">$img-2-height: 1037px;</span><br><span class="line"></span><br><span class="line">$img-2-total-width: 1920px;</span><br><span class="line"></span><br><span class="line">$img-2-total-height: 3009px;</span><br><span class="line"></span><br><span class="line">$img-2-image: &apos;../assets/sprite.png&apos;;</span><br><span class="line"></span><br><span class="line">$img-2: (0px, 893px, 0px, -893px, 1719px, 1037px, 1920px, 3009px, &apos;../assets/sprite.png&apos;, &apos;img_2&apos;, );</span><br><span class="line"></span><br><span class="line">$img-3-name: &apos;img_3&apos;;</span><br><span class="line"></span><br><span class="line">$img-3-x: 0px;</span><br><span class="line"></span><br><span class="line">$img-3-y: 1930px;</span><br><span class="line"></span><br><span class="line">$img-3-offset-x: 0px;</span><br><span class="line"></span><br><span class="line">$img-3-offset-y: -1930px;</span><br><span class="line"></span><br><span class="line">$img-3-width: 1920px;</span><br><span class="line"></span><br><span class="line">$img-3-height: 1079px;</span><br><span class="line"></span><br><span class="line">$img-3-total-width: 1920px;</span><br><span class="line"></span><br><span class="line">$img-3-total-height: 3009px;</span><br><span class="line"></span><br><span class="line">$img-3-image: &apos;../assets/sprite.png&apos;;</span><br><span class="line"></span><br><span class="line">$img-3: (0px, 1930px, 0px, -1930px, 1920px, 1079px, 1920px, 3009px, &apos;../assets/sprite.png&apos;, &apos;img_3&apos;, );</span><br><span class="line"></span><br><span class="line">$spritesheet-width: 1920px;</span><br><span class="line"></span><br><span class="line">$spritesheet-height: 3009px;</span><br><span class="line"></span><br><span class="line">$spritesheet-image: &apos;../assets/sprite.png&apos;;</span><br><span class="line"></span><br><span class="line">$spritesheet-sprites: ($img-1, $img-2, $img-3, );</span><br><span class="line"></span><br><span class="line">$spritesheet: (1920px, 3009px, &apos;../assets/sprite.png&apos;, $spritesheet-sprites, );</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line"></span><br><span class="line">The provided mixins are intended to be used with the array-like variables</span><br><span class="line"></span><br><span class="line">.icon-home &#123;</span><br><span class="line"></span><br><span class="line">    @include sprite-width($icon-home);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.icon-email &#123;</span><br><span class="line"></span><br><span class="line">    @include sprite($icon-email);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Example usage in HTML:</span><br><span class="line"></span><br><span class="line">`display: block` sprite:</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;icon-home&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:</span><br><span class="line"></span><br><span class="line">// CSS</span><br><span class="line"></span><br><span class="line">.icon &#123;</span><br><span class="line"></span><br><span class="line">    display: inline-block;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// HTML</span><br><span class="line"></span><br><span class="line">&lt;i class=&quot;icon icon-home&quot;&gt;&lt;/i&gt;</span><br><span class="line"></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line"></span><br><span class="line">定义一个使用雪碧图的宽度值的width属性</span><br><span class="line"></span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">@mixin sprite-width($sprite) &#123;</span><br><span class="line"></span><br><span class="line">    width: nth($sprite, 5);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line"></span><br><span class="line">定义一个使用雪碧图的高度值的height属性</span><br><span class="line"></span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">@mixin sprite-height($sprite) &#123;</span><br><span class="line"></span><br><span class="line">    height: nth($sprite, 6);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line"></span><br><span class="line">使用子图偏移量来设置background-position的值</span><br><span class="line"></span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">@mixin sprite-position($sprite) &#123;</span><br><span class="line"></span><br><span class="line">    $sprite-offset-x: nth($sprite, 3);</span><br><span class="line"></span><br><span class="line">    $sprite-offset-y: nth($sprite, 4);</span><br><span class="line"></span><br><span class="line">    background-position: $sprite-offset-x  $sprite-offset-y;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line"></span><br><span class="line">定义雪碧图的路径</span><br><span class="line"></span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">@mixin sprite-image($sprite) &#123;</span><br><span class="line"></span><br><span class="line">    $sprite-image: nth($sprite, 9);</span><br><span class="line"></span><br><span class="line">    background-image: url(#&#123;$sprite-image&#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line"></span><br><span class="line">把上面的代码块导入到名为sprite的mixin中，使用时导入这个代码块就同时配置了背景图片的路径、显示位置、宽度、高度</span><br><span class="line"></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">@mixin sprite($sprite) &#123;</span><br><span class="line"></span><br><span class="line">    /*定义雪碧图的路径*/</span><br><span class="line"></span><br><span class="line">    @include sprite-image($sprite);</span><br><span class="line"></span><br><span class="line">    //使用background-position来让雪碧图只显示某个特定部分*/</span><br><span class="line"></span><br><span class="line">    @include sprite-position($sprite);</span><br><span class="line"></span><br><span class="line">    //定义使用雪碧图的容器的宽度*/</span><br><span class="line"></span><br><span class="line">    @include sprite-width($sprite);</span><br><span class="line"></span><br><span class="line">    //定义使用雪碧图的容器的高*/</span><br><span class="line"></span><br><span class="line">    @include sprite-height($sprite);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>使用这个mixin传入多个参数可以循环引入多张子图</p>
-<p>如：</p>
-<p>$sprites:($img_1,$img_2,$img_3)</p>
-<p>body {</p>
-<pre><code>@include sprites($sprites)
-</code></pre><p>}</p>
+<p>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$sprites:($img_1,$img_2,$img_3)</span><br><span class="line"></span><br><span class="line">body &#123;</span><br><span class="line"></span><br><span class="line">    @include sprites($sprites)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>效果等同与：</p>
-<p>body {</p>
-<pre><code>.img_1 {
-
-    @include sprite($img_1)
-
-}
-
-.img_2 {
-
-    @include sprite($img_2)
-
-}
-
-.img_2 {
-
-    @include sprite($img_2)
-
-}
-</code></pre><p>}</p>
-<p> */</p>
-<p>@mixin sprites($sprites) {</p>
-<pre><code>@each $sprite in $sprites {
-
-    $sprite-name: nth($sprite, 10);
-
-    .#{$sprite-name} {
-
-        @include sprite($sprite);
-
-    }
-
-}
-</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line"></span><br><span class="line">    .img_1 &#123;</span><br><span class="line"></span><br><span class="line">        @include sprite($img_1)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .img_2 &#123;</span><br><span class="line"></span><br><span class="line">        @include sprite($img_2)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .img_2 &#123;</span><br><span class="line"></span><br><span class="line">        @include sprite($img_2)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@mixin sprites($sprites) &#123;</span><br><span class="line"></span><br><span class="line">    @each $sprite in $sprites &#123;</span><br><span class="line"></span><br><span class="line">        $sprite-name: nth($sprite, 10);</span><br><span class="line"></span><br><span class="line">        .#&#123;$sprite-name&#125; &#123;</span><br><span class="line"></span><br><span class="line">            @include sprite($sprite);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>为了在线演示，将背景图片的url改成了在线地址.</p>
 <p>如果在某个地方需要使用雪碧图作为背景，我们只要引入这份SCSS文件，然后再使用它的地方导入mixin就可以了。例如有如下的HTML结构需要使用雪碧图作为背景：</p>
-<p>1</p>
-<p>2</p>
-<p>/<em>这个div需要使用img_1.png作为背景图片.</em>/</p>
-<div class="icon\_img\_1"></div>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/*这个div需要使用img_1.png作为背景图片.*/</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;icon_img_1&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <p>我们只需要在这样写SCSS代码：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>13</p>
-<p>/*假设雪碧图生成的SCSS文件的相对路径是_sprite.scss.</p>
-<p>/<em>引入雪碧图生成的SCSS文件</em>/</p>
-<p>@import url(‘./scss/_sprite.scss’)</p>
-<p>/<em>导入mixin</em>/</p>
-<p>.icon_img_1 {</p>
-<pre><code>/*
-
-其他定义类名为icon\_img\_1的div样式的SCSS代码
-
- */
-
-/*参数为以美元符号开头的去掉后缀的子图片文件名*/
-
-@include sprite($img_1)
-</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">/*假设雪碧图生成的SCSS文件的相对路径是_sprite.scss.</span><br><span class="line"></span><br><span class="line">/*引入雪碧图生成的SCSS文件*/</span><br><span class="line"></span><br><span class="line">@import url(&apos;./scss/_sprite.scss&apos;)</span><br><span class="line"></span><br><span class="line">/*导入mixin*/</span><br><span class="line"></span><br><span class="line">.icon_img_1 &#123;</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line"></span><br><span class="line">    其他定义类名为icon_img_1的div样式的SCSS代码</span><br><span class="line"></span><br><span class="line">     */</span><br><span class="line"></span><br><span class="line">    /*参数为以美元符号开头的去掉后缀的子图片文件名*/</span><br><span class="line"></span><br><span class="line">    @include sprite($img_1)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="使用background-position调整雪碧图"><a href="#使用background-position调整雪碧图" class="headerlink" title="使用background-position调整雪碧图"></a><a href="#使用background-position调整雪碧图" title="使用background-position调整雪碧图"></a>使用background-position调整雪碧图</h2><p>首先介绍一下使用background-position调整雪碧图位置的原理，非小白可以直接看下一部分。</p>
 <p>我们要引入雪碧图张的一张子图作为容器的背景图，我们必须控制只有这个子图显示在容器里，CSS设置背景图的众多属性中有一个属性background-position是设置背景图在容器里面显示位置的,我们称这个值为偏移量，我们只要使用这个属性控制背景图在容器里面的显示位置，刚好使子图出现在容器中，而雪碧图的其它部分刚好不显示。</p>
 <p><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1478744586/u9z0nzc5s3s4g7ja27uf.png" alt="sprite合成图片-2"></p>
@@ -572,166 +144,47 @@ background-image: url(#{$sprite-image});
 <p>引入子图img_2：<a href="http://codepen.io/no1024/pen/jrpAaR/" target="_blank" rel="noopener">点击查看代码效果</a></p>
 <p>我们现在已经成功引入雪碧图作为背景图片了，这在图片大小是固定的情况下是没有任何问题的。但是如果要求背景图片大小可以随着浏览器窗口大小不同而能够自适应，我们调整浏览器窗口大小，我们发现图片宽高并不能自适应屏幕的宽高.</p>
 <h2 id="容器大小自适应"><a href="#容器大小自适应" class="headerlink" title="容器大小自适应"></a><a href="#容器大小自适应" title="容器大小自适应"></a>容器大小自适应</h2><p>要实现随着浏览器宽度或者高度调整，我们要将雪碧图容器的宽度或者高度设置为百分比，然后再设置背景图片填满容器。这个百分比的计算方式为：</p>
-<p>1</p>
-<p>2</p>
-<p>width:设计图中图片的的宽度/图片所在页面的宽度</p>
-<p>height:设计图中图片的的高度/图片所在页面的高度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">width:设计图中图片的的宽度/图片所在页面的宽度</span><br><span class="line"></span><br><span class="line">height:设计图中图片的的高度/图片所在页面的高度</span><br></pre></td></tr></table></figure>
 <p>下面我们修改一下代码：</p>
 <p>把：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>@mixin sprite-width($sprite) {</p>
-<pre><code>width: nth($sprite, 5);
-</code></pre><p>}</p>
-<p>@mixin sprite-height($sprite) {</p>
-<pre><code>height: nth($sprite, 6);
-</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@mixin sprite-width($sprite) &#123;</span><br><span class="line"></span><br><span class="line">    width: nth($sprite, 5);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@mixin sprite-height($sprite) &#123;</span><br><span class="line"></span><br><span class="line">    height: nth($sprite, 6);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>改为：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>/<em>把容器的宽高改成百分比，这个百分比应该是按照图片占设计图的宽高的百分比，假设改为90%</em>/</p>
-<p>@mixin sprite-width($sprite) {</p>
-<pre><code>width: 90%;
-</code></pre><p>}</p>
-<p>@mixin sprite-height($sprite) {</p>
-<pre><code>height: 90%;
-</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/*把容器的宽高改成百分比，这个百分比应该是按照图片占设计图的宽高的百分比，假设改为90%*/</span><br><span class="line"></span><br><span class="line">@mixin sprite-width($sprite) &#123;</span><br><span class="line"></span><br><span class="line">    width: 90%;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@mixin sprite-height($sprite) &#123;</span><br><span class="line"></span><br><span class="line">    height: 90%;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1478744787/jesf6spf2r9tuqpjppvg.jpg" alt="sprite合成图片-3"></p>
 <p>引入子图img_1：<a href="http://codepen.io/no1024/pen/BLOoqP" target="_blank" rel="noopener">点击查看代码效果</a></p>
 <p><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1478744879/bmmhimkj8gati5vjgf9l.png" alt="sprite合成图片-4"></p>
 <p>引入子图img_2：<a href="http://codepen.io/no1024/pen/ORoyaw" target="_blank" rel="noopener">点击查看代码效果</a></p>
 <p>现在调整屏幕宽高，我们发现容器的大小自适应屏幕的宽高了，但是图片还没有自适应。</p>
 <h2 id="图片大小自适应"><a href="#图片大小自适应" class="headerlink" title="图片大小自适应"></a><a href="#图片大小自适应" title="图片大小自适应"></a>图片大小自适应</h2><p>容器大小自适应了，但是为什么背景图片的大小不能自适应呢？因为我们给<code>background-size</code>设了定值，所以即使容器大小改变，背景图片的大小始终是一个定值。我们要让背景图片大小跟着容器大小一起调整，显然我们需要使用<code>background-size</code>给图片设置一个<strong>相对于容器大小的百分比</strong>。但是这个百分比是多少呢？我们要先明确<code>background-size</code>的计算方式，当<code>background-size</code>的值是<strong>百分比</strong>时，<code>background-size</code>的计算值（浏览器渲染是使用的值）是<code>百分比*容器宽度或高度的计算值</code>，也就是：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>background-size的设置值：</p>
-<p>background-size: x%  y%;</p>
-<p>background-size的计算值：</p>
-<p>background-size: x%<em>容器的宽度  y%</em>容器的高度;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">background-size的设置值：</span><br><span class="line"></span><br><span class="line">background-size: x%  y%;</span><br><span class="line"></span><br><span class="line">background-size的计算值：</span><br><span class="line"></span><br><span class="line">background-size: x%*容器的宽度  y%*容器的高度;</span><br></pre></td></tr></table></figure>
 <p>所以背景图片的展示的时候会被调整为以<code>width:x%*父容器的宽度</code>,<code>height:y%*父容器的高度</code>的图片;</p>
 <p>下面我们看看这个百分比究竟应该设为多少。我们要引入一个子图到一个容器中，那么这个子图要填满容器，子图就应该被设置成容器大小，也就是子图的背景大小应该设置为<code>background-size：100% 100%；</code>，然而<code>background-size</code>会作用到整张雪碧图上，如下：</p>
 <p>我们添加一个<code>background-size</code>的mixin,设置<code>background-size</code>值为100%:</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>@mixin sprite-size($sprite) {</p>
-<pre><code>background-size: 100%  100%;
-</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@mixin sprite-size($sprite) &#123;</span><br><span class="line"></span><br><span class="line">    background-size: 100%  100%;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1478745366/sfc2fokc8jcvxpku8ytn.png" alt="sprite合成图片-5"></p>
 <p>引入子图img_1：<a href="http://codepen.io/no1024/pen/mAGZgx" target="_blank" rel="noopener">点击查看效果</a></p>
 <p>我们看到<code>background-size</code>作用在了整张雪碧图上而不是作用在子图上，通过为背景图片设置<code>backgroun-size:100% 100%;</code>后<strong>整张雪碧图</strong>刚好填满了容器。我们要的只是<strong>其中的某一个子图来填充容器</strong>，那么我们要思考当这个值是多少的时候<strong>整张雪碧图中的子图</strong>刚好是容器的大小。我们知道，生成雪碧图后子图和整张雪碧图都是固定大小的，那么<strong>子图的宽高和整张雪碧图的宽高比例是固定的</strong>，所以我们应当设置整张雪碧图的宽高到<code>(整张雪碧图的宽高/子图的宽高)*100%</code>，此时子图的宽高刚好等于容器的宽高。即backgroun-size`的计算方式应该为：</p>
-<p>1</p>
-<p>background-size: (雪碧图的宽度/子图的宽度)*100% (雪碧图的高度/子图的高度)*100%;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">background-size: (雪碧图的宽度/子图的宽度)\*100% (雪碧图的高度/子图的高度)\*100%;</span><br></pre></td></tr></table></figure>
 <p>在实际应用中，一般会根据浏览器的宽度或者高度来做自适应，如果两个方向上的值都设置会造成图片的拉伸或者压缩，所以background-size只用设置x或者y方向上的值。在下面的例子中我们将讲解如何设置y方向上的值，让x方向上自适应，这样可以保证图片原始的宽高比例。所以我们将:</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>@mixin sprite-size($sprite) {</p>
-<pre><code>background-size: 100%  100%;
-</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@mixin sprite-size($sprite) &#123;</span><br><span class="line"></span><br><span class="line">    background-size: 100%  100%;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>改为：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>@mixin sprite-size($sprite,$img_height) {</p>
-<pre><code>$sprite-total-height: nth($sprite, 8);
-
-background-size: auto  ($sprite-total-height / $img_height) \* 100%;
-</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@mixin sprite-size($sprite,$img_height) &#123;</span><br><span class="line"></span><br><span class="line">    $sprite-total-height: nth($sprite, 8);</span><br><span class="line"></span><br><span class="line">    background-size: auto  ($sprite-total-height / $img_height) \* 100%;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>对应的我们也要修改引入mixin的方式：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>@mixin sprite($sprite,$img_height) {</p>
-<pre><code>/*增加参数$img_height*/
-
-@include sprite-size($sprite,$img_height);
-
-@include sprite-image($sprite);
-
-@include sprite-width($sprite);
-
-@include sprite-height($sprite);
-</code></pre><p>}</p>
-<p>.box {</p>
-<pre><code>/*增加参数$img_height*/
-
-@include sprite($img-1,893px);
-</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">@mixin sprite($sprite,$img_height) &#123;</span><br><span class="line"></span><br><span class="line">    /*增加参数$img_height*/</span><br><span class="line"></span><br><span class="line">    @include sprite-size($sprite,$img_height);</span><br><span class="line"></span><br><span class="line">    @include sprite-image($sprite);</span><br><span class="line"></span><br><span class="line">    @include sprite-width($sprite);</span><br><span class="line"></span><br><span class="line">    @include sprite-height($sprite);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.box &#123;</span><br><span class="line"></span><br><span class="line">    /*增加参数$img_height*/</span><br><span class="line"></span><br><span class="line">    @include sprite($img-1,893px);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1478745545/vp2tjvkeom75qahcltof.png" alt="sprite合成图片-6"></p>
 <p>引入子图img_1：<a href="http://codepen.io/no1024/pen/xEakxq" target="_blank" rel="noopener">点击查看代码效果</a></p>
 <p><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1478745777/mhvopunmcuwmyvssffr4.png" alt="sprite合成图片-7"></p>
 <p>引入子图img_2：<a href="http://codepen.io/no1024/pen/bwxEGk" target="_blank" rel="noopener">点击查看代码效果</a></p>
 <p>不妨调节浏览器的高度，你会发现子图img_1的高度完美自适应了，但是子图img_2并不能正常引入.</p>
 <h2 id="图片偏移量自适应（background-position）"><a href="#图片偏移量自适应（background-position）" class="headerlink" title="图片偏移量自适应（background-position）"></a><a href="#图片偏移量自适应（background-position）" title="图片偏移量自适应（background-position）"></a>图片偏移量自适应（background-position）</h2><p>在引入img_2,我们看到效果很糟糕，这是因为针对不同的屏幕高度，在上面的讨论中我们的得到到的代码会将<strong>雪碧图放大到了不同的倍数</strong>，然而我们代码中的<code>background-position</code>依然是一个<strong>定值</strong>,所以我们现在要重新的计算雪碧图的偏移量<code>background-position</code>值.既然雪碧图的大小是一个比例，那么<strong>background-position这个值也应该是一个比例</strong>，这个比例怎么计算呢？我们要先明确当其值为百分比时它的实际值的计算方式：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>background-postion:x y;</p>
-<p>x：{容器(container)的宽度—背景图片的宽度}*x百分比，超出的部分隐藏。</p>
-<p>y：{容器(container)的高度—背景图片的高度}*y百分比，超出的部分隐藏。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">background-postion:x y;</span><br><span class="line"></span><br><span class="line">x：&#123;容器(container)的宽度—背景图片的宽度&#125;*x百分比，超出的部分隐藏。</span><br><span class="line"></span><br><span class="line">y：&#123;容器(container)的高度—背景图片的高度&#125;*y百分比，超出的部分隐藏。</span><br></pre></td></tr></table></figure>
 <p>也是就是说我们需要设置的这个百分比的计算方式应该是：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>background-postion:x y;</p>
-<p>x百分比：background-postion-x实际值/{容器(container)的宽度—背景图片的宽度}*100%。</p>
-<p>y百分比：background-postion-y实际值/{容器(container)的高度—背景图片的高度}*100%。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">background-postion:x y;</span><br><span class="line"></span><br><span class="line">x百分比：background-postion-x实际值/&#123;容器(container)的宽度—背景图片的宽度&#125;*100%。</span><br><span class="line"></span><br><span class="line">y百分比：background-postion-y实际值/&#123;容器(container)的高度—背景图片的高度&#125;*100%。</span><br></pre></td></tr></table></figure>
 <p>所以求<code>background-position</code>的偏移量的代码块：</p>
 <p>由：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>@mixin sprite-position($sprite) {</p>
-<pre><code>$sprite-offset-x: nth($sprite, 3);
-
-$sprite-offset-y: nth($sprite, 4);
-
-background-position: $sprite-offset-x  $sprite-offset-y;
-</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@mixin sprite-position($sprite) &#123;</span><br><span class="line"></span><br><span class="line">    $sprite-offset-x: nth($sprite, 3);</span><br><span class="line"></span><br><span class="line">    $sprite-offset-y: nth($sprite, 4);</span><br><span class="line"></span><br><span class="line">    background-position: $sprite-offset-x  $sprite-offset-y;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>改为：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>@mixin sprite-position($sprite,$img_height) {</p>
-<pre><code>$sprite-total-height: nth($sprite, 8);
-
-$sprite-total-width: nth($sprite, 7);
-
-$sprite-y: nth($sprite, 2) / ($sprite-total-height \- $img_height) \* 100%;
-
-background-position: 0  $sprite-y;
-</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@mixin sprite-position($sprite,$img_height) &#123;</span><br><span class="line"></span><br><span class="line">    $sprite-total-height: nth($sprite, 8);</span><br><span class="line"></span><br><span class="line">    $sprite-total-width: nth($sprite, 7);</span><br><span class="line"></span><br><span class="line">    $sprite-y: nth($sprite, 2) / ($sprite-total-height \- $img_height) \* 100%;</span><br><span class="line"></span><br><span class="line">    background-position: 0  $sprite-y;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>现在我们再来看一下效果:</p>
 <p><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1478745915/rc9amrquhgxtokcm0x6u.png" alt="sprite合成图片-8"></p>
 <p>引入子图img_1：<a href="http://codepen.io/no1024/pen/YGOwXZ" target="_blank" rel="noopener">点击查看代码效果</a></p>
@@ -773,7 +226,7 @@ background-position: 0  $sprite-y;
 
   
     <section id="comment">
-    <!--   <h1 class="title">Comments</h1> -->
+    <!--   <h1 class="title">留言</h1> -->
     
         <script type="text/javascript" id="wumiiComments">
             var wumiiPermaLink = "http://yoursite.com/2018/02/01/sprite/"; //请用代码生成文章永久的链接
@@ -800,7 +253,7 @@ background-position: 0  $sprite-y;
 
 
   <div class="widget tag">
-  <h3 class="title">Calendar</h3>
+  <h3 class="title">日历云</h3>
   <div id="calendar"></div>
 </div>
 
@@ -816,7 +269,7 @@ background-position: 0  $sprite-y;
   
   <div class="widget tag">
     <h3 class="title">归档</h3>
-	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">20</span></li></ul>
+	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">19</span></li></ul>
   </div>
 
 </aside>

@@ -63,18 +63,18 @@
 	<div class='header-nav-content inner'>
 		<div id="main-nav" class="alignleft">
 		    		
-		    		  <a href="/"><i class="fa fa-home"></i>Home</a>
+		    		  <a href="/"><i class="fa fa-home"></i>首页</a>
 		    		
-		    		  <a href="/archives"><i class="fa fa-archive"></i>Archives</a>
+		    		  <a href="/archives"><i class="fa fa-archive"></i>归档</a>
 		    		
 		</div>
 		<div id="sub-nav" class="alignright">
 		    
-		      <a href="/atom.xml"><i class="fa fa-rss"></i>Rss</a>
+		      <a href="/atom.xml"><i class="fa fa-rss"></i>订阅</a>
 		    
-		      <a href="/customization"><i class="fa fa-question-circle"></i>Customization</a>
+		      <a href="/customization"><i class="fa fa-question-circle"></i>留言</a>
 		    
-		      <a href="/about"><i class="fa fa-"></i>About</a>
+		      <a href="/about"><i class="fa fa-"></i>关于我</a>
 		    
 		</div>
 	</div>
@@ -101,7 +101,7 @@
       
         
     <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vuejs-event-system"><span class="toc-text">Vuejs-event-system</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#组件之间通信的原则"><span class="toc-text">组件之间通信的原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义事件"><span class="toc-text">自定义事件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#全局事件总线-global-event-bus"><span class="toc-text">全局事件总线(global event bus)</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text"></span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vuejs-event-system"><span class="toc-text">Vuejs-event-system</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#组件之间通信的原则"><span class="toc-text">组件之间通信的原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义事件"><span class="toc-text">自定义事件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#全局事件总线-global-event-bus"><span class="toc-text">全局事件总线(global event bus)</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text"></span></a></li></ol>
     </div>
 
         <h1 id="Vuejs-event-system"><a href="#Vuejs-event-system" class="headerlink" title="Vuejs-event-system"></a>Vuejs-event-system</h1><ol>
@@ -117,257 +117,12 @@
 <p>使用event从子组件通知父组件改变数据</p>
 <h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a><a href="#实现" title="实现"></a>实现</h3><h4 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a><a href="#自定义事件" title="自定义事件"></a>自定义事件</h4><p>使用自定义事件，我们可以在子组件触发事件，在父组件监听事件。</p>
 <p>于是父子组件的通信可以实现为：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>13</p>
-<p>14</p>
-<p>15</p>
-<p>16</p>
-<p>17</p>
-<p>18</p>
-<p>19</p>
-<p>20</p>
-<p>21</p>
-<p>22</p>
-<p>23</p>
-<p>24</p>
-<p>25</p>
-<p>26</p>
-<p>27</p>
-<p>28</p>
-<p>29</p>
-<p>30</p>
-<p>31</p>
-<p>32</p>
-<p>33</p>
-<p>34</p>
-<p>35</p>
-<p>36</p>
-<p>37</p>
-<p>&lt;!-- 父组件 –&gt;</p>
-<div id="example"><br><br>    <p></p><br><br>    <app v-on:incre="incrementTotal"></app><br><br></div>
-
-<p>new Vue({</p>
-<pre><code>el: &apos;#example&apos;,
-
-    data: {
-
-        total: 0
-
-    },
-
-components:{
-
-    App: App
-
-},
-
-methods: {
-
-    incrementTotal() {
-
-        this.total += 1
-
-    }
-
-}
-</code></pre><p>})</p>
-<p>&lt;!-- 子组件 –&gt;</p>
-<template><br><br>    <button v-on:click="increment"></button><br><br></template>
-
-<p>export default {</p>
-<p>  name: ‘app’,</p>
-<p>  data: function () {</p>
-<pre><code>return {
-
-  counter: 0
-
-}
-</code></pre><p>  },</p>
-<p>  methods: {</p>
-<pre><code>increment() {
-
-  this.counter += 1
-
-  this.$emit(&apos;incre&apos;)
-
-}
-</code></pre><p>  }</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 父组件 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;example&quot;&gt;</span><br><span class="line"></span><br><span class="line">	&lt;p&gt;&#123;&#123; total &#125;&#125;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">	&lt;App v-on:incre=&quot;incrementTotal&quot;&gt;&lt;/App&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line"></span><br><span class="line">	el: &apos;#example&apos;,</span><br><span class="line"></span><br><span class="line">		data: &#123;</span><br><span class="line"></span><br><span class="line">			total: 0</span><br><span class="line"></span><br><span class="line">		&#125;,</span><br><span class="line"></span><br><span class="line">	components:&#123;</span><br><span class="line"></span><br><span class="line">		App: App</span><br><span class="line"></span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	methods: &#123;</span><br><span class="line"></span><br><span class="line">		incrementTotal() &#123;</span><br><span class="line"></span><br><span class="line">			this.total += 1</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&lt;!-- 子组件 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line"></span><br><span class="line">	&lt;button v-on:click=&quot;increment&quot;&gt;&#123;&#123; counter &#125;&#125;&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line"></span><br><span class="line">  name: &apos;app&apos;,</span><br><span class="line"></span><br><span class="line">  data: function () &#123;</span><br><span class="line"></span><br><span class="line">    return &#123;</span><br><span class="line"></span><br><span class="line">      counter: 0</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  methods: &#123;</span><br><span class="line"></span><br><span class="line">    increment() &#123;</span><br><span class="line"></span><br><span class="line">      this.counter += 1</span><br><span class="line"></span><br><span class="line">      this.$emit(&apos;incre&apos;)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="全局事件总线-global-event-bus"><a href="#全局事件总线-global-event-bus" class="headerlink" title="全局事件总线(global event bus)"></a><a href="#全局事件总线-global-event-bus" title="全局事件总线(global event bus)"></a>全局事件总线(global event bus)</h4><p>Vue本身实现了一套独立于原生事件之外的的事件系统，我们可以实例化一个Vue构造函数，在父组件中利用这个实例注册注册一个监听事件，然后在子组件中触发这个事件。</p>
-<p>于是父子组件之间的通信可以实现为：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>13</p>
-<p>14</p>
-<p>15</p>
-<p>16</p>
-<p>17</p>
-<p>18</p>
-<p>19</p>
-<p>20</p>
-<p>21</p>
-<p>22</p>
-<p>23</p>
-<p>24</p>
-<p>25</p>
-<p>26</p>
-<p>27</p>
-<p>28</p>
-<p>29</p>
-<p>30</p>
-<p>31</p>
-<p>32</p>
-<p>33</p>
-<p>34</p>
-<p>35</p>
-<p>36</p>
-<p>37</p>
-<p>38</p>
-<p>39</p>
-<p>40</p>
-<p>41</p>
-<p>42</p>
-<p>&lt;!-- 父组件 –&gt;</p>
-<template><br><br>    <div id="app"><br><br>        <msg :bus="bus"></msg><br><br>    </div><br><br></template>
-
-<p>var bus = new Vue()</p>
-<p>this.bus.$on(‘evt’,function () {</p>
-<pre><code>console.log(&apos;On!&apos;);
-</code></pre><p>})</p>
-<p>export default {</p>
-<pre><code>name: &apos;app&apos;,
-
-data(){
-
-    return {
-
-        bus: bus
-
-    }
-
-},
-
-components: {
-
-    Msg
-
-}
-</code></pre><p>}</p>
-<p>&lt;!-- 子组件 –&gt;</p>
-<template><br><br>    <div class="hello"><br><br>        <h1 @click="test"></h1><br><br>    </div><br><br></template>
-
-<p>export default {</p>
-<pre><code>name: &apos;hello&apos;,
-
-props: \[&apos;bus&apos;\],
-
-data () {
-
-    return {
-
-        msg: &apos;Welcome to Your Vue.js App&apos;
-
-    }
-
-},
-
-methods:{
-
-    test(){
-
-        console.log(&apos;Emit!&apos;);
-
-        this.bus.$emit(&apos;evt&apos;);
-
-    }
-
-}
-</code></pre><p>}</p>
+<p>于是父子组件之间的通信可以实现为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 父组件 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line"></span><br><span class="line">	&lt;div id=&quot;app&quot;&gt;</span><br><span class="line"></span><br><span class="line">		&lt;msg :bus=&apos;bus&apos;&gt;&lt;/msg&gt;</span><br><span class="line"></span><br><span class="line">	&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">var bus = new Vue()</span><br><span class="line"></span><br><span class="line">this.bus.$on(&apos;evt&apos;,function () &#123;</span><br><span class="line"></span><br><span class="line">    console.log(&apos;On!&apos;);</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line"></span><br><span class="line">	name: &apos;app&apos;,</span><br><span class="line"></span><br><span class="line">	data()&#123;</span><br><span class="line"></span><br><span class="line">		return &#123;</span><br><span class="line"></span><br><span class="line">			bus: bus</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	components: &#123;</span><br><span class="line"></span><br><span class="line">		Msg</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- 子组件 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line"></span><br><span class="line">	&lt;div class=&quot;hello&quot;&gt;</span><br><span class="line"></span><br><span class="line">		&lt;h1 @click=&quot;test&quot;&gt;&#123;&#123; msg &#125;&#125;&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">	&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line"></span><br><span class="line">	name: &apos;hello&apos;,</span><br><span class="line"></span><br><span class="line">	props: \[&apos;bus&apos;\],</span><br><span class="line"></span><br><span class="line">	data () &#123;</span><br><span class="line"></span><br><span class="line">		return &#123;</span><br><span class="line"></span><br><span class="line">			msg: &apos;Welcome to Your Vue.js App&apos;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	methods:&#123;</span><br><span class="line"></span><br><span class="line">		test()&#123;</span><br><span class="line"></span><br><span class="line">			console.log(&apos;Emit!&apos;);</span><br><span class="line"></span><br><span class="line">			this.bus.$emit(&apos;evt&apos;);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>在同一个Vue实例上可以触发并监听事件，因此我们可以在父组件中实例化一个Vue构造函数，在一个组件中绑定监听函数，在另一个平行组件中触发这个函数。</p>
 <p>于是同级组件之间的通信可以实现为：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>13</p>
-<p>14</p>
-<p>15</p>
-<p>16</p>
-<p>17</p>
-<p>18</p>
-<p>19</p>
-<p>20</p>
-<p>21</p>
-<p>22</p>
-<p>23</p>
-<p>24</p>
-<p>25</p>
-<p>26</p>
-<p>27</p>
-<p>28</p>
-<p>29</p>
-<p>30</p>
-<p>31</p>
-<p>32</p>
-<p>33</p>
-<p>34</p>
-<p>35</p>
-<p>36</p>
-<p>37</p>
-<p>38</p>
-<p>39</p>
-<p>40</p>
-<p>41</p>
-<p>42</p>
-<p>43</p>
-<p>44</p>
-<p>45</p>
-<p>46</p>
-<p>47</p>
-<p>48</p>
-<p>49</p>
-<p>50</p>
-<p>51</p>
-<p>52</p>
-<p>53</p>
-<p>54</p>
-<p>55</p>
-<p>56</p>
-<p>57</p>
-<p>58</p>
-<p>59</p>
-<p>60</p>
-<p>61</p>
-<p>&lt;!-- 父组件 –&gt;</p>
+<p>``<br><!-- 父组件 --></p>
 <template><br><br>    <div id="app"><br><br>        <hello :bus="bus"></hello><br><br>        <msg :bus="bus"></msg><br><br>    </div><br><br></template>
 
 <p>var bus = new Vue();</p>
@@ -392,7 +147,7 @@ components: {
 
 }
 </code></pre><p>}</p>
-<p>&lt;!-- 子组件A –&gt;</p>
+<!-- 子组件A -->
 <template><br><br>    <div class="hello"><br><br>        <h1></h1><br><br>    </div><br><br></template>
 
 <p>export default {</p>
@@ -419,7 +174,7 @@ mounted(){
     })
 </code></pre><p>  }</p>
 <p>}</p>
-<p>&lt;!-- 子组件B –&gt;</p>
+<!-- 子组件B -->
 <template><br><br>    <div class="msg"><br><br>        <h1 @click="test"></h1><br><br>    </div><br><br></template>
 
 <p>export default {</p>
@@ -448,7 +203,7 @@ methods:{
     }
 
 }
-</code></pre><p>}</p>
+</code></pre><p>}<br>```</p>
 <p><a href="/tags/Vue-js/">Vue.js</a></p>
 
       
@@ -482,7 +237,7 @@ methods:{
 
   
     <section id="comment">
-    <!--   <h1 class="title">Comments</h1> -->
+    <!--   <h1 class="title">留言</h1> -->
     
         <script type="text/javascript" id="wumiiComments">
             var wumiiPermaLink = "http://yoursite.com/2018/02/01/Vuejs-event-system/"; //请用代码生成文章永久的链接
@@ -509,7 +264,7 @@ methods:{
 
 
   <div class="widget tag">
-  <h3 class="title">Calendar</h3>
+  <h3 class="title">日历云</h3>
   <div id="calendar"></div>
 </div>
 
@@ -525,7 +280,7 @@ methods:{
   
   <div class="widget tag">
     <h3 class="title">归档</h3>
-	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">20</span></li></ul>
+	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">19</span></li></ul>
   </div>
 
 </aside>

@@ -68,18 +68,18 @@ Commonjs
 	<div class='header-nav-content inner'>
 		<div id="main-nav" class="alignleft">
 		    		
-		    		  <a href="/"><i class="fa fa-home"></i>Home</a>
+		    		  <a href="/"><i class="fa fa-home"></i>首页</a>
 		    		
-		    		  <a href="/archives"><i class="fa fa-archive"></i>Archives</a>
+		    		  <a href="/archives"><i class="fa fa-archive"></i>归档</a>
 		    		
 		</div>
 		<div id="sub-nav" class="alignright">
 		    
-		      <a href="/atom.xml"><i class="fa fa-rss"></i>Rss</a>
+		      <a href="/atom.xml"><i class="fa fa-rss"></i>订阅</a>
 		    
-		      <a href="/customization"><i class="fa fa-question-circle"></i>Customization</a>
+		      <a href="/customization"><i class="fa fa-question-circle"></i>留言</a>
 		    
-		      <a href="/about"><i class="fa fa-"></i>About</a>
+		      <a href="/about"><i class="fa fa-"></i>关于我</a>
 		    
 		</div>
 	</div>
@@ -145,138 +145,25 @@ Commonjs
 <h4 id="Function"><a href="#Function" class="headerlink" title="Function"></a><a href="#Function" title="Function"></a>Function</h4><p>模块就是实现特定功能的一组方法。</p>
 <p>只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。</p>
 <p>函数是JavaScript中唯一可以创建新的作用域的类型，我们可以利用函数来为模块创建作用域。<br>例如：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>var dayName=function(){</p>
-<pre><code>var names=\[&quot;Sunday&quot;,&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wedensday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;,&quot;Saturday&quot;\];
-
-return function(number){
-
-    return names\[number\];
-
-};
-</code></pre><p>}();</p>
-<p>console.log(dayName(1));</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var dayName=function()&#123;</span><br><span class="line"></span><br><span class="line">    var names=\[&quot;Sunday&quot;,&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wedensday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;,&quot;Saturday&quot;\];</span><br><span class="line"></span><br><span class="line">    return function(number)&#123;</span><br><span class="line"></span><br><span class="line">        return names\[number\];</span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">&#125;();</span><br><span class="line"></span><br><span class="line">console.log(dayName(1));</span><br></pre></td></tr></table></figure>
 <p>这个例子通过将一个匿名函数的返回值赋给一个变量（dayName），返回值也是一个函数，也是这个模块想暴露到模块外的部分，这样变量dayName函数就变成了模块的接口。</p>
 <p>现在假如我们需要在这个模块中再加入一个函数，并且想把这个函数也作为模块接口，此时我们需要返回两个函数，解决方案是将两个函数封装在一个对象中，然后返回这个对象作为模块的接口。<br>代码如下：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>var weekDay = function() {</p>
-<pre><code>    var names = \[&quot;Sunday&quot;,&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wednesday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;,&quot;Saturday&quot;\];
-
-    return {
-
-        name: function(number){
-
-            return names\[number\];
-
-        },
-
-        number: function(name){
-
-            return names.indexOf(name);
-
-        }
-
-    }
-
-}();
-</code></pre><p>console.log(weekDay.number(“Sunday”));</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var weekDay = function() &#123;</span><br><span class="line"></span><br><span class="line">        var names = \[&quot;Sunday&quot;,&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wednesday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;,&quot;Saturday&quot;\];</span><br><span class="line"></span><br><span class="line">        return &#123;</span><br><span class="line"></span><br><span class="line">            name: function(number)&#123;</span><br><span class="line"></span><br><span class="line">                return names\[number\];</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">            number: function(name)&#123;</span><br><span class="line"></span><br><span class="line">                return names.indexOf(name);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;();</span><br><span class="line"></span><br><span class="line">console.log(weekDay.number(&quot;Sunday&quot;));</span><br></pre></td></tr></table></figure>
 <p>但是这种做法的一个很明显显的缺点是当返回部分很大时return语句要包裹很多代码，我们可以使用一个立即执行函数来解决这个问题。下面将对此进行介绍。</p>
 <h4 id="IIFE"><a href="#IIFE" class="headerlink" title="IIFE"></a><a href="#IIFE" title="IIFE"></a>IIFE</h4><p>JavaScript语法有一个怪癖，如果一个函数以function开始，它将会是一个函数声明，函数声明必须有一个函数名。而如果一个函数不以function开始，它将是一个函数表达式。我们可以使用一个括号强制将函数转换为<br>函数表达式。</p>
 <p>上面的函数可以改写成如下形式：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>(function(exports){</p>
-<pre><code>var names = \[&quot;Sunday&quot;,&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wednesday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;,&quot;Saturday&quot;\];
-
-exports.name = function(number) {
-
-    return names\[number\];
-
-}
-
-exports.number = function(name) {
-
-    return names.indexOf\[name\];
-
-};
-</code></pre><p>})(this.weekDay = {});</p>
-<p>console.log(weekDay.name(1));</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">(function(exports)&#123;</span><br><span class="line"></span><br><span class="line">    var names = \[&quot;Sunday&quot;,&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wednesday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;,&quot;Saturday&quot;\];</span><br><span class="line"></span><br><span class="line">    exports.name = function(number) &#123;</span><br><span class="line"></span><br><span class="line">        return names\[number\];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    exports.number = function(name) &#123;</span><br><span class="line"></span><br><span class="line">        return names.indexOf\[name\];</span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">&#125;)(this.weekDay = &#123;&#125;);</span><br><span class="line"></span><br><span class="line">console.log(weekDay.name(1));</span><br></pre></td></tr></table></figure>
 <p>上面的代码块中，我们使用一个对象作为函数的参数，将要输出的接口作为对象的属性，这样我们就可以使用这个对象调用接口。</p>
 <h3 id="放大模式"><a href="#放大模式" class="headerlink" title="放大模式"></a><a href="#放大模式" title="放大模式"></a>放大模式</h3><p>如果一个模块很大，必须分成几个部分，或者一个模块需要继承另一个模块，这时就有必要采用”放大模式”（augmentation）。</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>　　var module1 = (function (mod){</p>
-<p>　　　　mod.m3 = function () {</p>
-<p>　　　　　　//…</p>
-<p>　　　　};</p>
-<p>　　　　return mod;</p>
-<p>　　})(module1);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">　　var module1 = (function (mod)&#123;</span><br><span class="line"></span><br><span class="line">　　　　mod.m3 = function () &#123;</span><br><span class="line"></span><br><span class="line">　　　　　　//...</span><br><span class="line"></span><br><span class="line">　　　　&#125;;</span><br><span class="line"></span><br><span class="line">　　　　return mod;</span><br><span class="line"></span><br><span class="line">　　&#125;)(module1);</span><br></pre></td></tr></table></figure>
 <h3 id="宽放大模式（Loose-augmentation）"><a href="#宽放大模式（Loose-augmentation）" class="headerlink" title="宽放大模式（Loose augmentation）"></a><a href="#宽放大模式（Loose-augmentation）" title="宽放大模式（Loose augmentation）"></a>宽放大模式（Loose augmentation）</h3><p>在浏览器环境中，模块的各个部分通常都是从网上获取的，有时无法知道哪个部分会先加载。如果采用上一节的写法，第一个执行的部分有可能加载一个不存在空对象，这时就要采用”宽放大模式”。</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>　　var module1 = ( function (mod){</p>
-<p>　　　　//…</p>
-<p>　　　　return mod;</p>
-<p>　　})(window.module1 || {});</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">　　var module1 = ( function (mod)&#123;</span><br><span class="line"></span><br><span class="line">　　　　//...</span><br><span class="line"></span><br><span class="line">　　　　return mod;</span><br><span class="line"></span><br><span class="line">　　&#125;)(window.module1 || &#123;&#125;);</span><br></pre></td></tr></table></figure>
 <p>与”放大模式”相比，＂宽放大模式＂就是”立即执行函数”的参数可以是空对象。</p>
 <p>上面的代码为module1模块添加了一个新方法m3()，然后返回新的module1模块。</p>
 <h3 id="紧扩充模式"><a href="#紧扩充模式" class="headerlink" title="紧扩充模式"></a><a href="#紧扩充模式" title="紧扩充模式"></a>紧扩充模式</h3><p>宽放大模式非常棒，但是有一个缺点是对无法安全地处理方法属性的重载。紧扩充模式保持对旧有方法的的引用，在定义的新方法中可以灵活地重用旧有方法的功能。</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>var MODULE = (function (my) {</p>
-<pre><code>var old_moduleMethod = my.moduleMethod;
-
-my.moduleMethod = function () {
-
-    // method override, has access to old through old_moduleMethod...
-
-};
-
-return my;
-</code></pre><p>}(MODULE));</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var MODULE = (function (my) &#123;</span><br><span class="line"></span><br><span class="line">    var old_moduleMethod = my.moduleMethod;</span><br><span class="line"></span><br><span class="line">    my.moduleMethod = function () &#123;</span><br><span class="line"></span><br><span class="line">        // method override, has access to old through old_moduleMethod...</span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    return my;</span><br><span class="line"></span><br><span class="line">&#125;(MODULE));</span><br></pre></td></tr></table></figure>
 <h3 id="输入全局变量"><a href="#输入全局变量" class="headerlink" title="输入全局变量"></a><a href="#输入全局变量" title="输入全局变量"></a>输入全局变量</h3><p>独立性是模块的重要特点，模块内部最好不与程序的其他部分直接交互。<br>为了在模块内部调用全局变量，必须显式地将其他变量输入模块。</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>　　var module1 = (function ($) {</p>
-<p>　　　　//…</p>
-<p>　　})(jQuery);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　var module1 = (function ($) &#123;</span><br><span class="line"></span><br><span class="line">　　　　//...</span><br><span class="line"></span><br><span class="line">　　&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
 <p>但是上面的这种做法依然有不足之处，我们在使用这种方式定义的模块时，依然要通过全局作用域来访问模块，并且模块之间的依赖关系也不够明显。</p>
 <p>并且这种模式需要通过script标签将模块文件插入到文档中，被依赖的模块必须放在依赖它的模块之前，如果模块之间的依赖很复杂，那就悲剧了。为此，社区产生了下面更好的解决方法。</p>
 <h3 id="Commonjs"><a href="#Commonjs" class="headerlink" title="Commonjs"></a><a href="#Commonjs" title="Commonjs"></a>Commonjs</h3><p>上面介绍JavaScript中如何现实模块化的一些常见的模式，但是仅仅有这些模式是不够的，对于整个生态圈来说，JS 模块化缺失带来的一个严重问题是各社区开发一套组件都需要实现自己的模块化机制，不同社区重复制造轮子，导致组件与组件无法兼容、相互割裂，严重阻碍生态系统的发展，模块化规范的制定和遵守更加重要。</p>
@@ -284,123 +171,24 @@ return my;
 <p>从结构的角度来看，一个CJS模块是一段可重用的JavaScript，它导出一系列特定的对象给依赖它的代码调用。</p>
 <p>简单来说来看，一个CJS模块主要包含两个部分：一个名叫exports的自由变量，它包含模块希望提供给其它模块的对象；以及一个 require 函数，让模块用来导入其它模块的导出。</p>
 <p>下面通过一个简单的例子来理解exports和require：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>// package/lib 是我们须的一个依赖项</p>
-<p>var lib = require(‘package/lib’);</p>
-<p>// 我们的模块的一些行为</p>
-<p>function foo(){</p>
-<pre><code>lib.log(&apos;hello world!&apos;);
-</code></pre><p>}</p>
-<p>// 把 foo 导出（暴露）给其它模块</p>
-<p>exports.foo = foo;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// package/lib 是我们须的一个依赖项</span><br><span class="line"></span><br><span class="line">var lib = require(&apos;package/lib&apos;);</span><br><span class="line"></span><br><span class="line">// 我们的模块的一些行为</span><br><span class="line"></span><br><span class="line">function foo()&#123;</span><br><span class="line"></span><br><span class="line">    lib.log(&apos;hello world!&apos;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 把 foo 导出（暴露）给其它模块</span><br><span class="line"></span><br><span class="line">exports.foo = foo;</span><br></pre></td></tr></table></figure>
 <p>exports 的基本用法</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>// 定义我们希望暴露的更多行为</p>
-<p>function foobar(){</p>
-<pre><code>this.foo = function(){
-
-        console.log(&apos;Hello foo&apos;);
-
-}
-
-this.bar = function(){
-
-        console.log(&apos;Hello bar&apos;);
-
-}
-</code></pre><p>}</p>
-<p>// 把 foobar 暴露给其它模块</p>
-<p>exports.foobar = foobar;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// 定义我们希望暴露的更多行为</span><br><span class="line"></span><br><span class="line">function foobar()&#123;</span><br><span class="line"></span><br><span class="line">        this.foo = function()&#123;</span><br><span class="line"></span><br><span class="line">                console.log(&apos;Hello foo&apos;);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        this.bar = function()&#123;</span><br><span class="line"></span><br><span class="line">                console.log(&apos;Hello bar&apos;);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 把 foobar 暴露给其它模块</span><br><span class="line"></span><br><span class="line">exports.foobar = foobar;</span><br></pre></td></tr></table></figure>
 <p>require 的基本用法</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>// 一个使用了 ‘foobar’ 的应用</p>
-<p>// 相对于使用文件与模块文件所在的同一目录路径获取模块</p>
-<p>var foobar = require(‘./foobar’).foobar,</p>
-<pre><code>test = new foobar();
-</code></pre><p>test.bar(); // ‘Hello bar’</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 一个使用了 &apos;foobar&apos; 的应用</span><br><span class="line"></span><br><span class="line">// 相对于使用文件与模块文件所在的同一目录路径获取模块</span><br><span class="line"></span><br><span class="line">var foobar = require(&apos;./foobar&apos;).foobar,</span><br><span class="line"></span><br><span class="line">    test = new foobar();</span><br><span class="line"></span><br><span class="line">test.bar(); // &apos;Hello bar&apos;</span><br></pre></td></tr></table></figure>
 <h3 id="在浏览器中使用-CommonJS"><a href="#在浏览器中使用-CommonJS" class="headerlink" title="在浏览器中使用 CommonJS"></a><a href="#在浏览器中使用-CommonJS" title="在浏览器中使用 CommonJS"></a>在浏览器中使用 CommonJS</h3><p>浏览器并不不兼容CommonJS，要想在浏览器中加载 CommonJS ，我们需要使用模块加载器：Browserify 是目前最常用的 CommonJS 模块加载器。</p>
 <p>但是有些开发者觉得 CommonJS 更适合于服务器端开发，因为很多处理面向服务器端特性的 CommonJS API 根本无法用 JavaScript 在浏览器级别实现。并且，CommonJS 则采用了服务器优先的策略，采取同步行为、服务器端的资源可以保存在服务器本地的硬盘里面，从硬盘里读取资源的速度是很快的。但是当把这种模式运用到浏览器端之后，浏览器必须从web上下载需要的资源，而下载的速度会受到网速的限制，所以一旦我们所需加载的资源较多，或者用户的网速较慢，就会造成浏览器加载全部资源以前处于假死状态，严重影响我们的用户体验。</p>
 <p>所以，浏览器端的模块，不能采用”同步加载”（synchronous），最好采用”异步加载”（asynchronous）。AMD应运而生。</p>
 <h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a><a href="#AMD" title="AMD"></a>AMD</h3><p>AMD是”Asynchronous Module Definition”的缩写，意思就是”异步模块定义”。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。</p>
 <p>AMD帮助消除对全局变量的需求。 每个模块都通过局部变量引用或者返回对象来定义其依赖模块以及输出功能。因此，模块不需要引入全局变量就能够定义其功能并实现与其他模块的交互。AMD同时是“匿名的”，意味着模块不需要硬编码指向其路径的引用， 模块名仅依赖其文件名和目录路径。</p>
 <p>这里你须要先对下面这两个重要的概念有一定的了解：一个用来进行模块定义的 define 方法以及一个用来处理依赖项加载的 require 方法。define 根据如下的方法定义具名或匿名的模块：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>define(</p>
-<pre><code>module_id /*可选*/,
-
-\[dependencies\] /*可选*/,
-
-definition function /*用来初始化模块或对象的函数*/
-</code></pre><p>);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">define(</span><br><span class="line"></span><br><span class="line">    module_id /*可选*/,</span><br><span class="line"></span><br><span class="line">    \[dependencies\] /*可选*/,</span><br><span class="line"></span><br><span class="line">    definition function /*用来初始化模块或对象的函数*/</span><br><span class="line"></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <p>正如上面展示的，define函数接受三个参数，第一个参数是模块名，可选。第二个参数定义了模块的依赖项，可选。第三个参数是一个初始化模块的函数，是必须的。<br>下面通过一个具体的例子来了解如何使用define定义一个模块：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>define(‘myModule’,</p>
-<pre><code>\[&apos;foo&apos;, &apos;bar&apos;\],
-
-function ( foo, bar ) {
-
-    // 在这里创建模块
-
-    var myModule = {
-
-        //这里可以使用foo模块和bar模块
-
-        doSomething:function(){
-
-            console.log(&apos;Hello world!&apos;);
-
-        }
-
-    }
-
-    return myModule;
-</code></pre><p>});</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">define(&apos;myModule&apos;,</span><br><span class="line"></span><br><span class="line">    \[&apos;foo&apos;, &apos;bar&apos;\],</span><br><span class="line"></span><br><span class="line">    function ( foo, bar ) &#123;</span><br><span class="line"></span><br><span class="line">        // 在这里创建模块</span><br><span class="line"></span><br><span class="line">        var myModule = &#123;</span><br><span class="line"></span><br><span class="line">            //这里可以使用foo模块和bar模块</span><br><span class="line"></span><br><span class="line">            doSomething:function()&#123;</span><br><span class="line"></span><br><span class="line">                console.log(&apos;Hello world!&apos;);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return myModule;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>AMD也采用require()语句加载模块，但是不同于CommonJS，它要求两个参数：</p>
-<p>1</p>
-<p>　　require([module], callback);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　require(\[module\], callback);</span><br></pre></td></tr></table></figure>
 <p>第一个参数[module]，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。如果将前面的代码改写成AMD形式，就是下面这样：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>　　require([‘foobar’], function (foobar) {</p>
-<p>　　　　foobar.bar(); // ‘Hello bar’</p>
-<p>　　});</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　require(\[&apos;foobar&apos;\], function (foobar) &#123;</span><br><span class="line"></span><br><span class="line">　　　　foobar.bar(); // &apos;Hello bar&apos;</span><br><span class="line"></span><br><span class="line">　　&#125;);</span><br></pre></td></tr></table></figure>
 <p>AMD模块也不能在浏览器中直接加载，同样可以使用模块加载器来完成。webpack可以用来加载AMD模块。</p>
 <h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><a href="#总结：" title="总结："></a>总结：</h3><h4 id="模块接口的设设计原则："><a href="#模块接口的设设计原则：" class="headerlink" title="模块接口的设设计原则："></a><a href="#模块接口的设设计原则：" title="模块接口的设设计原则："></a>模块接口的设设计原则：</h4><p>为一个模块设计一个接口是一个非常精妙的工作，接口设计可以采用多种方法，但是我们在设计接口时一定要有远见性，要考虑到以后的使用。为此，模块接口的设计必须遵循以下原则：</p>
 <p>可预见原则：一个网页应用可能是由多个开发人员参与开发的，其他的开发人员可能要使用你的接口，为了不让他花费太多精力查看你的接口的使用方式，你应该尽量保持接口的可预测性。</p>
@@ -412,153 +200,34 @@ function ( foo, bar ) {
 <p>import：声明把某个模块的导出绑定为本地变量，并可以重命名来避免命名冲突。</p>
 <p>下面来分别讲解：</p>
 <p>export：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>13</p>
-<p>14</p>
-<p>15</p>
-<p>16</p>
-<p>17</p>
-<p>18</p>
-<p>19</p>
-<p>20</p>
-<p>21</p>
-<p>22</p>
-<p>23</p>
-<p>24</p>
-<p>// export data</p>
-<p>export var color = “red”;</p>
-<p>export let name = “Nicholas”;</p>
-<p>export const magicNumber = 7;</p>
-<p>// export function</p>
-<p>export function sum(num1, num2) {</p>
-<pre><code>return num1 + num1;
-</code></pre><p>}</p>
-<p>// export class</p>
-<p>export class Rectangle {</p>
-<pre><code>constructor(length, width) {
-
-    this.length = length;
-
-    this.width = width;
-
-}
-</code></pre><p>}</p>
-<p>// this function is private to the module</p>
-<p>function subtract(num1, num2) {</p>
-<pre><code>return num1 - num2;
-</code></pre><p>}</p>
-<p>// define a function</p>
-<p>function multiply(num1, num2) {</p>
-<pre><code>return num1 * num2;
-</code></pre><p>}</p>
-<p>// export later</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">// export data</span><br><span class="line"></span><br><span class="line">export var color = &quot;red&quot;;</span><br><span class="line"></span><br><span class="line">export let name = &quot;Nicholas&quot;;</span><br><span class="line"></span><br><span class="line">export const magicNumber = 7;</span><br><span class="line"></span><br><span class="line">// export function</span><br><span class="line"></span><br><span class="line">export function sum(num1, num2) &#123;</span><br><span class="line"></span><br><span class="line">    return num1 + num1;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// export class</span><br><span class="line"></span><br><span class="line">export class Rectangle &#123;</span><br><span class="line"></span><br><span class="line">    constructor(length, width) &#123;</span><br><span class="line"></span><br><span class="line">        this.length = length;</span><br><span class="line"></span><br><span class="line">        this.width = width;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// this function is private to the module</span><br><span class="line"></span><br><span class="line">function subtract(num1, num2) &#123;</span><br><span class="line"></span><br><span class="line">    return num1 - num2;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// define a function</span><br><span class="line"></span><br><span class="line">function multiply(num1, num2) &#123;</span><br><span class="line"></span><br><span class="line">    return num1 * num2;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// export later</span><br></pre></td></tr></table></figure>
 <h4 id="export-multiply"><a href="#export-multiply" class="headerlink" title="export multiply;"></a><a href="#export-multiply" title="export multiply;"></a>export multiply;</h4><p>我们只需在在原JS的声明前加上export关键字就可以导出数据、类、函数。也可以先定义后导出。而模块中未加export关键字的数据、类和函数都将为模块所私有。</p>
 <p>但是需要注意的是该关键字只能在顶级作用域中使用，类似下面的用法是明显的语法错误：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>if (flag) {</p>
-<pre><code>export flag;    // syntax error
-</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (flag) &#123;</span><br><span class="line"></span><br><span class="line">    export flag;    // syntax error</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="import"><a href="#import" class="headerlink" title="import:"></a><a href="#import" title="import:"></a>import:</h4><p>一旦我们把一个模块导出，这个模块就可以使用关键字import导入，语法如下：</p>
-<p>1</p>
-<p>import { identifier1, identifier2 } from “module”;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123; identifier1, identifier2 &#125; from &quot;module&quot;;</span><br></pre></td></tr></table></figure>
 <p>identifier1, identifier2是要导入的模块，module是被导入的模块的来源。</p>
 <p>identifiers的具体写法还没有确定下来，可能要等到浏览器和node.js开始原生的使用模块时才会确定identifiers的具体格式。</p>
 <p>可以使用import关键字从一个文件中导入多个模块。</p>
-<p>1</p>
-<p>import { module1, module2 [,module3,…]} from “example”;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123; module1, module2 \[,module3,...\]&#125; from &quot;example&quot;;</span><br></pre></td></tr></table></figure>
 <p>如果要从一个文件中导入所有的模块：</p>
-<p>1</p>
-<p>import * as example from “example”;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import * as example from &quot;example&quot;;</span><br></pre></td></tr></table></figure>
 <p>源文件中的所有模块都被导入，并且被命名为example，源文件中所有的模块都变成example的属性，调用方式为：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>// import everything</p>
-<p>import * as example from “example”;</p>
-<p>console.log(example.sum(1,</p>
-<pre><code>example.magicNumber));          // 8
-</code></pre><p>console.log(example.multiply(1, 2));    // 2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// import everything</span><br><span class="line"></span><br><span class="line">import * as example from &quot;example&quot;;</span><br><span class="line"></span><br><span class="line">console.log(example.sum(1,</span><br><span class="line"></span><br><span class="line">        example.magicNumber));          // 8</span><br><span class="line"></span><br><span class="line">console.log(example.multiply(1, 2));    // 2</span><br></pre></td></tr></table></figure>
 <p>被导入的模块还可以重命名：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>import { add as sum } from “example”;</p>
-<p>console.log(typeof add);            // “undefined”</p>
-<p>console.log(sum(1, 2));             // 3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import &#123; add as sum &#125; from &quot;example&quot;;</span><br><span class="line"></span><br><span class="line">console.log(typeof add);            // &quot;undefined&quot;</span><br><span class="line"></span><br><span class="line">console.log(sum(1, 2));             // 3</span><br></pre></td></tr></table></figure>
 <p>从一个模块中导入一个标示符后，这个标示符将表现的和使用const关键字定义的标示符一样，不能被重新赋值：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>import { sum } from “example”;</p>
-<p>console.log(sum(1, 2));     // 3</p>
-<p>sum = 1;        // error</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import &#123; sum &#125; from &quot;example&quot;;</span><br><span class="line"></span><br><span class="line">console.log(sum(1, 2));     // 3</span><br><span class="line"></span><br><span class="line">sum = 1;        // error</span><br></pre></td></tr></table></figure>
 <p>每一个模块都可以且仅可以定义一个默认值，语法如下：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>//默认值可以是函数、变量或者类，这里以函数为例</p>
-<p>export default function(num1, num2) {</p>
-<pre><code>return num1 + num2;
-</code></pre><p>}</p>
-<p>导入时的语法：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>// import the default</p>
-<p>import sum from “example”;</p>
-<p>console.log(sum(1, 2));     // 3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//默认值可以是函数、变量或者类，这里以函数为例</span><br><span class="line"></span><br><span class="line">export default function(num1, num2) &#123;</span><br><span class="line"></span><br><span class="line">    return num1 + num2;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>导入时的语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// import the default</span><br><span class="line"></span><br><span class="line">import sum from &quot;example&quot;;</span><br><span class="line"></span><br><span class="line">console.log(sum(1, 2));     // 3</span><br></pre></td></tr></table></figure></p>
 <p>或者：</p>
-<p>1</p>
-<p>2</p>
-<p>import { default as sum} from “example”;</p>
-<p>console.log(sum(1, 2));     // 3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &#123; default as sum&#125; from &quot;example&quot;;</span><br><span class="line"></span><br><span class="line">console.log(sum(1, 2));     // 3</span><br></pre></td></tr></table></figure>
 <p>再次导出：</p>
 <p>我们可以把已经导入的模块再次导出，并且可以在此过程中进行重命名：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>import { sum } from “example”;</p>
-<p>export { sum }</p>
-<p>//or</p>
-<p>export { sum as add } from “example”;</p>
-<p>//export everything from another module</p>
-<p>export * from “example”;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123; sum &#125; from &quot;example&quot;;</span><br><span class="line"></span><br><span class="line">export &#123; sum &#125;</span><br><span class="line"></span><br><span class="line">//or</span><br><span class="line"></span><br><span class="line">export &#123; sum as add &#125; from &quot;example&quot;;</span><br><span class="line"></span><br><span class="line">//export everything from another module</span><br><span class="line"></span><br><span class="line">export * from &quot;example&quot;;</span><br></pre></td></tr></table></figure>
 <p>需要注意的是，import关键字会将导入的变量、函数和类绑定到本地，你依然可以在本地通过导入的模块去修改它们。</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>export var name = “Nicholas”;</p>
-<p>export function setName(newName) {</p>
-<pre><code>name = newName;
-</code></pre><p>}</p>
-<p>import { name, setName } from “example”;</p>
-<p>console.log(name);       // “Nicholas”</p>
-<p>setName(“Greg”);</p>
-<p>console.log(name);       // “Greg”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">export var name = &quot;Nicholas&quot;;</span><br><span class="line"></span><br><span class="line">export function setName(newName) &#123;</span><br><span class="line"></span><br><span class="line">    name = newName;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">import &#123; name, setName &#125; from &quot;example&quot;;</span><br><span class="line"></span><br><span class="line">console.log(name);       // &quot;Nicholas&quot;</span><br><span class="line"></span><br><span class="line">setName(&quot;Greg&quot;);</span><br><span class="line"></span><br><span class="line">console.log(name);       // &quot;Greg&quot;</span><br></pre></td></tr></table></figure>
 <p>参考资料：</p>
 <p>1.<a href="https://www.safaribooksonline.com/library/view/eloquent-javascript-2nd/9781457189821/ch10.html" target="_blank" rel="noopener">Eloquent JavaScript-Chapter 10. Modules</a></p>
 <p>2.<a href="https://leanpub.com/understandinges6/read/#leanpub-auto-modules" target="_blank" rel="noopener">Understanding ECMAScript 6-Modules</a></p>
@@ -601,7 +270,7 @@ function ( foo, bar ) {
 
   
     <section id="comment">
-    <!--   <h1 class="title">Comments</h1> -->
+    <!--   <h1 class="title">留言</h1> -->
     
         <script type="text/javascript" id="wumiiComments">
             var wumiiPermaLink = "http://yoursite.com/2018/02/01/JavaScript-Modules/"; //请用代码生成文章永久的链接
@@ -628,7 +297,7 @@ function ( foo, bar ) {
 
 
   <div class="widget tag">
-  <h3 class="title">Calendar</h3>
+  <h3 class="title">日历云</h3>
   <div id="calendar"></div>
 </div>
 
@@ -644,7 +313,7 @@ function ( foo, bar ) {
   
   <div class="widget tag">
     <h3 class="title">归档</h3>
-	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">20</span></li></ul>
+	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">19</span></li></ul>
   </div>
 
 </aside>

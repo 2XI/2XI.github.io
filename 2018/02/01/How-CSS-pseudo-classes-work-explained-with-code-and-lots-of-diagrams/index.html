@@ -58,18 +58,18 @@ HTML和DOM树
 	<div class='header-nav-content inner'>
 		<div id="main-nav" class="alignleft">
 		    		
-		    		  <a href="/"><i class="fa fa-home"></i>Home</a>
+		    		  <a href="/"><i class="fa fa-home"></i>首页</a>
 		    		
-		    		  <a href="/archives"><i class="fa fa-archive"></i>Archives</a>
+		    		  <a href="/archives"><i class="fa fa-archive"></i>归档</a>
 		    		
 		</div>
 		<div id="sub-nav" class="alignright">
 		    
-		      <a href="/atom.xml"><i class="fa fa-rss"></i>Rss</a>
+		      <a href="/atom.xml"><i class="fa fa-rss"></i>订阅</a>
 		    
-		      <a href="/customization"><i class="fa fa-question-circle"></i>Customization</a>
+		      <a href="/customization"><i class="fa fa-question-circle"></i>留言</a>
 		    
-		      <a href="/about"><i class="fa fa-"></i>About</a>
+		      <a href="/about"><i class="fa fa-"></i>关于我</a>
 		    
 		</div>
 	</div>
@@ -105,74 +105,29 @@ HTML和DOM树
 <p>原文：<a href="https://medium.freecodecamp.com/explained-css-pseudo-classes-cef3c3177361#.s76ufr89z" target="_blank" rel="noopener">How CSS pseudo-classes work, explained with code and lots of diagrams</a></p>
 <p>老实说，有时候CSS真的很让人伤脑筋，比如在一个父元素中居中一个元素就很困难。</p>
 <p>今天我们来了解一个更具有挑战性的CSS特性：伪类。</p>
-<p>我这里要讨论的伪类涉及以下两种类型：</p>
-<p>*-of-type selectors</p>
-<p>*-child selectors</p>
+<p>我这里要讨论的伪类涉及以下两种类型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*-of-type selectors</span><br><span class="line"></span><br><span class="line">*-child selectors</span><br></pre></td></tr></table></figure></p>
 <p>你或许在想，“我要学习伪类，为什么你却在谈论选择器？”。好吧，它们基本上是同一个概念，我也将会互换着使用这它们。</p>
 <p>伪类有时候很难理解，主要是因为它们是以一种抽象的方式来描述的。我将使用·一种不同的表述方式，并且通过构造一棵DOM树来帮助你理解。</p>
 <h3 id="HTML和DOM树"><a href="#HTML和DOM树" class="headerlink" title="HTML和DOM树"></a><a href="#HTML和DOM树" title="HTML和DOM树"></a>HTML和DOM树</h3><p>我们首先来看一下HTML代码块，我将在所有的例子中使用这些代码。</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>13</p>
-<p>14</p>
-<p>15</p>
-<p>16</p>
-<p>17</p>
-<p>18</p>
-<body><br><br>  <div class="”main”"><br><br>     <a href="”#”">Inner Link 1</a><br><br>     <a href="”#”">Inner Link 2</a><br><br>     <ul><br><br>       <a href="”#”">Inner Inner Link 1</a><br><br>       <li><br><br>         <a href="”#”">List Item 1</a><br><br>       </li><br><br>       <li><br><br>         <a href="”#”">List Item 2</a><br><br>       </li><br><br>     </ul><br><br>     <a href="”#”">Inner Link 3</a><br><br>  </div><br><br>  <a href="”#”">Outer Link 1</a><br><br>  <a href="”#”">Outer Link 2</a><br><br></body>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">  &lt;div class=”main”&gt;</span><br><span class="line"></span><br><span class="line">     &lt;a href=”#”&gt;Inner Link 1&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">     &lt;a href=”#”&gt;Inner Link 2&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">     &lt;ul&gt;</span><br><span class="line"></span><br><span class="line">       &lt;a href=”#”&gt;Inner Inner Link 1&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">       &lt;li&gt;</span><br><span class="line"></span><br><span class="line">         &lt;a href=”#”&gt;List Item 1&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">       &lt;/li&gt;</span><br><span class="line"></span><br><span class="line">       &lt;li&gt;</span><br><span class="line"></span><br><span class="line">         &lt;a href=”#”&gt;List Item 2&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">       &lt;/li&gt;</span><br><span class="line"></span><br><span class="line">     &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">     &lt;a href=”#”&gt;Inner Link 3&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">  &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">  &lt;a href=”#”&gt;Outer Link 1&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">  &lt;a href=”#”&gt;Outer Link 2&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
 <p>现在我将把这些代码转换成更直观更符合视觉的东西——一棵DOM树。</p>
 <p>下面的body元素有三个子元素，.main和两个锚点元素。</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<body><br><br>  <div class="”main”"><br><br>   …<br><br>  </div><br><br>  <a href="”#”">Outer Link 1</a><br><br>  <a href="”#”">Outer Link 2</a><br><br></body>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">  &lt;div class=”main”&gt;</span><br><span class="line"></span><br><span class="line">   ...</span><br><span class="line"></span><br><span class="line">  &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">  &lt;a href=”#”&gt;Outer Link 1&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">  &lt;a href=”#”&gt;Outer Link 2&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
 <p>下面是以一棵DOM树的形式展示时body和它的三个子元素的关系示意图：</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*0J4m0pNfNUUe-JE9dPIbHw.png" alt="fig-1"></p>
 <p>你需要记住的一点是子元素在DOM树中被放置的位置很重要，在代码中从上至下排列的子元素在DOM树中被从左至右放置。我们来看类名为.main的div元素：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<div class="”main”"><br><br>   <a href="”#”">Inner Link 1</a><br><br>   <a href="”#”">Inner Link 2</a><br><br>   <ul><br><br>     …<br><br>   </ul><br><br>   <a href="”#”">Inner Link 3</a><br><br></div>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=”main”&gt;</span><br><span class="line"></span><br><span class="line">   &lt;a href=”#”&gt;Inner Link 1&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">   &lt;a href=”#”&gt;Inner Link 2&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">   &lt;ul&gt;</span><br><span class="line"></span><br><span class="line">     ...</span><br><span class="line"></span><br><span class="line">   &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">   &lt;a href=”#”&gt;Inner Link 3&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <p>.main有4个子元素，前两个是锚点元素，接下来是一个ul元素，然后又是一个锚点元素。</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*b1bt8tsEPJ7L1jJNkSB1WQ.png" alt="fig-2"></p>
 <p>同样，我们逐级画出每一层的DOM树。</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*xn3NJH7ajQ0t-nSQWkr2HA.png" alt="fig-3"></p>
 <p>为了使这篇文章对你有所帮助，理解这棵DOM树很重要。</p>
 <p>下面我们来看第一个伪类。</p>
-<p>1</p>
-<p>Pseudo-class #1 :only-of-type</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pseudo-class #1 :only-of-type</span><br></pre></td></tr></table></figure>
 <p>所有的伪类都遵循同样的范式：</p>
-<p>1</p>
-<p>what-you-want-to-select:filter { /<em> styles </em>/ }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">what-you-want-to-select:filter &#123; /* styles */ &#125;</span><br></pre></td></tr></table></figure>
 <p>what-you-want-to-select可以被用来选择任何以集合形式存在于DOM中的元素，下面让我来展示一个例子：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a:only-of-type { </p>
-<p>  border: 2px solid black;</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:only-of-type &#123; </span><br><span class="line"></span><br><span class="line">  border: 2px solid black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在上面的代码块中，what-you-want-to-select是锚点元素（a标签），过滤器是only-of-type我们稍后会看到这个选择器做了什么。</p>
 <p>首先，不用感谢我，如果你闲麻烦不想建测试项目的话，我在codepen中为你创建了一个。</p>
 <p>你可以打开链接，查看这些变化，当你感到迷惑的时候再回头看这篇文章的解释，做好你的部分，我来完成我该做的。</p>
@@ -185,155 +140,82 @@ HTML和DOM树
 <p>到此what-you-want-to-select这部分结束，下面进入过滤部分。</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*WwCVWx4UKJ5bdPUV1e4vXQ.png" alt="fig-6"></p>
 <p>only-of类依次查询每一部分，挑选出有且仅有一个锚点元素的部分中的锚点元素。注意到3, 4, 5部分中分别只有一个锚点元素了吗？上图所示就是这个选择器作用的结果。</p>
-<p>1</p>
-<p>Pseudo-class #2 :first-of-type</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pseudo-class #2 :first-of-type</span><br></pre></td></tr></table></figure>
 <p>让我们回到我们选出所有“what-you-want-to-select”的地方（在我们的例子中是锚点元素）。</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*bxFbXy1QDeGf-84KSJNxDg.png" alt="fig-7"></p>
 <p>过滤器first-of-type转化为在每一部分中挑选第一个出现的锚点元素。</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*PJExtAelKm7-Xdt31Dw6cA.png" alt="fig-8"></p>
 <p>下面是完成部分工作的代码：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a:first-of-type { </p>
-<p>  border: 2px solid black;</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:first-of-type &#123; </span><br><span class="line"></span><br><span class="line">  border: 2px solid black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以防你忘了我不辞辛劳为你在CodePen中创建的项目，这里再次给出查看代码效果的链接。</p>
-<p>1</p>
-<p>Pseudo-class #3 :last-of-type</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pseudo-class #3 :last-of-type</span><br></pre></td></tr></table></figure>
 <p>如果你不能通过名称来区分，last-of-type刚好与first-of-type作用效果相反。这也就意味着它会选出DOM树每一部分中的最后一个锚点元素。</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*dWlzrEMXkZueTDY52sGLzg.png" alt="fig-9"></p>
 <p>“What about the sections with just one anchor element?”, not very glad you asked that question. It’s quite simple to see if a section has just one anchor element, it obviously passes the only-of-type filter, but not only that. Since there are no anchor elements preceding or following that particular tag it passes both first-of-type and last-of-type filters as well (e.g a tags Section 4 and 5).</p>
-<p>1</p>
-<p>Pseudo-class #4 :nth-of-type(number/an + b/even/odd)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pseudo-class #4 :nth-of-type(number/an + b/even/odd)</span><br></pre></td></tr></table></figure>
 <p>And now we finally bite into the juicy part of the article, there’s simple CSS with some fifth grade Math toppings, hope you enjoy savouring it.<br>Let’s declare the following style to begin with.</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a:nth-of-type(1) {</p>
-<p>border: 2px solid black;</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:nth-of-type(1) &#123;</span><br><span class="line"></span><br><span class="line">border: 2px solid black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>It looks a little cryptic but is quite simple really. To read the selector simply take the number from the parentheses and replace nth in the selector name with that number’s ordinal form. That’s another fancy English word for you, to be honest though…</p>
 <p>Alright coming back, a:nth-of-type(1) can be therefore read as a:first-of-type and no surprise it works exactly like a:first-of-type and results in the elements getting selected as shown below; just the anchor elements which are first of their types in their respective section.</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*PJExtAelKm7-Xdt31Dw6cA.png" alt="fig-10"></p>
 <p>Well that is fine and dandy, but let’s try something different here.</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a:nth-of-type(0) {</p>
-<p>border: 2px solid black;</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:nth-of-type(0) &#123;</span><br><span class="line"></span><br><span class="line">border: 2px solid black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>If you guessed it right, which I am sure you didn’t, no anchor elements get selected in this case. As the numbering of types (and children as we’ll see) in each section starts from 1 and not 0, there is no “0” anchor elements in any of the sections and therefore a:zeroth-of-type selects nothing. And so will be the case for a:nth-of-type(5) or a:nth-of-type(6/7/8) because there are no a:fifth-of-type or a:sixth/seventh/eighth-of-type in any of the sections.<br>But if we went ahead and used…</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a:nth-of-type(2) { </p>
-<p>  border: 2px solid black;</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:nth-of-type(2) &#123; </span><br><span class="line"></span><br><span class="line">  border: 2px solid black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>quite clearly sections 1 and 2 have a second-of-type anchor elements and hence those are the ones that get selected.</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*o7aTc-EJF53N7bAHs2Ssxg.png" alt="fig-11"></p>
 <p>Similarly, just to reinforce the point here, if we went ahead and declared the following style,</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a:nth-of-type(3) { </p>
-<p>  border: 2px solid black;</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:nth-of-type(3) &#123; </span><br><span class="line"></span><br><span class="line">  border: 2px solid black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>it will select the third anchor elements in the second section as section 2is the only section with a :third-of-type anchor element.</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*Ob0gZ_tJhflq73RCzbyFkw.png" alt="fig-12"></p>
 <p>Quite simple isn’t it? But numbers aren’t the only thing that you can pass into :nth-of-type(…), this bloke is more powerful that that, you can also pass in formulas of form (a*n) + b (or for brevity an + b). Where a and b are constants and n is a value &gt;= 0. How did you like the Math topping sir? don’t worry it’ll all make sense in a second.</p>
 <p>Consider the following style</p>
-<p>1</p>
-<p>a:nth-of-type(n) {  border: 2px solid black; }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a:nth-of-type(n) &#123;  border: 2px solid black; &#125;</span><br></pre></td></tr></table></figure>
 <p>The formula that’s passed in the selector above is (1 * n) + 0 [= n] , a is 1, b is 0 and n is well, n. What happens next is, starting from 0 the numerical value of n is incrementally plugged into the formula and selection is made. Therefore a:nth-of-type(n) basically translates to</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>a:nth-of-type(0) {  border: 2px solid black; } // n = 0</p>
-<p>a:nth-of-type(1) {  border: 2px solid black; } // n = 1</p>
-<p>a:nth-of-type(2) {  border: 2px solid black; } // n = 2</p>
-<p>a:nth-of-type(3) {  border: 2px solid black; } // n = 3</p>
-<p>a:nth-of-type(4) {  border: 2px solid black; } // n = 4</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a:nth-of-type(0) &#123;  border: 2px solid black; &#125; // n = 0</span><br><span class="line"></span><br><span class="line">a:nth-of-type(1) &#123;  border: 2px solid black; &#125; // n = 1</span><br><span class="line"></span><br><span class="line">a:nth-of-type(2) &#123;  border: 2px solid black; &#125; // n = 2</span><br><span class="line"></span><br><span class="line">a:nth-of-type(3) &#123;  border: 2px solid black; &#125; // n = 3</span><br><span class="line"></span><br><span class="line">a:nth-of-type(4) &#123;  border: 2px solid black; &#125; // n = 4</span><br></pre></td></tr></table></figure>
 <p>Hence this results in all the anchor elements getting selected.</p>
 <p>Let’s consider one more example</p>
-<p>1</p>
-<p>a:nth-of-type(2n + 1) {  border: 2px solid black; }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a:nth-of-type(2n + 1) &#123;  border: 2px solid black; &#125;</span><br></pre></td></tr></table></figure>
 <p>Starting from 0 and incrementally plugging values of n in the formula generates the following selectors.</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>// n = 0 implies (2 * 0) + 1 = 1</p>
-<p>a:nth-of-type(1) { border: 2px solid black; }</p>
-<p>// n = 1 implies (2 * 1) + 1 = 3</p>
-<p>a:nth-of-type(3) { border: 2px solid black; }</p>
-<p>// n = 2 implies (2 * 2) + 1 = 5 - No selections since no fifth-of-type present in any of the sections</p>
-<p>a:nth-of-type(5) { border: 2px solid black; }…</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// n = 0 implies (2 * 0) + 1 = 1</span><br><span class="line"></span><br><span class="line">a:nth-of-type(1) &#123; border: 2px solid black; &#125;</span><br><span class="line"></span><br><span class="line">// n = 1 implies (2 * 1) + 1 = 3</span><br><span class="line"></span><br><span class="line">a:nth-of-type(3) &#123; border: 2px solid black; &#125;</span><br><span class="line"></span><br><span class="line">// n = 2 implies (2 * 2) + 1 = 5 - No selections since no fifth-of-type present in any of the sections</span><br><span class="line"></span><br><span class="line">a:nth-of-type(5) &#123; border: 2px solid black; &#125;</span><br></pre></td></tr></table></figure>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*QrQj3hZlegF3D-kv7yB0gA.png" alt="fig-13"></p>
 <p>Other than numbers and formulas that generate numbers, you can pass in either even or odd strings. even selects all the even occurrences of an element of particular type in a section i.e :second-of-type :fourth-of-type :sixth-of-type e.t.c and on the other hand obviously :nth-of-type(odd) selects all the odd occurrences i.e :first-of-type, :third-of-type, :fifth-of-type e.t.c</p>
 <p>Pseudo-class #5 :nth-last-of-type(number/an + b/even/odd)</p>
 <p>This selector functions exactly like the previous one, but with one little difference. See for yourself…</p>
-<p>1</p>
-<p>a:nth-last-of-type(1) {  border: 2px solid black; }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a:nth-last-of-type(1) &#123;  border: 2px solid black; &#125;</span><br></pre></td></tr></table></figure>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*8iEbmV82IuBJ7jyYiyx_AA.png" alt="fig-14"></p>
 <p>Notice how in each level numbering of anchor types is done from right to left instead of normal left to right. That is the only difference. last-of-type accepts numbers and formulas and even/odd just like nth-of-type except when selection is made the last type is treated as first, second last as second, third last as third and so on…</p>
 <p>With that we come to an end of *-of-type selectors. Hope it was a fun ride for you, we started with only-of-type then moved to first-of-type, last-of-type and took a huge dip into nth-of-type(…) and nth-last-of-type(..). If in case somewhere in the middle you lost your grip and fell off I encourage you play around with this pen and re read the explanation.</p>
 <p>Alright, time to hop on to the next one in this less visited corner of the CSS theme park. Another category of pseudo selectors/classes we’re going to delve into are -child classes. With a clear understanding of how -of-type selectors work grasping the concept behind -child selectors should be a cinch for you. “Cinch? What’s that? Is it a unit of measurement?” No ya dumbass, it means an extremely easy task. Anyways, let’s start with our very first -child selector, :only-child.</p>
 <p>Child pseudo-class #1 :only-child</p>
 <p>Consider the following style.</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a:only-child { </p>
-<p>  border: 2px solid black;</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:only-child &#123; </span><br><span class="line"></span><br><span class="line">  border: 2px solid black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Now that’s the very definition of self explanatory and straightforward. The selector says to select all the anchor elements, given that the anchor element should be the only child of its parent, or, to put in other words select all the anchor elements whose parent has just one child and that one child is an anchor element.</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*bNZeHcGUOqswsJDMQFszzw.png" alt="fig-15"></p>
 <p>I had a friend who was never his mother’s favorite, and he was an only child. Just wanted to plug that in there, anyways, notice that in contrast with *-of-type selectors we are no longer numbering types, but children, starting of course from 1 (and not 0). When compared with only-of-type, the anchor element in section 3 is not selected as its parent (ul) has 3 children therefore even though it (the anchor element in level 3) is an only child of type ‘a’ of its parent, its not the only child, there are 2 lis as well.</p>
 <p>Child pseudo-class #2 :first-child<br>Consider the following style declaration.</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a:first-child { </p>
-<p>  border: 2px solid black;</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:first-child &#123; </span><br><span class="line"></span><br><span class="line">  border: 2px solid black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>It simply says, select all the anchor element, but with one condition in mind, the anchor element should be the first child of its parent. That’s it, no further explanation needed.</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*qLx7ELzLcCUWHY9xakrsfg.png" alt="fig-16"></p>
 <p>For if you are a little confused as of why the a in section 1 wasn’t selected it’s because the first child in section 1 (whose parent is body) is .main, the first a in section 1 is the second child and couldn’t pass the first-child filter, that is the exact reason why the poor bloke ended up not being selected and was given a big hashtag fuck off. Let’s continue to the next one.</p>
-<p>1</p>
-<p>Child pseudo-class #3 :last-child</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Child pseudo-class #3 :last-child</span><br></pre></td></tr></table></figure>
 <p>This is the part where selectors should start to get self explanatory and you should start thinking I am dumb trying to explain them to you. But my name is not blurryface and I don’t care what you think. “Nice twenty one pilots reference there” yeah I know, thanks. Now, look at the following style declaration.</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a:last-child { </p>
-<p>  border: 2px solid black;</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:last-child &#123; </span><br><span class="line"></span><br><span class="line">  border: 2px solid black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>what-you-want-to-select ? “Anchor elements.” And the filter you want to use? last-child. That quite simply translates to select those anchor elements which are the last child of their parent. Or, in other words select anchor elements whose parent finally decided it wasn’t fun anymore and stopped after that bloke was born. Below is what the tree looks like with :last-child selections.</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*PfU4UZ2kZvgWZlG-Pav05w.png" alt="fig-17"></p>
 <p>Child pseudo-class #4 :nth-child(number/an+b/even/odd)<br>I hope you were able to digest the Math topping you got served last time, because it’s about to happen again only this time on a slightly different crust.<br>Now, I would like you to take all your attention and laser point it to the following example.</p>
-<p>1</p>
-<p>a:nth-child(1) {  border: 2px solid black; }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a:nth-child(1) &#123;  border: 2px solid black; &#125;</span><br></pre></td></tr></table></figure>
 <p>It’s all the same as :nth-of-type, I would have linked to that section of the article here but Medium policies don’t allow that, if you want a refresher, you will have to scroll up to that section. Leaving Medium policies aside which might change in future, what hasn’t changed is the process of decrypting nth-selectors .<br>Just like with :nth-of-type, in the selector name take the number in parentheses and replace “nth” with that number’s ordinal form. Therefore the selector shown in example is equivalent to a:first-child and works exactly the same; i.e selects all the anchor elements, given that they are the first child of their parent.<br>That should nail the similarity between the two nth-selectors (nth-of-type and nth-child), but we will anyways go ahead and take a look at another example.</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>13</p>
-<p>a:nth-child(2n - 1) {  border: 2px solid black; }</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">We begin by incrementally plugging in values of n starting from 0 into the formula, which makes us realize that the selector shown above is basically equivalent to the ones shown below.</span><br><span class="line"></span><br><span class="line">// n = 0 implies (2 0) - 1 = 0 - 1 = -1</span><br><span class="line"></span><br><span class="line">a:nth-child(-1) &#123; border: 2px solid black; &#125; | No selections</span><br><span class="line"></span><br><span class="line">// n = 1 implies (2 1) - 1 = 2 - 1 = 1</span><br><span class="line"></span><br><span class="line">a:nth-child(1) &#123; border: 2px solid black; &#125;</span><br><span class="line"></span><br><span class="line">// n = 2 implies (2 2) - 1 = 4 - 1 = 3</span><br><span class="line"></span><br><span class="line">a:nth-child(3) &#123; border: 2px solid black; &#125;</span><br><span class="line"></span><br><span class="line">// n = 3 implies (2 3) - 1 = 6 - 1 = 5</span><br><span class="line"></span><br><span class="line">a:nth-child(5) &#123; border: 2px solid black; &#125; | No selections further</span><br><span class="line"></span><br><span class="line">…</span><br><span class="line"></span><br><span class="line">As it is, if the selector gets numbers out of bounds (like -1, 5, 6… in the case above) fed into it, it just ignores them. Following is how the tree looks with a:nth-child(2n-1) applied.</span><br><span class="line"></span><br><span class="line">![fig-18](https://cdn-images-1.medium.com/max/1600/1*aXGTeApzv5e1c7CJdk-pvg.png)</span><br><span class="line"></span><br><span class="line">Folks at CSS Tricks have a very informative article called Useful :nth-child Recipes you should check it out and put your knowledge of :nth-child to test. I challenge you m8.  </span><br><span class="line">With that we will move to the last selector of this article which punningly is :nth-last-child. Holy shit! why is “punningly” a word even?  </span><br><span class="line">Child pseudo-class #5 :nth-last-child(number/an + b/even/odd)  </span><br><span class="line">This selector works exactly like :nth-child except that it starts selecting elements from the opposite direction just like that annoying high school teacher who would ask questions to the class starting from the peaceful folks seated at the last benches. God I hated him. If you look at the trees drawn so far, the children are numbered left to right in each section, but this selector bloke sees the tree like so  </span><br><span class="line">![fig-19](https://cdn-images-1.medium.com/max/1600/1*2ChjMydCcmDb9TgFrY4htg.png)  </span><br><span class="line">The children in each section are numbered right to left. So if we go ahead and apply the following style</span><br><span class="line"></span><br><span class="line">a:nth-last-child(1) &#123; border: 2px solid black; &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:nth-child(2n - 1) &#123;  border: 2px solid black; &#125;</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">We begin by incrementally plugging in values of n starting from 0 into the formula, which makes us realize that the selector shown above is basically equivalent to the ones shown below.</span><br></pre></td></tr></table></figure>
+<p>// n = 0 implies (2 0) - 1 = 0 - 1 = -1</p>
+<p>a:nth-child(-1) { border: 2px solid black; } | No selections</p>
+<p>// n = 1 implies (2 1) - 1 = 2 - 1 = 1</p>
+<p>a:nth-child(1) { border: 2px solid black; }</p>
+<p>// n = 2 implies (2 2) - 1 = 4 - 1 = 3</p>
+<p>a:nth-child(3) { border: 2px solid black; }</p>
+<p>// n = 3 implies (2 3) - 1 = 6 - 1 = 5</p>
+<p>a:nth-child(5) { border: 2px solid black; } | No selections further<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">As it is, if the selector gets numbers out of bounds (like -1, 5, 6… in the case above) fed into it, it just ignores them. Following is how the tree looks with a:nth-child(2n-1) applied.</span><br><span class="line"></span><br><span class="line">![fig-18](https://cdn-images-1.medium.com/max/1600/1*aXGTeApzv5e1c7CJdk-pvg.png)</span><br><span class="line"></span><br><span class="line">Folks at CSS Tricks have a very informative article called Useful :nth-child Recipes you should check it out and put your knowledge of :nth-child to test. I challenge you m8.  </span><br><span class="line">With that we will move to the last selector of this article which punningly is :nth-last-child. Holy shit! why is “punningly” a word even?  </span><br><span class="line">Child pseudo-class #5 :nth-last-child(number/an + b/even/odd)  </span><br><span class="line">This selector works exactly like :nth-child except that it starts selecting elements from the opposite direction just like that annoying high school teacher who would ask questions to the class starting from the peaceful folks seated at the last benches. God I hated him. If you look at the trees drawn so far, the children are numbered left to right in each section, but this selector bloke sees the tree like so  </span><br><span class="line">![fig-19](https://cdn-images-1.medium.com/max/1600/1*2ChjMydCcmDb9TgFrY4htg.png)  </span><br><span class="line">The children in each section are numbered right to left. So if we go ahead and apply the following style</span><br></pre></td></tr></table></figure></p>
+<p>a:nth-last-child(1) { border: 2px solid black; }<br>```</p>
 <p>the anchor elements will get selected as shown below.</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*XBmBun1e7jY0aaHsBlZHlg.png" alt="fig-20"></p>
 <p>Quite straightforward isn’t it? This selector also very comfortably accepts formulas (of form an + b) and even/odd strings, the selections though, are made from the opposite end.<br>OK, this is where our journey together ends. You can pay for your ticket by tweeting this article to your developer buddies.<br>I hope you enjoyed reading this and learned something new, including some shiny new English words.<br>This is Nash signing off. I’ll see you in the next article. Follow me on Twitter to keep in touch. I tweet about dev-related stuff. A lot.</p>
@@ -369,7 +251,7 @@ HTML和DOM树
 
   
     <section id="comment">
-    <!--   <h1 class="title">Comments</h1> -->
+    <!--   <h1 class="title">留言</h1> -->
     
         <script type="text/javascript" id="wumiiComments">
             var wumiiPermaLink = "http://yoursite.com/2018/02/01/How-CSS-pseudo-classes-work-explained-with-code-and-lots-of-diagrams/"; //请用代码生成文章永久的链接
@@ -396,7 +278,7 @@ HTML和DOM树
 
 
   <div class="widget tag">
-  <h3 class="title">Calendar</h3>
+  <h3 class="title">日历云</h3>
   <div id="calendar"></div>
 </div>
 
@@ -412,7 +294,7 @@ HTML和DOM树
   
   <div class="widget tag">
     <h3 class="title">归档</h3>
-	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">20</span></li></ul>
+	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">19</span></li></ul>
   </div>
 
 </aside>

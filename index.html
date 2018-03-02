@@ -53,18 +53,18 @@
 	<div class='header-nav-content inner'>
 		<div id="main-nav" class="alignleft">
 		    		
-		    		  <a href="/"><i class="fa fa-home"></i>Home</a>
+		    		  <a href="/"><i class="fa fa-home"></i>首页</a>
 		    		
-		    		  <a href="/archives"><i class="fa fa-archive"></i>Archives</a>
+		    		  <a href="/archives"><i class="fa fa-archive"></i>归档</a>
 		    		
 		</div>
 		<div id="sub-nav" class="alignright">
 		    
-		      <a href="/atom.xml"><i class="fa fa-rss"></i>Rss</a>
+		      <a href="/atom.xml"><i class="fa fa-rss"></i>订阅</a>
 		    
-		      <a href="/customization"><i class="fa fa-question-circle"></i>Customization</a>
+		      <a href="/customization"><i class="fa fa-question-circle"></i>留言</a>
 		    
-		      <a href="/about"><i class="fa fa-"></i>About</a>
+		      <a href="/about"><i class="fa fa-"></i>关于我</a>
 		    
 		</div>
 	</div>
@@ -74,47 +74,6 @@
   
     <div id="content" class="inner">
       <div id="main-col" class="alignleft"><div id="wrapper">
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-        <div class="icon"></div>
-        
-        <time datetime="2018-03-01T10:36:42.000Z"><a href="/2018/03/01/测试/">2018-03-01</a></time>
-        
-  
-    <h1 class="title"><a href="/2018/03/01/测试/">测试</a></h1>
-  
-
-    </header>
-
-    <div class="entry">
-      
-        
-    <div id="toc">
-        
-    </div>
-
-        
-      
-    </div>
-    <footer>
-      
-        
-        
-        <div class="alignright">
-          <a href="/2018/03/01/测试/#comment" class="comment-link">Comments</a>
-        </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
     <article class="post">
   
   <div class="post-content">
@@ -541,40 +500,9 @@
 <p>我们看到通过宽度设置百分比我们很容易的让页面中的元素实现了宽度自适应，那么高度怎么办呢？通常在开发过程中我们需要实际设置高度的情况比较少，限定高度值也不是一种合理的实现。在实际开发过程中，我们一般让高度由文字或者图片（img标签的高度会随宽度的值自动调整）撑开，当然也有例外的情况，比如我们使用背景图片代替img标签时，就需要我们手动设置高度的值了，如果设置不合理，图片显示的宽高比就会发生改变，改变浏览器的大小，我们会看到demo中图片显示的效果：</p>
 <p><a href="http://codepen.io/no1024/pen/ObNKbK" target="_blank" rel="noopener"><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1479345803/ajzdppvfeh9rzlokyhl1.gif" alt=""></a></p>
 <p>这个时候我们要解决的问题可以抽象为如何保证<em>在页面缩放过程中元素的宽高比不变</em>，为此，我们想<em>让元素的宽高都基于一个基准值计算</em>，这样实现可以保证元素的宽高比例始终是一个固定值。刚好我们有这么一个属性可以使用：padding，我想一定不止我一个人被这个属性的值为百分比时的表现坑过，不同于我们常见的宽度和高度的计算方式，<em>padding值为百分比时其计算值始终是基于父元素宽度的</em>，比如有下面的CSS样式：  </p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>.class {</p>
-<pre><code>width: 200px;
-
-height: 100px;
-
-padding: 5%;
-</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.class &#123;</span><br><span class="line"></span><br><span class="line">	width: 200px;</span><br><span class="line"></span><br><span class="line">	height: 100px;</span><br><span class="line"></span><br><span class="line">	padding: 5%;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>浏览器渲染时采用的样式是这样的：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>.class {</p>
-<pre><code>width: 200px;
-
-height: 100px;
-
-padding-top: 10px;
-
-padding-right: 10px;
-
-padding-bottom: 10px;
-
-padding-left: 10px;
-</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.class &#123;</span><br><span class="line"></span><br><span class="line">	width: 200px;</span><br><span class="line"></span><br><span class="line">	height: 100px;</span><br><span class="line"></span><br><span class="line">	padding-top: 10px;</span><br><span class="line"></span><br><span class="line">	padding-right: 10px;</span><br><span class="line"></span><br><span class="line">	padding-bottom: 10px;</span><br><span class="line"></span><br><span class="line">	padding-left: 10px;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>下面我们要利用它来实现一种高度自适应的效果，我们如果将父元素的宽度设为百分比，然后再给元素设置height设为0，width和padding-top为百分比，元素的高度就会被padding撑起来，并且高度的计算值是以宽度为基准的，这完美的满足了我们的需求。</p>
 <p><a href="http://codepen.io/no1024/pen/LbNKWW" target="_blank" rel="noopener"><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1479345933/j0nsodmh4rxwpx2vuiwq.gif" alt=""></a></p>
 <p>然而对于不使用背景图又要求宽高比固定不变的元素，这似乎并没有什么鸟🐦用，我们都知道元素的padding里面是不能放置元素的（正常<a href="https://www.w3.org/TR/CSS2/visuren.html#normal-flow" target="_blank" rel="noopener">文档流</a>的情况下），这时我们想到一个属性：position:absolute,我们可以让子元素绝对定位，这样它就可以出现在父元素的padding位置了。我们来看demo：</p>
@@ -590,31 +518,7 @@ padding-left: 10px;
 <h3 id="media-queries"><a href="#media-queries" class="headerlink" title="media queries"></a><a href="#media-queries" title="media queries"></a>media queries</h3><p>在HTML4和CSS2中充许你使用“media”来指定特定的媒体类型，如屏幕（screen）和打印（print）等设备的样式表。CSS3中的Media Queries增加了更多的媒体查询，同时你可以对于特定的设备类型、屏幕尺寸检查媒体是否符合某些条件，如果媒体符合相应的条件，那么就会调用对应的样式表。这个属性成为一堆成为CSS3最被人看好的一个属性之一——你可以让一个网站同时适配移动端和pc端。</p>
 <p>我们将要讨论的是media query在移动布局中的应用，移动布局如果使用media query来为不同屏幕尺寸下的元素设置不同的大小以让其自适应是不现实的，国内目前安卓的主流机型有480x800, 480x854, 540x960, 720x1280, 800x1280 这五种，非主流机型还包括：240x320, 320x480, 640x960 这三种。iOS主流机型主要为 320x480, 640x960, 640x1136, 1024x768, 2048x1536五种，这么多的屏幕使用media query来适配那开发的工作量是很大的。media query在移动布局中一般用来设置字体和其他需要定制的元素尺寸。</p>
 <p>例如：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>13</p>
-<p>.className {</p>
-<pre><code>width: 200px;
-</code></pre><p>}</p>
-<p>@media screen and (max-width: 1024px){</p>
-<p>   .className {</p>
-<pre><code>width: 400px;
-</code></pre><p>   }</p>
-<p>}</p>
-<p>@media only screen and (max-width: 320px) { body{ font-size: 12px; }}</p>
-<p>@media only screen and (max-width: 480px) { body{ font-size: 14px; }}</p>
-<p>@media only screen and (max-width: 640px) { body{ font-size: 16px; }}</p>
-<p>@media only screen and (max-width: 1024px) { body{ font-size: 18px; }}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">.className &#123;</span><br><span class="line"></span><br><span class="line">	width: 200px;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media screen and (max-width: 1024px)&#123;</span><br><span class="line"></span><br><span class="line">   .className &#123;</span><br><span class="line"></span><br><span class="line">     	width: 400px;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media only screen and (max-width: 320px) &#123; body&#123; font-size: 12px; &#125;&#125;</span><br><span class="line"></span><br><span class="line">@media only screen and (max-width: 480px) &#123; body&#123; font-size: 14px; &#125;&#125;</span><br><span class="line"></span><br><span class="line">@media only screen and (max-width: 640px) &#123; body&#123; font-size: 16px; &#125;&#125;</span><br><span class="line"></span><br><span class="line">@media only screen and (max-width: 1024px) &#123; body&#123; font-size: 18px; &#125;&#125;</span><br></pre></td></tr></table></figure>
 <p>在移动布局中常用媒体查询来设置几个断点以调整字体的大小。</p>
 <h3 id="flexbox布局"><a href="#flexbox布局" class="headerlink" title="flexbox布局"></a><a href="#flexbox布局" title="flexbox布局"></a>flexbox布局</h3><p>CSS3 弹性盒子(Flexible Box 或 Flexbox)提供了一种全新的布局方式，弹性盒子中的子元素可以在各个方向上进行布局，并且能以弹性尺寸来适应显示空间。在定义方面来说，弹性布局是指通过调整其内元素的宽高，从而在任何显示设备上实现对可用显示空间最佳填充的能力。弹性容器扩展其内元素来填充可用空间，或将其收缩来避免溢出。更多关于flexbox的知识可以查看<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes" target="_blank" rel="noopener">使用 CSS 弹性盒子</a>和<a href="http://www.w3cplus.com/css3/a-guide-to-flexbox-new.html" target="_blank" rel="noopener">一个完整的Flexbox指南</a>.</p>
 <p>下面我们来看一个demo：</p>
@@ -633,13 +537,11 @@ padding-left: 10px;
 <p>上面的解释来着mdn，也就是说rem是相对于根元素html计算的，如果根元素是12px，那么1rem的计算值就是12px,我们把整个页面中所有元素的长度单位都设置为rem，不同屏幕尺寸下调整根元素字体的大小句可以实现元素自适应了。当让对于字体和边框这样的属性，建议不使用rem，我们不希望在大屏幕中字体过大，当边框这样较小的值，如果再计算为rem，浏览器会去四舍五入的计算值，最终会对显示效果会有影响。</p>
 <p>rem基准值计算</p>
 <p>由于我们所写出的页面是要在不同的屏幕大小设备上运行的，所以我们在写样式的时候必须要先以一个确定的屏幕来作为参考，这个就由我们拿到的视觉稿来定假如我们拿到的视觉稿是以iphone6的屏幕为基准设计的iPhone6的屏幕大小是375px。</p>
-<p>1</p>
-<p>rem = (375 / 10)px</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rem = (375 / 10)px</span><br></pre></td></tr></table></figure>
 <p>我们一般讲设备的宽度除以10，为什么是10，我们想尽量取一个不大又不小的整数，当然你也可以去其他值或者选择不除，只要保证页面的元素尺寸相对于这个值转换就OK。<br>根元素字体大小设置为37.5以后，可以保证浏览器的显示效果和设计图相同，当我们换一种屏幕尺寸，我们只需要改变html的font-size值，页面中元素的尺寸就会随html的font-size值调整。</p>
 <p>动态设置html的font-size</p>
 <p>现在关键问题来了，我们该如何通过不同的屏幕去动态设置html的font-size呢，最简单的方式是利用javascript来动态设置。我们可以利用js动态算出当前屏幕所适配的font-size即：</p>
-<p>1</p>
-<p>document.getElementsByTagName(‘html’)[0].style.fontSize = window.innerWidth / 10 + ‘px’;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.getElementsByTagName(&apos;html&apos;)\[0\].style.fontSize = window.innerWidth / 10 + &apos;px&apos;;</span><br></pre></td></tr></table></figure>
 <p>我们可以通过设置不同的html基础值来达到在不同页面适配的目的，当然在使用js来设置时，需要绑定页面的resize事件来达到变化时更新html的font-size。</p>
 <p><a href="http://codepen.io/no1024/pen/NbrYrB" target="_blank" rel="noopener"><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1479346167/sdwt1ujvqz7mryo6g6np.gif" alt=""></a></p>
 <p>使用rem布局的网站：</p>
@@ -650,33 +552,17 @@ padding-left: 10px;
 <h3 id="rem适配进阶"><a href="#rem适配进阶" class="headerlink" title="rem适配进阶"></a><a href="#rem适配进阶" title="rem适配进阶"></a>rem适配进阶</h3><p>高清显示屏下图片变模糊</p>
 <p>乔帮主发布的“iPhone4”和”new iPad”以及“Macbook Pro”中使用的Retina(视网膜)技术让我们走进了视网膜的Web时代。所谓视网膜的高清屏，就是改变原来一个物理像素显示一个逻辑像素的方式，一个物理像素现在可以显示多个逻辑像素，市面上的高清屏有1.5倍屏、2倍屏、3倍屏之分，一个物理像素分别对应显示9/4、4、9个逻辑像素，在这种高清屏上，普通显示屏上显示的比较清晰的图片会变得模糊。原因：浏览器在渲染是会将图片尺寸渲染为逻辑像素，然后在放大到物理像素的大小。假设我没有一个100px*100px的图片，在普通屏幕上浏览器会正常渲染为100px*100px,然而在高清屏中会渲染为100px*100px的逻辑像素，这个时候在iPhone的2陪屏中对应的物理像素是50px*50px,然后浏览器会再将图片放大到100px*100px，矢量图在放大的过程中就会变得模糊。更多高清屏原理可以查看<a href="http://www.w3cplus.com/css/towards-retina-web.html" target="_blank" rel="noopener">走向视网膜（Retina）的Web时代</a></p>
 <p>我们首先要知道设备像素比(device pixel ratio)dpr这个概念，dpr的计算方式为：屏幕的逻辑像素/物理像素。一般我们获取到的视觉稿大部分是iphone6的，所以我们看到的尺寸一般是双倍大小的。设计给的稿子双倍的原因是iphone6这种屏幕属于高清屏，也即是设备像素比(device pixel ratio)dpr比较大，所以显示的像素较为清晰。一般手机的dpr是1，iphone4，iphone5这种高清屏是2，iphone6s plus这种高清屏是3，可以通过js的window.devicePixelRatio获取到当前设备的dpr，拿到了dpr之后，我们就可以在viewport meta头里，取消让浏览器自动缩放页面，而自己去设置viewport的content例如（这里之所以要设置viewport是因为我们要实现border1px的效果，我给border设置了1px，在scale的影响下，高清屏中就会显示成0.5px的效果）。</p>
-<p>1</p>
-<p>meta.setAttribute(‘content’, ‘initial-scale=’ + 1/dpr + ‘, maximum-scale=’ + 1/dpr + ‘, minimum-scale=’ + 1/dpr + ‘, user-scalable=no’);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meta.setAttribute(&apos;content&apos;, &apos;initial-scale=&apos; + 1/dpr + &apos;, maximum-scale=&apos; + 1/dpr + &apos;, minimum-scale=&apos; + 1/dpr + &apos;, user-scalable=no&apos;);</span><br></pre></td></tr></table></figure>
 <p>这样实现的原理是：当使用高清屏幕时，例如在2倍屏幕上，为了保证显示效果，我们可以在给元素设置尺寸是将其放大为两倍，使用2陪尺寸大小的图片，整个页面的显示效果就是设计图的两倍大小，然后再设置viewport使页面缩小为原来的1/2,这样页面就显示为高清效果了。</p>
 <p>在iphone6下的例子：</p>
 <p>我们使用动态设置viewport，在iphone6下，scale会被设置成1/2即0.5.对于高清屏，我们需要将尺寸</p>
 <p>放大为dpr的倍数。</p>
 <p>例如下面的这段代码：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>.selector {</p>
-<pre><code>height: 32px;
-</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.selector &#123;</span><br><span class="line"></span><br><span class="line">    height: 32px;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在一倍屏下这是没有问题的，但是如果是两倍屏幕，就应该设为：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>.selector {</p>
-<pre><code>height: 64px;
-</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.selector &#123;</span><br><span class="line"></span><br><span class="line">    height: 64px;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>相应3倍屏幕就应该为：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>selector {</p>
-<pre><code>height: 96px;
-</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">selector &#123;</span><br><span class="line"></span><br><span class="line">    height: 96px;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这种适配是一件比较麻烦的事情，淘宝前端为我们提供了一个解决方案。<a href="https://github.com/amfe/article/issues/17" target="_blank" rel="noopener">使用Flexible实现手淘H5页面的终端适配</a>，它使用rem和viewport完美的解决了移动端元素大小自适应和高清屏幕的适配问题。</p>
 <h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><a href="#总结：" title="总结："></a>总结：</h2><p>前面谈到的适配方案没有优劣之分，具体如何选用还是要看业务的需求。比如我们有一个像腾讯新闻这样的资讯展示型网站，使用百分比布局就可以实现。对于天猫、京东、淘宝这类展示型多图片网站，涉及到图片的宽高比例问题，使用百分比结合padding+绝对定位、或者百分比结合flex也是不错的选择，当然我觉得采用淘宝这样使用rem布局的方式会更加简单，如果要适配高清屏那么建议你使用它的适配工具<a href="https://github.com/amfe/lib-flexible" target="_blank" rel="noopener">lib-flexible</a>可以简单快速的满足业务需求。我们在实际开发过程中也会面临各种各样的业务场景，具体选用还要根据是否多图片、是否适配高清屏等业务要求来搭配布局方式作出最好的选择。</p>
 <p><a href="/tags/Wireless-front-end/">Wireless-front-end</a></p>
@@ -727,74 +613,29 @@ padding-left: 10px;
 <p>原文：<a href="https://medium.freecodecamp.com/explained-css-pseudo-classes-cef3c3177361#.s76ufr89z" target="_blank" rel="noopener">How CSS pseudo-classes work, explained with code and lots of diagrams</a></p>
 <p>老实说，有时候CSS真的很让人伤脑筋，比如在一个父元素中居中一个元素就很困难。</p>
 <p>今天我们来了解一个更具有挑战性的CSS特性：伪类。</p>
-<p>我这里要讨论的伪类涉及以下两种类型：</p>
-<p>*-of-type selectors</p>
-<p>*-child selectors</p>
+<p>我这里要讨论的伪类涉及以下两种类型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*-of-type selectors</span><br><span class="line"></span><br><span class="line">*-child selectors</span><br></pre></td></tr></table></figure></p>
 <p>你或许在想，“我要学习伪类，为什么你却在谈论选择器？”。好吧，它们基本上是同一个概念，我也将会互换着使用这它们。</p>
 <p>伪类有时候很难理解，主要是因为它们是以一种抽象的方式来描述的。我将使用·一种不同的表述方式，并且通过构造一棵DOM树来帮助你理解。</p>
 <h3 id="HTML和DOM树"><a href="#HTML和DOM树" class="headerlink" title="HTML和DOM树"></a><a href="#HTML和DOM树" title="HTML和DOM树"></a>HTML和DOM树</h3><p>我们首先来看一下HTML代码块，我将在所有的例子中使用这些代码。</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>13</p>
-<p>14</p>
-<p>15</p>
-<p>16</p>
-<p>17</p>
-<p>18</p>
-<body><br><br>  <div class="”main”"><br><br>     <a href="”#”">Inner Link 1</a><br><br>     <a href="”#”">Inner Link 2</a><br><br>     <ul><br><br>       <a href="”#”">Inner Inner Link 1</a><br><br>       <li><br><br>         <a href="”#”">List Item 1</a><br><br>       </li><br><br>       <li><br><br>         <a href="”#”">List Item 2</a><br><br>       </li><br><br>     </ul><br><br>     <a href="”#”">Inner Link 3</a><br><br>  </div><br><br>  <a href="”#”">Outer Link 1</a><br><br>  <a href="”#”">Outer Link 2</a><br><br></body>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">  &lt;div class=”main”&gt;</span><br><span class="line"></span><br><span class="line">     &lt;a href=”#”&gt;Inner Link 1&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">     &lt;a href=”#”&gt;Inner Link 2&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">     &lt;ul&gt;</span><br><span class="line"></span><br><span class="line">       &lt;a href=”#”&gt;Inner Inner Link 1&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">       &lt;li&gt;</span><br><span class="line"></span><br><span class="line">         &lt;a href=”#”&gt;List Item 1&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">       &lt;/li&gt;</span><br><span class="line"></span><br><span class="line">       &lt;li&gt;</span><br><span class="line"></span><br><span class="line">         &lt;a href=”#”&gt;List Item 2&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">       &lt;/li&gt;</span><br><span class="line"></span><br><span class="line">     &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">     &lt;a href=”#”&gt;Inner Link 3&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">  &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">  &lt;a href=”#”&gt;Outer Link 1&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">  &lt;a href=”#”&gt;Outer Link 2&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
 <p>现在我将把这些代码转换成更直观更符合视觉的东西——一棵DOM树。</p>
 <p>下面的body元素有三个子元素，.main和两个锚点元素。</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<body><br><br>  <div class="”main”"><br><br>   …<br><br>  </div><br><br>  <a href="”#”">Outer Link 1</a><br><br>  <a href="”#”">Outer Link 2</a><br><br></body>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">  &lt;div class=”main”&gt;</span><br><span class="line"></span><br><span class="line">   ...</span><br><span class="line"></span><br><span class="line">  &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">  &lt;a href=”#”&gt;Outer Link 1&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">  &lt;a href=”#”&gt;Outer Link 2&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
 <p>下面是以一棵DOM树的形式展示时body和它的三个子元素的关系示意图：</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*0J4m0pNfNUUe-JE9dPIbHw.png" alt="fig-1"></p>
 <p>你需要记住的一点是子元素在DOM树中被放置的位置很重要，在代码中从上至下排列的子元素在DOM树中被从左至右放置。我们来看类名为.main的div元素：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<div class="”main”"><br><br>   <a href="”#”">Inner Link 1</a><br><br>   <a href="”#”">Inner Link 2</a><br><br>   <ul><br><br>     …<br><br>   </ul><br><br>   <a href="”#”">Inner Link 3</a><br><br></div>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=”main”&gt;</span><br><span class="line"></span><br><span class="line">   &lt;a href=”#”&gt;Inner Link 1&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">   &lt;a href=”#”&gt;Inner Link 2&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">   &lt;ul&gt;</span><br><span class="line"></span><br><span class="line">     ...</span><br><span class="line"></span><br><span class="line">   &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">   &lt;a href=”#”&gt;Inner Link 3&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <p>.main有4个子元素，前两个是锚点元素，接下来是一个ul元素，然后又是一个锚点元素。</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*b1bt8tsEPJ7L1jJNkSB1WQ.png" alt="fig-2"></p>
 <p>同样，我们逐级画出每一层的DOM树。</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*xn3NJH7ajQ0t-nSQWkr2HA.png" alt="fig-3"></p>
 <p>为了使这篇文章对你有所帮助，理解这棵DOM树很重要。</p>
 <p>下面我们来看第一个伪类。</p>
-<p>1</p>
-<p>Pseudo-class #1 :only-of-type</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pseudo-class #1 :only-of-type</span><br></pre></td></tr></table></figure>
 <p>所有的伪类都遵循同样的范式：</p>
-<p>1</p>
-<p>what-you-want-to-select:filter { /<em> styles </em>/ }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">what-you-want-to-select:filter &#123; /* styles */ &#125;</span><br></pre></td></tr></table></figure>
 <p>what-you-want-to-select可以被用来选择任何以集合形式存在于DOM中的元素，下面让我来展示一个例子：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a:only-of-type { </p>
-<p>  border: 2px solid black;</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:only-of-type &#123; </span><br><span class="line"></span><br><span class="line">  border: 2px solid black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在上面的代码块中，what-you-want-to-select是锚点元素（a标签），过滤器是only-of-type我们稍后会看到这个选择器做了什么。</p>
 <p>首先，不用感谢我，如果你闲麻烦不想建测试项目的话，我在codepen中为你创建了一个。</p>
 <p>你可以打开链接，查看这些变化，当你感到迷惑的时候再回头看这篇文章的解释，做好你的部分，我来完成我该做的。</p>
@@ -807,155 +648,82 @@ padding-left: 10px;
 <p>到此what-you-want-to-select这部分结束，下面进入过滤部分。</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*WwCVWx4UKJ5bdPUV1e4vXQ.png" alt="fig-6"></p>
 <p>only-of类依次查询每一部分，挑选出有且仅有一个锚点元素的部分中的锚点元素。注意到3, 4, 5部分中分别只有一个锚点元素了吗？上图所示就是这个选择器作用的结果。</p>
-<p>1</p>
-<p>Pseudo-class #2 :first-of-type</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pseudo-class #2 :first-of-type</span><br></pre></td></tr></table></figure>
 <p>让我们回到我们选出所有“what-you-want-to-select”的地方（在我们的例子中是锚点元素）。</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*bxFbXy1QDeGf-84KSJNxDg.png" alt="fig-7"></p>
 <p>过滤器first-of-type转化为在每一部分中挑选第一个出现的锚点元素。</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*PJExtAelKm7-Xdt31Dw6cA.png" alt="fig-8"></p>
 <p>下面是完成部分工作的代码：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a:first-of-type { </p>
-<p>  border: 2px solid black;</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:first-of-type &#123; </span><br><span class="line"></span><br><span class="line">  border: 2px solid black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以防你忘了我不辞辛劳为你在CodePen中创建的项目，这里再次给出查看代码效果的链接。</p>
-<p>1</p>
-<p>Pseudo-class #3 :last-of-type</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pseudo-class #3 :last-of-type</span><br></pre></td></tr></table></figure>
 <p>如果你不能通过名称来区分，last-of-type刚好与first-of-type作用效果相反。这也就意味着它会选出DOM树每一部分中的最后一个锚点元素。</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*dWlzrEMXkZueTDY52sGLzg.png" alt="fig-9"></p>
 <p>“What about the sections with just one anchor element?”, not very glad you asked that question. It’s quite simple to see if a section has just one anchor element, it obviously passes the only-of-type filter, but not only that. Since there are no anchor elements preceding or following that particular tag it passes both first-of-type and last-of-type filters as well (e.g a tags Section 4 and 5).</p>
-<p>1</p>
-<p>Pseudo-class #4 :nth-of-type(number/an + b/even/odd)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pseudo-class #4 :nth-of-type(number/an + b/even/odd)</span><br></pre></td></tr></table></figure>
 <p>And now we finally bite into the juicy part of the article, there’s simple CSS with some fifth grade Math toppings, hope you enjoy savouring it.<br>Let’s declare the following style to begin with.</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a:nth-of-type(1) {</p>
-<p>border: 2px solid black;</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:nth-of-type(1) &#123;</span><br><span class="line"></span><br><span class="line">border: 2px solid black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>It looks a little cryptic but is quite simple really. To read the selector simply take the number from the parentheses and replace nth in the selector name with that number’s ordinal form. That’s another fancy English word for you, to be honest though…</p>
 <p>Alright coming back, a:nth-of-type(1) can be therefore read as a:first-of-type and no surprise it works exactly like a:first-of-type and results in the elements getting selected as shown below; just the anchor elements which are first of their types in their respective section.</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*PJExtAelKm7-Xdt31Dw6cA.png" alt="fig-10"></p>
 <p>Well that is fine and dandy, but let’s try something different here.</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a:nth-of-type(0) {</p>
-<p>border: 2px solid black;</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:nth-of-type(0) &#123;</span><br><span class="line"></span><br><span class="line">border: 2px solid black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>If you guessed it right, which I am sure you didn’t, no anchor elements get selected in this case. As the numbering of types (and children as we’ll see) in each section starts from 1 and not 0, there is no “0” anchor elements in any of the sections and therefore a:zeroth-of-type selects nothing. And so will be the case for a:nth-of-type(5) or a:nth-of-type(6/7/8) because there are no a:fifth-of-type or a:sixth/seventh/eighth-of-type in any of the sections.<br>But if we went ahead and used…</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a:nth-of-type(2) { </p>
-<p>  border: 2px solid black;</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:nth-of-type(2) &#123; </span><br><span class="line"></span><br><span class="line">  border: 2px solid black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>quite clearly sections 1 and 2 have a second-of-type anchor elements and hence those are the ones that get selected.</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*o7aTc-EJF53N7bAHs2Ssxg.png" alt="fig-11"></p>
 <p>Similarly, just to reinforce the point here, if we went ahead and declared the following style,</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a:nth-of-type(3) { </p>
-<p>  border: 2px solid black;</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:nth-of-type(3) &#123; </span><br><span class="line"></span><br><span class="line">  border: 2px solid black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>it will select the third anchor elements in the second section as section 2is the only section with a :third-of-type anchor element.</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*Ob0gZ_tJhflq73RCzbyFkw.png" alt="fig-12"></p>
 <p>Quite simple isn’t it? But numbers aren’t the only thing that you can pass into :nth-of-type(…), this bloke is more powerful that that, you can also pass in formulas of form (a*n) + b (or for brevity an + b). Where a and b are constants and n is a value &gt;= 0. How did you like the Math topping sir? don’t worry it’ll all make sense in a second.</p>
 <p>Consider the following style</p>
-<p>1</p>
-<p>a:nth-of-type(n) {  border: 2px solid black; }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a:nth-of-type(n) &#123;  border: 2px solid black; &#125;</span><br></pre></td></tr></table></figure>
 <p>The formula that’s passed in the selector above is (1 * n) + 0 [= n] , a is 1, b is 0 and n is well, n. What happens next is, starting from 0 the numerical value of n is incrementally plugged into the formula and selection is made. Therefore a:nth-of-type(n) basically translates to</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>a:nth-of-type(0) {  border: 2px solid black; } // n = 0</p>
-<p>a:nth-of-type(1) {  border: 2px solid black; } // n = 1</p>
-<p>a:nth-of-type(2) {  border: 2px solid black; } // n = 2</p>
-<p>a:nth-of-type(3) {  border: 2px solid black; } // n = 3</p>
-<p>a:nth-of-type(4) {  border: 2px solid black; } // n = 4</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a:nth-of-type(0) &#123;  border: 2px solid black; &#125; // n = 0</span><br><span class="line"></span><br><span class="line">a:nth-of-type(1) &#123;  border: 2px solid black; &#125; // n = 1</span><br><span class="line"></span><br><span class="line">a:nth-of-type(2) &#123;  border: 2px solid black; &#125; // n = 2</span><br><span class="line"></span><br><span class="line">a:nth-of-type(3) &#123;  border: 2px solid black; &#125; // n = 3</span><br><span class="line"></span><br><span class="line">a:nth-of-type(4) &#123;  border: 2px solid black; &#125; // n = 4</span><br></pre></td></tr></table></figure>
 <p>Hence this results in all the anchor elements getting selected.</p>
 <p>Let’s consider one more example</p>
-<p>1</p>
-<p>a:nth-of-type(2n + 1) {  border: 2px solid black; }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a:nth-of-type(2n + 1) &#123;  border: 2px solid black; &#125;</span><br></pre></td></tr></table></figure>
 <p>Starting from 0 and incrementally plugging values of n in the formula generates the following selectors.</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>// n = 0 implies (2 * 0) + 1 = 1</p>
-<p>a:nth-of-type(1) { border: 2px solid black; }</p>
-<p>// n = 1 implies (2 * 1) + 1 = 3</p>
-<p>a:nth-of-type(3) { border: 2px solid black; }</p>
-<p>// n = 2 implies (2 * 2) + 1 = 5 - No selections since no fifth-of-type present in any of the sections</p>
-<p>a:nth-of-type(5) { border: 2px solid black; }…</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// n = 0 implies (2 * 0) + 1 = 1</span><br><span class="line"></span><br><span class="line">a:nth-of-type(1) &#123; border: 2px solid black; &#125;</span><br><span class="line"></span><br><span class="line">// n = 1 implies (2 * 1) + 1 = 3</span><br><span class="line"></span><br><span class="line">a:nth-of-type(3) &#123; border: 2px solid black; &#125;</span><br><span class="line"></span><br><span class="line">// n = 2 implies (2 * 2) + 1 = 5 - No selections since no fifth-of-type present in any of the sections</span><br><span class="line"></span><br><span class="line">a:nth-of-type(5) &#123; border: 2px solid black; &#125;</span><br></pre></td></tr></table></figure>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*QrQj3hZlegF3D-kv7yB0gA.png" alt="fig-13"></p>
 <p>Other than numbers and formulas that generate numbers, you can pass in either even or odd strings. even selects all the even occurrences of an element of particular type in a section i.e :second-of-type :fourth-of-type :sixth-of-type e.t.c and on the other hand obviously :nth-of-type(odd) selects all the odd occurrences i.e :first-of-type, :third-of-type, :fifth-of-type e.t.c</p>
 <p>Pseudo-class #5 :nth-last-of-type(number/an + b/even/odd)</p>
 <p>This selector functions exactly like the previous one, but with one little difference. See for yourself…</p>
-<p>1</p>
-<p>a:nth-last-of-type(1) {  border: 2px solid black; }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a:nth-last-of-type(1) &#123;  border: 2px solid black; &#125;</span><br></pre></td></tr></table></figure>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*8iEbmV82IuBJ7jyYiyx_AA.png" alt="fig-14"></p>
 <p>Notice how in each level numbering of anchor types is done from right to left instead of normal left to right. That is the only difference. last-of-type accepts numbers and formulas and even/odd just like nth-of-type except when selection is made the last type is treated as first, second last as second, third last as third and so on…</p>
 <p>With that we come to an end of *-of-type selectors. Hope it was a fun ride for you, we started with only-of-type then moved to first-of-type, last-of-type and took a huge dip into nth-of-type(…) and nth-last-of-type(..). If in case somewhere in the middle you lost your grip and fell off I encourage you play around with this pen and re read the explanation.</p>
 <p>Alright, time to hop on to the next one in this less visited corner of the CSS theme park. Another category of pseudo selectors/classes we’re going to delve into are -child classes. With a clear understanding of how -of-type selectors work grasping the concept behind -child selectors should be a cinch for you. “Cinch? What’s that? Is it a unit of measurement?” No ya dumbass, it means an extremely easy task. Anyways, let’s start with our very first -child selector, :only-child.</p>
 <p>Child pseudo-class #1 :only-child</p>
 <p>Consider the following style.</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a:only-child { </p>
-<p>  border: 2px solid black;</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:only-child &#123; </span><br><span class="line"></span><br><span class="line">  border: 2px solid black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Now that’s the very definition of self explanatory and straightforward. The selector says to select all the anchor elements, given that the anchor element should be the only child of its parent, or, to put in other words select all the anchor elements whose parent has just one child and that one child is an anchor element.</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*bNZeHcGUOqswsJDMQFszzw.png" alt="fig-15"></p>
 <p>I had a friend who was never his mother’s favorite, and he was an only child. Just wanted to plug that in there, anyways, notice that in contrast with *-of-type selectors we are no longer numbering types, but children, starting of course from 1 (and not 0). When compared with only-of-type, the anchor element in section 3 is not selected as its parent (ul) has 3 children therefore even though it (the anchor element in level 3) is an only child of type ‘a’ of its parent, its not the only child, there are 2 lis as well.</p>
 <p>Child pseudo-class #2 :first-child<br>Consider the following style declaration.</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a:first-child { </p>
-<p>  border: 2px solid black;</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:first-child &#123; </span><br><span class="line"></span><br><span class="line">  border: 2px solid black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>It simply says, select all the anchor element, but with one condition in mind, the anchor element should be the first child of its parent. That’s it, no further explanation needed.</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*qLx7ELzLcCUWHY9xakrsfg.png" alt="fig-16"></p>
 <p>For if you are a little confused as of why the a in section 1 wasn’t selected it’s because the first child in section 1 (whose parent is body) is .main, the first a in section 1 is the second child and couldn’t pass the first-child filter, that is the exact reason why the poor bloke ended up not being selected and was given a big hashtag fuck off. Let’s continue to the next one.</p>
-<p>1</p>
-<p>Child pseudo-class #3 :last-child</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Child pseudo-class #3 :last-child</span><br></pre></td></tr></table></figure>
 <p>This is the part where selectors should start to get self explanatory and you should start thinking I am dumb trying to explain them to you. But my name is not blurryface and I don’t care what you think. “Nice twenty one pilots reference there” yeah I know, thanks. Now, look at the following style declaration.</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a:last-child { </p>
-<p>  border: 2px solid black;</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:last-child &#123; </span><br><span class="line"></span><br><span class="line">  border: 2px solid black;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>what-you-want-to-select ? “Anchor elements.” And the filter you want to use? last-child. That quite simply translates to select those anchor elements which are the last child of their parent. Or, in other words select anchor elements whose parent finally decided it wasn’t fun anymore and stopped after that bloke was born. Below is what the tree looks like with :last-child selections.</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*PfU4UZ2kZvgWZlG-Pav05w.png" alt="fig-17"></p>
 <p>Child pseudo-class #4 :nth-child(number/an+b/even/odd)<br>I hope you were able to digest the Math topping you got served last time, because it’s about to happen again only this time on a slightly different crust.<br>Now, I would like you to take all your attention and laser point it to the following example.</p>
-<p>1</p>
-<p>a:nth-child(1) {  border: 2px solid black; }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a:nth-child(1) &#123;  border: 2px solid black; &#125;</span><br></pre></td></tr></table></figure>
 <p>It’s all the same as :nth-of-type, I would have linked to that section of the article here but Medium policies don’t allow that, if you want a refresher, you will have to scroll up to that section. Leaving Medium policies aside which might change in future, what hasn’t changed is the process of decrypting nth-selectors .<br>Just like with :nth-of-type, in the selector name take the number in parentheses and replace “nth” with that number’s ordinal form. Therefore the selector shown in example is equivalent to a:first-child and works exactly the same; i.e selects all the anchor elements, given that they are the first child of their parent.<br>That should nail the similarity between the two nth-selectors (nth-of-type and nth-child), but we will anyways go ahead and take a look at another example.</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>13</p>
-<p>a:nth-child(2n - 1) {  border: 2px solid black; }</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">We begin by incrementally plugging in values of n starting from 0 into the formula, which makes us realize that the selector shown above is basically equivalent to the ones shown below.</span><br><span class="line"></span><br><span class="line">// n = 0 implies (2 0) - 1 = 0 - 1 = -1</span><br><span class="line"></span><br><span class="line">a:nth-child(-1) &#123; border: 2px solid black; &#125; | No selections</span><br><span class="line"></span><br><span class="line">// n = 1 implies (2 1) - 1 = 2 - 1 = 1</span><br><span class="line"></span><br><span class="line">a:nth-child(1) &#123; border: 2px solid black; &#125;</span><br><span class="line"></span><br><span class="line">// n = 2 implies (2 2) - 1 = 4 - 1 = 3</span><br><span class="line"></span><br><span class="line">a:nth-child(3) &#123; border: 2px solid black; &#125;</span><br><span class="line"></span><br><span class="line">// n = 3 implies (2 3) - 1 = 6 - 1 = 5</span><br><span class="line"></span><br><span class="line">a:nth-child(5) &#123; border: 2px solid black; &#125; | No selections further</span><br><span class="line"></span><br><span class="line">…</span><br><span class="line"></span><br><span class="line">As it is, if the selector gets numbers out of bounds (like -1, 5, 6… in the case above) fed into it, it just ignores them. Following is how the tree looks with a:nth-child(2n-1) applied.</span><br><span class="line"></span><br><span class="line">![fig-18](https://cdn-images-1.medium.com/max/1600/1*aXGTeApzv5e1c7CJdk-pvg.png)</span><br><span class="line"></span><br><span class="line">Folks at CSS Tricks have a very informative article called Useful :nth-child Recipes you should check it out and put your knowledge of :nth-child to test. I challenge you m8.  </span><br><span class="line">With that we will move to the last selector of this article which punningly is :nth-last-child. Holy shit! why is “punningly” a word even?  </span><br><span class="line">Child pseudo-class #5 :nth-last-child(number/an + b/even/odd)  </span><br><span class="line">This selector works exactly like :nth-child except that it starts selecting elements from the opposite direction just like that annoying high school teacher who would ask questions to the class starting from the peaceful folks seated at the last benches. God I hated him. If you look at the trees drawn so far, the children are numbered left to right in each section, but this selector bloke sees the tree like so  </span><br><span class="line">![fig-19](https://cdn-images-1.medium.com/max/1600/1*2ChjMydCcmDb9TgFrY4htg.png)  </span><br><span class="line">The children in each section are numbered right to left. So if we go ahead and apply the following style</span><br><span class="line"></span><br><span class="line">a:nth-last-child(1) &#123; border: 2px solid black; &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:nth-child(2n - 1) &#123;  border: 2px solid black; &#125;</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">We begin by incrementally plugging in values of n starting from 0 into the formula, which makes us realize that the selector shown above is basically equivalent to the ones shown below.</span><br></pre></td></tr></table></figure>
+<p>// n = 0 implies (2 0) - 1 = 0 - 1 = -1</p>
+<p>a:nth-child(-1) { border: 2px solid black; } | No selections</p>
+<p>// n = 1 implies (2 1) - 1 = 2 - 1 = 1</p>
+<p>a:nth-child(1) { border: 2px solid black; }</p>
+<p>// n = 2 implies (2 2) - 1 = 4 - 1 = 3</p>
+<p>a:nth-child(3) { border: 2px solid black; }</p>
+<p>// n = 3 implies (2 3) - 1 = 6 - 1 = 5</p>
+<p>a:nth-child(5) { border: 2px solid black; } | No selections further<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">As it is, if the selector gets numbers out of bounds (like -1, 5, 6… in the case above) fed into it, it just ignores them. Following is how the tree looks with a:nth-child(2n-1) applied.</span><br><span class="line"></span><br><span class="line">![fig-18](https://cdn-images-1.medium.com/max/1600/1*aXGTeApzv5e1c7CJdk-pvg.png)</span><br><span class="line"></span><br><span class="line">Folks at CSS Tricks have a very informative article called Useful :nth-child Recipes you should check it out and put your knowledge of :nth-child to test. I challenge you m8.  </span><br><span class="line">With that we will move to the last selector of this article which punningly is :nth-last-child. Holy shit! why is “punningly” a word even?  </span><br><span class="line">Child pseudo-class #5 :nth-last-child(number/an + b/even/odd)  </span><br><span class="line">This selector works exactly like :nth-child except that it starts selecting elements from the opposite direction just like that annoying high school teacher who would ask questions to the class starting from the peaceful folks seated at the last benches. God I hated him. If you look at the trees drawn so far, the children are numbered left to right in each section, but this selector bloke sees the tree like so  </span><br><span class="line">![fig-19](https://cdn-images-1.medium.com/max/1600/1*2ChjMydCcmDb9TgFrY4htg.png)  </span><br><span class="line">The children in each section are numbered right to left. So if we go ahead and apply the following style</span><br></pre></td></tr></table></figure></p>
+<p>a:nth-last-child(1) { border: 2px solid black; }<br>```</p>
 <p>the anchor elements will get selected as shown below.</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*XBmBun1e7jY0aaHsBlZHlg.png" alt="fig-20"></p>
 <p>Quite straightforward isn’t it? This selector also very comfortably accepts formulas (of form an + b) and even/odd strings, the selections though, are made from the opposite end.<br>OK, this is where our journey together ends. You can pay for your ticket by tweeting this article to your developer buddies.<br>I hope you enjoyed reading this and learned something new, including some shiny new English words.<br>This is Nash signing off. I’ll see you in the next article. Follow me on Twitter to keep in touch. I tweet about dev-related stuff. A lot.</p>
@@ -1051,11 +819,102 @@ padding-left: 10px;
 
 
 
+
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+        <div class="icon"></div>
+        
+        <time datetime="2018-01-31T16:11:09.000Z"><a href="/2018/02/01/Just-For-Fun/">2018-02-01</a></time>
+        
+  
+    <h1 class="title"><a href="/2018/02/01/Just-For-Fun/">Just For Fun</a></h1>
+  
+
+    </header>
+
+    <div class="entry">
+      
+        
+    <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Just-For-Fun"><span class="toc-text">Just For Fun</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#写在前面："><span class="toc-text">写在前面：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技术上的成长"><span class="toc-text">技术上的成长</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#南京之行"><span class="toc-text">南京之行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#得与失"><span class="toc-text">得与失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于责任"><span class="toc-text">关于责任</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017"><span class="toc-text">2017</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写在最后"><span class="toc-text">写在最后</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+        <h1 id="Just-For-Fun"><a href="#Just-For-Fun" class="headerlink" title="Just For Fun"></a>Just For Fun</h1><ol>
+<li><a href="#写在前面：">写在前面：</a></li>
+<li><a href="#技术上的成长">技术上的成长</a></li>
+<li><a href="#南京之行">南京之行</a></li>
+<li><a href="#得与失">得与失</a></li>
+<li><a href="#关于责任">关于责任</a></li>
+<li><a href="#2017">2017</a></li>
+<li><a href="#写在最后">写在最后</a></li>
+</ol>
+<h3 id="写在前面："><a href="#写在前面：" class="headerlink" title="写在前面："></a><a href="#写在前面：" title="写在前面："></a>写在前面：</h3><p>希望以后每年都能够写一篇年终总结，放到年终总结这个分类下面，我也不贪，写个七八十篇就OK了。</p>
+<h3 id="技术上的成长"><a href="#技术上的成长" class="headerlink" title="技术上的成长"></a><a href="#技术上的成长" title="技术上的成长"></a>技术上的成长</h3><p>去年的这个时候，还在重构Twitter的个人页，那时候还不会写Js,冬令营10天（如果我没记错的话），前几天写完了静态页面，最后几天开始做些Js的交互，那时候实现一个很小的功能，比如写一个点击+1，点击改变背景颜色都要很久，写一个toast，可能需要一个下午。</p>
+<p>4月份，参加百度IFE，做了一些练习，那期间也在刷红宝书，慢慢“找到一点写Javascript的感觉”，我还记得我在进度里写出这句话的愉悦感。也是这段时间，我发出了“CSS怎么这么神奇，不同特性搭配起来产生千奇百怪的效果”这种感叹，前段时间想起来很好笑，问前端的新人学妹是不是这个感觉，她很激动的告诉我是！</p>
+<p>5月份写学而桌面版静态页面，那段时间CSS代码写的也是很渣、权重曲线、代码复用、可维护性都没有考虑，后来Boss的Codereview让我学到了我写CSS的一些基本原则，还有前端分享会对CSS权重曲线和代码维护方面的讨论也让很受益。也是这个时候开始学Vue，接触Vue的时候感觉很惊艳，像打了鸡血，然而印象最深的是学了一两周Vue，然后要用Vue写一个表单验证，当时还很吃力。</p>
+<p>暑假的时候立了很多flag，看书还有写个人项目，很遗憾当时要看的书现在还没看完，想写的UI库也还没有开始，博客也没有写。然而flag还是要立的，万一去做了呢，然而暑假还是看了刷完了红宝书，看完了几本书。</p>
+<p>夏令营的时候开始学node，当时觉得哇可以写后端了，那我不是成全栈了吗，好惊艳，嘿嘿哈哈哈哈哈，然后一口气又学了mongodb，基本的路由访问和数据库的增删查改没有问题了。接下来写了几个H5，第一次写H5真是很吃力，移动端不像PC端那样天下太平，就像“我们好不容易赶走了IE6、IE7、IE8，又出来一个微信浏览器”，那时，我好不容易写好整个H5，跑通了IOS的Safari、Chrome，然而应用场景是跑不通的QQ浏览器和UC。在电脑上测试，模拟各种浏览器都OK，真正的移动端一测试，简直惨不忍睹，折腾了半天，哦原来iOS上window.onload这个事件不支持、再折腾半天，原来父元素没有设百分之百，然后又各种不明觉厉折腾很久，当时的我还是too young too simple,最后发现特么的原来没加浏览器前缀。我依然记得刘聪问我：“你的H5改好了吗？”，“没有没有，明天就好”，“你的H5改好了吗？”，“没有没有，今晚不睡明天绝对好”，“你昨晚睡了吗？”，“睡了，H5改好了吗？”，“没有没有，下午就好了”…….</p>
+<p>接下来写学而,完整的webpack配置，完整的Vue整套工具。总结下来，这一年的学习：</p>
+<ul>
+<li>桌面版学而静态页面</li>
+<li>Vue.</li>
+<li>gulp、grunt、webpack打包工具.</li>
+<li>nodeJS.</li>
+<li>mongodb.</li>
+<li>H5.</li>
+<li>学而移动版.</li>
+</ul>
+<p>读书：</p>
+<ul>
+<li>《ELOQUENT JAVASCRIPT》</li>
+<li>《Javascript设计模式》</li>
+<li>《Javascript新语》</li>
+<li>《EXPLORING ES6》</li>
+<li>《高性能Javascript》</li>
+<li>《Secret of the Javascript Ninja》</li>
+<li>《Vuejs权威指南》</li>
+<li>《You-Don-t-Know-JS 上》</li>
+<li>《CSS Secrets》</li>
+<li>《Javascript Ninja》</li>
+</ul>
+<h3 id="南京之行"><a href="#南京之行" class="headerlink" title="南京之行"></a><a href="#南京之行" title="南京之行"></a>南京之行</h3><p>9月份的时候去南京参加JSConf，除去一些细节，这是2016年里最happy的体验之一，先说大会吧，虽然自己的参与度很糟，出发前的那个晚上改页面一面没睡，虽然到南京睡了一晚，第一天听的时候熬夜后遗症依然发作了，第二天忙着在现场改H5。然而我是不会错过尤小右的演讲，只可惜他并没有带来什么干货，更多的讲了Vue的发展以及它和现在流行的React、Angular的性能比较，似乎他的演讲更多的意义在于推广，当然其他的演讲的也大致了解讲了什么，如何打造一款编译器、3D、VR都很酷，VR和3D还在我们的前端热了一段时间。除了大会本身，我对南京这座城市影响也很好，建筑、街道逗比满城挖的武汉大气。在一个城市呆久了，去另一个城市会有一种不一样的感觉，然后就是在南京几天的体验，抛开一些细节，这是2016最满意的经历之一。</p>
+<h3 id="得与失"><a href="#得与失" class="headerlink" title="得与失"></a><a href="#得与失" title="得与失"></a>得与失</h3><p>这一年，放弃了勾搭小学妹和小学妹的勾搭，放弃了一些可有可无的事，大多时候安安静静的写写代码，挺好。我仍然记得初入前端时的惊艳，原来我们见过的界面我都可以自己实现出来，这个过程让我感到快乐。后来接触到新的东西，接触到Vue、websocket、webpack、nodeJS都使我感到惊艳，使我感到像打了鸡血，感到快乐。做事情就应该是这样吧，应该让自己感到快乐。</p>
+<p>也有遗憾，技术学习没有太大的成绩，下半年更是有些荒废，没什么进步，这段时间没有大的目标，没有做什么事情，遗憾。还有心境，时好时坏，做了一些不想做的事，也有时人云亦云渐渐极端，依旧看不惯装逼，不够平和。</p>
+<h3 id="关于责任"><a href="#关于责任" class="headerlink" title="关于责任"></a><a href="#关于责任" title="关于责任"></a>关于责任</h3><p>责任是个很重的词，我一直以为自己是很有责任心得人，直到最近我才发现不是这样的，其实我一直在本能的远离很多事情，只有当别人都不去做的时候我才会去承担这件事情，当然很多时候别人是这样做的。我还自以为很有责任感，其实本质就是在逃避。看清这一点，希望在新的一年里在面对这些问题的时候有合理的处理方式。无论在什么状况下，先要把该做的事情做完。</p>
+<h3 id="2017"><a href="#2017" class="headerlink" title="2017"></a><a href="#2017" title="2017"></a>2017</h3><p>新的一年，希望自己更加坚定、有目标、看的更远。开心的时候就好好做事情，不开心的时候，停下来静一静，安安静静写代码。希望自己记住，我所做的一切，Just For Fun，取悦自己就好。</p>
+<p>flag还是要立的，今年要先立半年的。</p>
+<p>首先最重要的事情就是要找实习了，以前看过的书要重新开始温习了。</p>
+<p>要开始总结，开始完善博客。</p>
+<p>Vue源码要尽快阅读一遍，实现一个自己的Vue。</p>
+<p>自己要做的项目：一个H5框架。</p>
+<p>团队项目：实现backbone、MUI。</p>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a><a href="#写在最后" title="写在最后"></a>写在最后</h3><p>2017，希望又是成长的一年，踏踏实实写代码，踏踏实实实现flag。愿有岁月可回首，Just For Fun。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        <div class="alignright">
+          <a href="/2018/02/01/Just-For-Fun/#comment" class="comment-link">Comments</a>
+        </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
  
 <nav id="pagination">
   
   
-    <a href="/page/2/" class="alignright next">Next</a>
+    <a href="/page/2/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
 </nav>
@@ -1071,7 +930,7 @@ padding-left: 10px;
 
 
   <div class="widget tag">
-  <h3 class="title">Calendar</h3>
+  <h3 class="title">日历云</h3>
   <div id="calendar"></div>
 </div>
 
@@ -1087,7 +946,7 @@ padding-left: 10px;
   
   <div class="widget tag">
     <h3 class="title">归档</h3>
-	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">20</span></li></ul>
+	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">19</span></li></ul>
   </div>
 
 </aside>

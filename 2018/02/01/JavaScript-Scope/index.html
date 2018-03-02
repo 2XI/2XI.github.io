@@ -23,14 +23,7 @@ const
 模块
 
 构造块作用域：letlet创建块作用域的例子：
-1
-2
-3
-4
-5
-6
-if(i){
-let bar=i\*2; /\*let会将bar绑">
+1234567891011if(i)&amp;#123;    let bar=i\*2; /\*">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -79,18 +72,18 @@ let bar=i\*2; /\*let会将bar绑">
 	<div class='header-nav-content inner'>
 		<div id="main-nav" class="alignleft">
 		    		
-		    		  <a href="/"><i class="fa fa-home"></i>Home</a>
+		    		  <a href="/"><i class="fa fa-home"></i>首页</a>
 		    		
-		    		  <a href="/archives"><i class="fa fa-archive"></i>Archives</a>
+		    		  <a href="/archives"><i class="fa fa-archive"></i>归档</a>
 		    		
 		</div>
 		<div id="sub-nav" class="alignright">
 		    
-		      <a href="/atom.xml"><i class="fa fa-rss"></i>Rss</a>
+		      <a href="/atom.xml"><i class="fa fa-rss"></i>订阅</a>
 		    
-		      <a href="/customization"><i class="fa fa-question-circle"></i>Customization</a>
+		      <a href="/customization"><i class="fa fa-question-circle"></i>留言</a>
 		    
-		      <a href="/about"><i class="fa fa-"></i>About</a>
+		      <a href="/about"><i class="fa fa-"></i>关于我</a>
 		    
 		</div>
 	</div>
@@ -137,130 +130,27 @@ let bar=i\*2; /\*let会将bar绑">
 <li><a href="#模块">模块</a></li>
 </ul>
 <h3 id="构造块作用域："><a href="#构造块作用域：" class="headerlink" title="构造块作用域："></a><a href="#构造块作用域：" title="构造块作用域："></a>构造块作用域：</h3><h3 id="let"><a href="#let" class="headerlink" title="let"></a><a href="#let" title="let"></a>let</h3><p>let创建块作用域的例子：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>if(i){</p>
-<pre><code>let bar=i\*2; /\*let会将bar绑定在{......}之间*/
-
-bar =something(bar);
-
-console.log(bar);
-</code></pre><p>}</p>
-<p> &lt;!-- 并且let声明的变量不会被提升 –&gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">if(i)&#123;</span><br><span class="line"></span><br><span class="line">    let bar=i\*2; /\*let会将bar绑定在&#123;......&#125;之间*/</span><br><span class="line"></span><br><span class="line">    bar =something(bar);</span><br><span class="line"></span><br><span class="line">    console.log(bar);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> &lt;!-- 并且let声明的变量不会被提升 --&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="const"><a href="#const" class="headerlink" title="const"></a><a href="#const" title="const"></a>const</h3><p>const创建块作用域的例子：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>if(i){</p>
-<pre><code>const bar=2; /\*let会将bar绑定在{......}之间\*/
-
-console.log(bar);
-</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(i)&#123;</span><br><span class="line"></span><br><span class="line">    const bar=2; /\*let会将bar绑定在&#123;......&#125;之间\*/</span><br><span class="line"></span><br><span class="line">    console.log(bar);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&lt;!-- const创建的作用变量为常量，不能被修改,并且let声明的变量不会被提升 –&gt;</p>
 <h3 id="提升"><a href="#提升" class="headerlink" title="提升"></a><a href="#提升" title="提升"></a>提升</h3><h5 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a><a href="#变量提升" title="变量提升"></a>变量提升</h5><p>Javascript代码执行时并不是从上往下执行的：<br>示例一：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>a=2;</p>
-<p>var a;</p>
-<p>alert(a);  /*2*/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a=2;</span><br><span class="line"></span><br><span class="line">var a;</span><br><span class="line"></span><br><span class="line">alert(a);</span><br></pre></td></tr></table></figure>
 <p>我们可能认为会输出undefined，事实并非如此。这是因为变量声明var a;被提升了。<br>示例二：</p>
-<p>1</p>
-<p>2</p>
-<p>alert(a);  /*undefined*/</p>
-<p>var a=2;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alert(a);  /\*undefined\*/</span><br><span class="line"></span><br><span class="line">var a=2;</span><br></pre></td></tr></table></figure>
 <p>这是因为变量声明被提升，而赋值操作并不会被提升。</p>
 <p>函数声明同样会被提升，但是函数表达式中的函数名标示符在赋值之前不会被加到作用域中。</p>
 <h3 id="函数优先"><a href="#函数优先" class="headerlink" title="函数优先"></a><a href="#函数优先" title="函数优先"></a>函数优先</h3><p>一个普通块内部的函数声明通常会被提升到所在作用域的顶部。<br>例如：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>foo(); /*1*/</p>
-<p>var foo;</p>
-<p>function foo(){</p>
-<pre><code>console.log(1);
-</code></pre><p>};</p>
-<p>foo=function(){</p>
-<pre><code>console.log(2);
-</code></pre><p>};</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">foo(); /\*1\*/</span><br><span class="line"></span><br><span class="line">var foo;</span><br><span class="line"></span><br><span class="line">function foo()&#123;</span><br><span class="line"></span><br><span class="line">    console.log(1);</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">foo=function()&#123;</span><br><span class="line"></span><br><span class="line">    console.log(2);</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>这是因为引擎会把这段代码理解为：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>function foo(){</p>
-<pre><code>console.log(1);
-</code></pre><p>};</p>
-<p>foo(); /*1*/</p>
-<p>foo=function(){</p>
-<pre><code>console.log(2);
-</code></pre><p>};</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function foo()&#123;</span><br><span class="line"></span><br><span class="line">    console.log(1);</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">foo(); /\*1\*/</span><br><span class="line"></span><br><span class="line">foo=function()&#123;</span><br><span class="line"></span><br><span class="line">    console.log(2);</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>变量提升与引擎的工作机制有关，引擎处理程序中的声明发生在编译阶段，数值处理发生在执行阶段，因此声明会被提升。</p>
 <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a><a href="#闭包" title="闭包"></a>闭包</h3><p>当执行函数可以记住并访问所在的词法作用域时，就产生了闭包，即时函数是在当前词法作用域之外执行。</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>13</p>
-<p>var fn;</p>
-<p>function foo(){</p>
-<pre><code>var a=2;
-
-function baz(){
-
-    console.log(a);
-
-}
-
-fn=baz;
-</code></pre><p>}</p>
-<p>function bar(){</p>
-<pre><code>fn();
-</code></pre><p>}</p>
-<p>foo();</p>
-<p>bar();</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var fn;</span><br><span class="line"></span><br><span class="line">function foo()&#123;</span><br><span class="line"></span><br><span class="line">    var a=2;</span><br><span class="line"></span><br><span class="line">    function baz()&#123;</span><br><span class="line"></span><br><span class="line">        console.log(a);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fn=baz;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function bar()&#123;</span><br><span class="line"></span><br><span class="line">    fn();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();</span><br><span class="line"></span><br><span class="line">bar();</span><br></pre></td></tr></table></figure>
 <p>无论通过何种手段将内部函数传递到所在的词法作用域以外，它都会持有对原始定义作用域的引用，无论在何处执行这个函数都将产生闭包。</p>
-<h3 id="块作用域与闭包"><a href="#块作用域与闭包" class="headerlink" title="块作用域与闭包"></a><a href="#块作用域与闭包" title="块作用域与闭包"></a>块作用域与闭包</h3><p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>for(var i=1;i&lt;=5;i++){</p>
-<pre><code>setTimeout(function(){
-
-console.log(i)}, i*1000);
-</code></pre><p>}</p>
+<h3 id="块作用域与闭包"><a href="#块作用域与闭包" class="headerlink" title="块作用域与闭包"></a><a href="#块作用域与闭包" title="块作用域与闭包"></a>块作用域与闭包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(var i=1;i&lt;=5;i++)&#123;</span><br><span class="line"></span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line"></span><br><span class="line">    console.log(i)&#125;, i*1000);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这段代码输出5次6；因为setTimeout函数公用全局作用域的i,解决办法：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>for(let i=1;i&lt;=5;i++){</p>
-<pre><code>setTimeout(function(){
-
-console.log(i)}, i*1000);
-</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(let i=1;i&lt;=5;i++)&#123;</span><br><span class="line"></span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line"></span><br><span class="line">    console.log(i)&#125;, i*1000);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>块作用域与闭包联手天下无敌，HH.</p>
 <h3 id="使用IIFE来创建块作用域"><a href="#使用IIFE来创建块作用域" class="headerlink" title="使用IIFE来创建块作用域"></a><a href="#使用IIFE来创建块作用域" title="使用IIFE来创建块作用域"></a>使用IIFE来创建块作用域</h3><p>try/catch的性能很糟糕，使用期创建块作用域运行会很慢；使用try／catch异常最大的开销是创建异常时需要回溯栈信息，如果没有异常的时候几乎不会影响性能。<br>但是将一段代码中的任意部分拿出来进行函数包装会改变吧这段代码的含义，其中的this、return、break和continue都会发生变化。IIFE并不是一个普遍适合的解决方案，它只适合在某些情况下进行手动操作。</p>
 <h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a><a href="#模块" title="模块"></a>模块</h3><p>模块模式应该具备的条件：<br>1.必须有外部的封闭函数，该函数至少被调用一次。<br>2.封闭函数至少返回一个内部函数。</p>
@@ -296,7 +186,7 @@ console.log(i)}, i*1000);
 
   
     <section id="comment">
-    <!--   <h1 class="title">Comments</h1> -->
+    <!--   <h1 class="title">留言</h1> -->
     
         <script type="text/javascript" id="wumiiComments">
             var wumiiPermaLink = "http://yoursite.com/2018/02/01/JavaScript-Scope/"; //请用代码生成文章永久的链接
@@ -323,7 +213,7 @@ console.log(i)}, i*1000);
 
 
   <div class="widget tag">
-  <h3 class="title">Calendar</h3>
+  <h3 class="title">日历云</h3>
   <div id="calendar"></div>
 </div>
 
@@ -339,7 +229,7 @@ console.log(i)}, i*1000);
   
   <div class="widget tag">
     <h3 class="title">归档</h3>
-	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">20</span></li></ul>
+	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">19</span></li></ul>
   </div>
 
 </aside>
