@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-26T10:12:05.200Z</updated>
+  <updated>2018-02-24T09:30:44.839Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,62 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>函数节流和函数去抖</title>
-    <link href="http://yoursite.com/2018/02/26/Throttling%20and%20Debouncing%20in%20JavaScrip/"/>
-    <id>http://yoursite.com/2018/02/26/Throttling and Debouncing in JavaScrip/</id>
-    <published>2018-02-26T10:09:45.000Z</published>
-    <updated>2018-02-26T10:12:05.200Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>元素尺寸</title>
-    <link href="http://yoursite.com/2018/02/26/element-size/"/>
-    <id>http://yoursite.com/2018/02/26/element-size/</id>
-    <published>2018-02-26T10:09:32.000Z</published>
-    <updated>2018-02-26T10:11:25.378Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Cross-domain</title>
-    <link href="http://yoursite.com/2018/02/23/Cross-domain/"/>
-    <id>http://yoursite.com/2018/02/23/Cross-domain/</id>
-    <published>2018-02-23T08:34:45.000Z</published>
-    <updated>2018-02-23T08:34:45.743Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>CSS sticky positioning</title>
-    <link href="http://yoursite.com/2018/02/23/CSS-sticky-positioning/"/>
-    <id>http://yoursite.com/2018/02/23/CSS-sticky-positioning/</id>
-    <published>2018-02-23T07:54:59.000Z</published>
-    <updated>2018-02-23T07:54:59.495Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>FED Interview</title>
@@ -173,7 +117,7 @@
     <link href="http://yoursite.com/2018/02/01/What-s-the-difference-between-a-JavaScript-framework-and-a-library/"/>
     <id>http://yoursite.com/2018/02/01/What-s-the-difference-between-a-JavaScript-framework-and-a-library/</id>
     <published>2018-01-31T16:12:18.000Z</published>
-    <updated>2018-01-31T16:12:46.510Z</updated>
+    <updated>2018-03-02T09:59:14.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="What’s-the-difference-between-a-JavaScript-framework-and-a-library"><a href="#What’s-the-difference-between-a-JavaScript-framework-and-a-library" class="headerlink" title="What’s the difference between a JavaScript framework and a library"></a>What’s the difference between a JavaScript framework and a library</h1><ol><li><a href="#Javascript-library">Javascript library</a></li><li><a href="#Toolkit">Toolkit</a></li><li><a href="#Javascript-framework">Javascript framework</a></li><li><a href="#Difference">Difference</a></li></ol><h3 id="Javascript-library"><a href="#Javascript-library" class="headerlink" title="Javascript library"></a><a href="#Javascript-library" title="Javascript library"></a>Javascript library</h3><p>库的的概念和意义是用来提供一些方法的集合，避免重复定义相同功能的函数并具有一定的模式兼容性。库通常缺乏任何目的或意图的,并且旨在使用和集成客户端代码，协助客户端代码执行它的任务，常见的工具包如JQuery。</p><h3 id="Toolkit"><a href="#Toolkit" class="headerlink" title="Toolkit"></a><a href="#Toolkit" title="Toolkit"></a>Toolkit</h3><p>工具是一个有着特定目的的库，我的理解是它一般用来解决开发中的部分问题，或者说它提供了一个完整应用的单独的解决方案，比如说事件传递、控制流程或者网络通信等中的一个，常见的工具包如superagent。</p><h3 id="Javascript-framework"><a href="#Javascript-framework" class="headerlink" title="Javascript framework"></a><a href="#Javascript-framework" title="Javascript framework"></a>Javascript framework</h3><p>Javascript framework可以用来组织大型应用，提供几乎完整的解决方案。对于大型前端框架来说需要提供这些解决方案：</p><ul><li><p>数据层的抽象</p></li><li><p>视图的抽象</p></li><li><p>事件传递和控制流程</p></li><li><p>网络通信</p></li><li><p>路由管理</p></li></ul><h3 id="Difference"><a href="#Difference" class="headerlink" title="Difference"></a><a href="#Difference" title="Difference"></a>Difference</h3><p>Javascript framework 和 Javascript library的区别再于：inversion of control，也就是：</p><p>your code calls a library but a framework calls your code.</p><p>意思是：</p><ul><li><p>当你在调用library的时候， 你按照自己的意愿来control他（比如jQuery）。</p></li><li><p>对于framework， 那么control就是倒转过来了，是他在调用你（比如Vue), 就像是Hollywood的一个principle: Don’t call Us, We’ll call You.</p></li></ul><p>在使用framework的时候，自定义代码仅仅关注处理事件本身，由event loop 和 dispatch的events/messages机制来进行事件调用，它们是由framework或者运行时环境提供的。</p><p>Inversion of Control是一个framework和一个library的根本区别，library从本质上来讲是一组你可以调用的函数，这些通常组织成类，每次调用做些处理然后将控制权返还给客户端。一个框架包含了一些抽象的设计，内置更多的钩子，为了使用这些钩子，你需你需要通过将框架子类化或者在这些地方插入自己的类。然后框架会在这些地方调用你的自定义代码。</p>]]></content>
     
