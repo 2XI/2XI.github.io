@@ -3,13 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Customization | Shengxihu&#39;s Blog&#39;</title>
+  <title>Macrotasks and microtasks in JavaScript | Shengxihu&#39;s Blog&#39;</title>
   <meta name="author" content="2XI">
+  
+  <meta name="description" content="昨天面试的时候第一次听说了JavaScript的macrotask和microtask，这两个概念涉及到JavaScript的异步运行机制，此前也对JavaScript的时间循环机制有些了解，在弄懂macrotask和microtask后，对JavaScript的异步运行机制有了更深入的理解。
+异步">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Customization"/>
+  <meta property="og:title" content="Macrotasks and microtasks in JavaScript"/>
   <meta property="og:site_name" content="Shengxihu&#39;s Blog&#39;"/>
 
   
@@ -73,16 +76,16 @@
 </header>
   
     <div id="content" class="inner">
-      <div id="main-col" class="alignleft"><div id="wrapper"><article class="page">
+      <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
   <div class="post-content">
     <header>
         <div class="icon"></div>
         
-        <time datetime="2018-01-31T15:22:16.000Z"><a href="/Customization/index.html">2018-01-31</a></time>
+        <time datetime="2018-03-10T05:00:56.000Z"><a href="/2018/03/10/Macrotasks-and-microtasks-in-JavaScript/">2018-03-10</a></time>
         
   
-    <h1 class="title">Customization</h1>
+    <h1 class="title">Macrotasks and microtasks in JavaScript</h1>
   
 
     </header>
@@ -91,10 +94,18 @@
       
         
     <div id="toc">
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#异步运行机制"><span class="toc-text">异步运行机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#macrotask-和-microtask"><span class="toc-text">macrotask 和 microtask</span></a></li></ol>
     </div>
 
-        
+        <p>昨天面试的时候第一次听说了JavaScript的macrotask和microtask，这两个概念涉及到JavaScript的异步运行机制，此前也对JavaScript的时间循环机制有些了解，在弄懂macrotask和microtask后，对JavaScript的异步运行机制有了更深入的理解。</p>
+<h3 id="异步运行机制"><a href="#异步运行机制" class="headerlink" title="异步运行机制"></a>异步运行机制</h3><p>关于JavaScript的异步运行机制，参照<a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ" target="_blank" rel="noopener">Philip Roberts在JSConf上的演讲视频</a>，在视频中他对JavaScript的异步运行机制做了可视化讲解，最初在看到这个视频时简直被惊艳到（那时我还是一个小萌新），我们也可以在他写的可视化工具中运行自己的代码以分析JavaScript的运行机制。遗憾的是他不支持Promises，也未涉及到Macrotasks and microtasks，所以不足以让我们从中窥见Macrotasks and microtasks的奥秘。</p>
+<p>从Philip Roberts的演讲中我们还是可以了解到：JavaScript主线程拥有一个执行栈以及一个任务队列，主线程会依次执行代码，当遇到函数时，会先将函数 入栈，函数运行完毕后再将该函数 出栈，直到所有代码执行完毕。当遇到 WebAPI（例如：setTimeout, AJAX）这些函数时，这些函数会立即返回一个值，从而让主线程不会在此处阻塞。而真正的异步操作会由浏览器执行，浏览器会在这些任务完成后，将事先定义的回调函数推入主线程的任务队列中。而主线程则会在 清空当前执行栈后，按照先入先出的顺序读取任务队列里面的任务。</p>
+<p>所以当浏览器执行如下JavaScript代码时：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(&apos;script start&apos;)</span><br><span class="line">setTimeout(function fn() &#123;</span><br><span class="line">    console.log(&apos;setTimeout&apos;)</span><br><span class="line">&#125;, 0);</span><br><span class="line">console.log(&apos;script end&apos;)</span><br></pre></td></tr></table></figure>
+<p>执行顺序为：</p>
+<p>首先<code>console.log(&#39;script start&#39;)</code>会被压入执行栈，执行后打印<code>script start</code>，然后出栈。接下来<code>setTimeout</code>会被压入执行栈，它会返回<code>fn</code>函数。遇到（setTimeout, AJAX）这类web api时，JavaScript引擎会将他们交给浏览器的异步执行队列来处理，计时器设定计时为零，但是<code>fn</code>函数会加入<code>task</code>队列。但执行栈中的JavaScript程序会继续执行，<code>console.log(&#39;script end&#39;)</code>函数会执行，并输出<code>script start</code>。当执行栈为空时<code>task</code>队列中的函数会被取出依次执行。</p>
+<h3 id="macrotask-和-microtask"><a href="#macrotask-和-microtask" class="headerlink" title="macrotask 和 microtask"></a>macrotask 和 microtask</h3><p>coming soon …</p>
+
       
     </div>
     <footer>
@@ -129,8 +140,8 @@
     <!--   <h1 class="title">留言</h1> -->
     
         <script type="text/javascript" id="wumiiComments">
-            var wumiiPermaLink = "http://yoursite.com/Customization/index.html"; //请用代码生成文章永久的链接
-            var wumiiTitle = "Customization"; //请用代码生成文章标题
+            var wumiiPermaLink = "http://yoursite.com/2018/03/10/Macrotasks-and-microtasks-in-JavaScript/"; //请用代码生成文章永久的链接
+            var wumiiTitle = "Macrotasks and microtasks in JavaScript"; //请用代码生成文章标题
             var wumiiSitePrefix = "http://lupeng.me"; 
             var wumiiCommentParams = "&pf=JAVASCRIPT";
         </script>

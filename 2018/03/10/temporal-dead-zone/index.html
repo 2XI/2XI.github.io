@@ -3,13 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Customization | Shengxihu&#39;s Blog&#39;</title>
+  <title>temporal dead zone | Shengxihu&#39;s Blog&#39;</title>
   <meta name="author" content="2XI">
+  
+  <meta name="description" content="昨天面试的时候被问到JavaScript中使用let和const声明符声明变量时会造成暂时性死区的问题，当时不知道暂时性死区是什么意思，事后谷歌了一下这个名词，发现所谓暂时性死区其实就是JavaScrip作用域机制和let与const没有变量提升造成的。想想所谓暂时性死区自己还是懂的，只是不知道叫暂">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Customization"/>
+  <meta property="og:title" content="temporal dead zone"/>
   <meta property="og:site_name" content="Shengxihu&#39;s Blog&#39;"/>
 
   
@@ -73,16 +75,16 @@
 </header>
   
     <div id="content" class="inner">
-      <div id="main-col" class="alignleft"><div id="wrapper"><article class="page">
+      <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
   <div class="post-content">
     <header>
         <div class="icon"></div>
         
-        <time datetime="2018-01-31T15:22:16.000Z"><a href="/Customization/index.html">2018-01-31</a></time>
+        <time datetime="2018-03-10T03:48:57.000Z"><a href="/2018/03/10/temporal-dead-zone/">2018-03-10</a></time>
         
   
-    <h1 class="title">Customization</h1>
+    <h1 class="title">temporal dead zone</h1>
   
 
     </header>
@@ -91,10 +93,19 @@
       
         
     <div id="toc">
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用var声明变量"><span class="toc-text">使用var声明变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用let或const声明变量"><span class="toc-text">使用let或const声明变量</span></a></li></ol>
     </div>
 
-        
+        <p>昨天面试的时候被问到JavaScript中使用let和const声明符声明变量时会造成暂时性死区的问题，当时不知道暂时性死区是什么意思，事后谷歌了一下这个名词，发现所谓暂时性死区其实就是JavaScrip作用域机制和let与const没有变量提升造成的。想想所谓暂时性死区自己还是懂的，只是不知道叫暂时性死区这个概念。</p>
+<h3 id="使用var声明变量"><a href="#使用var声明变量" class="headerlink" title="使用var声明变量"></a>使用var声明变量</h3><p>在es6定义let和const声明符之前，我们声明一个变量通常使用var：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var a = 1</span><br></pre></td></tr></table></figure></p>
+<p>我们可以在变量被声明之前访问变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function fun() &#123;</span><br><span class="line">    console.log(a) //undefined</span><br><span class="line">    var a = 1</span><br><span class="line">&#125;</span><br><span class="line">fun()</span><br></pre></td></tr></table></figure></p>
+<p>我们可以在变量被声明之前给变量赋值或者访问该变量，当我们给变量赋值时，如果在当前作用域的赋值操作后面声明了该变量，赋值操作为正常进行。如果在当前作用域未声明改变量，在当前作用域的父级或祖级作用域也未声明该变量，那么JavaScript会帮我们在全局作用域使用var创建一个变量然后进行赋值。如果在当前作用域的父级或祖级作用域中声明了该变量，我们知道引擎会将变量赋值给父级或祖级作用域中的变量。</p>
+<h3 id="使用let或const声明变量"><a href="#使用let或const声明变量" class="headerlink" title="使用let或const声明变量"></a>使用let或const声明变量</h3><p>es6新增了let和const声明符用来声明变量和常量，在本文中我只会讨论关于暂时性死区的问题。在es规范中，使用let和const声明变量是没有变量提升的，所以会出现以下情况：</p>
+<p>在变量被声明之前访问变量或给变量赋值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function fun() &#123;</span><br><span class="line">    console.log(a) // ReferenceError: a is not defined</span><br><span class="line">    a = 2 //ReferenceError: a is not defined</span><br><span class="line">    let a = 1</span><br><span class="line">&#125;</span><br><span class="line">fun()</span><br></pre></td></tr></table></figure></p>
+<p>或者：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function fun() &#123;</span><br><span class="line">    console.log(a) // ReferenceError: a is not defined</span><br><span class="line">    a = 2 //ReferenceError: a is not defined</span><br><span class="line">    const a</span><br><span class="line">&#125;</span><br><span class="line">fun()</span><br></pre></td></tr></table></figure></p>
+<p>如果在变量被声明之后访问该变量，一切正常：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function fun() &#123;</span><br><span class="line">    const a</span><br><span class="line">    console.log(a) // undefined</span><br><span class="line">&#125;</span><br><span class="line">fun()</span><br></pre></td></tr></table></figure></p>
+<p>所谓暂时性死区就是指使用let或const在当前作用域声明变量时，如果在变量被声明之前访问该变量，会造成引用错误，因为此时变量没有被声明。本质是let和const没有变量提升，变量声明不会被提升到当前作用域的最前面，所以在变量声明之前访问不到。</p>
+
       
     </div>
     <footer>
@@ -129,8 +140,8 @@
     <!--   <h1 class="title">留言</h1> -->
     
         <script type="text/javascript" id="wumiiComments">
-            var wumiiPermaLink = "http://yoursite.com/Customization/index.html"; //请用代码生成文章永久的链接
-            var wumiiTitle = "Customization"; //请用代码生成文章标题
+            var wumiiPermaLink = "http://yoursite.com/2018/03/10/temporal-dead-zone/"; //请用代码生成文章永久的链接
+            var wumiiTitle = "temporal dead zone"; //请用代码生成文章标题
             var wumiiSitePrefix = "http://lupeng.me"; 
             var wumiiCommentParams = "&pf=JAVASCRIPT";
         </script>

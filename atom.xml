@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-24T09:30:44.839Z</updated>
+  <updated>2018-03-10T05:45:48.112Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Macrotasks and microtasks in JavaScript</title>
+    <link href="http://yoursite.com/2018/03/10/Macrotasks-and-microtasks-in-JavaScript/"/>
+    <id>http://yoursite.com/2018/03/10/Macrotasks-and-microtasks-in-JavaScript/</id>
+    <published>2018-03-10T05:00:56.000Z</published>
+    <updated>2018-03-10T05:45:48.112Z</updated>
+    
+    <content type="html"><![CDATA[<p>昨天面试的时候第一次听说了JavaScript的macrotask和microtask，这两个概念涉及到JavaScript的异步运行机制，此前也对JavaScript的时间循环机制有些了解，在弄懂macrotask和microtask后，对JavaScript的异步运行机制有了更深入的理解。</p><h3 id="异步运行机制"><a href="#异步运行机制" class="headerlink" title="异步运行机制"></a>异步运行机制</h3><p>关于JavaScript的异步运行机制，参照<a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ" target="_blank" rel="noopener">Philip Roberts在JSConf上的演讲视频</a>，在视频中他对JavaScript的异步运行机制做了可视化讲解，最初在看到这个视频时简直被惊艳到（那时我还是一个小萌新），我们也可以在他写的可视化工具中运行自己的代码以分析JavaScript的运行机制。遗憾的是他不支持Promises，也未涉及到Macrotasks and microtasks，所以不足以让我们从中窥见Macrotasks and microtasks的奥秘。</p><p>从Philip Roberts的演讲中我们还是可以了解到：JavaScript主线程拥有一个执行栈以及一个任务队列，主线程会依次执行代码，当遇到函数时，会先将函数 入栈，函数运行完毕后再将该函数 出栈，直到所有代码执行完毕。当遇到 WebAPI（例如：setTimeout, AJAX）这些函数时，这些函数会立即返回一个值，从而让主线程不会在此处阻塞。而真正的异步操作会由浏览器执行，浏览器会在这些任务完成后，将事先定义的回调函数推入主线程的任务队列中。而主线程则会在 清空当前执行栈后，按照先入先出的顺序读取任务队列里面的任务。</p><p>所以当浏览器执行如下JavaScript代码时：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(&apos;script start&apos;)</span><br><span class="line">setTimeout(function fn() &#123;</span><br><span class="line">    console.log(&apos;setTimeout&apos;)</span><br><span class="line">&#125;, 0);</span><br><span class="line">console.log(&apos;script end&apos;)</span><br></pre></td></tr></table></figure><p>执行顺序为：</p><p>首先<code>console.log(&#39;script start&#39;)</code>会被压入执行栈，执行后打印<code>script start</code>，然后出栈。接下来<code>setTimeout</code>会被压入执行栈，它会返回<code>fn</code>函数。遇到（setTimeout, AJAX）这类web api时，JavaScript引擎会将他们交给浏览器的异步执行队列来处理，计时器设定计时为零，但是<code>fn</code>函数会加入<code>task</code>队列。但执行栈中的JavaScript程序会继续执行，<code>console.log(&#39;script end&#39;)</code>函数会执行，并输出<code>script start</code>。当执行栈为空时<code>task</code>队列中的函数会被取出依次执行。</p><h3 id="macrotask-和-microtask"><a href="#macrotask-和-microtask" class="headerlink" title="macrotask 和 microtask"></a>macrotask 和 microtask</h3><p>coming soon …</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;昨天面试的时候第一次听说了JavaScript的macrotask和microtask，这两个概念涉及到JavaScript的异步运行机制，此前也对JavaScript的时间循环机制有些了解，在弄懂macrotask和microtask后，对JavaScript的异步运行机
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>temporal dead zone</title>
+    <link href="http://yoursite.com/2018/03/10/temporal-dead-zone/"/>
+    <id>http://yoursite.com/2018/03/10/temporal-dead-zone/</id>
+    <published>2018-03-10T03:48:57.000Z</published>
+    <updated>2018-03-10T04:22:27.143Z</updated>
+    
+    <content type="html"><![CDATA[<p>昨天面试的时候被问到JavaScript中使用let和const声明符声明变量时会造成暂时性死区的问题，当时不知道暂时性死区是什么意思，事后谷歌了一下这个名词，发现所谓暂时性死区其实就是JavaScrip作用域机制和let与const没有变量提升造成的。想想所谓暂时性死区自己还是懂的，只是不知道叫暂时性死区这个概念。</p><h3 id="使用var声明变量"><a href="#使用var声明变量" class="headerlink" title="使用var声明变量"></a>使用var声明变量</h3><p>在es6定义let和const声明符之前，我们声明一个变量通常使用var：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var a = 1</span><br></pre></td></tr></table></figure></p><p>我们可以在变量被声明之前访问变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function fun() &#123;</span><br><span class="line">    console.log(a) //undefined</span><br><span class="line">    var a = 1</span><br><span class="line">&#125;</span><br><span class="line">fun()</span><br></pre></td></tr></table></figure></p><p>我们可以在变量被声明之前给变量赋值或者访问该变量，当我们给变量赋值时，如果在当前作用域的赋值操作后面声明了该变量，赋值操作为正常进行。如果在当前作用域未声明改变量，在当前作用域的父级或祖级作用域也未声明该变量，那么JavaScript会帮我们在全局作用域使用var创建一个变量然后进行赋值。如果在当前作用域的父级或祖级作用域中声明了该变量，我们知道引擎会将变量赋值给父级或祖级作用域中的变量。</p><h3 id="使用let或const声明变量"><a href="#使用let或const声明变量" class="headerlink" title="使用let或const声明变量"></a>使用let或const声明变量</h3><p>es6新增了let和const声明符用来声明变量和常量，在本文中我只会讨论关于暂时性死区的问题。在es规范中，使用let和const声明变量是没有变量提升的，所以会出现以下情况：</p><p>在变量被声明之前访问变量或给变量赋值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function fun() &#123;</span><br><span class="line">    console.log(a) // ReferenceError: a is not defined</span><br><span class="line">    a = 2 //ReferenceError: a is not defined</span><br><span class="line">    let a = 1</span><br><span class="line">&#125;</span><br><span class="line">fun()</span><br></pre></td></tr></table></figure></p><p>或者：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function fun() &#123;</span><br><span class="line">    console.log(a) // ReferenceError: a is not defined</span><br><span class="line">    a = 2 //ReferenceError: a is not defined</span><br><span class="line">    const a</span><br><span class="line">&#125;</span><br><span class="line">fun()</span><br></pre></td></tr></table></figure></p><p>如果在变量被声明之后访问该变量，一切正常：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function fun() &#123;</span><br><span class="line">    const a</span><br><span class="line">    console.log(a) // undefined</span><br><span class="line">&#125;</span><br><span class="line">fun()</span><br></pre></td></tr></table></figure></p><p>所谓暂时性死区就是指使用let或const在当前作用域声明变量时，如果在变量被声明之前访问该变量，会造成引用错误，因为此时变量没有被声明。本质是let和const没有变量提升，变量声明不会被提升到当前作用域的最前面，所以在变量声明之前访问不到。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;昨天面试的时候被问到JavaScript中使用let和const声明符声明变量时会造成暂时性死区的问题，当时不知道暂时性死区是什么意思，事后谷歌了一下这个名词，发现所谓暂时性死区其实就是JavaScrip作用域机制和let与const没有变量提升造成的。想想所谓暂时性死区自
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>FED Interview</title>
