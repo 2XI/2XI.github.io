@@ -56,18 +56,18 @@
 	<div class='header-nav-content inner'>
 		<div id="main-nav" class="alignleft">
 		    		
-		    		  <a href="/"><i class="fa fa-home"></i>首页</a>
+		    		  <a href="/"><i class="fa fa-home"></i>Home</a>
 		    		
-		    		  <a href="/archives"><i class="fa fa-archive"></i>归档</a>
+		    		  <a href="/archives"><i class="fa fa-archive"></i>Archives</a>
 		    		
 		</div>
 		<div id="sub-nav" class="alignright">
 		    
-		      <a href="/atom.xml"><i class="fa fa-rss"></i>订阅</a>
+		      <a href="/atom.xml"><i class="fa fa-rss"></i>Rss</a>
 		    
-		      <a href="/customization"><i class="fa fa-question-circle"></i>留言</a>
+		      <a href="/customization"><i class="fa fa-question-circle"></i>Customization</a>
 		    
-		      <a href="/about"><i class="fa fa-"></i>关于我</a>
+		      <a href="/about"><i class="fa fa-"></i>About</a>
 		    
 		</div>
 	</div>
@@ -99,12 +99,50 @@
 
         <p>昨天面试的时候第一次听说了JavaScript的macrotask和microtask，这两个概念涉及到JavaScript的异步运行机制，此前也对JavaScript的时间循环机制有些了解，在弄懂macrotask和microtask后，对JavaScript的异步运行机制有了更深入的理解。</p>
 <h3 id="异步运行机制"><a href="#异步运行机制" class="headerlink" title="异步运行机制"></a>异步运行机制</h3><p>关于JavaScript的异步运行机制，参照<a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ" target="_blank" rel="noopener">Philip Roberts在JSConf上的演讲视频</a>，在视频中他对JavaScript的异步运行机制做了可视化讲解，最初在看到这个视频时简直被惊艳到（那时我还是一个小萌新），我们也可以在他写的可视化工具中运行自己的代码以分析JavaScript的运行机制。遗憾的是他不支持Promises，也未涉及到Macrotasks and microtasks，所以不足以让我们从中窥见Macrotasks and microtasks的奥秘。</p>
-<p>从Philip Roberts的演讲中我们还是可以了解到：JavaScript主线程拥有一个执行栈以及一个任务队列，主线程会依次执行代码，当遇到函数时，会先将函数 入栈，函数运行完毕后再将该函数 出栈，直到所有代码执行完毕。当遇到 WebAPI（例如：setTimeout, AJAX）这些函数时，这些函数会立即返回一个值，从而让主线程不会在此处阻塞。而真正的异步操作会由浏览器执行，浏览器会在这些任务完成后，将事先定义的回调函数推入主线程的任务队列中。而主线程则会在 清空当前执行栈后，按照先入先出的顺序读取任务队列里面的任务。</p>
+<p>从Philip Roberts的演讲中我们还是可以了解到：JavaScript主线程拥有一个执行栈以及一个回调队列，主线程会依次执行代码，当遇到函数时，会先将函数 入栈，函数运行完毕后再将该函数 出栈，直到所有代码执行完毕。当遇到 WebAPI（例如：setTimeout, AJAX）这些函数时，这些函数会立即返回一个值，从而让主线程不会在此处阻塞。而真正的异步操作会由浏览器执行，浏览器会在这些任务完成后，将事先定义的回调函数推入主线程的回调队列中。而主线程则会在 清空当前执行栈后，按照先入先出的顺序读取回调队列里面的任务。</p>
 <p>所以当浏览器执行如下JavaScript代码时：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(&apos;script start&apos;)</span><br><span class="line">setTimeout(function fn() &#123;</span><br><span class="line">    console.log(&apos;setTimeout&apos;)</span><br><span class="line">&#125;, 0);</span><br><span class="line">console.log(&apos;script end&apos;)</span><br></pre></td></tr></table></figure>
 <p>执行顺序为：</p>
 <p>首先<code>console.log(&#39;script start&#39;)</code>会被压入执行栈，执行后打印<code>script start</code>，然后出栈。接下来<code>setTimeout</code>会被压入执行栈，它会返回<code>fn</code>函数。遇到（setTimeout, AJAX）这类web api时，JavaScript引擎会将他们交给浏览器的异步执行队列来处理，计时器设定计时为零，但是<code>fn</code>函数会加入<code>task</code>队列。但执行栈中的JavaScript程序会继续执行，<code>console.log(&#39;script end&#39;)</code>函数会执行，并输出<code>script start</code>。当执行栈为空时<code>task</code>队列中的函数会被取出依次执行。</p>
-<h3 id="macrotask-和-microtask"><a href="#macrotask-和-microtask" class="headerlink" title="macrotask 和 microtask"></a>macrotask 和 microtask</h3><p>coming soon …</p>
+<h3 id="macrotask-和-microtask"><a href="#macrotask-和-microtask" class="headerlink" title="macrotask 和 microtask"></a>macrotask 和 microtask</h3><p>先提出一个问题：当我们执行下面的代码时，预计输出顺序会是什么样的？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function() &#123;</span><br><span class="line">    console.log(1)</span><br><span class="line">&#125;,0);</span><br><span class="line">new Promise(function(resolve) &#123;</span><br><span class="line">    resolve()</span><br><span class="line">    console.log(2)</span><br><span class="line">&#125;).then(function() &#123;</span><br><span class="line">    console.log(3)</span><br><span class="line">&#125;);</span><br><span class="line">console.log(4)</span><br></pre></td></tr></table></figure>
+<p>如果我们不知道macrotask和microtask的相关概念和区别，我们的分析逻辑应该是这样的：</p>
+<ol>
+<li><p><code>setTimeout</code>进入执行栈，因为它是web API，JavaScript引擎会将它交给浏览器异步执行队列执行，异步执行队列在setTimeout完成计时后会将匿名回调函数推到回调队列。</p>
+</li>
+<li><p><code>new Promise</code>进入执行栈，将Promise的状态从fulfilled切换到resolve。然后把then里面的匿名回调函数推到回调队列中。然后执行<code>console.log(2)</code>。</p>
+</li>
+<li><p><code>console.log(4)</code>进入执行栈，打印出4。</p>
+</li>
+<li><p>接下来从回调队列中依次取出setTimeout和then的回调函数并执行，输出1、3。</p>
+</li>
+</ol>
+<p>按照这样的分析，我们输出的顺序应该是：2、4、1、3。</p>
+<p>然而当我们在浏览器中执行这段代码是，得到的结果却是：2、4、3、1。到底是哪一个环节出了问题呢？</p>
+<p>要搞清楚这个问题，我们需要了解macrotasks和microtasks这两个概念：Macrotask 和 microtask 都是属于上述的异步任务中的一种，它们对应的API分别为：<br>macrotasks: <code>setTimeout, setInterval, setImmediate, I/O, UI rendering</code><br>microtasks: <code>process.nextTick, Promises, Object.observe(废弃), MutationObserver</code></p>
+<p>其实本文开头提到的回调队列包含macrotasks队列和microtasks队列。浏览器在处理这两种异步任务队列时的表现为：在每一次事件循环中，macrotask只会提取一个执行，而 microtask 会一直提取，直到 microtasks 队列清空。一般情况下，macrotask队列我们会直接称为task queue，即任务队列。</p>
+<p>也就是说macrotasks和microtasks的执行顺序是：</p>
+<p>取task queue第一个task执行 -&gt; 取microtask全部任务依次执行 -&gt; 取task queue下一个任务执行 -&gt; 再次取出microtask全部任务执行 -&gt; … 循环往复</p>
+<p>在浏览器环境的事件循环中， JavaScript 脚本也会作为一个 task 被推入任务队列，我们在运行这个事件后，该脚本中的macrotasks、microtasks才会被推入队列。</p>
+<p>所以回顾我们的代码，执行顺序应该为：</p>
+<ol>
+<li><p>JavaScript 脚本也会作为一个 task 被推入任务队列。</p>
+</li>
+<li><p><code>setTimeout</code>进入执行栈，因为它是web API，JavaScript引擎会将它交给浏览器异步执行队列执行，异步执行队列在setTimeout完成计时后会将匿名回调函数推到macrotasks队列。</p>
+</li>
+<li><p><code>new Promise</code>进入执行栈，将Promise的状态从fulfilled切换到resolve。然后把then里面的匿名回调函数推到microtask队列中。然后执行<code>console.log(2)</code>。</p>
+</li>
+<li><p><code>console.log(4)</code>进入执行栈，打印出4。</p>
+</li>
+<li><p>第一轮任务队列已经执行完毕，符合microtask执行条件，因此会将microtask队列中的任务优先执行，接下来从microtask队列取出then的回调函数并执行，输出3。</p>
+</li>
+<li><p>开始执行第二轮，取task queue下一个任务执行，也就是<code>setTimeout</code>的匿名回调函数，执行后输出1.</p>
+</li>
+</ol>
+<p>按照这样的分析，我们输出的顺序应该是：2、4、3、1。</p>
+<p>到此，我们大致弄清楚了异步任务的执行机制，但是关于macrotask 和 microtask和异步任务执行机制跟深入的研究，并不应该在此终结，还需要更加深入的研究。</p>
+<p>参考文献：</p>
+<p>1.<a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ" target="_blank" rel="noopener">What is the heck is the event-loop anyway</a><br>2.<a href="http://tuobaye.com/2017/10/24/%E9%80%9A%E8%BF%87microtasks%E5%92%8Cmacrotasks%E7%9C%8BJavaScript%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/" target="_blank" rel="noopener">通过microtasks和macrotasks看JavaScript异步任务执行顺序</a><br>3.<a href="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/" target="_blank" rel="noopener">Tasks, microtasks, queues and schedules</a><br>4.<a href="https://juejin.im/entry/58d4df3b5c497d0057eb99ff" target="_blank" rel="noopener">理解 JavaScript 中的 macrotask 和 microtask</a></p>
 
       
     </div>
@@ -137,7 +175,7 @@
 
   
     <section id="comment">
-    <!--   <h1 class="title">留言</h1> -->
+    <!--   <h1 class="title">Comments</h1> -->
     
         <script type="text/javascript" id="wumiiComments">
             var wumiiPermaLink = "http://yoursite.com/2018/03/10/Macrotasks-and-microtasks-in-JavaScript/"; //请用代码生成文章永久的链接
@@ -164,7 +202,7 @@
 
 
   <div class="widget tag">
-  <h3 class="title">日历云</h3>
+  <h3 class="title">Calendar</h3>
   <div id="calendar"></div>
 </div>
 
