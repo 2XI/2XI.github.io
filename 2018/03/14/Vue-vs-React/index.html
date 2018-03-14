@@ -3,13 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2018/3 | Shengxihu&#39;s Blog&#39;</title>
+  <title>Vue vs React | Shengxihu&#39;s Blog&#39;</title>
   <meta name="author" content="2XI">
+  
+  <meta name="description" content="关于Vue和React的一些思考Vue的一些指令带来了大型项目的维护问题：
+学习成本：Vue的学习曲线更加小。
+设计理念：Virtual DOM、组件化、推崇不可变数据
+开发效率：完整的生态、状态管理、路由管理，Vue内置指令开发效率更高。
+迭代维护：组件化，单文件组件
+在我看来Vue的指令做了过多">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="Vue vs React"/>
   <meta property="og:site_name" content="Shengxihu&#39;s Blog&#39;"/>
 
   
@@ -73,62 +80,81 @@
 </header>
   
     <div id="content" class="inner">
-      <div id="main-col" class="alignleft"><div id="wrapper">
+      <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+        <div class="icon"></div>
+        
+        <time datetime="2018-03-14T03:26:15.000Z"><a href="/2018/03/14/Vue-vs-React/">2018-03-14</a></time>
+        
+  
+    <h1 class="title">Vue vs React</h1>
+  
 
-<h2 class="archive-title fa-calendar">2018/3</h2>
-<div class="archive">
-   
-    <article class="post">
-      <div class="post-content">
-        <header>
-          <div class="icon"></div>
-          <time datetime="2018-03-14T03:26:15.000Z"><a href="/2018/03/14/Vue-vs-React/">2018-03-14</a></time>
-          
-            <h1 class="title"><a href="/2018/03/14/Vue-vs-React/">Vue vs React</a></h1>
-          
-        </header>
-        <div class='archive-tags'>
-          
-        </div>
-      </div>
-    </article>
-   
-    <article class="post">
-      <div class="post-content">
-        <header>
-          <div class="icon"></div>
-          <time datetime="2018-03-10T05:00:56.000Z"><a href="/2018/03/10/Macrotasks-and-microtasks-in-JavaScript/">2018-03-10</a></time>
-          
-            <h1 class="title"><a href="/2018/03/10/Macrotasks-and-microtasks-in-JavaScript/">Macrotasks and microtasks in JavaScript</a></h1>
-          
-        </header>
-        <div class='archive-tags'>
-          
-        </div>
-      </div>
-    </article>
-   
-    <article class="post">
-      <div class="post-content">
-        <header>
-          <div class="icon"></div>
-          <time datetime="2018-03-10T03:48:57.000Z"><a href="/2018/03/10/temporal-dead-zone/">2018-03-10</a></time>
-          
-            <h1 class="title"><a href="/2018/03/10/temporal-dead-zone/">temporal dead zone</a></h1>
-          
-        </header>
-        <div class='archive-tags'>
-          
-        </div>
-      </div>
-    </article>
-    
+    </header>
+
+    <div class="entry">
+      
+        
+    <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于Vue和React的一些思考"><span class="toc-text">关于Vue和React的一些思考</span></a></li></ol>
+    </div>
+
+        <h3 id="关于Vue和React的一些思考"><a href="#关于Vue和React的一些思考" class="headerlink" title="关于Vue和React的一些思考"></a>关于Vue和React的一些思考</h3><p>Vue的一些指令带来了大型项目的维护问题：</p>
+<p>学习成本：Vue的学习曲线更加小。</p>
+<p>设计理念：Virtual DOM、组件化、推崇不可变数据</p>
+<p>开发效率：完整的生态、状态管理、路由管理，Vue内置指令开发效率更高。</p>
+<p>迭代维护：组件化，单文件组件</p>
+<p>在我看来Vue的指令做了过多的约定，比如说数据绑定，或者条件渲染、列表渲染、计算属性等。他让数据分散到了js和html模板里面，在Vue里面它是两部分的。这就为我们后续的维护带来了困难，首先最直接的它的数据是分散的。然后是Vue它为了更加便捷的实现数据绑定、列表渲染和计算属性等这些内置的效果，做了一些内部实现。相当于做了内部约定，你必须这样写。约定带来两个问题，一是灵活性，二是维护性。灵活性表现在约定之后就必须按照约定的写法。维护性表现在约定之后很多东西不用我们自己写了，对于开发人员来说逻辑有断层，后续维护的时候，不管是自己维护还是交给其他人维护都会需要去找数据和它绑定的状态。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        <div class = "counter">
+  <span id="busuanzi_container_page_pv" style="display:none">
+      总访问&nbsp<span id="busuanzi_value_page_pv"></span>&nbsp次
+  </span>
 </div>
-<nav id="pagination">
+        
+  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a><a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a><a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a><a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a><a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a></div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
   
+<section id = "relate">
+	
+                <div id=""></div>
+	
+</section>
+
+
   
-  <div class="clearfix"></div>
-</nav></div></div>
+    <section id="comment">
+    <!--   <h1 class="title">Comments</h1> -->
+    
+        <script type="text/javascript" id="wumiiComments">
+            var wumiiPermaLink = "http://yoursite.com/2018/03/14/Vue-vs-React/"; //请用代码生成文章永久的链接
+            var wumiiTitle = "Vue vs React"; //请用代码生成文章标题
+            var wumiiSitePrefix = "http://lupeng.me"; 
+            var wumiiCommentParams = "&pf=JAVASCRIPT";
+        </script>
+        <script type="text/javascript" src="http://widget.wumii.cn/ext/cw/widget"></script>
+      
+    </section>
+
+
+
+
+</div></div>
       <aside id="sidebar" class="alignright">
   <div class="search" id="site_search">
   <input class="st-default-search-input" type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>

@@ -212,6 +212,75 @@ relative
 <ul>
 <li>GET/POST</li>
 </ul>
+<ul>
+<li>css3新增内容</li>
+</ul>
+<p>元素选择器：E[foo^=”bar”]，E[foo$=”bar”]，E[foo*=”bar”]，E:root，E:nth-child(n)，E:nth-last-child(n)，E:nth-of-type(n)，E:nth-last-of-type(n)，E:last-child，E:first-of-type，E:last-of-type，E:only-child，E:only-of-type，E:empty，E~F，E:not(s)，E:target</p>
+<p>状态选择器：E:enabled，E:disabled，E:checked    </p>
+<p>值和单位：em，ex，ch，rem，vh，vw，vmin，vmax</p>
+<p>字体：@Font-face</p>
+<p>文本属性：text-shadow，text-overflow，word-wrap，</p>
+<p>盒模型：box-sizing，box-shadow，border-colors，boder-image，border-radius，outline，</p>
+<p>动画：Transitions, Transforms，Animation</p>
+<p>颜色和背景：hsl，hsla，rgba，background-size，background-origin，background-clip，background(为一个元素指定多个背景)，渐变效果（Gradient）</p>
+<p>浮动和定位：sticky（草案）</p>
+<p>其他布局：flex，column（多列）</p>
+<p>其他：resize，opacity</p>
+<ul>
+<li>HTML5 新增属性</li>
+</ul>
+<p>结构标签：</p>
+<p><code>&lt;!DOCTYPE html&gt;</code>HTML版本和文档类型声明。</p>
+<p><code>section</code>独立区块内容，表示文档结构，也可以放在有章节、页眉、页脚的其他部分。</p>
+<p><code>article</code>特殊独立区块，表示页面中的核心内容。</p>
+<p><code>aside</code>标签内容之外与标签内容相关的辅助内容。</p>
+<p><code>header</code>某个区块的头部信息/标题。</p>
+<p><code>hgroup</code>标题元素进行分组。</p>
+<p><code>footer</code>标签定义文档或节的页脚。</p>
+<p><code>nav</code>定义导航链接的部分。</p>
+<p><code>figure</code>定义独立的流内容（图像、图表、照片、代码等等）。</p>
+<p>表单标签(属性)：</p>
+<p><code>email</code>：必须输入邮件。</p>
+<p><code>url</code>：必须输入url地址。</p>
+<p><code>number</code>：必须输入数值。</p>
+<p><code>range</code>：必须输入一定范围内的数值。</p>
+<p><code>datetype</code>：日期选择器。</p>
+<p><code>search</code>：搜索常规的文本域。</p>
+<p><code>color</code>：颜色。</p>
+<p>媒体标签：</p>
+<p><code>video</code>：视频</p>
+<p><code>audio</code>：音频</p>
+<p><code>embed</code>：嵌入内容（包括各种媒体），Midi、Wav、AU、MP3、Flash、AIFF等。</p>
+<p>其他功能标签：</p>
+<p><code>mark</code>：标注（像荧光笔做笔记）</p>
+<p><code>progress</code>：进度条。<progress max="最大进度条的值" value="当前进度条的值"></progress></p>
+<p><code>time</code>：数据标签，给搜索引擎使用。发布日期<time datetime="2014-12-25T09:00">9：00</time>更新日期<time datetime="2015-
+01-23T04:00" pubdate="">4:00</time></p>
+<p><code>ruby</code>和<code>rt</code>：对某一个字进行注释。<ruby><rt>注释内容</rt><rp>浏览器不支持时如何显示</rp></ruby></p>
+<p><code>wbr</code>：软换行，页面宽度到需要换行时换行。</p>
+<p><code>canvas</code>：使用JS代码做内容进行图像绘制。</p>
+<p><code>command</code>：按钮。</p>
+<p><code>deteils</code>：展开菜单。</p>
+<p><code>dateilst</code>：文本域下拉提示。</p>
+<p><code>keygen</code>:加密。</p>
+<p><code>base</code>: 为页面上的所有链接规定默认地址或默认目标。</p>
+<p>已有元素新增属性：</p>
+<p><code>&lt;script&gt;</code>: <code>defer</code>表示脚本加载完毕后，只有当页面也加载完毕才执行（推迟执行）、<code>async</code>脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）。</p>
+<p><code>&lt;link&gt;</code>: <code>rel=&quot;icon&quot;</code></p>
+<p><code>&lt;iframe&gt;</code>: <code>seamless</code>定义框架无边框，<code>sandbox</code>用来规定内嵌框架的安全级别，<code>srcdoc</code>显示级别比sandbox高。</p>
+<p><code>manifest</code>: 定义页面需要用到的离线应用文件，一般放在<code>&lt;html&gt;</code>标签里。</p>
+<p><code>&lt;meta&gt;</code>: <code>charset</code>定义页面的字符集。</p>
+<p><code>&lt;link&gt;</code>: <code>sizes</code>设置图标尺寸。</p>
+<p><code>&lt;a&gt;</code>: <code>media</code>用于规定目标 URL 是为特殊设备（比如 iPhone）、语音或打印媒介设计的、<code>hreflang</code>用于指定被链接文档的语言。</p>
+<p><code>&lt;ol&gt;</code>: <code>reversed</code>定义序号是否倒叙、<code>start</code>定义序号的起始值。</p>
+<p><code>&lt;style&gt;</code>: <code>scoped</code>为内嵌CSS样式的属性，定义该样式只局限于拥有该内嵌样式的元素，适用于单页开发.</p>
+<p>全局属性(对任意标签都可以使用的):</p>
+<p><code>data-</code>: 自定义属性名字。</p>
+<p><code>hidden</code>: 隐藏。</p>
+<p><code>spellcheck</code>: 语法纠正。</p>
+<p><code>tabindex</code>: 规定元素的 tab 键控制次序(当tab键用于导航时)。</p>
+<p><code>contenteditable</code>: 定义元素是否可编辑。</p>
+<p><code>desginMode</code>: 在JavaScript里插入的window.document.designMode = ‘on’，整个页面都可以编辑。</p>
 
       
     </div>
@@ -287,7 +356,7 @@ relative
   
   <div class="widget tag">
     <h3 class="title">归档</h3>
-	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">17</span></li></ul>
+	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">18</span></li></ul>
   </div>
 
 </aside>
