@@ -3,20 +3,6 @@
   
     
     <entry>
-      <title><![CDATA[Vue vs React]]></title>
-      <url>/2018/03/14/Vue-vs-React/</url>
-      <content type="html"><![CDATA[<h3 id="关于Vue和React的一些思考"><a href="#关于Vue和React的一些思考" class="headerlink" title="关于Vue和React的一些思考"></a>关于Vue和React的一些思考</h3><p>Vue的一些指令带来了大型项目的维护问题：</p>
-<p>学习成本：Vue的学习曲线更加小。</p>
-<p>设计理念：Virtual DOM、组件化、推崇不可变数据</p>
-<p>开发效率：完整的生态、状态管理、路由管理，Vue内置指令开发效率更高。</p>
-<p>迭代维护：组件化，单文件组件</p>
-<p>在我看来Vue的指令做了过多的约定，比如说数据绑定，或者条件渲染、列表渲染、计算属性等。他让数据分散到了js和html模板里面，在Vue里面它是两部分的。这就为我们后续的维护带来了困难，首先最直接的它的数据是分散的。然后是Vue它为了更加便捷的实现数据绑定、列表渲染和计算属性等这些内置的效果，做了一些内部实现。相当于做了内部约定，你必须这样写。约定带来两个问题，一是灵活性，二是维护性。灵活性表现在约定之后就必须按照约定的写法。维护性表现在约定之后很多东西不用我们自己写了，对于开发人员来说逻辑有断层，后续维护的时候，不管是自己维护还是交给其他人维护都会需要去找数据和它绑定的状态。</p>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Macrotasks and microtasks in JavaScript]]></title>
       <url>/2018/03/10/Macrotasks-and-microtasks-in-JavaScript/</url>
       <content type="html"><![CDATA[<p>昨天面试的时候第一次听说了JavaScript的macrotask和microtask，这两个概念涉及到JavaScript的异步运行机制，此前也对JavaScript的时间循环机制有些了解，在弄懂macrotask和microtask后，对JavaScript的异步运行机制有了更深入的理解。</p>
