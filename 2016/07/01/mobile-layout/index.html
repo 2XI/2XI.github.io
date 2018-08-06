@@ -190,7 +190,6 @@ rem适配进阶
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">selector &#123;</span><br><span class="line"></span><br><span class="line">    height: 96px;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这种适配是一件比较麻烦的事情，淘宝前端为我们提供了一个解决方案。<a href="https://github.com/amfe/article/issues/17" target="_blank" rel="noopener">使用Flexible实现手淘H5页面的终端适配</a>，它使用rem和viewport完美的解决了移动端元素大小自适应和高清屏幕的适配问题。</p>
 <h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><a href="#总结：" title="总结："></a>总结：</h2><p>前面谈到的适配方案没有优劣之分，具体如何选用还是要看业务的需求。比如我们有一个像腾讯新闻这样的资讯展示型网站，使用百分比布局就可以实现。对于天猫、京东、淘宝这类展示型多图片网站，涉及到图片的宽高比例问题，使用百分比结合padding+绝对定位、或者百分比结合flex也是不错的选择，当然我觉得采用淘宝这样使用rem布局的方式会更加简单，如果要适配高清屏那么建议你使用它的适配工具<a href="https://github.com/amfe/lib-flexible" target="_blank" rel="noopener">lib-flexible</a>可以简单快速的满足业务需求。我们在实际开发过程中也会面临各种各样的业务场景，具体选用还要根据是否多图片、是否适配高清屏等业务要求来搭配布局方式作出最好的选择。</p>
-<p><a href="/tags/Wireless-front-end/">Wireless-front-end</a></p>
 
       
     </div>

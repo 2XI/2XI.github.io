@@ -6,8 +6,7 @@
   <title>Macrotasks and microtasks in JavaScript | Shengxihu&#39;s Blog&#39;</title>
   <meta name="author" content="2XI">
   
-  <meta name="description" content="昨天面试的时候第一次听说了JavaScript的macrotask和microtask，这两个概念涉及到JavaScript的异步运行机制，此前也对JavaScript的时间循环机制有些了解，在弄懂macrotask和microtask后，对JavaScript的异步运行机制有了更深入的理解。
-异步">
+  <meta name="description" content="异步运行机制关于JavaScript的异步运行机制，参照Philip Roberts在JSConf上的演讲视频，在视频中他对JavaScript的异步运行机制做了可视化讲解，最初在看到这个视频时简直被惊艳到（那时我还是一个小萌新），我们也可以在他写的可视化工具中运行自己的代码以分析JavaScrip">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -97,8 +96,7 @@
         <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#异步运行机制"><span class="toc-text">异步运行机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#macrotask-和-microtask"><span class="toc-text">macrotask 和 microtask</span></a></li></ol>
     </div>
 
-        <p>昨天面试的时候第一次听说了JavaScript的macrotask和microtask，这两个概念涉及到JavaScript的异步运行机制，此前也对JavaScript的时间循环机制有些了解，在弄懂macrotask和microtask后，对JavaScript的异步运行机制有了更深入的理解。</p>
-<h3 id="异步运行机制"><a href="#异步运行机制" class="headerlink" title="异步运行机制"></a>异步运行机制</h3><p>关于JavaScript的异步运行机制，参照<a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ" target="_blank" rel="noopener">Philip Roberts在JSConf上的演讲视频</a>，在视频中他对JavaScript的异步运行机制做了可视化讲解，最初在看到这个视频时简直被惊艳到（那时我还是一个小萌新），我们也可以在他写的可视化工具中运行自己的代码以分析JavaScript的运行机制。遗憾的是他不支持Promises，也未涉及到Macrotasks and microtasks，所以不足以让我们从中窥见Macrotasks and microtasks的奥秘。</p>
+        <h3 id="异步运行机制"><a href="#异步运行机制" class="headerlink" title="异步运行机制"></a>异步运行机制</h3><p>关于JavaScript的异步运行机制，参照<a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ" target="_blank" rel="noopener">Philip Roberts在JSConf上的演讲视频</a>，在视频中他对JavaScript的异步运行机制做了可视化讲解，最初在看到这个视频时简直被惊艳到（那时我还是一个小萌新），我们也可以在他写的可视化工具中运行自己的代码以分析JavaScript的运行机制。遗憾的是他不支持Promises，也未涉及到Macrotasks and microtasks，所以不足以让我们从中窥见Macrotasks and microtasks的奥秘。</p>
 <p>从Philip Roberts的演讲中我们还是可以了解到：JavaScript主线程拥有一个执行栈以及一个回调队列，主线程会依次执行代码，当遇到函数时，会先将函数 入栈，函数运行完毕后再将该函数 出栈，直到所有代码执行完毕。当遇到 WebAPI（例如：setTimeout, AJAX）这些函数时，这些函数会立即返回一个值，从而让主线程不会在此处阻塞。而真正的异步操作会由浏览器执行，浏览器会在这些任务完成后，将事先定义的回调函数推入主线程的回调队列中。而主线程则会在 清空当前执行栈后，按照先入先出的顺序读取回调队列里面的任务。</p>
 <p>所以当浏览器执行如下JavaScript代码时：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(&apos;script start&apos;)</span><br><span class="line">setTimeout(function fn() &#123;</span><br><span class="line">    console.log(&apos;setTimeout&apos;)</span><br><span class="line">&#125;, 0);</span><br><span class="line">console.log(&apos;script end&apos;)</span><br></pre></td></tr></table></figure>

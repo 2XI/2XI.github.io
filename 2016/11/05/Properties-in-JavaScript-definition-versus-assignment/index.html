@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Properties in JavaScript/ definition versus assignment | Shengxihu&#39;s Blog&#39;</title>
+  <title>Properties in JavaScript(definition VS assignment) | Shengxihu&#39;s Blog&#39;</title>
   <meta name="author" content="2XI">
   
-  <meta name="description" content="Properties in JavaScript/ definition versus assignment
-属性定义和属性赋值
+  <meta name="description" content="属性定义和属性赋值
 概述：属性特性和内部属性
 
-原文链接:Properties in JavaScript: definition versus assignment;
-在JavaScrip">
+原文链接:Properties in JavaScript: definition versus assignment
+在JavaScript，属性的定义和赋值两个不同的操作，这篇博客致力于解释这两种操作的差异和造成这些差异的原因。
+属性定义和属性赋值">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Properties in JavaScript/ definition versus assignment"/>
+  <meta property="og:title" content="Properties in JavaScript(definition VS assignment)"/>
   <meta property="og:site_name" content="Shengxihu&#39;s Blog&#39;"/>
 
   
@@ -89,7 +89,7 @@
         <time datetime="2016-11-04T16:05:28.000Z"><a href="/2016/11/05/Properties-in-JavaScript-definition-versus-assignment/">2016-11-05</a></time>
         
   
-    <h1 class="title">Properties in JavaScript/ definition versus assignment</h1>
+    <h1 class="title">Properties in JavaScript(definition VS assignment)</h1>
   
 
     </header>
@@ -98,14 +98,14 @@
       
         
     <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Properties-in-JavaScript-definition-versus-assignment"><span class="toc-text">Properties in JavaScript/ definition versus assignment</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#属性定义和属性赋值"><span class="toc-text">属性定义和属性赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#概述：属性特性和内部属性"><span class="toc-text">概述：属性特性和内部属性</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#属性定义和属性赋值"><span class="toc-text">属性定义和属性赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#概述：属性特性和内部属性"><span class="toc-text">概述：属性特性和内部属性</span></a></li></ol>
     </div>
 
-        <h1 id="Properties-in-JavaScript-definition-versus-assignment"><a href="#Properties-in-JavaScript-definition-versus-assignment" class="headerlink" title="Properties in JavaScript/ definition versus assignment"></a>Properties in JavaScript/ definition versus assignment</h1><ol>
+        <ol>
 <li><a href="#属性定义和属性赋值">属性定义和属性赋值</a></li>
 <li><a href="#概述：属性特性和内部属性">概述：属性特性和内部属性</a></li>
 </ol>
-<p>原文链接:Properties in JavaScript: definition versus assignment;</p>
+<p>原文链接:<a href="http://2ality.com/2012/08/property-definition-assignment.html" target="_blank" rel="noopener">Properties in JavaScript: definition versus assignment</a></p>
 <p>在JavaScript，属性的定义和赋值两个不同的操作，这篇博客致力于解释这两种操作的差异和造成这些差异的原因。</p>
 <h3 id="属性定义和属性赋值"><a href="#属性定义和属性赋值" class="headerlink" title="属性定义和属性赋值"></a><a href="#属性定义和属性赋值" title="属性定义和属性赋值"></a>属性定义和属性赋值</h3><p>1.属性定义：定义属性将会使用一个如下的属性定义函数：、</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperty(obj, propName, propDesc)</span><br></pre></td></tr></table></figure>
@@ -123,29 +123,62 @@
 <p>2.属性特性：</p>
 <p>每个属性都拥有以下的属性特性，并且被它们所影响。</p>
 <p>所有属性都有的特性：</p>
-<p>[Enumerable]]：如果一个属性是不可枚举的,则在一些操作下,这个属性是不可见的,比如for…in和Object.keys().</p>
-<p>[[Configurable]]: 如果一个属性是不可配置的,则该属性的除了[[Value]]的所有特性都不可改变.</p>
+<p><code>[Enumerable]]</code>：如果一个属性是不可枚举的,则在一些操作下,这个属性是不可见的,比如<code>for…in</code>和<code>Object.keys()</code>.</p>
+<p><code>[[Configurable]]</code>: 如果一个属性是不可配置的,则该属性的除了<code>[[Value]]</code>的所有特性都不可改变.</p>
 <p>命名数据特性：</p>
-<p>[[Value]]: 属性的值.</p>
-<p>[[Writable]]:决定属性值是否可变.</p>
+<p><code>[[Value]]</code>: 属性的值.</p>
+<p><code>[[Writable]]</code>:决定属性值是否可变.</p>
 <p>命名访问器属性:</p>
-<p>[[Get]]:拥有getter方法.</p>
-<p>[[Set]]:拥有setter方法.</p>
+<p><code>[[Get]]</code>:拥有getter方法.</p>
+<p><code>[[Set]]</code>:拥有setter方法.</p>
 <p>3.属性描述符：</p>
 <p>属性操作符可以写成一个包含一系列属性特性的对象。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    value: 123,</span><br><span class="line"></span><br><span class="line">    writable: false</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如你所见，对象的属性名对应着[[Value]]和[[Writable]]这样的属性特性名。属性操作符使用在Object.defineProperty, Object.getOwnPropertyDescriptor, Object.create这样的改变或者返回属性特性的函数中.如果某个属性特性缺失，属性操作符将使用下表对应的默认值.</p>
-<p>属性 默认值<br>value undefined<br>get undefined<br>set undefined<br>writable false<br>enumerable false<br>configurable false</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    value: 123,</span><br><span class="line"></span><br><span class="line">    writable: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如你所见，对象的属性名对应着<code>[[Value]]</code>和<code>[[Writable]]</code>这样的属性特性名。属性操作符使用在<code>Object.defineProperty</code>, <code>Object.getOwnPropertyDescriptor</code>, <code>Object.create</code>这样的改变或者返回属性特性的函数中.如果某个属性特性缺失，属性操作符将使用下表对应的默认值.</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>undefined</td>
+</tr>
+<tr>
+<td>get</td>
+<td>undefined</td>
+</tr>
+<tr>
+<td>set</td>
+<td>undefined</td>
+</tr>
+<tr>
+<td>writable</td>
+<td>false</td>
+</tr>
+<tr>
+<td>enumerable</td>
+<td>false</td>
+</tr>
+<tr>
+<td>configurable</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
 <p>4.内部属性:</p>
 <p>每个对象都包含如下四个属性在内的一些内部属性：</p>
-<p>[[Prototype]]: 对象的原型.</p>
-<p>[[Extensible]]: 对象是否可扩展，即是否可添加新的属性.</p>
-<p>[[DefineOwnProperty]]: 定义一个属性的内部方法.</p>
-<p>[[Put]]: 为一个属性赋值的内部方法.</p>
+<p><code>[[Prototype]]</code>: 对象的原型.</p>
+<p><code>[[Extensible]]</code>: 对象是否可扩展，即是否可添加新的属性.</p>
+<p><code>[[DefineOwnProperty]]</code>: 定义一个属性的内部方法.</p>
+<p><code>[[Put]]</code>: 为一个属性赋值的内部方法.</p>
 <p>属性定义和属性赋值详解</p>
 <p>1.属性定义</p>
 <p>属性定义是通过如下的内部方法来操作的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[DefineOwnProperty]] (P, Desc, Throw)</span><br></pre></td></tr></table></figure></p>
-<p>p是将要定义的属性名，Desc是属性描述符，Throw明确了如何处理操作异常:如果Throw为true,则抛出异常.否则,操作只会静默失败.当调用[[DefineOwnProperty]]时,会下面的操作步骤执行操作.</p>
+<p>p是将要定义的属性名，Desc是属性描述符，Throw明确了如何处理操作异常:如果Throw为true,则抛出异常.否则,操作只会静默失败.当调用<code>[[DefineOwnProperty]]</code>时,会下面的操作步骤执行操作.</p>
 <ul>
 <li><p>如果对象上没有名为P的属性：</p>
 <ul>
@@ -163,13 +196,13 @@
 <ul>
 <li><p>将一个数据属性转换成访问器属性,反之亦然.</p>
 </li>
-<li><p>改变[[Configurable]]或[[Enumerable]].</p>
+<li><p>改变<code>[[Configurable]]</code>或<code>[[Enumerable]]</code>.</p>
 </li>
-<li><p>该变[[Writable]].</p>
+<li><p>该变<code>[[Writable]]</code>.</p>
 </li>
-<li><p>在[[Writable]]为false时改变[[Value]].</p>
+<li><p>在<code>[[Writable]]</code>为<code>false</code>时改变<code>[[Value]]</code>.</p>
 </li>
-<li><p>改变[[Get]]或[[Set]].</p>
+<li><p>改变<code>[[Get]]</code>或<code>[[Set]]</code>.</p>
 </li>
 </ul>
 </li>
@@ -177,126 +210,64 @@
 </li>
 </ul>
 <p>如果P的属性操作符和和当前属性操作符一致，操作可以进行.</p>
-<p>使用Object.defineProperty和Object.defineProperties这两个函数用来定义属性，例如：</p>
+<p>使用<code>Object.defineProperty</code>和<code>Object.defineProperties</code>这两个函数用来定义属性，例如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperty(obj, propName, desc)</span><br></pre></td></tr></table></figure>
 <p>JavaScript引擎内部将会将其转换成如下的方法调用:</p>
-<p>``<br>obj.<a href="propName, desc, true">[DefineOwnProperty]</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2.属性赋值:</span><br><span class="line"></span><br><span class="line">为一个属性赋值操作时JavaScript引擎会调用如下的内部方法:</span><br></pre></td></tr></table></figure></p>
-<p>[[Put]] (P, Value, Throw)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">P 和 Throw 和 [[DefineOwnProperty]]中的对应参数作用相同.[[Put]]方法调用时会按照如下情况执行操作:</span><br><span class="line"></span><br><span class="line">*   如果在原型链上存在一个名为P的只读属性(只读的数据属性或者没有setter的访问器属性),拒绝操作.</span><br><span class="line"></span><br><span class="line">*   如果在原型链上存在一个名为P的且拥有setter的访问器属性:调用这个setter.</span><br><span class="line"></span><br><span class="line">*   如果没有名为P的自身属性:</span><br><span class="line"></span><br><span class="line">    *   如果对象不可扩展：拒绝操作.</span><br><span class="line"></span><br><span class="line">    *   如果这个对象是可扩展的,就使用下面的操作创建一个新属性:</span><br></pre></td></tr></table></figure></p>
-<p>this.[[DefineOwnProperty]](</p>
-<pre><code>P,
-
-{
-
-    value: Value,
-
-    writable: true,
-
-    enumerable: true,
-
-    configurable: true
-
-},
-
-Throw
-</code></pre><p>)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如果已经存在一个可写的名为P的自身属性.则调用:</span><br></pre></td></tr></table></figure></p>
-<p>this.<a href="P, { value: Value }, Throw">[DefineOwnProperty]</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这会改变P的值，其它特性值保持不变。</span><br><span class="line"></span><br><span class="line">如下赋值操作将会调用[[Put]].</span><br></pre></td></tr></table></figure></p>
-<p>obj.prop = v;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在浏览器引擎内部将其会转换成如下的方法调用:</span><br></pre></td></tr></table></figure></p>
-<p>obj.<a href="&quot;prop&quot;, v, isStrictModeOn">[Put]</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这个赋值操作只会在严格模式下抛出异常，并且[[Put]]方法没有返回值（赋值操作会产生返回值）.</span><br><span class="line"></span><br><span class="line">结论</span><br><span class="line"></span><br><span class="line">这部分我们将会探讨关于属性定义和属性赋值的一些结论.</span><br><span class="line"></span><br><span class="line">1.赋值可能会调用原型链上的setter方法，定义会创建一个自身属性.</span><br><span class="line"></span><br><span class="line">给定一个原型proto上有名为foo访问器属性的对象.</span><br></pre></td></tr></table></figure></p>
-<p>var proto = {</p>
-<pre><code>get foo() {
-
-    console.log(&quot;Getter&quot;);
-
-    return &quot;a&quot;;
-
-},
-
-set foo(x) {
-
-    console.log(&quot;Setter: &quot;+x);
-
-},
-</code></pre><p>};</p>
-<p>var obj = Object.create(proto);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在对象obj上定义一个名为foo的属性或者为名为foo的属性赋值会有什么区别呢？</span><br><span class="line"></span><br><span class="line">如果是定义操作，你将会创建一个新的属性.在这种条件下的定义操作总会在原型链的第一个object上创建一个新属性.如本例中的obj:</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>Object.defineProperty(obj, “foo”, { value: “b” });</p>
-<p>obj.foo</p>
-</blockquote>
-<p>‘b’</p>
-<blockquote>
-<p>proto.foo</p>
-</blockquote>
-<p>Getter</p>
-<p>‘a’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如果在obj上进行赋值操作，意味着你的目的是改变某个已经存在的属性的值.这个操作将会由setter方法来完成.下面的结果表明操作的确调用了原型链上的setter方法：</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>obj.foo = “b”;</p>
-</blockquote>
-<p>Setter: b</p>
-<p>‘b’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">你可以通过只定义一个getter方法创建一个只读属性，如下，对象proto2的bar属性就是一个只读属性，它被obj2继承.</span><br></pre></td></tr></table></figure></p>
-<p>“use strict”;</p>
-<p>var proto2 = {</p>
-<pre><code>get bar() {
-
-    console.log(&quot;Getter&quot;);
-
-    return &quot;a&quot;;
-
-},
-</code></pre><p>};</p>
-<p>var obj2 = Object.create(proto2);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">我们使用严格模式来保证赋值操作可以抛出异常.我们想使用赋值操作来改变被bar属性的值，但是因为bar是read-only属性，操作被禁止.</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>obj2.bar = “b”;</p>
-</blockquote>
-<p>TypeError: obj.bar is read-only<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">但是我们可以在obj2上定义一个新的自身属性来覆盖原型proto上的bar属性:</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>Object.defineProperty(obj2, “bar”, { value: “b” });</p>
-<p>obj2.bar</p>
-</blockquote>
-<p>‘b’</p>
-<blockquote>
-<p>proto2.bar</p>
-</blockquote>
-<p>Getter</p>
-<p>‘a’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2.原型中的只读属性会阻止赋值操作，但不会阻止定义操作.</span><br><span class="line"></span><br><span class="line">原型中的只读属性会阻止通过赋值操作的方式为对象添加一个自身属性，你需要使用定义操作来达到这个目的.这个限制在ECMAScript 5.1中被引入. 下面的示范操作中obj的原型proto上有一个只读属性foo，它展示了如果对象原型上有一个值为a的foo只读属性，则赋值操作obj.foo = “b”不会再对象obj上创建一个自身属性foo.</span><br></pre></td></tr></table></figure></p>
-<pre><code>&quot;use strict&quot;;
-
-var proto = Object.defineProperties(
-
-    {},
-
-    {
-
-        foo: {  // attributes of property foo:
-
-            value: &quot;a&quot;,
-
-            writable: false,  // read-only
-
-            configurable: true  // explained later
-
-        }
-
-    });
-
-var obj = Object.create(proto);
-</code></pre><p>* Assignment. Assignment results in an exception: */</p>
-<pre><code>&gt; obj.foo = &quot;b&quot;;
-
-TypeError: obj.foo is read-only
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">一个继承属性竟然能够影响在对象自身属性的创建，这真是一个奇怪的表现。然而这也非常合理的，它正是一个只读属性的的特性.</span><br><span class="line"></span><br><span class="line">通过定义的方式,我们可以成功创建一个新的自身属性:</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Object.defineProperty(obj, “foo”, { value: “b” });</p>
-<p>obj.foo</p>
-</blockquote>
-<p>‘b’</p>
-<blockquote>
-<p>proto.foo</p>
-</blockquote>
-<p>‘a’<br>``<br>3.赋值操作不会改变原型链上的属性</p>
-<p>给出下面的例子，obj将会从proto上继承foo属性.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var proto = &#123; foo: &quot;a&quot; &#125;;</span><br><span class="line"></span><br><span class="line">var obj = Object.create(proto);</span><br></pre></td></tr></table></figure>
-<p>赋值操作obj.foo不会改变proto.foo,但是会为obj创建一个新的自身属性.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; obj.foo = &quot;b&quot;;</span><br><span class="line"></span><br><span class="line">&apos;b&apos;</span><br><span class="line"></span><br><span class="line">&gt; obj.foo</span><br><span class="line"></span><br><span class="line">&apos;b&apos;</span><br><span class="line"></span><br><span class="line">&gt; proto.foo</span><br><span class="line"></span><br><span class="line">&apos;a&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.[[DefineOwnProperty]](propName, desc, true)</span><br></pre></td></tr></table></figure>
+<p>2.属性赋值:</p>
+<p>为一个属性赋值操作时JavaScript引擎会调用如下的内部方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[Put]] (P, Value, Throw)</span><br></pre></td></tr></table></figure>
+<p><code>P</code> 和 <code>Throw</code> 和 <code>[[DefineOwnProperty]]</code>中的对应参数作用相同.<code>[[Put]]</code>方法调用时会按照如下情况执行操作:</p>
+<ul>
+<li><p>如果在原型链上存在一个名为P的只读属性(只读的数据属性或者没有<code>setter</code>的访问器属性),拒绝操作.</p>
+</li>
+<li><p>如果在原型链上存在一个名为P的且拥有setter的访问器属性:调用这个<code>setter</code>.</p>
+</li>
+<li><p>如果没有名为P的自身属性:</p>
+<ul>
+<li><p>如果对象不可扩展：拒绝操作.</p>
+</li>
+<li><p>如果这个对象是可扩展的,就使用下面的操作创建一个新属性:</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">this.[[DefineOwnProperty]](</span><br><span class="line">    P,</span><br><span class="line">    &#123;</span><br><span class="line">        value: Value,</span><br><span class="line">        writable: true,</span><br><span class="line">        enumerable: true,</span><br><span class="line">        configurable: true</span><br><span class="line">    &#125;,</span><br><span class="line">    Throw</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>如果已经存在一个可写的名为P的自身属性.则调用:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.[[DefineOwnProperty]](P, &#123; value: Value &#125;, Throw)</span><br></pre></td></tr></table></figure>
+<p>这会改变P的值，其它特性值保持不变。</p>
+<p>如下赋值操作将会调用<code>[[Put]]</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.prop = v;</span><br></pre></td></tr></table></figure>
+<p>在浏览器引擎内部将其会转换成如下的方法调用:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.[[Put]](&quot;prop&quot;, v, isStrictModeOn)</span><br></pre></td></tr></table></figure>
+<p>这个赋值操作只会在严格模式下抛出异常，并且<code>[[Put]]</code>方法没有返回值（赋值操作会产生返回值）.</p>
+<p>结论</p>
+<p>这部分我们将会探讨关于属性定义和属性赋值的一些结论.</p>
+<p>1.赋值可能会调用原型链上的setter方法，定义会创建一个自身属性.</p>
+<p>给定一个原型<code>proto</code>上有名为<code>foo</code>访问器属性的对象.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var proto = &#123;</span><br><span class="line">    get foo() &#123;</span><br><span class="line">       console.log(&quot;Getter&quot;);</span><br><span class="line">        return &quot;a&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    set foo(x) &#123;</span><br><span class="line">        console.log(&quot;Setter: &quot;+x)</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line">var obj = Object.create(proto)</span><br></pre></td></tr></table></figure>
+<p>在对象obj上定义一个名为foo的属性或者为名为foo的属性赋值会有什么区别呢？</p>
+<p>如果是定义操作，你将会创建一个新的属性.在这种条件下的定义操作总会在原型链的第一个<code>object</code>上创建一个新属性.如本例中的obj:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; Object.defineProperty(obj, &quot;foo&quot;, &#123; value: &quot;b&quot; &#125;);</span><br><span class="line"></span><br><span class="line">&gt; obj.foo</span><br><span class="line"></span><br><span class="line">&apos;b&apos;</span><br><span class="line"></span><br><span class="line">&gt; proto.foo</span><br><span class="line"></span><br><span class="line">Getter</span><br><span class="line"></span><br><span class="line">&apos;a&apos;</span><br></pre></td></tr></table></figure>
+<p>如果在obj上进行赋值操作，意味着你的目的是改变某个已经存在的属性的值.这个操作将会由<code>setter</code>方法来完成.下面的结果表明操作的确调用了原型链上的<code>setter</code>方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; obj.foo = &quot;b&quot;</span><br><span class="line"></span><br><span class="line">Setter: b</span><br><span class="line"></span><br><span class="line">&apos;b&apos;</span><br></pre></td></tr></table></figure>
+<p>你可以通过只定义一个<code>getter</code>方法创建一个只读属性，如下，对象<code>proto2</code>的<code>bar</code>属性就是一个只读属性，它被<code>obj2</code>继承.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;</span><br><span class="line">var proto2 = &#123;</span><br><span class="line">    get bar() &#123;</span><br><span class="line">        console.log(&quot;Getter&quot;)</span><br><span class="line">        return &quot;a&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var obj2 = Object.create(proto2)</span><br></pre></td></tr></table></figure>
+<p>我们使用严格模式来保证赋值操作可以抛出异常.我们想使用赋值操作来改变被<code>bar</code>属性的值，但是因为<code>bar</code>是<code>read-only</code>属性，操作被禁止.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; obj2.bar = &quot;b&quot;</span><br><span class="line"></span><br><span class="line">TypeError: obj.bar is read-only</span><br></pre></td></tr></table></figure>
+<p>但是我们可以在obj2上定义一个新的自身属性来覆盖原型<code>proto</code>上的<code>bar</code>属性:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; Object.defineProperty(obj2, &quot;bar&quot;, &#123; value: &quot;b&quot; &#125;);</span><br><span class="line"></span><br><span class="line">&gt; obj2.bar</span><br><span class="line"></span><br><span class="line">&apos;b&apos;</span><br><span class="line"></span><br><span class="line">&gt; proto2.bar</span><br><span class="line"></span><br><span class="line">Getter</span><br><span class="line"></span><br><span class="line">&apos;a&apos;</span><br></pre></td></tr></table></figure>
+<p>2.原型中的只读属性会阻止赋值操作，但不会阻止定义操作.</p>
+<p>原型中的只读属性会阻止通过赋值操作的方式为对象添加一个自身属性，你需要使用定义操作来达到这个目的.这个限制在ECMAScript 5.1中被引入. 下面的示范操作中obj的原型proto上有一个只读属性foo，它展示了如果对象原型上有一个值为a的foo只读属性，则赋值操作obj.foo = “b”不会再对象obj上创建一个自身属性foo.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    &quot;use strict&quot;</span><br><span class="line">    var proto = Object.defineProperties(</span><br><span class="line">        &#123;&#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            foo: &#123;  // attributes of property foo:</span><br><span class="line">                value: &quot;a&quot;,</span><br><span class="line">                writable: false,  // read-only</span><br><span class="line">                configurable: true  // explained later</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    var obj = Object.create(proto)</span><br><span class="line">\* Assignment. Assignment results in an exception: */</span><br><span class="line">    &gt; obj.foo = &quot;b&quot;</span><br><span class="line">    TypeError: obj.foo is read-only</span><br></pre></td></tr></table></figure>
+<p>一个继承属性竟然能够影响在对象自身属性的创建，这真是一个奇怪的表现。然而这也非常合理的，它正是一个只读属性的的特性.</p>
+<p>通过定义的方式,我们可以成功创建一个新的自身属性:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; Object.defineProperty(obj, &quot;foo&quot;, &#123; value: &quot;b&quot; &#125;)</span><br><span class="line"></span><br><span class="line">&gt; obj.foo</span><br><span class="line"></span><br><span class="line">&apos;b&apos;</span><br><span class="line"></span><br><span class="line">&gt; proto.foo</span><br><span class="line"></span><br><span class="line">&apos;a&apos;</span><br></pre></td></tr></table></figure>
+<p>3.赋值操作不会改变原型链上的属性</p>
+<p>给出下面的例子，<code>obj</code>将会从<code>proto</code>上继承<code>foo</code>属性.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var proto = &#123; foo: &quot;a&quot; &#125;</span><br><span class="line">var obj = Object.create(proto)</span><br></pre></td></tr></table></figure>
+<p>赋值操作<code>obj.foo</code>不会改变<code>proto.foo</code>,但是会为<code>obj</code>创建一个新的自身属性.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; obj.foo = &quot;b&quot;</span><br><span class="line"></span><br><span class="line">&apos;b&apos;</span><br><span class="line"></span><br><span class="line">&gt; obj.foo</span><br><span class="line"></span><br><span class="line">&apos;b&apos;</span><br><span class="line"></span><br><span class="line">&gt; proto.foo</span><br><span class="line"></span><br><span class="line">&apos;a&apos;</span><br></pre></td></tr></table></figure>
 <p>这种表现的原因是：原型引用的属性值能够被它所有的后代共享，如果试图在它的后代对象上改变这个属性值，就会在这个后代对象上创建一个新的同名自身属性，这个自身属性不会影响它的原型或这个后代对象的后代. 鉴于此, 只读属性的表现可以概括为: 通过阻止自身属性的创建来阻止属性更改. 然而为什么要重写一个原型属性而不是更改一个属性呢？可能有以下两种运用：</p>
 <p>方法：仅仅允许在原型上直接修改原型对象上定义的方法，防止通过原型后代对方法进行意外修改.</p>
 <p>无方法属性：原型可以提供一个能够提供一个被所有后代共享的值，这个值可以通过后代对象重写但是不能通过后代对象改变.有人认为这是一种反模式，并且他们也不鼓励使用这种技术.因为使用构造器函数来初始化默认值是一种改为简洁的方法.</p>
@@ -309,45 +280,21 @@ TypeError: obj.foo is read-only
 <p>第一种转化为赋值操作来实现：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var obj = new Object();</span><br><span class="line"></span><br><span class="line">obj.foo = 123;</span><br></pre></td></tr></table></figure>
 <p>第二种是转化为定义操作来实现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var obj = new Object();</span><br><span class="line"></span><br><span class="line">Object.defineProperties(obj, &#123;</span><br><span class="line"></span><br><span class="line">    foo: &#123;</span><br><span class="line"></span><br><span class="line">        value: 123,</span><br><span class="line"></span><br><span class="line">        enumerable: true,</span><br><span class="line"></span><br><span class="line">        configurable: true,</span><br><span class="line"></span><br><span class="line">        writable: true</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>第二种实现更好的表现了对象字面量的语义：创建新的属性.同样，Object.create方法通过第二个参数接受一个属性描述符.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj = new Object()</span><br><span class="line">Object.defineProperties(obj, &#123;</span><br><span class="line">    foo: &#123;</span><br><span class="line">        value: 123,</span><br><span class="line">        enumerable: true,</span><br><span class="line">        configurable: true,</span><br><span class="line">        writable: true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>第二种实现更好的表现了对象字面量的语义：创建新的属性.同样，<code>Object.create</code>方法通过第二个参数接受一个属性描述符.</p>
 <p>6.作为方法的对象属性</p>
 <p>方法属性的一种实现如下:</p>
-<p>``<br>“use strict”;</p>
-<p>function Stack() {</p>
-<p>}</p>
-<p>Object.defineProperties(Stack.prototype, {</p>
-<pre><code>push: {
-
-    writable: false,
-
-    configurable: true,
-
-                value: function (x) { /* ... */ }
-
-}
-</code></pre><p>});<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这么做的目的是防止对方法属性进行意外赋值:</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>var s = new Stack();</p>
-<p>s.push = 5;</p>
-</blockquote>
-<p>TypeError: s.push is read-only<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">然而，正因为push是可配置的，我们可以通过属性定义来覆盖这个方法.</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>var s = new Stack();</p>
-<p>Object.defineProperty(s, “push”,</p>
-</blockquote>
-<pre><code>{ value: function () { return &quot;yes&quot; }})
-</code></pre><blockquote>
-<p>s.push()</p>
-</blockquote>
-<p>‘yes’<br>```</p>
-<p>我们甚至可以通过定义操作来重写Stack.prototype.push方法.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;;</span><br><span class="line"></span><br><span class="line">function Stack() &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Object.defineProperties(Stack.prototype, &#123;</span><br><span class="line">    push: &#123;</span><br><span class="line">        writable: false,</span><br><span class="line">        configurable: true,</span><br><span class="line">        value: function (x) &#123; /* ... */ &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这么做的目的是防止对方法属性进行意外赋值:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; var s = new Stack();</span><br><span class="line"></span><br><span class="line">&gt; s.push = 5;</span><br><span class="line"></span><br><span class="line">TypeError: s.push is read-only</span><br></pre></td></tr></table></figure>
+<p>然而，正因为push是可配置的，我们可以通过属性定义来覆盖这个方法.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; var s = new Stack();</span><br><span class="line"></span><br><span class="line">&gt; Object.defineProperty(s, &quot;push&quot;,</span><br><span class="line"></span><br><span class="line">      &#123; value: function () &#123; return &quot;yes&quot; &#125;&#125;)</span><br><span class="line"></span><br><span class="line">&gt; s.push()</span><br><span class="line"></span><br><span class="line">&apos;yes&apos;</span><br></pre></td></tr></table></figure>
+<p>我们甚至可以通过定义操作来重写<code>Stack.prototype.push</code>方法.</p>
 <p>结论</p>
-<p>属性赋值经常被用来为一个对象添加一个新的属性,这篇文字解释了这种做法可能带来的问题. 因此，我们最好遵循以下的规则:</p>
+<p>属性赋值经常被用来为一个对象添加一个新的属性，这篇文字解释了这种做法可能带来的问题. 因此，我们最好遵循以下的规则:</p>
 <p>1.使用定义操作来创建新的属性.</p>
 <p>2.使用赋值操作来改变属性的值.</p>
-<p>在评论中,medikoo提醒了我们使用属性描述符来创建属性可能会有点慢，因此他经常通过为属性赋值来创建新属性,因为这样很方便.值得高兴的是,ECMAScript.next也许会把属性的定义操作变的既快又方便:已经存在一个“定义属性的运算符”的提案,可以作为Object.defineProperties的替代用法.由于属性定义和属性赋值之间存在微妙但是至关重要的差别,这种改进应该会很受欢迎.</p>
-<p>参考资料：</p>
+<p>在评论中，medikoo提醒了我们使用属性描述符来创建属性可能会有点慢，因此他经常通过为属性赋值来创建新属，因为这样很方便.值得高兴的是，ECMAScript.next也许会把属性的定义操作变的既快又方便:已经存在一个“定义属性的运算符”的提案,可以作为<code>Object.defineProperties</code>的替代用法.由于属性定义和属性赋值之间存在微妙但是至关重要的差别，这种改进应该会很受欢迎.<br>参考资料：</p>
 <p>1.<a href="http://www.2ality.com/2011/06/prototypes-as-classes.html" target="_blank" rel="noopener">Prototypes as classes – an introduction to JavaScript inheritance</a>;</p>
 <p>2.<a href="http://www.2ality.com/2011/07/js-properties.html" target="_blank" rel="noopener">JavaScript properties: inheritance and enumerability</a>;</p>
 <p>3.<a href="http://wiki.ecmascript.org/doku.php?id=strawman:fixing_override_mistake" target="_blank" rel="noopener">Fixing the Read-only Override Prohibition Mistake [ECMAScript wiki]</a>.</p>
@@ -387,7 +334,7 @@ TypeError: obj.foo is read-only
     
         <script type="text/javascript" id="wumiiComments">
             var wumiiPermaLink = "http://yoursite.com/2016/11/05/Properties-in-JavaScript-definition-versus-assignment/"; //请用代码生成文章永久的链接
-            var wumiiTitle = "Properties in JavaScript/ definition versus assignment"; //请用代码生成文章标题
+            var wumiiTitle = "Properties in JavaScript(definition VS assignment)"; //请用代码生成文章标题
             var wumiiSitePrefix = "http://lupeng.me"; 
             var wumiiCommentParams = "&pf=JAVASCRIPT";
         </script>
