@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS reset | Shengxihu&#39;s Blog&#39;</title>
+  <meta name="author" content="2XI">
+  
+  <meta name="description" content="CSS reset
+什么是CSS－reset
+为什么要进行CSS-reset
+html标签默认样式
+浏览器默认样式
+一份CSS－reset代码
+到底要不要用CSS－reset
+总结
+
+什么是CSS－resetCSS-reset是指在开发一开始就将浏览器的默认样式全部去掉，更准确说就是通过重新定义标签">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="CSS reset"/>
+  <meta property="og:site_name" content="Shengxihu&#39;s Blog&#39;"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link rel="alternate" href="/atom.xml" title="Shengxihu&#39;s Blog&#39;" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <!-- wumiiVerification -->
+  <meta name="wumiiVerification" content="fb50a101-84fe-4ca2-91a7-ae8cf792978b" />
+  <meta name="wumiiVerification" content="d73b5866-c390-4156-a4dd-51b526b5335e" />
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Font-Awesome -->
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <header id="header"><div class= "header-content inner">
+	<div class = "alignleft col-one">
+		
+			<div class='avatar'>
+				<img src = "/img/default/avatar.png">
+              </div>
+		
+		<div class="header-div">
+		    <h1><a href="/">Shengxihu&#39;s Blog&#39;</a></h1>
+		    <h2><a href="/"></a></h2>
+		</div>
+	</div>
+	<div class = "alignright col-two">
+		
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+<div class= "header-nav">
+	<div class='header-nav-content inner'>
+		<div id="main-nav" class="alignleft">
+		    		
+		    		  <a href="/"><i class="fa fa-home"></i>首页</a>
+		    		
+		    		  <a href="/archives"><i class="fa fa-archive"></i>归档</a>
+		    		
+		</div>
+		<div id="sub-nav" class="alignright">
+		    
+		      <a href="/atom.xml"><i class="fa fa-rss"></i>订阅</a>
+		    
+		      <a href="/customization"><i class="fa fa-question-circle"></i>留言</a>
+		    
+		      <a href="/about"><i class="fa fa-"></i>关于我</a>
+		    
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+</header>
+  
+    <div id="content" class="inner">
+      <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+        <div class="icon"></div>
+        
+        <time datetime="2016-02-29T16:01:00.000Z"><a href="/2016/03/01/CSS-reset/">2016-03-01</a></time>
+        
+  
+    <h1 class="title">CSS reset</h1>
+  
+
+    </header>
+
+    <div class="entry">
+      
+        
+    <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS-reset"><span class="toc-text">CSS reset</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是CSS－reset"><span class="toc-text">什么是CSS－reset</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要进行CSS-reset"><span class="toc-text">为什么要进行CSS-reset</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#html标签默认样式"><span class="toc-text">html标签默认样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器默认样式"><span class="toc-text">浏览器默认样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一份CSS－reset代码"><span class="toc-text">一份CSS－reset代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#到底要不要用CSS－reset"><span class="toc-text">到底要不要用CSS－reset</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+        <h1 id="CSS-reset"><a href="#CSS-reset" class="headerlink" title="CSS reset"></a>CSS reset</h1><ol>
+<li><a href="#什么是CSS－reset">什么是CSS－reset</a></li>
+<li><a href="#为什么要进行CSS-reset">为什么要进行CSS-reset</a></li>
+<li><a href="#html标签默认样式">html标签默认样式</a></li>
+<li><a href="#浏览器默认样式">浏览器默认样式</a></li>
+<li><a href="#一份CSS－reset代码">一份CSS－reset代码</a></li>
+<li><a href="#到底要不要用CSS－reset">到底要不要用CSS－reset</a></li>
+<li><a href="#总结">总结</a></li>
+</ol>
+<h3 id="什么是CSS－reset"><a href="#什么是CSS－reset" class="headerlink" title="什么是CSS－reset"></a><a href="#什么是CSS－reset" title="什么是CSS－reset"></a>什么是CSS－reset</h3><p>CSS-reset是指在开发一开始就将浏览器的默认样式全部去掉，更准确说就是通过重新定义标签样式。“覆盖”浏览器的CSS默认属性。最最简单的说法就是把浏览器提供的默认样式覆盖掉！这就是CSS reset。</p>
+<h3 id="为什么要进行CSS-reset"><a href="#为什么要进行CSS-reset" class="headerlink" title="为什么要进行CSS-reset"></a><a href="#为什么要进行CSS-reset" title="为什么要进行CSS-reset"></a>为什么要进行CSS-reset</h3><p>在HTML标签在浏览器里有默认的样式，例如 p 标签有上下边距，strong标签有字体加粗样式，em标签有字体倾斜样式。不同浏览器的默认样式之间也会有差别，例如ul默认带有缩进的样式，在IE下，它的缩进是通过margin实现的，而Firefox下，它的缩进是由padding实现的。在切换页面的时候，浏览器的默认样式往往会给我们带来麻烦，影响开发效率。同时，因为浏览器的品种很多，每个浏览器的默认样式也是不同的，比如标签，在IE浏览器、Firefox浏览器以及Safari浏览器中的样式都是不同的，所以，通过重置button标签的CSS属性，然后再将它统一定义，就可以产生相同的显示效果。</p>
+<h3 id="html标签默认样式"><a href="#html标签默认样式" class="headerlink" title="html标签默认样式"></a><a href="#html标签默认样式" title="html标签默认样式"></a>html标签默认样式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line">li &#123; display: list-item &#125;/*默认以列表显示*/</span><br><span class="line"></span><br><span class="line">head &#123; display: none &#125;/*默认不显示*/</span><br><span class="line"></span><br><span class="line">table &#123; display: table &#125;/*默认为表格显示*/</span><br><span class="line"></span><br><span class="line">tr &#123; display: table-row &#125;/*默认为表格行显示*/</span><br><span class="line"></span><br><span class="line">thead &#123; display: table-header-group &#125;/*默认为表格头部分组显示*/</span><br><span class="line"></span><br><span class="line">tbody &#123; display: table-row-group &#125;/*默认为表格行分组显示*/</span><br><span class="line"></span><br><span class="line">tfoot &#123; display: table-footer-group &#125;/*默认为表格底部分组显示*/</span><br><span class="line"></span><br><span class="line">col &#123; display: table-column &#125;/*默认为表格列显示*/</span><br><span class="line"></span><br><span class="line">colgroup &#123; display: table-column-group &#125;/*默认为表格列分组显示*/</span><br><span class="line"></span><br><span class="line">td, th &#123; display: table-cell; &#125;/*默认为单元格显示*/</span><br><span class="line"></span><br><span class="line">caption &#123; display: table-caption &#125;/*默认为表格标题显示*/</span><br><span class="line"></span><br><span class="line">th &#123; font-weight: bolder; text-align: center &#125;/*默认为表格标题显示，呈现加粗居中状态*/</span><br><span class="line"></span><br><span class="line">caption &#123; text-align: center &#125;/*默认为表格标题显示，呈现居中状态*/</span><br><span class="line"></span><br><span class="line">body &#123; margin: 8px; line-height: 1.12 &#125;</span><br><span class="line"></span><br><span class="line">h1 &#123; font-size: 2em; margin: .67em 0 &#125;</span><br><span class="line"></span><br><span class="line">h2 &#123; font-size: 1.5em; margin: .75em 0 &#125;</span><br><span class="line"></span><br><span class="line">h3 &#123; font-size: 1.17em; margin: .83em 0 &#125;</span><br><span class="line"></span><br><span class="line">h4, p, blockquote, ul, fieldset, form, ol, dl, dir, menu &#123; margin: 1.12em 0 &#125;</span><br><span class="line"></span><br><span class="line">h5 &#123; font-size: .83em; margin: 1.5em 0 &#125;</span><br><span class="line"></span><br><span class="line">h6 &#123; font-size: .75em; margin: 1.67em 0 &#125;</span><br><span class="line"></span><br><span class="line">h1, h2, h3, h4, h5, h6, b,strong &#123; font-weight: bolder &#125;</span><br><span class="line"></span><br><span class="line">blockquote &#123; margin-left: 40px; margin-right: 40px &#125;</span><br><span class="line"></span><br><span class="line">i, cite, em,var, address &#123; font-style: italic &#125;</span><br><span class="line"></span><br><span class="line">pre, tt, code, kbd, samp &#123; font-family: monospace &#125;</span><br><span class="line"></span><br><span class="line">pre &#123; white-space: pre &#125;</span><br><span class="line"></span><br><span class="line">button, textarea, input, object, select &#123; display:inline-block; &#125;</span><br><span class="line"></span><br><span class="line">big &#123; font-size: 1.17em &#125;</span><br><span class="line"></span><br><span class="line">small, sub, sup &#123; font-size: .83em &#125;</span><br><span class="line"></span><br><span class="line">sub &#123; vertical-align: sub &#125;/*定义sub元素默认为下标显示*/</span><br><span class="line"></span><br><span class="line">sup &#123; vertical-align: super &#125;/*定义sub元素默认为上标显示*/</span><br><span class="line"></span><br><span class="line">table &#123; border-spacing: 2px; &#125;</span><br><span class="line"></span><br><span class="line">thead, tbody, tfoot &#123; vertical-align: middle &#125;/*定义表头、主体表、表脚元素默认为垂直对齐*/</span><br><span class="line"></span><br><span class="line">td, th &#123; vertical-align: inherit &#125;/*定义单元格、列标题默认为垂直对齐默认为继承*/</span><br><span class="line"></span><br><span class="line">s, strike, del &#123; text-decoration: line-through &#125;/*定义这些元素默认为删除线显示*/</span><br><span class="line"></span><br><span class="line">hr &#123; border: 1px inset &#125;/*定义分割线默认为1px宽的3D凹边效果*/</span><br><span class="line"></span><br><span class="line">ol, ul, dir, menu, dd &#123; margin-left: 40px &#125;</span><br><span class="line"></span><br><span class="line">ol &#123; list-style-type: decimal &#125;</span><br><span class="line"></span><br><span class="line">ol ul, ul ol, ul ul, ol ol &#123; margin-top: 0; margin-bottom: 0 &#125;</span><br><span class="line"></span><br><span class="line">u, ins &#123; text-decoration: underline &#125;</span><br><span class="line"></span><br><span class="line">br:before &#123; content: &quot;&quot;A&quot; &#125;/*定义换行元素的伪对象内容样式*/</span><br><span class="line"></span><br><span class="line">:before, :after &#123; white-space: pre-line &#125;/*定义伪对象空格字符的默认样式*/</span><br><span class="line"></span><br><span class="line">center &#123; text-align: center &#125;</span><br><span class="line"></span><br><span class="line">abbr, acronym &#123; font-variant: small-caps; letter-spacing: 0.1em &#125;</span><br><span class="line"></span><br><span class="line">:link, :visited &#123; text-decoration: underline &#125;</span><br><span class="line"></span><br><span class="line">:focus &#123; outline: thin dotted invert &#125;</span><br><span class="line"></span><br><span class="line">\* Begin bidirectionality settings (do not change) */</span><br><span class="line"></span><br><span class="line">BDO[DIR=&quot;ltr&quot;] &#123; direction: ltr; unicode-bidi: bidi-override &#125;/*定义BDO元素当其属性为DIR=&quot;ltr&quot;时的默认文本读写显示顺序*/</span><br><span class="line"></span><br><span class="line">BDO[DIR=&quot;rtl&quot;] &#123; direction: rtl; unicode-bidi: bidi-override &#125;/*定义BDO元素当其属性为DIR=&quot;rtl&quot;时的默认文本读写显示顺序*/</span><br><span class="line"></span><br><span class="line">*[DIR=&quot;ltr&quot;] &#123; direction: ltr; unicode-bidi: embed &#125;/*定义任何元素当其属性为DIR=&quot;ltr&quot;时的默认文本读写显示顺序*/</span><br><span class="line"></span><br><span class="line">*[DIR=&quot;rtl&quot;] &#123; direction: rtl; unicode-bidi: embed &#125;/*定义任何元素当其属性为DIR=&quot;rtl&quot;时的默认文本读写显示顺序*/</span><br><span class="line"></span><br><span class="line">@media print &#123; /*定义标题和列表默认的打印样式*/</span><br><span class="line"></span><br><span class="line">h1 &#123; page-break-before: always &#125;</span><br><span class="line"></span><br><span class="line">h1, h2, h3, h4, h5, h6 &#123; page-break-after: avoid &#125;</span><br><span class="line"></span><br><span class="line">ul, ol, dl &#123; page-break-before: avoid &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="浏览器默认样式"><a href="#浏览器默认样式" class="headerlink" title="浏览器默认样式"></a><a href="#浏览器默认样式" title="浏览器默认样式"></a>浏览器默认样式</h3><p>1.页边距<br>IE默认为10px，通过body的margin属性设置<br>FF默认为8px，通过body的padding属性设置<br>要清除页边距一定要清除这两个属性值</p>
+<p>代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line"></span><br><span class="line">    margin:0;</span><br><span class="line"></span><br><span class="line">    padding:0;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.段间距<br>IE默认为19px，通过p的margin-top属性设置<br>FF默认为1.12em，通过p的margin-bottom属性设<br>p默认为块状显示，要清除段间距，一般可以设置</p>
+<p>代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">p &#123;</span><br><span class="line"></span><br><span class="line">    margin-top:0;</span><br><span class="line"></span><br><span class="line">    margin-bottom:0;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.标题样式<br>h1~h6默认加粗显示：font-weight:bold;。<br>默认大小请参上表<br>还有是这样的写的</p>
+<p>代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;font-size:xx-large;&#125;</span><br><span class="line"></span><br><span class="line">h2 &#123;font-size:x-large;&#125;</span><br><span class="line"></span><br><span class="line">h3 &#123;font-size:large;&#125;</span><br><span class="line"></span><br><span class="line">h4 &#123;font-size:medium;&#125;</span><br><span class="line"></span><br><span class="line">h5 &#123;font-size:small;&#125;</span><br><span class="line"></span><br><span class="line">h6 &#123;font-size:x-small;&#125;</span><br></pre></td></tr></table></figure>
+<p>各大浏览器默认字体大小为16px，即等于medium，h1~h6元素默认以块状显示字体显示为粗体，<br>要清除标题样式，一般可以设置</p>
+<p>代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hx &#123;</span><br><span class="line"></span><br><span class="line">    font-weight:normal;</span><br><span class="line"></span><br><span class="line">    font-size:value;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4.列表样式<br>IE默认为40px，通过ul、ol的margin属性设置<br>FF默认为40px，通过ul、ol的padding属性设置<br>dl无缩进，但起内部的说明元素dd默认缩进40px，而名称元素dt没有缩进。<br>要清除列表样式，一般可以设置</p>
+<p>代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ul, ol, dd &#123;</span><br><span class="line"></span><br><span class="line">    list-style-type:none;/*清楚列表样式符*/</span><br><span class="line"></span><br><span class="line">    margin-left:0;/*清楚IE左缩进*/</span><br><span class="line"></span><br><span class="line">    padding-left:0;/*清楚非IE左缩进*/</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.元素居中<br>IE默认为<code>text-align:center;</code><br>FF默认为<code>margin-left:auto;margin-right:auto;</code></p>
+<p>6.超链接样式<br>a 样式默认带有下划线，显示颜色为蓝色，被访问过的超链接变紫色，要清除链接样式，一般可以设置</p>
+<p>代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a &#123;</span><br><span class="line"></span><br><span class="line">    text-decoration:none;</span><br><span class="line"></span><br><span class="line">    color:#colorname;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>7 鼠标样式<br>IE默认为<code>cursor:hand;</code>.<br>FF默认为<code>cursor:pointer;</code>.该声明在IE中也有效</p>
+<p>8 图片链接样式<br>IE默认为紫色2px的边框线<br>FF默认为蓝色2px的边框线<br>要清除图片链接样式，一般可以设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">img &#123;</span><br><span class="line"></span><br><span class="line">    border:0;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="一份CSS－reset代码"><a href="#一份CSS－reset代码" class="headerlink" title="一份CSS－reset代码"></a><a href="#一份CSS－reset代码" title="一份CSS－reset代码"></a>一份CSS－reset代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/*</span><br><span class="line"></span><br><span class="line">html5doctor.com Reset Stylesheet</span><br><span class="line"></span><br><span class="line">v1.4.1</span><br><span class="line"></span><br><span class="line">2010-03-01</span><br><span class="line"></span><br><span class="line">Author: Richard Clark - http://richclarkdesign.com</span><br><span class="line"></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">html, body, div, span, object, iframe,</span><br><span class="line"></span><br><span class="line">h1, h2, h3, h4, h5, h6, p, blockquote, pre,</span><br><span class="line"></span><br><span class="line">abbr, address, cite, code,</span><br><span class="line"></span><br><span class="line">del, dfn, em, img, ins, kbd, q, samp,</span><br><span class="line"></span><br><span class="line">small, strong, sub, sup, var,</span><br><span class="line"></span><br><span class="line">b, i,</span><br><span class="line"></span><br><span class="line">dl, dt, dd, ol, ul, li,</span><br><span class="line"></span><br><span class="line">fieldset, form, label, legend,</span><br><span class="line"></span><br><span class="line">table, caption, tbody, tfoot, thead, tr, th, td,</span><br><span class="line"></span><br><span class="line">article, aside, canvas, details, figcaption, figure,</span><br><span class="line"></span><br><span class="line">footer, header, hgroup, menu, nav, section, summary,</span><br><span class="line"></span><br><span class="line">time, mark, audio, video &#123;</span><br><span class="line"></span><br><span class="line">    margin:0;</span><br><span class="line"></span><br><span class="line">    padding:0;</span><br><span class="line"></span><br><span class="line">    border:0;</span><br><span class="line"></span><br><span class="line">    outline:0;</span><br><span class="line"></span><br><span class="line">    font-size:100%;</span><br><span class="line"></span><br><span class="line">    vertical-align:baseline;</span><br><span class="line"></span><br><span class="line">    background:transparent;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">body &#123;</span><br><span class="line"></span><br><span class="line">    line-height:1;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">:focus &#123;</span><br><span class="line"></span><br><span class="line">    outline: 1;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">article,aside,canvas,details,figcaption,figure,</span><br><span class="line"></span><br><span class="line">footer,header,hgroup,menu,nav,section,summary &#123;</span><br><span class="line"></span><br><span class="line">    display:block;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">nav ul &#123;</span><br><span class="line"></span><br><span class="line">    list-style:none;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">blockquote, q &#123;</span><br><span class="line"></span><br><span class="line">    quotes:none;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">blockquote:before, blockquote:after,</span><br><span class="line"></span><br><span class="line">q:before, q:after &#123;</span><br><span class="line"></span><br><span class="line">    content:&apos;&apos;;</span><br><span class="line"></span><br><span class="line">    content:none;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a &#123;</span><br><span class="line"></span><br><span class="line">    margin:0;</span><br><span class="line"></span><br><span class="line">    padding:0;</span><br><span class="line"></span><br><span class="line">    border:0;</span><br><span class="line"></span><br><span class="line">    font-size:100%;</span><br><span class="line"></span><br><span class="line">    vertical-align:baseline;</span><br><span class="line"></span><br><span class="line">    background:transparent;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ins &#123;</span><br><span class="line"></span><br><span class="line">    background-color:#ff9;</span><br><span class="line"></span><br><span class="line">    color:#000;</span><br><span class="line"></span><br><span class="line">    text-decoration:none;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mark &#123;</span><br><span class="line"></span><br><span class="line">    background-color:#ff9;</span><br><span class="line"></span><br><span class="line">    color:#000;</span><br><span class="line"></span><br><span class="line">    font-style:italic;</span><br><span class="line"></span><br><span class="line">    font-weight:bold;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">del &#123;</span><br><span class="line"></span><br><span class="line">    text-decoration: line-through;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">abbr[title], dfn[title] &#123;</span><br><span class="line"></span><br><span class="line">    border-bottom:1px dotted #000;</span><br><span class="line"></span><br><span class="line">    cursor:help;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">table &#123;</span><br><span class="line"></span><br><span class="line">    border-collapse:collapse;</span><br><span class="line"></span><br><span class="line">    border-spacing:0;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hr &#123;</span><br><span class="line"></span><br><span class="line">    display:block;</span><br><span class="line"></span><br><span class="line">    height:1px;</span><br><span class="line"></span><br><span class="line">    border:0;</span><br><span class="line"></span><br><span class="line">    border-top:1px solid #cccccc;</span><br><span class="line"></span><br><span class="line">    margin:1em 0;</span><br><span class="line"></span><br><span class="line">    padding:0;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">input, select &#123;</span><br><span class="line"></span><br><span class="line">    vertical-align:middle;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="到底要不要用CSS－reset"><a href="#到底要不要用CSS－reset" class="headerlink" title="到底要不要用CSS－reset"></a><a href="#到底要不要用CSS－reset" title="到底要不要用CSS－reset"></a>到底要不要用CSS－reset</h3><p>那些所谓的需要重置的标签<br>我现在问您一个问题，在您制作的或参与开发的页面中，h1~h6标签您使用了几个，我想不可能全部都使用吧，使用三种类型的标题标签就不多了。您有必要对h1~h6所有标签都使用margin的清除吗？ OK，我们现在换个角度思考，假如我们没有对h1~h6标签设置{margin:0;}的重置怎么办？从SEO的角度讲，一个页面最多只能出现一个h1标签，所以，显然，h1标签的CSS reset完全没有必要，页面什么地方用就设置相应的样式，只要你记住，h1标签是有个默认的margin-top与margin-bottom值的，所以，我们就可以由这样的属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">h1&#123;margin:10px 0 0;&#125;</span><br></pre></td></tr></table></figure>
+<p>对比下CSS reset下的使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1, h2, h3, h4, h5, h6&#123;margin:0;&#125;</span><br><span class="line"></span><br><span class="line">h1&#123;margin-top:10px;&#125;</span><br></pre></td></tr></table></figure>
+<p>使用CSS reset不仅文件大小增加了，CSS代码属性也发生了重置，CSS渲染也增加了。显然不及没有CSS reset来的高效。我们将这些标签重置，在后面的css中很大程度上又要重新设置它，这反而增加了浏览器的渲染，与其这样，还不如在使用它的地方直接将它设定到合适的值，这样不仅达到了效果，反而减少了渲染。回过来，就算有一些差异，为何非得在头部CSS reset的位置统一呢？当需要的时候，再设置，反而更合理，更高效！</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><a href="#总结" title="总结"></a>总结</h3><p>对于CSS－reset,我也觉得没有太大的使用必要，在开发过程中，开发者只要熟悉各个标签的默认样式，对于需要重新设置的属性在合适的地方显式的设置。在学习过程中渐渐熟悉在不同浏览器中表现有所不同的标签，并且合理的设置属性值就可以了。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        <div class = "counter">
+  <span id="busuanzi_container_page_pv" style="display:none">
+      总访问&nbsp<span id="busuanzi_value_page_pv"></span>&nbsp次
+  </span>
+</div>
+        
+  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a><a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a><a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a><a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a><a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a></div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+  
+<section id = "relate">
+	
+                <div id=""></div>
+	
+</section>
+
+
+  
+    <section id="comment">
+    <!--   <h1 class="title">留言</h1> -->
+    
+        <script type="text/javascript" id="wumiiComments">
+            var wumiiPermaLink = "http://yoursite.com/2016/03/01/CSS-reset/"; //请用代码生成文章永久的链接
+            var wumiiTitle = "CSS reset"; //请用代码生成文章标题
+            var wumiiSitePrefix = "http://lupeng.me"; 
+            var wumiiCommentParams = "&pf=JAVASCRIPT";
+        </script>
+        <script type="text/javascript" src="http://widget.wumii.cn/ext/cw/widget"></script>
+      
+    </section>
+
+
+
+
+</div></div>
+      <aside id="sidebar" class="alignright">
+  <div class="search" id="site_search">
+  <input class="st-default-search-input" type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+  <div class="local-search-result" id="local-search-result"></div>
+</div>
+
+
+   
+
+
+  <div class="widget tag">
+  <h3 class="title">日历云</h3>
+  <div id="calendar"></div>
+</div>
+
+
+  
+
+
+  
+
+  
+
+
+  
+  <div class="widget tag">
+    <h3 class="title">归档</h3>
+	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">公元 2017 年</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">公元 2016 年</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">公元 2015 年</a><span class="archive-list-count">1</span></li></ul>
+  </div>
+
+</aside>
+      <div class="clearfix"></div>
+    </div>
+  
+  <footer id="footer"><div class="footer-content inner">
+  <div class="alignleft">
+  
+    &copy; 2018 2XI
+    
+  </div>
+  <div class="alignright">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme
+    <a href="https://github.com/pengloo53/Hexo-theme-light_cn">light_cn</a>, 
+    <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+  </div>
+  
+  <div class="visit">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </div>
+  
+  <div class="clearfix"></div>
+</div></footer>
+  <script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/search.js"></script>
+
+<!-- calendar widget -->
+
+  <script src="/js/calendar.js"></script>
+  <script src="/js/languages.js"></script>
+  <script type="text/javascript">
+    $(function() {
+    
+      $('#calendar').aCalendar('zh-CN',{single:false, root:'calendar'});
+    
+    });
+  </script>
+
+
+<!-- 『不蒜子』计数服务 -->
+<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- wumii关联推荐 -->
+<script type="text/javascript" src="http://widget.wumii.cn/ext/relatedItemsWidget"></script>
+
+<!-- 百度推荐 -->
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?9acf0cedd48dc53be256ede5a98c2aaa";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+<!-- 返回顶部 -->
+<div id="toTop">
+	<a href="#">▲</a>
+	<a href="#footer">▼</a>
+</div>
+
+<!-- 站内搜索 -->
+<script type="text/javascript">      
+  var search_path = "search.xml";
+  if (search_path.length == 0) {
+    search_path = "search.xml";
+  }
+  var path = "/" + search_path;
+  searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+
+<!-- fancybox -->
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+</html>

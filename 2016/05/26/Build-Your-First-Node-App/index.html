@@ -1,0 +1,340 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Build Your First Node App | Shengxihu&#39;s Blog&#39;</title>
+  <meta name="author" content="2XI">
+  
+  <meta name="description" content="Build Your First Node App
+Hello World
+一个完整的node的web应用
+应用构建
+
+这是一片node入门级别的文章，着重介绍使用node实现一个小型web应用的过程，不会涉及关于原理方面的知识，作为一个初学者，文章中如有不合理的地方还请指正。
+Hello Worl">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Build Your First Node App"/>
+  <meta property="og:site_name" content="Shengxihu&#39;s Blog&#39;"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link rel="alternate" href="/atom.xml" title="Shengxihu&#39;s Blog&#39;" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <!-- wumiiVerification -->
+  <meta name="wumiiVerification" content="fb50a101-84fe-4ca2-91a7-ae8cf792978b" />
+  <meta name="wumiiVerification" content="d73b5866-c390-4156-a4dd-51b526b5335e" />
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Font-Awesome -->
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <header id="header"><div class= "header-content inner">
+	<div class = "alignleft col-one">
+		
+			<div class='avatar'>
+				<img src = "/img/default/avatar.png">
+              </div>
+		
+		<div class="header-div">
+		    <h1><a href="/">Shengxihu&#39;s Blog&#39;</a></h1>
+		    <h2><a href="/"></a></h2>
+		</div>
+	</div>
+	<div class = "alignright col-two">
+		
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+<div class= "header-nav">
+	<div class='header-nav-content inner'>
+		<div id="main-nav" class="alignleft">
+		    		
+		    		  <a href="/"><i class="fa fa-home"></i>首页</a>
+		    		
+		    		  <a href="/archives"><i class="fa fa-archive"></i>归档</a>
+		    		
+		</div>
+		<div id="sub-nav" class="alignright">
+		    
+		      <a href="/atom.xml"><i class="fa fa-rss"></i>订阅</a>
+		    
+		      <a href="/customization"><i class="fa fa-question-circle"></i>留言</a>
+		    
+		      <a href="/about"><i class="fa fa-"></i>关于我</a>
+		    
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+</header>
+  
+    <div id="content" class="inner">
+      <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+        <div class="icon"></div>
+        
+        <time datetime="2016-05-25T16:07:18.000Z"><a href="/2016/05/26/Build-Your-First-Node-App/">2016-05-26</a></time>
+        
+  
+    <h1 class="title">Build Your First Node App</h1>
+  
+
+    </header>
+
+    <div class="entry">
+      
+        
+    <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Build-Your-First-Node-App"><span class="toc-text">Build Your First Node App</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hello-World"><span class="toc-text">Hello World</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一个完整的node的web应用"><span class="toc-text">一个完整的node的web应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用构建"><span class="toc-text">应用构建</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+        <h1 id="Build-Your-First-Node-App"><a href="#Build-Your-First-Node-App" class="headerlink" title="Build Your First Node App"></a>Build Your First Node App</h1><ol>
+<li><a href="#Hello-World">Hello World</a></li>
+<li><a href="#一个完整的node的web应用">一个完整的node的web应用</a></li>
+<li><a href="#应用构建">应用构建</a></li>
+</ol>
+<p>这是一片node入门级别的文章，着重介绍使用node实现一个小型web应用的过程，不会涉及关于原理方面的知识，作为一个初学者，文章中如有不合理的地方还请指正。</p>
+<h3 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a><a href="#Hello-World" title="Hello World"></a>Hello World</h3><p>首先我们来实现一个Hello World。</p>
+<p>打开编辑器，创建一个helloWord.js文件，写入以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&apos;Hello World!&apos;)</span><br></pre></td></tr></table></figure>
+<p>保存文件后通过在命令行执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node helloWord.js</span><br></pre></td></tr></table></figure>
+<p>你会看到命令行输出’Hello World!’。<br>这个应用太小儿科了对吧，那我们来点‘干货’。</p>
+<h3 id="一个完整的node的web应用"><a href="#一个完整的node的web应用" class="headerlink" title="一个完整的node的web应用"></a><a href="#一个完整的node的web应用" title="一个完整的node的web应用"></a>一个完整的node的web应用</h3><p>对于初学者来说，我们不太可能写出复杂的web应用，那我们来个简单点儿的！</p>
+<p>我将这个应用的需求设定为：</p>
+<p>用户可以使用浏览器访问我们的应用。<br>用户在浏览器中输入 ‘<a href="http://domain/start‘" target="_blank" rel="noopener">http://domain/start‘</a> 时页面中会出现一个表单。<br>用户在表单中输入用户名并提交，页面跳转到 ‘<a href="http://domain/hello‘" target="_blank" rel="noopener">http://domain/hello‘</a> 并显示欢迎信息。<br>下面我们来分析这个应用如何分布实现；</p>
+<p>我们需要提供web页面，并且可以提交表单，所以我们需要一个HTTP服务器。<br>我们需要在不同的URL之间跳转，针对不同URL给出响应，所以我们需要一个路由.<br>路由需要处理表单提交的数据，所以我们需要事件处理程序。<br>我们来一步步实现：</p>
+<h3 id="应用构建"><a href="#应用构建" class="headerlink" title="应用构建"></a><a href="#应用构建" title="应用构建"></a>应用构建</h3><p>在开始编码之前，我们需要考虑如何组织我们的代码，我们当然可以在一个单独文件中编写所有代码，但这个不利于后期修改和拓展，并且代码可读性也会变得很差，如果你有模块化相关得知识，你应该很清楚这样做的缺点。</p>
+<p>所以我们选择将不同功能的代码放入不同的模块中，使用不同模块时只需在主文件中引入即可。<br>首先我们创建’index.js’作为我们的入口文件（主文件），执行应用时直接运行入口文件即可。</p>
+<p>然后我们创建一个用于启动服务器的文件，语义化的将其命名为’server.js’，并写入以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&quot;http&quot;);</span><br><span class="line"></span><br><span class="line">function onRequest(request, response) &#123;</span><br><span class="line"></span><br><span class="line">    //下面一行为增加部分</span><br><span class="line"></span><br><span class="line">    console.log(&quot;Request received.&quot;);</span><br><span class="line"></span><br><span class="line">    response.writeHead(200, &#123;&quot;Content-Type&quot;: &quot;text/plain&quot;&#125;);</span><br><span class="line"></span><br><span class="line">    response.write(&quot;Hello World&quot;);</span><br><span class="line"></span><br><span class="line">    response.end();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http.createServer(onRequest).listen(8888);</span><br><span class="line"></span><br><span class="line">console.log(&quot;Server has started.&quot;);</span><br><span class="line"></span><br><span class="line">console.log(&apos;在浏览器中打开 http://localhost:8080/ 查看效果！&apos;);</span><br></pre></td></tr></table></figure>
+<p>现在我们实现了一个可以工作的HTTP服务器，这当然不是最终代码，在构建的过程中我们还是需要了解一下实现的细节。</p>
+<p>使用node执行脚本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node server.js</span><br></pre></td></tr></table></figure>
+<p>接下来在浏览器中打开 ‘<a href="http://localhost:8080/‘" target="_blank" rel="noopener">http://localhost:8080/‘</a> ，你就会看到一个写着 ‘Hello World!’ 的页面。</p>
+<p>分析代码实现：</p>
+<p>第一行请求（require）Node.js内置的 http 模块，并且把它赋值给 http 变量。</p>
+<p>接下来我们调用http模块提供的函数： ‘createServer’ 。这个函数会返回一个对象，这个对象有一个叫做 ‘listen’ 的方法，这个方法有一个数值参数，指定这个HTTP服务器监听的端口号。</p>
+<p>‘http.createServer ‘方法接受一个回调函数，侦听指定端口的服务器在收到一个HTTP请求的时会调用这个函数。</p>
+<p>当收到请求时，使用 response.writeHead() 回调函数发送一个HTTP状态200和HTTP头的内容类型（content-type），使用 response.write() 回调函数在HTTP相应主体中发送文本“Hello World”。response.end()结束响应。</p>
+<p>现在我们将服务器代码变成一个可供调用的模块：<br>将服务器脚本放到一个叫做 start 的函数里，然后导出这个函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&quot;http&quot;);</span><br><span class="line"></span><br><span class="line">function start()&#123;</span><br><span class="line"></span><br><span class="line">    function onRequest(request, response) &#123;</span><br><span class="line"></span><br><span class="line">        //下面一行为增加部分</span><br><span class="line"></span><br><span class="line">        console.log(&quot;Request received.&quot;);</span><br><span class="line"></span><br><span class="line">        response.writeHead(200, &#123;&quot;Content-Type&quot;: &quot;text/plain&quot;&#125;);</span><br><span class="line"></span><br><span class="line">        response.write(&quot;Hello World&quot;);</span><br><span class="line"></span><br><span class="line">        response.end();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    http.createServer(onRequest).listen(8080);</span><br><span class="line"></span><br><span class="line">    console.log(&quot;Server has started.&quot;);</span><br><span class="line"></span><br><span class="line">    console.log(&apos;Open http://localhost:8080/ in browser to checkout！&apos;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.start = start;</span><br></pre></td></tr></table></figure>
+<p>创建 index.js 文件并写入以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var server = require(&quot;./server&quot;);</span><br><span class="line"></span><br><span class="line">server.start();</span><br><span class="line"></span><br><span class="line">我们现在已经创建了一个启动服务器的模块，并在入口文件中调用这个模块，通过执行入口来启动服务器：</span><br><span class="line"></span><br><span class="line">1</span><br><span class="line"></span><br><span class="line">node index.js</span><br></pre></td></tr></table></figure>
+<p>你可能会好奇为什么输出了两次 ‘Request received’这是因为访问’<a href="http://localhost:8080/‘" target="_blank" rel="noopener">http://localhost:8080/‘</a> 时浏览器会尝试读取 ‘<a href="http://localhost:8888/favicon.ico‘" target="_blank" rel="noopener">http://localhost:8888/favicon.ico‘</a> 文件。</p>
+<p>进行路由选择</p>
+<p>还记得我们的我们给服务器代码的回调函数传入了两个参数吗？我们还没有使用 request 参数，这是一个对象，包含请求信息。</p>
+<p>要针对不同路由实现不同操作，我们需要使用node的url模块解析请求的URL。</p>
+<p>修改服务器代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&quot;http&quot;),</span><br><span class="line"></span><br><span class="line">url = require(&apos;url&apos;);</span><br><span class="line"></span><br><span class="line">function start()&#123;</span><br><span class="line"></span><br><span class="line">    function onRequest(request, response) &#123;</span><br><span class="line"></span><br><span class="line">        var pathname = url.parse(request.url).pathname;</span><br><span class="line"></span><br><span class="line">        console.log(&apos;Request for&apos; + pathname +&apos;received.&apos;)</span><br><span class="line"></span><br><span class="line">        response.writeHead(200, &#123;&quot;Content-Type&quot;: &quot;text/plain&quot;&#125;);</span><br><span class="line"></span><br><span class="line">        response.write(&quot;Hello World&quot;);</span><br><span class="line"></span><br><span class="line">        response.end();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    http.createServer(onRequest).listen(8080);</span><br><span class="line"></span><br><span class="line">    console.log(&quot;Server has started.&quot;);</span><br><span class="line"></span><br><span class="line">   console.log(&apos;Open http://localhost:8080/ in browser to checkout！&apos;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.start = start;</span><br></pre></td></tr></table></figure>
+<p>启动服务器我们可以看到URL可以被正确解析。</p>
+<p>现在我们开始编写路由，创建一个 router.js 文件,添加路由函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function route(pathname) &#123;</span><br><span class="line"></span><br><span class="line">    return &quot;A request for &quot; + pathname;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.route = route;</span><br></pre></td></tr></table></figure>
+<p>修改start函数将路由函数传递过去：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&quot;http&quot;);</span><br><span class="line"></span><br><span class="line">var url = require(&quot;url&quot;);</span><br><span class="line"></span><br><span class="line">function start(route) &#123;</span><br><span class="line"></span><br><span class="line">    function onRequest(request, response) &#123;</span><br><span class="line"></span><br><span class="line">        var pathname = url.parse(request.url).pathname;</span><br><span class="line"></span><br><span class="line">        console.log(&quot;Request for &quot; + pathname + &quot; received.&quot;);</span><br><span class="line"></span><br><span class="line">        var res=route(pathname);</span><br><span class="line"></span><br><span class="line">        response.writeHead(200, &#123;&quot;Content-Type&quot;: &quot;text/plain&quot;&#125;);</span><br><span class="line"></span><br><span class="line">        response.write(res);</span><br><span class="line"></span><br><span class="line">        response.end();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    http.createServer(onRequest).listen(8080);</span><br><span class="line"></span><br><span class="line">    console.log(&quot;Server has started.&quot;);</span><br><span class="line"></span><br><span class="line">    console.log(&apos;Open http://localhost:8080/ in browser to checkout！&apos;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.start = start;</span><br></pre></td></tr></table></figure>
+<p>启动服务器，打开<a href="http://localhost:8080/,我们可以看到服务器可以正常使用路由模块了。" target="_blank" rel="noopener">http://localhost:8080/,我们可以看到服务器可以正常使用路由模块了。</a></p>
+<p>接下来我们要扩展路由函数使它可以完成我们的应用需求，我们很自然的想到将处理请求的代码写在路由函数里面，但是如果我们有多个路由需要处理，每个请求处理函数又比较复杂，路由函数就会显得比较臃肿，代码也不利于维护。</p>
+<p>所以我们将请求处理模块与路由模块分离开来，创建requestHandlers.js，并写入以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function start() &#123;</span><br><span class="line"></span><br><span class="line">    console.log(&quot;Request handler &apos;start&apos; was called.&quot;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function hello() &#123;</span><br><span class="line"></span><br><span class="line">    console.log(&quot;Request handler &apos;hello&apos; was called.&quot;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.start = start;</span><br><span class="line"></span><br><span class="line">exports.hello = hello;</span><br></pre></td></tr></table></figure>
+<p>修改index.js:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var server = require(&quot;./server&quot;);</span><br><span class="line"></span><br><span class="line">var router = require(&quot;./router&quot;);</span><br><span class="line"></span><br><span class="line">var requestHandlers = require(&quot;./requestHandlers&quot;);</span><br><span class="line"></span><br><span class="line">var handle = &#123;&#125;</span><br><span class="line"></span><br><span class="line">handle[&quot;/&quot;] = requestHandlers.start;</span><br><span class="line"></span><br><span class="line">handle[&quot;/start&quot;] = requestHandlers.start;</span><br><span class="line"></span><br><span class="line">handle[&quot;/hello&quot;] = requestHandlers.hello;</span><br><span class="line"></span><br><span class="line">server.start(router.route, handle);</span><br></pre></td></tr></table></figure>
+<p>我们把handle对象作为额外的参数传递给服务器，为此将server.js修改如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&quot;http&quot;);</span><br><span class="line"></span><br><span class="line">var url = require(&quot;url&quot;);</span><br><span class="line"></span><br><span class="line">function start(route, handle) &#123;</span><br><span class="line"></span><br><span class="line">    function onRequest(request, response) &#123;</span><br><span class="line"></span><br><span class="line">        var pathname = url.parse(request.url).pathname;</span><br><span class="line"></span><br><span class="line">        console.log(&quot;Request for &quot; + pathname + &quot; received.&quot;);</span><br><span class="line"></span><br><span class="line">        route(handle, pathname);</span><br><span class="line"></span><br><span class="line">        response.writeHead(200, &#123;&quot;Content-Type&quot;: &quot;text/plain&quot;&#125;);</span><br><span class="line"></span><br><span class="line">        response.write(&quot;Hello World&quot;);</span><br><span class="line"></span><br><span class="line">        response.end();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    http.createServer(onRequest).listen(8888);</span><br><span class="line"></span><br><span class="line">    console.log(&quot;Server has started.&quot;);</span><br><span class="line"></span><br><span class="line">    console.log(&apos;Open http://localhost:8080/ in browser to checkout！&apos;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.start = start;</span><br></pre></td></tr></table></figure>
+<p>这样我们就在start()函数里添加了handle参数，并且把handle对象作为第一个参数传递给了route()回调函数。</p>
+<p>然后我们相应地在route.js文件中修改route()函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function route(handle, pathname) &#123;</span><br><span class="line"></span><br><span class="line">  console.log(&quot;About to route a request for &quot; + pathname);</span><br><span class="line"></span><br><span class="line">  if (ypeof handle\[pathname] === &apos;function&apos;) &#123;</span><br><span class="line"></span><br><span class="line">    hadle\[pathname]();</span><br><span class="line"></span><br><span class="line">  &#125; else &#123;</span><br><span class="line"></span><br><span class="line">    console.log(&quot;No request handler found for &quot; + pathname);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.route = route;</span><br></pre></td></tr></table></figure>
+<p>处理post请求</p>
+<p>为了实现提交一个表单路由跳转并且输出提交信息，我们需要显示一个输入框供用户输入内容，然后通过POST请求提交给服务器。最后，服务器接受到请求，通过处理程序将输入的内容展示到浏览器中。</p>
+<p>/start请求处理程序用于生成带输入框的表单，我们将requestHandlers.js修改为如下形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">function start(response) &#123;</span><br><span class="line"></span><br><span class="line">  console.log(&quot;Request handler &apos;start&apos; was called.&quot;);</span><br><span class="line"></span><br><span class="line">  var body = &apos;&lt;html&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;head&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; &apos;+</span><br><span class="line"></span><br><span class="line">    &apos;charset=UTF-8&quot; /&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;/head&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;body&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;form action=&quot;/hello&quot; method=&quot;post&quot;&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;textarea name=&quot;text&quot; rows=&quot;1&quot; cols=&quot;10&quot;&gt;&lt;/textarea&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;input type=&quot;submit&quot; value=&quot;Submit text&quot; /&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;/form&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;/body&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;/html&gt;&apos;;</span><br><span class="line"></span><br><span class="line">    response.writeHead(200, &#123;&quot;Content-Type&quot;: &quot;text/html&quot;&#125;);</span><br><span class="line"></span><br><span class="line">    response.write(body);</span><br><span class="line"></span><br><span class="line">    response.end();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function hello(response) &#123;</span><br><span class="line"></span><br><span class="line">  console.log(&quot;Request handler &apos;hello&apos; was called.&quot;);</span><br><span class="line"></span><br><span class="line">  response.writeHead(200, &#123;&quot;Content-Type&quot;: &quot;text/plain&quot;&#125;);</span><br><span class="line"></span><br><span class="line">  response.write(&quot;Hello hello&quot;);</span><br><span class="line"></span><br><span class="line">  response.end();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.start = start;</span><br><span class="line"></span><br><span class="line">exports.hello = hello;</span><br></pre></td></tr></table></figure>
+<p>服务器需要获取所有来自表单的数据，然后将数据传递给请求路由和请求处理函数进行进一步的处理。为了使整个过程非阻塞，Node.js会将POST数据拆分成很多小的数据块，然后通过触发特定的事件，将这些小数据块传递给回调函数。这里的特定的事件有data事件（表示新的小数据块到达了）以及end事件（表示所有的数据都已经接收完毕）。我们需要告诉Node.js当这些事件触发的时候，回调哪些函数。</p>
+<p>下面开始修改server.js：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&quot;http&quot;);</span><br><span class="line"></span><br><span class="line">var url = require(&quot;url&quot;);</span><br><span class="line"></span><br><span class="line">function start(route, handle) &#123;</span><br><span class="line"></span><br><span class="line">  function onRequest(request, response) &#123;</span><br><span class="line"></span><br><span class="line">    var postData = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">    var pathname = url.parse(request.url).pathname;</span><br><span class="line"></span><br><span class="line">    console.log(&quot;Request for &quot; + pathname + &quot; received.&quot;);</span><br><span class="line"></span><br><span class="line">    request.setEncoding(&quot;utf8&quot;);</span><br><span class="line"></span><br><span class="line">    request.addListener(&quot;data&quot;, function(postDataChunk) &#123;</span><br><span class="line"></span><br><span class="line">      postData += postDataChunk;</span><br><span class="line"></span><br><span class="line">      console.log(&quot;Received POST data chunk &apos;&quot;+</span><br><span class="line"></span><br><span class="line">      postDataChunk + &quot;&apos;.&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    request.addListener(&quot;end&quot;, function() &#123;</span><br><span class="line"></span><br><span class="line">      route(handle, pathname, response, postData);</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  http.createServer(onRequest).listen(8080);</span><br><span class="line"></span><br><span class="line">  console.log(&quot;Server has started.&quot;);</span><br><span class="line"></span><br><span class="line">  console.log(&apos;Open http://localhost:8080/ in browser to checkout！&apos;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.start = start;</span><br></pre></td></tr></table></figure>
+<p>我们接下来在/hello页面，展示用户输入的内容。要实现该功能，我们需要将postData传递给请求处理程序，修改router.js为如下形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function route(handle, pathname, response, postData) &#123;</span><br><span class="line"></span><br><span class="line">  console.log(&quot;About to route a request for &quot; + pathname);</span><br><span class="line"></span><br><span class="line">  if (ypeof handle\[pathname] === &apos;function&apos;) &#123;</span><br><span class="line"></span><br><span class="line">    hadle\[pathname](response, postData);</span><br><span class="line"></span><br><span class="line">  &#125; else &#123;</span><br><span class="line"></span><br><span class="line">    console.log(&quot;No request handler found for &quot; + pathname);</span><br><span class="line"></span><br><span class="line">    response.writeHead(404, &#123;&quot;Content-Type&quot;: &quot;text/plain&quot;&#125;);</span><br><span class="line"></span><br><span class="line">    response.write(&quot;404 Not found&quot;);</span><br><span class="line"></span><br><span class="line">    response.end();</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.route = route;</span><br></pre></td></tr></table></figure>
+<p>我们现在可以接收POST数据并在请求处理程序中处理该数据了。</p>
+<p>我们最后要做的是： 把POST数据中，我们感兴趣的部分传递给请求路由和请求处理程序。在我们这个例子中，我们感兴趣的其实只是text字段。</p>
+<p>我们可以使用node内置的querystring模块来实现,修改requestHandlers.js:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">var querystring = require(&quot;querystring&quot;);</span><br><span class="line"></span><br><span class="line">function start(response, postData) &#123;</span><br><span class="line"></span><br><span class="line">  console.log(&quot;Request handler &apos;start&apos; was called.&quot;);</span><br><span class="line"></span><br><span class="line">  var body = &apos;&lt;html&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;head&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; &apos;+</span><br><span class="line"></span><br><span class="line">    &apos;charset=UTF-8&quot; /&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;/head&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;body&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;form action=&quot;/hello&quot; method=&quot;post&quot;&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;textarea name=&quot;text&quot; rows=&quot;1&quot; cols=&quot;10&quot;&gt;&lt;/textarea&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;input type=&quot;submit&quot; value=&quot;Submit text&quot; /&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;/form&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;/body&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;/html&gt;&apos;;</span><br><span class="line"></span><br><span class="line">    response.writeHead(200, &#123;&quot;Content-Type&quot;: &quot;text/html&quot;&#125;);</span><br><span class="line"></span><br><span class="line">    response.write(body);</span><br><span class="line"></span><br><span class="line">    response.end();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function hello(response, postData) &#123;</span><br><span class="line"></span><br><span class="line">  console.log(&quot;Request handler &apos;hello&apos; was called.&quot;);</span><br><span class="line"></span><br><span class="line">  response.writeHead(200, &#123;&quot;Content-Type&quot;: &quot;text/plain&quot;&#125;);</span><br><span class="line"></span><br><span class="line">  response.write(&quot;Hello: &quot;+</span><br><span class="line"></span><br><span class="line">  querystring.parse(postData).text);</span><br><span class="line"></span><br><span class="line">  response.end();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.start = start;</span><br><span class="line"></span><br><span class="line">exports.hello = hello;</span><br></pre></td></tr></table></figure>
+<p>启动服务器打开<a href="http://localhost:8080/,输入用户名，页面就会跳转并输出欢迎信息.查看[源码](https://github.com/shengxihu/Exercise/tree/master/node/node-1" target="_blank" rel="noopener">http://localhost:8080/,输入用户名，页面就会跳转并输出欢迎信息.查看[源码](https://github.com/shengxihu/Exercise/tree/master/node/node-1</a>)</p>
+<p>到目前为止，我们已经实现了一个简单的web应用，虽然它很简单，但是我们在编写过程中注重采用了模块化、解耦合的思想，这给了我们继续完善的空间，随着我们对node了解不断加深，我们可以基于它打造出功能更加强大的应用。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        <div class = "counter">
+  <span id="busuanzi_container_page_pv" style="display:none">
+      总访问&nbsp<span id="busuanzi_value_page_pv"></span>&nbsp次
+  </span>
+</div>
+        
+  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a><a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a><a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a><a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a><a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a></div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+  
+<section id = "relate">
+	
+                <div id=""></div>
+	
+</section>
+
+
+  
+    <section id="comment">
+    <!--   <h1 class="title">留言</h1> -->
+    
+        <script type="text/javascript" id="wumiiComments">
+            var wumiiPermaLink = "http://yoursite.com/2016/05/26/Build-Your-First-Node-App/"; //请用代码生成文章永久的链接
+            var wumiiTitle = "Build Your First Node App"; //请用代码生成文章标题
+            var wumiiSitePrefix = "http://lupeng.me"; 
+            var wumiiCommentParams = "&pf=JAVASCRIPT";
+        </script>
+        <script type="text/javascript" src="http://widget.wumii.cn/ext/cw/widget"></script>
+      
+    </section>
+
+
+
+
+</div></div>
+      <aside id="sidebar" class="alignright">
+  <div class="search" id="site_search">
+  <input class="st-default-search-input" type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+  <div class="local-search-result" id="local-search-result"></div>
+</div>
+
+
+   
+
+
+  <div class="widget tag">
+  <h3 class="title">日历云</h3>
+  <div id="calendar"></div>
+</div>
+
+
+  
+
+
+  
+
+  
+
+
+  
+  <div class="widget tag">
+    <h3 class="title">归档</h3>
+	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">公元 2017 年</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">公元 2016 年</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">公元 2015 年</a><span class="archive-list-count">1</span></li></ul>
+  </div>
+
+</aside>
+      <div class="clearfix"></div>
+    </div>
+  
+  <footer id="footer"><div class="footer-content inner">
+  <div class="alignleft">
+  
+    &copy; 2018 2XI
+    
+  </div>
+  <div class="alignright">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme
+    <a href="https://github.com/pengloo53/Hexo-theme-light_cn">light_cn</a>, 
+    <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+  </div>
+  
+  <div class="visit">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </div>
+  
+  <div class="clearfix"></div>
+</div></footer>
+  <script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/search.js"></script>
+
+<!-- calendar widget -->
+
+  <script src="/js/calendar.js"></script>
+  <script src="/js/languages.js"></script>
+  <script type="text/javascript">
+    $(function() {
+    
+      $('#calendar').aCalendar('zh-CN',{single:false, root:'calendar'});
+    
+    });
+  </script>
+
+
+<!-- 『不蒜子』计数服务 -->
+<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- wumii关联推荐 -->
+<script type="text/javascript" src="http://widget.wumii.cn/ext/relatedItemsWidget"></script>
+
+<!-- 百度推荐 -->
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?9acf0cedd48dc53be256ede5a98c2aaa";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+<!-- 返回顶部 -->
+<div id="toTop">
+	<a href="#">▲</a>
+	<a href="#footer">▼</a>
+</div>
+
+<!-- 站内搜索 -->
+<script type="text/javascript">      
+  var search_path = "search.xml";
+  if (search_path.length == 0) {
+    search_path = "search.xml";
+  }
+  var path = "/" + search_path;
+  searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+
+<!-- fancybox -->
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+</html>
