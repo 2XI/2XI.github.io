@@ -11,7 +11,9 @@
 
 原文链接:Properties in JavaScript: definition versus assignment
 在JavaScript，属性的定义和赋值两个不同的操作，这篇博客致力于解释这两种操作的差异和造成这些差异的原因。
-属性定义和属性赋值">
+属性定义和属性赋值1.属性定义：定义属性将会使用一个如下的属性定义函数：、
+1Object.defineProperty(obj, propName, propDesc)
+这个函数的主要功能是直接在obj对象上添加一个属性，通过propDesc配置属性特性（例如writable）。这个函数的另一个功能是用来改变一个属性的特性，包括属性的值。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -110,6 +112,7 @@
 <h3 id="属性定义和属性赋值"><a href="#属性定义和属性赋值" class="headerlink" title="属性定义和属性赋值"></a><a href="#属性定义和属性赋值" title="属性定义和属性赋值"></a>属性定义和属性赋值</h3><p>1.属性定义：定义属性将会使用一个如下的属性定义函数：、</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperty(obj, propName, propDesc)</span><br></pre></td></tr></table></figure>
 <p>这个函数的主要功能是直接在obj对象上添加一个属性，通过propDesc配置属性特性（例如writable）。<br>这个函数的另一个功能是用来改变一个属性的特性，包括属性的值。</p>
+<a id="more"></a>
 <p>2.属性赋值：为了给一个属性赋值，使用如下的赋值表达式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.prop = value</span><br></pre></td></tr></table></figure>
 <p>这个表达式的主要功能是改变一个属性的值，为了完成这个操作，JavaScript将会查询obj对象的原型链。如果obj对象或者它的原型链上定义了setter方法，赋值操作将会通过调用这个setter方法来完成。如果被赋值的这个属性在obj对象上不存在，这个赋值操作将会产生另一个结果——在obj对象上定义一个拥有默认特性（writable等）的prop属性。</p>
@@ -373,7 +376,7 @@
   
   <div class="widget tag">
     <h3 class="title">归档</h3>
-	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">公元 2017 年</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">公元 2016 年</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">公元 2015 年</a><span class="archive-list-count">1</span></li></ul>
+	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">公元 2019 年</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">公元 2017 年</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">公元 2016 年</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">公元 2015 年</a><span class="archive-list-count">1</span></li></ul>
   </div>
 
 </aside>
@@ -383,7 +386,7 @@
   <footer id="footer"><div class="footer-content inner">
   <div class="alignleft">
   
-    &copy; 2018 2XI
+    &copy; 2019 2XI
     
   </div>
   <div class="alignright">

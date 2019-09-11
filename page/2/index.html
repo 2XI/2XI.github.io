@@ -80,6 +80,220 @@
     <header>
         <div class="icon"></div>
         
+        <time datetime="2016-11-04T16:05:28.000Z"><a href="/2016/11/05/Properties-in-JavaScript-definition-versus-assignment/">2016-11-05</a></time>
+        
+  
+    <h1 class="title"><a href="/2016/11/05/Properties-in-JavaScript-definition-versus-assignment/">Properties in JavaScript(definition VS assignment)</a></h1>
+  
+
+    </header>
+
+    <div class="entry">
+      
+        <ol>
+<li><a href="#属性定义和属性赋值">属性定义和属性赋值</a></li>
+<li><a href="#概述：属性特性和内部属性">概述：属性特性和内部属性</a></li>
+</ol>
+<p>原文链接:<a href="http://2ality.com/2012/08/property-definition-assignment.html" target="_blank" rel="noopener">Properties in JavaScript: definition versus assignment</a></p>
+<p>在JavaScript，属性的定义和赋值两个不同的操作，这篇博客致力于解释这两种操作的差异和造成这些差异的原因。</p>
+<h3 id="属性定义和属性赋值"><a href="#属性定义和属性赋值" class="headerlink" title="属性定义和属性赋值"></a><a href="#属性定义和属性赋值" title="属性定义和属性赋值"></a>属性定义和属性赋值</h3><p>1.属性定义：定义属性将会使用一个如下的属性定义函数：、</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperty(obj, propName, propDesc)</span><br></pre></td></tr></table></figure>
+<p>这个函数的主要功能是直接在obj对象上添加一个属性，通过propDesc配置属性特性（例如writable）。<br>这个函数的另一个功能是用来改变一个属性的特性，包括属性的值。</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/11/05/Properties-in-JavaScript-definition-versus-assignment/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+        <div class="alignright">
+          <a href="/2016/11/05/Properties-in-JavaScript-definition-versus-assignment/#comment" class="comment-link">Comments</a>
+        </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+        <div class="icon"></div>
+        
+        <time datetime="2016-10-31T16:04:05.000Z"><a href="/2016/11/01/JavaScript-Modules/">2016-11-01</a></time>
+        
+  
+    <h1 class="title"><a href="/2016/11/01/JavaScript-Modules/">JavaScript Modules</a></h1>
+  
+
+    </header>
+
+    <div class="entry">
+      
+        <h1 id="JavaScript-Modules"><a href="#JavaScript-Modules" class="headerlink" title="JavaScript Modules"></a>JavaScript Modules</h1><h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a><a href="#模块化" title="模块化"></a>模块化</h3><p>当我们称一个应用程序是模块化的的时候，我们通常是指它由一组高度解耦的、存放在不同模块中的独特功能构成。你可能已经知道，松散耦合通过尽可能地去除依赖性来让可维护性更加简单易得。当这一点被有效实现的时候，系统中某一部分的变化将如何影响其它部分就会变得显而易见。</p>
+<p>JavaScript模块化是将JS代码按照功能的不同分成高度解耦的代码块，存放在模块中。与一些更传统的编程语言不同的是，JavaScript 6以前的版本并没有为开发者们提供以一种简洁、有条理地的方式来引入模块的方法。</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/11/01/JavaScript-Modules/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+        <div class="alignright">
+          <a href="/2016/11/01/JavaScript-Modules/#comment" class="comment-link">Comments</a>
+        </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+        <div class="icon"></div>
+        
+        <time datetime="2016-09-30T16:09:35.000Z"><a href="/2016/10/01/sprite/">2016-10-01</a></time>
+        
+  
+    <h1 class="title"><a href="/2016/10/01/sprite/">sprite</a></h1>
+  
+
+    </header>
+
+    <div class="entry">
+      
+        <h1 id="sprite"><a href="#sprite" class="headerlink" title="sprite"></a>sprite</h1><p>做移动开发的时候，有时会遇到使用很多图片的需求，然而<strong>过多图片会导致很多的http请求</strong>，带来很差的用户体验，为了解决这个问题，我们目前解决的办法是将图片合并成雪碧图，然后设置雪碧图为容器背景图。</p>
+<h2 id="关于雪碧图"><a href="#关于雪碧图" class="headerlink" title="关于雪碧图"></a><a href="#关于雪碧图" title="关于雪碧图"></a>关于雪碧图</h2><p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/CSS_Image_Sprites" target="_blank" rel="noopener">雪碧图</a></p>
+<p>CSS雪碧图即CSS Sprite，也有人叫它CSS精灵，是一种CSS图像合并技术，该方法是将小图标和背景图像合并到一张图片上，然后利用css的背景定位<code>backgroun-position</code>和<code>background-size</code>来控制显示需要显示的图片部分。为了<strong>减少http请求数量，加速网页内容显示</strong>，很多网站的导航栏图标、登录框图片等，使用的并不是<code>&lt;img&gt;</code>标签，而是CSS Sprite雪碧图。</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/10/01/sprite/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+        <div class="alignright">
+          <a href="/2016/10/01/sprite/#comment" class="comment-link">Comments</a>
+        </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+        <div class="icon"></div>
+        
+        <time datetime="2016-08-05T16:02:55.000Z"><a href="/2016/08/06/JavaScript-Scope/">2016-08-06</a></time>
+        
+  
+    <h1 class="title"><a href="/2016/08/06/JavaScript-Scope/">JavaScript Scope</a></h1>
+  
+
+    </header>
+
+    <div class="entry">
+      
+        <h1 id="JavaScript-Scope"><a href="#JavaScript-Scope" class="headerlink" title="JavaScript Scope"></a>JavaScript Scope</h1><h3 id="构造块作用域："><a href="#构造块作用域：" class="headerlink" title="构造块作用域："></a><a href="#构造块作用域：" title="构造块作用域："></a>构造块作用域：</h3><h3 id="let"><a href="#let" class="headerlink" title="let"></a><a href="#let" title="let"></a>let</h3><p>let创建块作用域的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">if(i)&#123;</span><br><span class="line"></span><br><span class="line">    let bar=i\*2; /\*let会将bar绑定在&#123;......&#125;之间*/</span><br><span class="line"></span><br><span class="line">    bar =something(bar);</span><br><span class="line"></span><br><span class="line">    console.log(bar);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> &lt;!-- 并且let声明的变量不会被提升 --&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/08/06/JavaScript-Scope/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+        <div class="alignright">
+          <a href="/2016/08/06/JavaScript-Scope/#comment" class="comment-link">Comments</a>
+        </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+        <div class="icon"></div>
+        
+        <time datetime="2016-06-30T16:15:32.000Z"><a href="/2016/07/01/mobile-layout/">2016-07-01</a></time>
+        
+  
+    <h1 class="title"><a href="/2016/07/01/mobile-layout/">mobile-layout</a></h1>
+  
+
+    </header>
+
+    <div class="entry">
+      
+        <h1 id="mobile-layout"><a href="#mobile-layout" class="headerlink" title="mobile-layout"></a>mobile-layout</h1><p>说到移动端，不得不提适配问题，大大小小的移动设备不但让做Android和ios的难过，因为设备大小和浏览器的差异，现在也让前端开始头疼了，不过，遇到问题我们总归要去寻求解决的方案。</p>
+<p>因为现如今市面上移动设备的分辨率大小不同，显然咱们常用的px单位在这个时候就有些不太灵光了，为此，我们需要找到一个合理的适配方案。</p>
+<h2 id="布局方案"><a href="#布局方案" class="headerlink" title="布局方案"></a><a href="#布局方案" title="布局方案"></a>布局方案</h2><h3 id="百分比布局"><a href="#百分比布局" class="headerlink" title="百分比布局"></a><a href="#百分比布局" title="百分比布局"></a>百分比布局</h3><p>我们能够想到的最简单的方案就是百分比布局了。各级元素的宽度都设成百分比以实现在水平方向上适应各种屏幕宽度的显示效果，我们先来看一个demo。</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/07/01/mobile-layout/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+        <div class="alignright">
+          <a href="/2016/07/01/mobile-layout/#comment" class="comment-link">Comments</a>
+        </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+        <div class="icon"></div>
+        
         <time datetime="2016-05-25T16:07:18.000Z"><a href="/2016/05/26/Build-Your-First-Node-App/">2016-05-26</a></time>
         
   
@@ -90,11 +304,6 @@
 
     <div class="entry">
       
-        
-    <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Build-Your-First-Node-App"><span class="toc-text">Build Your First Node App</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hello-World"><span class="toc-text">Hello World</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一个完整的node的web应用"><span class="toc-text">一个完整的node的web应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用构建"><span class="toc-text">应用构建</span></a></li></ol></li></ol></li></ol>
-    </div>
-
         <h1 id="Build-Your-First-Node-App"><a href="#Build-Your-First-Node-App" class="headerlink" title="Build Your First Node App"></a>Build Your First Node App</h1><ol>
 <li><a href="#Hello-World">Hello World</a></li>
 <li><a href="#一个完整的node的web应用">一个完整的node的web应用</a></li>
@@ -107,70 +316,14 @@
 <p>保存文件后通过在命令行执行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node helloWord.js</span><br></pre></td></tr></table></figure>
 <p>你会看到命令行输出’Hello World!’。<br>这个应用太小儿科了对吧，那我们来点‘干货’。</p>
-<h3 id="一个完整的node的web应用"><a href="#一个完整的node的web应用" class="headerlink" title="一个完整的node的web应用"></a><a href="#一个完整的node的web应用" title="一个完整的node的web应用"></a>一个完整的node的web应用</h3><p>对于初学者来说，我们不太可能写出复杂的web应用，那我们来个简单点儿的！</p>
-<p>我将这个应用的需求设定为：</p>
-<p>用户可以使用浏览器访问我们的应用。<br>用户在浏览器中输入 ‘<a href="http://domain/start‘" target="_blank" rel="noopener">http://domain/start‘</a> 时页面中会出现一个表单。<br>用户在表单中输入用户名并提交，页面跳转到 ‘<a href="http://domain/hello‘" target="_blank" rel="noopener">http://domain/hello‘</a> 并显示欢迎信息。<br>下面我们来分析这个应用如何分布实现；</p>
-<p>我们需要提供web页面，并且可以提交表单，所以我们需要一个HTTP服务器。<br>我们需要在不同的URL之间跳转，针对不同URL给出响应，所以我们需要一个路由.<br>路由需要处理表单提交的数据，所以我们需要事件处理程序。<br>我们来一步步实现：</p>
-<h3 id="应用构建"><a href="#应用构建" class="headerlink" title="应用构建"></a><a href="#应用构建" title="应用构建"></a>应用构建</h3><p>在开始编码之前，我们需要考虑如何组织我们的代码，我们当然可以在一个单独文件中编写所有代码，但这个不利于后期修改和拓展，并且代码可读性也会变得很差，如果你有模块化相关得知识，你应该很清楚这样做的缺点。</p>
-<p>所以我们选择将不同功能的代码放入不同的模块中，使用不同模块时只需在主文件中引入即可。<br>首先我们创建’index.js’作为我们的入口文件（主文件），执行应用时直接运行入口文件即可。</p>
-<p>然后我们创建一个用于启动服务器的文件，语义化的将其命名为’server.js’，并写入以下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&quot;http&quot;);</span><br><span class="line"></span><br><span class="line">function onRequest(request, response) &#123;</span><br><span class="line"></span><br><span class="line">    //下面一行为增加部分</span><br><span class="line"></span><br><span class="line">    console.log(&quot;Request received.&quot;);</span><br><span class="line"></span><br><span class="line">    response.writeHead(200, &#123;&quot;Content-Type&quot;: &quot;text/plain&quot;&#125;);</span><br><span class="line"></span><br><span class="line">    response.write(&quot;Hello World&quot;);</span><br><span class="line"></span><br><span class="line">    response.end();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http.createServer(onRequest).listen(8888);</span><br><span class="line"></span><br><span class="line">console.log(&quot;Server has started.&quot;);</span><br><span class="line"></span><br><span class="line">console.log(&apos;在浏览器中打开 http://localhost:8080/ 查看效果！&apos;);</span><br></pre></td></tr></table></figure>
-<p>现在我们实现了一个可以工作的HTTP服务器，这当然不是最终代码，在构建的过程中我们还是需要了解一下实现的细节。</p>
-<p>使用node执行脚本：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node server.js</span><br></pre></td></tr></table></figure>
-<p>接下来在浏览器中打开 ‘<a href="http://localhost:8080/‘" target="_blank" rel="noopener">http://localhost:8080/‘</a> ，你就会看到一个写着 ‘Hello World!’ 的页面。</p>
-<p>分析代码实现：</p>
-<p>第一行请求（require）Node.js内置的 http 模块，并且把它赋值给 http 变量。</p>
-<p>接下来我们调用http模块提供的函数： ‘createServer’ 。这个函数会返回一个对象，这个对象有一个叫做 ‘listen’ 的方法，这个方法有一个数值参数，指定这个HTTP服务器监听的端口号。</p>
-<p>‘http.createServer ‘方法接受一个回调函数，侦听指定端口的服务器在收到一个HTTP请求的时会调用这个函数。</p>
-<p>当收到请求时，使用 response.writeHead() 回调函数发送一个HTTP状态200和HTTP头的内容类型（content-type），使用 response.write() 回调函数在HTTP相应主体中发送文本“Hello World”。response.end()结束响应。</p>
-<p>现在我们将服务器代码变成一个可供调用的模块：<br>将服务器脚本放到一个叫做 start 的函数里，然后导出这个函数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&quot;http&quot;);</span><br><span class="line"></span><br><span class="line">function start()&#123;</span><br><span class="line"></span><br><span class="line">    function onRequest(request, response) &#123;</span><br><span class="line"></span><br><span class="line">        //下面一行为增加部分</span><br><span class="line"></span><br><span class="line">        console.log(&quot;Request received.&quot;);</span><br><span class="line"></span><br><span class="line">        response.writeHead(200, &#123;&quot;Content-Type&quot;: &quot;text/plain&quot;&#125;);</span><br><span class="line"></span><br><span class="line">        response.write(&quot;Hello World&quot;);</span><br><span class="line"></span><br><span class="line">        response.end();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    http.createServer(onRequest).listen(8080);</span><br><span class="line"></span><br><span class="line">    console.log(&quot;Server has started.&quot;);</span><br><span class="line"></span><br><span class="line">    console.log(&apos;Open http://localhost:8080/ in browser to checkout！&apos;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.start = start;</span><br></pre></td></tr></table></figure>
-<p>创建 index.js 文件并写入以下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var server = require(&quot;./server&quot;);</span><br><span class="line"></span><br><span class="line">server.start();</span><br><span class="line"></span><br><span class="line">我们现在已经创建了一个启动服务器的模块，并在入口文件中调用这个模块，通过执行入口来启动服务器：</span><br><span class="line"></span><br><span class="line">1</span><br><span class="line"></span><br><span class="line">node index.js</span><br></pre></td></tr></table></figure>
-<p>你可能会好奇为什么输出了两次 ‘Request received’这是因为访问’<a href="http://localhost:8080/‘" target="_blank" rel="noopener">http://localhost:8080/‘</a> 时浏览器会尝试读取 ‘<a href="http://localhost:8888/favicon.ico‘" target="_blank" rel="noopener">http://localhost:8888/favicon.ico‘</a> 文件。</p>
-<p>进行路由选择</p>
-<p>还记得我们的我们给服务器代码的回调函数传入了两个参数吗？我们还没有使用 request 参数，这是一个对象，包含请求信息。</p>
-<p>要针对不同路由实现不同操作，我们需要使用node的url模块解析请求的URL。</p>
-<p>修改服务器代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&quot;http&quot;),</span><br><span class="line"></span><br><span class="line">url = require(&apos;url&apos;);</span><br><span class="line"></span><br><span class="line">function start()&#123;</span><br><span class="line"></span><br><span class="line">    function onRequest(request, response) &#123;</span><br><span class="line"></span><br><span class="line">        var pathname = url.parse(request.url).pathname;</span><br><span class="line"></span><br><span class="line">        console.log(&apos;Request for&apos; + pathname +&apos;received.&apos;)</span><br><span class="line"></span><br><span class="line">        response.writeHead(200, &#123;&quot;Content-Type&quot;: &quot;text/plain&quot;&#125;);</span><br><span class="line"></span><br><span class="line">        response.write(&quot;Hello World&quot;);</span><br><span class="line"></span><br><span class="line">        response.end();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    http.createServer(onRequest).listen(8080);</span><br><span class="line"></span><br><span class="line">    console.log(&quot;Server has started.&quot;);</span><br><span class="line"></span><br><span class="line">   console.log(&apos;Open http://localhost:8080/ in browser to checkout！&apos;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.start = start;</span><br></pre></td></tr></table></figure>
-<p>启动服务器我们可以看到URL可以被正确解析。</p>
-<p>现在我们开始编写路由，创建一个 router.js 文件,添加路由函数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function route(pathname) &#123;</span><br><span class="line"></span><br><span class="line">    return &quot;A request for &quot; + pathname;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.route = route;</span><br></pre></td></tr></table></figure>
-<p>修改start函数将路由函数传递过去：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&quot;http&quot;);</span><br><span class="line"></span><br><span class="line">var url = require(&quot;url&quot;);</span><br><span class="line"></span><br><span class="line">function start(route) &#123;</span><br><span class="line"></span><br><span class="line">    function onRequest(request, response) &#123;</span><br><span class="line"></span><br><span class="line">        var pathname = url.parse(request.url).pathname;</span><br><span class="line"></span><br><span class="line">        console.log(&quot;Request for &quot; + pathname + &quot; received.&quot;);</span><br><span class="line"></span><br><span class="line">        var res=route(pathname);</span><br><span class="line"></span><br><span class="line">        response.writeHead(200, &#123;&quot;Content-Type&quot;: &quot;text/plain&quot;&#125;);</span><br><span class="line"></span><br><span class="line">        response.write(res);</span><br><span class="line"></span><br><span class="line">        response.end();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    http.createServer(onRequest).listen(8080);</span><br><span class="line"></span><br><span class="line">    console.log(&quot;Server has started.&quot;);</span><br><span class="line"></span><br><span class="line">    console.log(&apos;Open http://localhost:8080/ in browser to checkout！&apos;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.start = start;</span><br></pre></td></tr></table></figure>
-<p>启动服务器，打开<a href="http://localhost:8080/,我们可以看到服务器可以正常使用路由模块了。" target="_blank" rel="noopener">http://localhost:8080/,我们可以看到服务器可以正常使用路由模块了。</a></p>
-<p>接下来我们要扩展路由函数使它可以完成我们的应用需求，我们很自然的想到将处理请求的代码写在路由函数里面，但是如果我们有多个路由需要处理，每个请求处理函数又比较复杂，路由函数就会显得比较臃肿，代码也不利于维护。</p>
-<p>所以我们将请求处理模块与路由模块分离开来，创建requestHandlers.js，并写入以下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function start() &#123;</span><br><span class="line"></span><br><span class="line">    console.log(&quot;Request handler &apos;start&apos; was called.&quot;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function hello() &#123;</span><br><span class="line"></span><br><span class="line">    console.log(&quot;Request handler &apos;hello&apos; was called.&quot;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.start = start;</span><br><span class="line"></span><br><span class="line">exports.hello = hello;</span><br></pre></td></tr></table></figure>
-<p>修改index.js:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var server = require(&quot;./server&quot;);</span><br><span class="line"></span><br><span class="line">var router = require(&quot;./router&quot;);</span><br><span class="line"></span><br><span class="line">var requestHandlers = require(&quot;./requestHandlers&quot;);</span><br><span class="line"></span><br><span class="line">var handle = &#123;&#125;</span><br><span class="line"></span><br><span class="line">handle[&quot;/&quot;] = requestHandlers.start;</span><br><span class="line"></span><br><span class="line">handle[&quot;/start&quot;] = requestHandlers.start;</span><br><span class="line"></span><br><span class="line">handle[&quot;/hello&quot;] = requestHandlers.hello;</span><br><span class="line"></span><br><span class="line">server.start(router.route, handle);</span><br></pre></td></tr></table></figure>
-<p>我们把handle对象作为额外的参数传递给服务器，为此将server.js修改如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&quot;http&quot;);</span><br><span class="line"></span><br><span class="line">var url = require(&quot;url&quot;);</span><br><span class="line"></span><br><span class="line">function start(route, handle) &#123;</span><br><span class="line"></span><br><span class="line">    function onRequest(request, response) &#123;</span><br><span class="line"></span><br><span class="line">        var pathname = url.parse(request.url).pathname;</span><br><span class="line"></span><br><span class="line">        console.log(&quot;Request for &quot; + pathname + &quot; received.&quot;);</span><br><span class="line"></span><br><span class="line">        route(handle, pathname);</span><br><span class="line"></span><br><span class="line">        response.writeHead(200, &#123;&quot;Content-Type&quot;: &quot;text/plain&quot;&#125;);</span><br><span class="line"></span><br><span class="line">        response.write(&quot;Hello World&quot;);</span><br><span class="line"></span><br><span class="line">        response.end();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    http.createServer(onRequest).listen(8888);</span><br><span class="line"></span><br><span class="line">    console.log(&quot;Server has started.&quot;);</span><br><span class="line"></span><br><span class="line">    console.log(&apos;Open http://localhost:8080/ in browser to checkout！&apos;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.start = start;</span><br></pre></td></tr></table></figure>
-<p>这样我们就在start()函数里添加了handle参数，并且把handle对象作为第一个参数传递给了route()回调函数。</p>
-<p>然后我们相应地在route.js文件中修改route()函数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function route(handle, pathname) &#123;</span><br><span class="line"></span><br><span class="line">  console.log(&quot;About to route a request for &quot; + pathname);</span><br><span class="line"></span><br><span class="line">  if (ypeof handle\[pathname] === &apos;function&apos;) &#123;</span><br><span class="line"></span><br><span class="line">    hadle\[pathname]();</span><br><span class="line"></span><br><span class="line">  &#125; else &#123;</span><br><span class="line"></span><br><span class="line">    console.log(&quot;No request handler found for &quot; + pathname);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.route = route;</span><br></pre></td></tr></table></figure>
-<p>处理post请求</p>
-<p>为了实现提交一个表单路由跳转并且输出提交信息，我们需要显示一个输入框供用户输入内容，然后通过POST请求提交给服务器。最后，服务器接受到请求，通过处理程序将输入的内容展示到浏览器中。</p>
-<p>/start请求处理程序用于生成带输入框的表单，我们将requestHandlers.js修改为如下形式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">function start(response) &#123;</span><br><span class="line"></span><br><span class="line">  console.log(&quot;Request handler &apos;start&apos; was called.&quot;);</span><br><span class="line"></span><br><span class="line">  var body = &apos;&lt;html&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;head&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; &apos;+</span><br><span class="line"></span><br><span class="line">    &apos;charset=UTF-8&quot; /&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;/head&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;body&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;form action=&quot;/hello&quot; method=&quot;post&quot;&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;textarea name=&quot;text&quot; rows=&quot;1&quot; cols=&quot;10&quot;&gt;&lt;/textarea&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;input type=&quot;submit&quot; value=&quot;Submit text&quot; /&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;/form&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;/body&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;/html&gt;&apos;;</span><br><span class="line"></span><br><span class="line">    response.writeHead(200, &#123;&quot;Content-Type&quot;: &quot;text/html&quot;&#125;);</span><br><span class="line"></span><br><span class="line">    response.write(body);</span><br><span class="line"></span><br><span class="line">    response.end();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function hello(response) &#123;</span><br><span class="line"></span><br><span class="line">  console.log(&quot;Request handler &apos;hello&apos; was called.&quot;);</span><br><span class="line"></span><br><span class="line">  response.writeHead(200, &#123;&quot;Content-Type&quot;: &quot;text/plain&quot;&#125;);</span><br><span class="line"></span><br><span class="line">  response.write(&quot;Hello hello&quot;);</span><br><span class="line"></span><br><span class="line">  response.end();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.start = start;</span><br><span class="line"></span><br><span class="line">exports.hello = hello;</span><br></pre></td></tr></table></figure>
-<p>服务器需要获取所有来自表单的数据，然后将数据传递给请求路由和请求处理函数进行进一步的处理。为了使整个过程非阻塞，Node.js会将POST数据拆分成很多小的数据块，然后通过触发特定的事件，将这些小数据块传递给回调函数。这里的特定的事件有data事件（表示新的小数据块到达了）以及end事件（表示所有的数据都已经接收完毕）。我们需要告诉Node.js当这些事件触发的时候，回调哪些函数。</p>
-<p>下面开始修改server.js：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&quot;http&quot;);</span><br><span class="line"></span><br><span class="line">var url = require(&quot;url&quot;);</span><br><span class="line"></span><br><span class="line">function start(route, handle) &#123;</span><br><span class="line"></span><br><span class="line">  function onRequest(request, response) &#123;</span><br><span class="line"></span><br><span class="line">    var postData = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">    var pathname = url.parse(request.url).pathname;</span><br><span class="line"></span><br><span class="line">    console.log(&quot;Request for &quot; + pathname + &quot; received.&quot;);</span><br><span class="line"></span><br><span class="line">    request.setEncoding(&quot;utf8&quot;);</span><br><span class="line"></span><br><span class="line">    request.addListener(&quot;data&quot;, function(postDataChunk) &#123;</span><br><span class="line"></span><br><span class="line">      postData += postDataChunk;</span><br><span class="line"></span><br><span class="line">      console.log(&quot;Received POST data chunk &apos;&quot;+</span><br><span class="line"></span><br><span class="line">      postDataChunk + &quot;&apos;.&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    request.addListener(&quot;end&quot;, function() &#123;</span><br><span class="line"></span><br><span class="line">      route(handle, pathname, response, postData);</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  http.createServer(onRequest).listen(8080);</span><br><span class="line"></span><br><span class="line">  console.log(&quot;Server has started.&quot;);</span><br><span class="line"></span><br><span class="line">  console.log(&apos;Open http://localhost:8080/ in browser to checkout！&apos;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.start = start;</span><br></pre></td></tr></table></figure>
-<p>我们接下来在/hello页面，展示用户输入的内容。要实现该功能，我们需要将postData传递给请求处理程序，修改router.js为如下形式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function route(handle, pathname, response, postData) &#123;</span><br><span class="line"></span><br><span class="line">  console.log(&quot;About to route a request for &quot; + pathname);</span><br><span class="line"></span><br><span class="line">  if (ypeof handle\[pathname] === &apos;function&apos;) &#123;</span><br><span class="line"></span><br><span class="line">    hadle\[pathname](response, postData);</span><br><span class="line"></span><br><span class="line">  &#125; else &#123;</span><br><span class="line"></span><br><span class="line">    console.log(&quot;No request handler found for &quot; + pathname);</span><br><span class="line"></span><br><span class="line">    response.writeHead(404, &#123;&quot;Content-Type&quot;: &quot;text/plain&quot;&#125;);</span><br><span class="line"></span><br><span class="line">    response.write(&quot;404 Not found&quot;);</span><br><span class="line"></span><br><span class="line">    response.end();</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.route = route;</span><br></pre></td></tr></table></figure>
-<p>我们现在可以接收POST数据并在请求处理程序中处理该数据了。</p>
-<p>我们最后要做的是： 把POST数据中，我们感兴趣的部分传递给请求路由和请求处理程序。在我们这个例子中，我们感兴趣的其实只是text字段。</p>
-<p>我们可以使用node内置的querystring模块来实现,修改requestHandlers.js:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">var querystring = require(&quot;querystring&quot;);</span><br><span class="line"></span><br><span class="line">function start(response, postData) &#123;</span><br><span class="line"></span><br><span class="line">  console.log(&quot;Request handler &apos;start&apos; was called.&quot;);</span><br><span class="line"></span><br><span class="line">  var body = &apos;&lt;html&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;head&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; &apos;+</span><br><span class="line"></span><br><span class="line">    &apos;charset=UTF-8&quot; /&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;/head&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;body&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;form action=&quot;/hello&quot; method=&quot;post&quot;&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;textarea name=&quot;text&quot; rows=&quot;1&quot; cols=&quot;10&quot;&gt;&lt;/textarea&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;input type=&quot;submit&quot; value=&quot;Submit text&quot; /&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;/form&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;/body&gt;&apos;+</span><br><span class="line"></span><br><span class="line">    &apos;&lt;/html&gt;&apos;;</span><br><span class="line"></span><br><span class="line">    response.writeHead(200, &#123;&quot;Content-Type&quot;: &quot;text/html&quot;&#125;);</span><br><span class="line"></span><br><span class="line">    response.write(body);</span><br><span class="line"></span><br><span class="line">    response.end();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function hello(response, postData) &#123;</span><br><span class="line"></span><br><span class="line">  console.log(&quot;Request handler &apos;hello&apos; was called.&quot;);</span><br><span class="line"></span><br><span class="line">  response.writeHead(200, &#123;&quot;Content-Type&quot;: &quot;text/plain&quot;&#125;);</span><br><span class="line"></span><br><span class="line">  response.write(&quot;Hello: &quot;+</span><br><span class="line"></span><br><span class="line">  querystring.parse(postData).text);</span><br><span class="line"></span><br><span class="line">  response.end();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.start = start;</span><br><span class="line"></span><br><span class="line">exports.hello = hello;</span><br></pre></td></tr></table></figure>
-<p>启动服务器打开<a href="http://localhost:8080/,输入用户名，页面就会跳转并输出欢迎信息" target="_blank" rel="noopener">http://localhost:8080/,输入用户名，页面就会跳转并输出欢迎信息</a>.</p>
-<p>查看<a href="https://github.com/shengxihu/Exercise/tree/master/node/node-1" target="_blank" rel="noopener">源码</a></p>
-<p>到目前为止，我们已经实现了一个简单的web应用，虽然它很简单，但是我们在编写过程中注重采用了模块化、解耦合的思想，这给了我们继续完善的空间，随着我们对node了解不断加深，我们可以基于它打造出功能更加强大的应用。</p>
-
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2016/05/26/Build-Your-First-Node-App/#more" class="more-link">Read More</a>
+          </div>
         
         
         <div class="alignright">
@@ -202,18 +355,7 @@
 
     <div class="entry">
       
-        
-    <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Javascript-library"><span class="toc-text">Javascript library</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Toolkit"><span class="toc-text">Toolkit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Javascript-framework"><span class="toc-text">Javascript framework</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Difference"><span class="toc-text">Difference</span></a></li></ol>
-    </div>
-
-        <ol>
-<li><a href="#Javascript-library">Javascript library</a></li>
-<li><a href="#Toolkit">Toolkit</a></li>
-<li><a href="#Javascript-framework">Javascript framework</a></li>
-<li><a href="#Difference">Difference</a></li>
-</ol>
-<h3 id="Javascript-library"><a href="#Javascript-library" class="headerlink" title="Javascript library"></a><a href="#Javascript-library" title="Javascript library"></a>Javascript library</h3><p>库的的概念和意义是用来提供一些方法的集合，避免重复定义相同功能的函数并具有一定的模式兼容性。库通常缺乏任何目的或意图的,并且旨在使用和集成客户端代码，协助客户端代码执行它的任务，常见的工具包如JQuery。</p>
+        <h3 id="Javascript-library"><a href="#Javascript-library" class="headerlink" title="Javascript library"></a><a href="#Javascript-library" title="Javascript library"></a>Javascript library</h3><p>库的的概念和意义是用来提供一些方法的集合，避免重复定义相同功能的函数并具有一定的模式兼容性。库通常缺乏任何目的或意图的,并且旨在使用和集成客户端代码，协助客户端代码执行它的任务，常见的工具包如JQuery。</p>
 <h3 id="Toolkit"><a href="#Toolkit" class="headerlink" title="Toolkit"></a><a href="#Toolkit" title="Toolkit"></a>Toolkit</h3><p>工具是一个有着特定目的的库，我的理解是它一般用来解决开发中的部分问题，或者说它提供了一个完整应用的单独的解决方案，比如说事件传递、控制流程或者网络通信等中的一个，常见的工具包如superagent。</p>
 <h3 id="Javascript-framework"><a href="#Javascript-framework" class="headerlink" title="Javascript framework"></a><a href="#Javascript-framework" title="Javascript framework"></a>Javascript framework</h3><p>Javascript framework可以用来组织大型应用，提供几乎完整的解决方案。对于大型前端框架来说需要提供这些解决方案：</p>
 <ul>
@@ -228,24 +370,14 @@
 <li><p>路由管理</p>
 </li>
 </ul>
-<h3 id="Difference"><a href="#Difference" class="headerlink" title="Difference"></a><a href="#Difference" title="Difference"></a>Difference</h3><p>Javascript framework 和 Javascript library的区别再于：inversion of control，也就是：</p>
-<blockquote>
-<p>your code calls a library but a framework calls your code.</p>
-</blockquote>
-<p>意思是：</p>
-<ul>
-<li><p>当你在调用library的时候， 你按照自己的意愿来control他（比如jQuery）。</p>
-</li>
-<li><p>对于framework， 那么control就是倒转过来了，是他在调用你（比如Vue), 就像是Hollywood的一个principle: Don’t call Us, We’ll call You.</p>
-</li>
-</ul>
-<p>在使用framework的时候，自定义代码仅仅关注处理事件本身，由event loop 和 dispatch的events/messages机制来进行事件调用，它们是由framework或者运行时环境提供的。</p>
-<p>Inversion of Control是一个framework和一个library的根本区别，library从本质上来讲是一组你可以调用的函数，这些通常组织成类，每次调用做些处理然后将控制权返还给客户端。一个框架包含了一些抽象的设计，内置更多的钩子，为了使用这些钩子，你需你需要通过将框架子类化或者在这些地方插入自己的类。然后框架会在这些地方调用你的自定义代码。</p>
-
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2016/05/01/What-s-the-difference-between-a-JavaScript-framework-and-a-library/#more" class="more-link">Read More</a>
+          </div>
         
         
         <div class="alignright">
@@ -277,35 +409,18 @@
 
     <div class="entry">
       
-        
-    <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vuejs-event-system"><span class="toc-text">Vuejs-event-system</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#组件之间通信的原则"><span class="toc-text">组件之间通信的原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义事件"><span class="toc-text">自定义事件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#全局事件总线-global-event-bus"><span class="toc-text">全局事件总线(global event bus)</span></a></li></ol></li></ol></li></ol></li></ol>
-    </div>
-
-        <h1 id="Vuejs-event-system"><a href="#Vuejs-event-system" class="headerlink" title="Vuejs-event-system"></a>Vuejs-event-system</h1><ol>
-<li><a href="#组件之间通信的原则">组件之间通信的原则</a></li>
-<li><a href="#实现">实现</a><ol>
-<li><a href="#自定义事件">自定义事件</a></li>
-<li><a href="#全局事件总线-global-event-bus">全局事件总线(global event bus)</a></li>
-</ol>
-</li>
-</ol>
-<p>在开发多组件应用是，经常涉及到不同组件之间的通信问题，组件的作用域是相互独立的，我们当然可以直接引用父子组件来同步组件之间的状态，然而这种实现是高耦合的，与我们组件化的思想刚好相悖。<br>使用一种合理的组件之间的通信方式有利于提高组件的健壮性与可维护性。</p>
+        <h1 id="Vuejs-event-system"><a href="#Vuejs-event-system" class="headerlink" title="Vuejs-event-system"></a>Vuejs-event-system</h1><p>在开发多组件应用是，经常涉及到不同组件之间的通信问题，组件的作用域是相互独立的，我们当然可以直接引用父子组件来同步组件之间的状态，然而这种实现是高耦合的，与我们组件化的思想刚好相悖。<br>使用一种合理的组件之间的通信方式有利于提高组件的健壮性与可维护性。</p>
 <h3 id="组件之间通信的原则"><a href="#组件之间通信的原则" class="headerlink" title="组件之间通信的原则"></a><a href="#组件之间通信的原则" title="组件之间通信的原则"></a>组件之间通信的原则</h3><p>使用props从父组件向子组件传递数据</p>
 <p>使用event从子组件通知父组件改变数据</p>
 <h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a><a href="#实现" title="实现"></a>实现</h3><h4 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a><a href="#自定义事件" title="自定义事件"></a>自定义事件</h4><p>使用自定义事件，我们可以在子组件触发事件，在父组件监听事件。</p>
-<p>于是父子组件的通信可以实现为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 父组件 --&gt;</span><br><span class="line">&lt;div id=&quot;example&quot;&gt;</span><br><span class="line">	&lt;p&gt;&#123;&#123; total &#125;&#125;&lt;/p&gt;</span><br><span class="line">	&lt;App v-on:incre=&quot;incrementTotal&quot;&gt;&lt;/App&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">	el: &apos;#example&apos;,</span><br><span class="line">		data: &#123;</span><br><span class="line">			total: 0</span><br><span class="line">		&#125;,</span><br><span class="line">	components:&#123;</span><br><span class="line">		App: App</span><br><span class="line">	&#125;,</span><br><span class="line">	methods: &#123;</span><br><span class="line">		incrementTotal() &#123;</span><br><span class="line">			this.total += 1</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&lt;!-- 子组件 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;button v-on:click=&quot;increment&quot;&gt;&#123;&#123; counter &#125;&#125;&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;app&apos;,</span><br><span class="line">  data: function () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      counter: 0</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    increment() &#123;</span><br><span class="line">      this.counter += 1</span><br><span class="line">      this.$emit(&apos;incre&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="全局事件总线-global-event-bus"><a href="#全局事件总线-global-event-bus" class="headerlink" title="全局事件总线(global event bus)"></a><a href="#全局事件总线-global-event-bus" title="全局事件总线(global event bus)"></a>全局事件总线(global event bus)</h4><p>Vue本身实现了一套独立于原生事件之外的的事件系统，我们可以实例化一个Vue构造函数，在父组件中利用这个实例注册注册一个监听事件，然后在子组件中触发这个事件。</p>
-<p>于是父子组件之间的通信可以实现为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 父组件 --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">		&lt;msg :bus=&apos;bus&apos;&gt;&lt;/msg&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">var bus = new Vue()</span><br><span class="line">this.bus.$on(&apos;evt&apos;,function () &#123;</span><br><span class="line">  console.log(&apos;On!&apos;)</span><br><span class="line">&#125;)</span><br><span class="line">export default &#123;</span><br><span class="line">	name: &apos;app&apos;,</span><br><span class="line">	data() &#123;</span><br><span class="line">		return &#123;</span><br><span class="line">			bus: bus</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	components: &#123;</span><br><span class="line">		Msg</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- 子组件 --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">		&lt;h1 @click=&quot;test&quot;&gt;&#123;&#123; msg &#125;&#125;&lt;/h1&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">	name: &apos;hello&apos;,</span><br><span class="line">	props: \[&apos;bus&apos;\],</span><br><span class="line">	data () &#123;</span><br><span class="line">		return &#123;</span><br><span class="line">			msg: &apos;Welcome to Your Vue.js App&apos;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	methods:&#123;</span><br><span class="line">		test()&#123;</span><br><span class="line">			console.log(&apos;Emit!&apos;)</span><br><span class="line">			this.bus.$emit(&apos;evt&apos;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在同一个Vue实例上可以触发并监听事件，因此我们可以在父组件中实例化一个Vue构造函数，在一个组件中绑定监听函数，在另一个平行组件中触发这个函数。<br>于是同级组件之间的通信可以实现为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 父组件 --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">		&lt;hello :bus=&apos;bus&apos;&gt;&lt;/hello&gt;</span><br><span class="line">		&lt;msg :bus=&apos;bus&apos;&gt;&lt;/msg&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">var bus = new Vue()</span><br><span class="line">export default &#123;</span><br><span class="line">	name: &apos;app&apos;,</span><br><span class="line">	data() &#123;</span><br><span class="line">		return &#123;</span><br><span class="line">			bus: bus</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	components: &#123;</span><br><span class="line">		Hello,</span><br><span class="line">		Msg</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- 子组件A --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">		&lt;h1&gt;&#123;&#123; msg &#125;&#125;&lt;/h1&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">	name: &apos;hello&apos;,</span><br><span class="line">	props: [&apos;bus&apos;],</span><br><span class="line">	data () &#123;</span><br><span class="line">		return &#123;</span><br><span class="line">			msg: &apos;Welcome to Your Vue.js App&apos;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	mounted()&#123;</span><br><span class="line">		this.bus.$on(&apos;evt&apos;,function () &#123;</span><br><span class="line">			console.log(&apos;On!&apos;)</span><br><span class="line">		&#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- 子组件B --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div class=&quot;msg&quot;&gt;</span><br><span class="line">		&lt;h1 @click=&quot;test&quot;&gt;&#123;&#123; msg &#125;&#125;&lt;/h1&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">	name: &apos;hello&apos;,</span><br><span class="line">	props: [&apos;bus&apos;],</span><br><span class="line">	data () &#123;</span><br><span class="line">		return &#123;</span><br><span class="line">			msg: &apos;Welcome to Your Vue.js App&apos;</span><br><span class="line">		&#125;</span><br><span class="line">  &#125;,</span><br><span class="line">	methods:&#123;</span><br><span class="line">		test() &#123;</span><br><span class="line">			console.log(&apos;Emit!&apos;)</span><br><span class="line">			this.bus.$emit(&apos;evt&apos;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2016/04/05/Vuejs-event-system/#more" class="more-link">Read More</a>
+          </div>
         
         
         <div class="alignright">
@@ -337,58 +452,16 @@
 
     <div class="entry">
       
-        
-    <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS-reset"><span class="toc-text">CSS reset</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是CSS－reset"><span class="toc-text">什么是CSS－reset</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要进行CSS-reset"><span class="toc-text">为什么要进行CSS-reset</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#html标签默认样式"><span class="toc-text">html标签默认样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器默认样式"><span class="toc-text">浏览器默认样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一份CSS－reset代码"><span class="toc-text">一份CSS－reset代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#到底要不要用CSS－reset"><span class="toc-text">到底要不要用CSS－reset</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li></ol></li></ol>
-    </div>
-
-        <h1 id="CSS-reset"><a href="#CSS-reset" class="headerlink" title="CSS reset"></a>CSS reset</h1><ol>
-<li><a href="#什么是CSS－reset">什么是CSS－reset</a></li>
-<li><a href="#为什么要进行CSS-reset">为什么要进行CSS-reset</a></li>
-<li><a href="#html标签默认样式">html标签默认样式</a></li>
-<li><a href="#浏览器默认样式">浏览器默认样式</a></li>
-<li><a href="#一份CSS－reset代码">一份CSS－reset代码</a></li>
-<li><a href="#到底要不要用CSS－reset">到底要不要用CSS－reset</a></li>
-<li><a href="#总结">总结</a></li>
-</ol>
-<h3 id="什么是CSS－reset"><a href="#什么是CSS－reset" class="headerlink" title="什么是CSS－reset"></a><a href="#什么是CSS－reset" title="什么是CSS－reset"></a>什么是CSS－reset</h3><p>CSS-reset是指在开发一开始就将浏览器的默认样式全部去掉，更准确说就是通过重新定义标签样式。“覆盖”浏览器的CSS默认属性。最最简单的说法就是把浏览器提供的默认样式覆盖掉！这就是CSS reset。</p>
+        <h1 id="CSS-reset"><a href="#CSS-reset" class="headerlink" title="CSS reset"></a>CSS reset</h1><h3 id="什么是CSS－reset"><a href="#什么是CSS－reset" class="headerlink" title="什么是CSS－reset"></a><a href="#什么是CSS－reset" title="什么是CSS－reset"></a>什么是CSS－reset</h3><p>CSS-reset是指在开发一开始就将浏览器的默认样式全部去掉，更准确说就是通过重新定义标签样式。“覆盖”浏览器的CSS默认属性。最最简单的说法就是把浏览器提供的默认样式覆盖掉！这就是CSS reset。</p>
 <h3 id="为什么要进行CSS-reset"><a href="#为什么要进行CSS-reset" class="headerlink" title="为什么要进行CSS-reset"></a><a href="#为什么要进行CSS-reset" title="为什么要进行CSS-reset"></a>为什么要进行CSS-reset</h3><p>在HTML标签在浏览器里有默认的样式，例如 <code>p</code> 标签有上下边距，<code>strong</code>标签有字体加粗样式，<code>em</code>标签有字体倾斜样式。不同浏览器的默认样式之间也会有差别，例如<code>ul</code>默认带有缩进的样式，在IE下，它的缩进是通过<code>margin</code>实现的，而Firefox下，它的缩进是由<code>padding</code>实现的。在切换页面的时候，浏览器的默认样式往往会给我们带来麻烦，影响开发效率。同时，因为浏览器的品种很多，每个浏览器的默认样式也是不同的，比如标签，在IE浏览器、Firefox浏览器以及Safari浏览器中的样式都是不同的，所以，通过重置<code>button</code>标签的CSS属性，然后再将它统一定义，就可以产生相同的显示效果。</p>
-<h3 id="html标签默认样式"><a href="#html标签默认样式" class="headerlink" title="html标签默认样式"></a><a href="#html标签默认样式" title="html标签默认样式"></a>html标签默认样式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line">li &#123; display: list-item &#125;/*默认以列表显示*/</span><br><span class="line"></span><br><span class="line">head &#123; display: none &#125;/*默认不显示*/</span><br><span class="line"></span><br><span class="line">table &#123; display: table &#125;/*默认为表格显示*/</span><br><span class="line"></span><br><span class="line">tr &#123; display: table-row &#125;/*默认为表格行显示*/</span><br><span class="line"></span><br><span class="line">thead &#123; display: table-header-group &#125;/*默认为表格头部分组显示*/</span><br><span class="line"></span><br><span class="line">tbody &#123; display: table-row-group &#125;/*默认为表格行分组显示*/</span><br><span class="line"></span><br><span class="line">tfoot &#123; display: table-footer-group &#125;/*默认为表格底部分组显示*/</span><br><span class="line"></span><br><span class="line">col &#123; display: table-column &#125;/*默认为表格列显示*/</span><br><span class="line"></span><br><span class="line">colgroup &#123; display: table-column-group &#125;/*默认为表格列分组显示*/</span><br><span class="line"></span><br><span class="line">td, th &#123; display: table-cell; &#125;/*默认为单元格显示*/</span><br><span class="line"></span><br><span class="line">caption &#123; display: table-caption &#125;/*默认为表格标题显示*/</span><br><span class="line"></span><br><span class="line">th &#123; font-weight: bolder; text-align: center &#125;/*默认为表格标题显示，呈现加粗居中状态*/</span><br><span class="line"></span><br><span class="line">caption &#123; text-align: center &#125;/*默认为表格标题显示，呈现居中状态*/</span><br><span class="line"></span><br><span class="line">body &#123; margin: 8px; line-height: 1.12 &#125;</span><br><span class="line"></span><br><span class="line">h1 &#123; font-size: 2em; margin: .67em 0 &#125;</span><br><span class="line"></span><br><span class="line">h2 &#123; font-size: 1.5em; margin: .75em 0 &#125;</span><br><span class="line"></span><br><span class="line">h3 &#123; font-size: 1.17em; margin: .83em 0 &#125;</span><br><span class="line"></span><br><span class="line">h4, p, blockquote, ul, fieldset, form, ol, dl, dir, menu &#123; margin: 1.12em 0 &#125;</span><br><span class="line"></span><br><span class="line">h5 &#123; font-size: .83em; margin: 1.5em 0 &#125;</span><br><span class="line"></span><br><span class="line">h6 &#123; font-size: .75em; margin: 1.67em 0 &#125;</span><br><span class="line"></span><br><span class="line">h1, h2, h3, h4, h5, h6, b,strong &#123; font-weight: bolder &#125;</span><br><span class="line"></span><br><span class="line">blockquote &#123; margin-left: 40px; margin-right: 40px &#125;</span><br><span class="line"></span><br><span class="line">i, cite, em,var, address &#123; font-style: italic &#125;</span><br><span class="line"></span><br><span class="line">pre, tt, code, kbd, samp &#123; font-family: monospace &#125;</span><br><span class="line"></span><br><span class="line">pre &#123; white-space: pre &#125;</span><br><span class="line"></span><br><span class="line">button, textarea, input, object, select &#123; display:inline-block; &#125;</span><br><span class="line"></span><br><span class="line">big &#123; font-size: 1.17em &#125;</span><br><span class="line"></span><br><span class="line">small, sub, sup &#123; font-size: .83em &#125;</span><br><span class="line"></span><br><span class="line">sub &#123; vertical-align: sub &#125;/*定义sub元素默认为下标显示*/</span><br><span class="line"></span><br><span class="line">sup &#123; vertical-align: super &#125;/*定义sub元素默认为上标显示*/</span><br><span class="line"></span><br><span class="line">table &#123; border-spacing: 2px; &#125;</span><br><span class="line"></span><br><span class="line">thead, tbody, tfoot &#123; vertical-align: middle &#125;/*定义表头、主体表、表脚元素默认为垂直对齐*/</span><br><span class="line"></span><br><span class="line">td, th &#123; vertical-align: inherit &#125;/*定义单元格、列标题默认为垂直对齐默认为继承*/</span><br><span class="line"></span><br><span class="line">s, strike, del &#123; text-decoration: line-through &#125;/*定义这些元素默认为删除线显示*/</span><br><span class="line"></span><br><span class="line">hr &#123; border: 1px inset &#125;/*定义分割线默认为1px宽的3D凹边效果*/</span><br><span class="line"></span><br><span class="line">ol, ul, dir, menu, dd &#123; margin-left: 40px &#125;</span><br><span class="line"></span><br><span class="line">ol &#123; list-style-type: decimal &#125;</span><br><span class="line"></span><br><span class="line">ol ul, ul ol, ul ul, ol ol &#123; margin-top: 0; margin-bottom: 0 &#125;</span><br><span class="line"></span><br><span class="line">u, ins &#123; text-decoration: underline &#125;</span><br><span class="line"></span><br><span class="line">br:before &#123; content: &quot;&quot;A&quot; &#125;/*定义换行元素的伪对象内容样式*/</span><br><span class="line"></span><br><span class="line">:before, :after &#123; white-space: pre-line &#125;/*定义伪对象空格字符的默认样式*/</span><br><span class="line"></span><br><span class="line">center &#123; text-align: center &#125;</span><br><span class="line"></span><br><span class="line">abbr, acronym &#123; font-variant: small-caps; letter-spacing: 0.1em &#125;</span><br><span class="line"></span><br><span class="line">:link, :visited &#123; text-decoration: underline &#125;</span><br><span class="line"></span><br><span class="line">:focus &#123; outline: thin dotted invert &#125;</span><br><span class="line"></span><br><span class="line">\* Begin bidirectionality settings (do not change) */</span><br><span class="line"></span><br><span class="line">BDO[DIR=&quot;ltr&quot;] &#123; direction: ltr; unicode-bidi: bidi-override &#125;/*定义BDO元素当其属性为DIR=&quot;ltr&quot;时的默认文本读写显示顺序*/</span><br><span class="line"></span><br><span class="line">BDO[DIR=&quot;rtl&quot;] &#123; direction: rtl; unicode-bidi: bidi-override &#125;/*定义BDO元素当其属性为DIR=&quot;rtl&quot;时的默认文本读写显示顺序*/</span><br><span class="line"></span><br><span class="line">*[DIR=&quot;ltr&quot;] &#123; direction: ltr; unicode-bidi: embed &#125;/*定义任何元素当其属性为DIR=&quot;ltr&quot;时的默认文本读写显示顺序*/</span><br><span class="line"></span><br><span class="line">*[DIR=&quot;rtl&quot;] &#123; direction: rtl; unicode-bidi: embed &#125;/*定义任何元素当其属性为DIR=&quot;rtl&quot;时的默认文本读写显示顺序*/</span><br><span class="line"></span><br><span class="line">@media print &#123; /*定义标题和列表默认的打印样式*/</span><br><span class="line"></span><br><span class="line">h1 &#123; page-break-before: always &#125;</span><br><span class="line"></span><br><span class="line">h1, h2, h3, h4, h5, h6 &#123; page-break-after: avoid &#125;</span><br><span class="line"></span><br><span class="line">ul, ol, dl &#123; page-break-before: avoid &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="浏览器默认样式"><a href="#浏览器默认样式" class="headerlink" title="浏览器默认样式"></a><a href="#浏览器默认样式" title="浏览器默认样式"></a>浏览器默认样式</h3><p>1.页边距<br>IE默认为<code>10px</code>，通过<code>body</code>的<code>margin</code>属性设置<br>FF默认为<code>8px</code>，通过<code>body</code>的<code>padding</code>属性设置<br>要清除页边距一定要清除这两个属性值</p>
-<p>代码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">    margin:0;</span><br><span class="line">    padding:0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2.段间距<br>IE默认为19px，通过p的margin-top属性设置<br>FF默认为1.12em，通过p的margin-bottom属性设<br>p默认为块状显示，要清除段间距，一般可以设置</p>
-<p>代码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">p &#123;</span><br><span class="line">    margin-top:0;</span><br><span class="line">    margin-bottom:0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3.标题样式</p>
-<p>h1~h6默认加粗显示：<code>font-weight:bold;</code>。<br>默认大小请参上表<br>还有是这样的写的</p>
-<p>代码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;font-size:xx-large;&#125;</span><br><span class="line"></span><br><span class="line">h2 &#123;font-size:x-large;&#125;</span><br><span class="line"></span><br><span class="line">h3 &#123;font-size:large;&#125;</span><br><span class="line"></span><br><span class="line">h4 &#123;font-size:medium;&#125;</span><br><span class="line"></span><br><span class="line">h5 &#123;font-size:small;&#125;</span><br><span class="line"></span><br><span class="line">h6 &#123;font-size:x-small;&#125;</span><br></pre></td></tr></table></figure>
-<p>各大浏览器默认字体大小为16px，即等于medium，h1~h6元素默认以块状显示字体显示为粗体，<br>要清除标题样式，一般可以设置</p>
-<p>代码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hx &#123;</span><br><span class="line">    font-weight:normal;</span><br><span class="line">    font-size:value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>4.列表样式<br>IE默认为<code>40px</code>，通过<code>ul</code>、<code>ol</code>的<code>margin</code>属性设置<br>FF默认为<code>40px</code>，通过<code>ul</code>、<code>ol</code>的<code>padding</code>属性设置<br><code>dl</code>无缩进，但起内部的说明元素<code>dd</code>默认缩进<code>40px</code>，而名称元素<code>dt</code>没有缩进。<br>要清除列表样式，一般可以设置</p>
-<p>代码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ul, ol, dd &#123;</span><br><span class="line">    list-style-type:none;/*清楚列表样式符*/</span><br><span class="line"></span><br><span class="line">    margin-left:0;/*清楚IE左缩进*/</span><br><span class="line"></span><br><span class="line">    padding-left:0;/*清楚非IE左缩进*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>5.元素居中<br>IE默认为<code>text-align:center;</code><br>FF默认为<code>margin-left:auto;margin-right:auto;</code></p>
-<p>6.超链接样式<br><code>a</code>默认带有下划线，显示颜色为蓝色，被访问过的超链接变紫色，要清除链接样式，一般可以设置</p>
-<p>代码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a &#123;</span><br><span class="line">    text-decoration:none;</span><br><span class="line">    color:#colorname;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>7 鼠标样式<br>IE默认为<code>cursor:hand;</code>.<br>FF默认为<code>cursor:pointer;</code>.该声明在IE中也有效</p>
-<p>8 图片链接样式<br>IE默认为紫色<code>2px</code>的边框线<br>FF默认为蓝色<code>2px</code>的边框线<br>要清除图片链接样式，一般可以设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">img &#123;</span><br><span class="line">    border:0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="一份CSS－reset代码"><a href="#一份CSS－reset代码" class="headerlink" title="一份CSS－reset代码"></a><a href="#一份CSS－reset代码" title="一份CSS－reset代码"></a>一份CSS－reset代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/*</span><br><span class="line">html5doctor.com Reset Stylesheet</span><br><span class="line"></span><br><span class="line">v1.4.1</span><br><span class="line"></span><br><span class="line">2010-03-01</span><br><span class="line"></span><br><span class="line">Author: Richard Clark - http://richclarkdesign.com</span><br><span class="line"></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">html, body, div, span, object, iframe,</span><br><span class="line"></span><br><span class="line">h1, h2, h3, h4, h5, h6, p, blockquote, pre,</span><br><span class="line"></span><br><span class="line">abbr, address, cite, code,</span><br><span class="line"></span><br><span class="line">del, dfn, em, img, ins, kbd, q, samp,</span><br><span class="line"></span><br><span class="line">small, strong, sub, sup, var,</span><br><span class="line"></span><br><span class="line">b, i,</span><br><span class="line"></span><br><span class="line">dl, dt, dd, ol, ul, li,</span><br><span class="line"></span><br><span class="line">fieldset, form, label, legend,</span><br><span class="line"></span><br><span class="line">table, caption, tbody, tfoot, thead, tr, th, td,</span><br><span class="line"></span><br><span class="line">article, aside, canvas, details, figcaption, figure,</span><br><span class="line"></span><br><span class="line">footer, header, hgroup, menu, nav, section, summary,</span><br><span class="line"></span><br><span class="line">time, mark, audio, video &#123;</span><br><span class="line"></span><br><span class="line">    margin:0;</span><br><span class="line"></span><br><span class="line">    padding:0;</span><br><span class="line"></span><br><span class="line">    border:0;</span><br><span class="line"></span><br><span class="line">    outline:0;</span><br><span class="line"></span><br><span class="line">    font-size:100%;</span><br><span class="line"></span><br><span class="line">    vertical-align:baseline;</span><br><span class="line"></span><br><span class="line">    background:transparent;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">body &#123;</span><br><span class="line"></span><br><span class="line">    line-height:1;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">:focus &#123;</span><br><span class="line"></span><br><span class="line">    outline: 1;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">article,aside,canvas,details,figcaption,figure,</span><br><span class="line"></span><br><span class="line">footer,header,hgroup,menu,nav,section,summary &#123;</span><br><span class="line"></span><br><span class="line">    display:block;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">nav ul &#123;</span><br><span class="line"></span><br><span class="line">    list-style:none;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">blockquote, q &#123;</span><br><span class="line"></span><br><span class="line">    quotes:none;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">blockquote:before, blockquote:after,</span><br><span class="line"></span><br><span class="line">q:before, q:after &#123;</span><br><span class="line"></span><br><span class="line">    content:&apos;&apos;;</span><br><span class="line"></span><br><span class="line">    content:none;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a &#123;</span><br><span class="line"></span><br><span class="line">    margin:0;</span><br><span class="line"></span><br><span class="line">    padding:0;</span><br><span class="line"></span><br><span class="line">    border:0;</span><br><span class="line"></span><br><span class="line">    font-size:100%;</span><br><span class="line"></span><br><span class="line">    vertical-align:baseline;</span><br><span class="line"></span><br><span class="line">    background:transparent;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ins &#123;</span><br><span class="line"></span><br><span class="line">    background-color:#ff9;</span><br><span class="line"></span><br><span class="line">    color:#000;</span><br><span class="line"></span><br><span class="line">    text-decoration:none;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mark &#123;</span><br><span class="line"></span><br><span class="line">    background-color:#ff9;</span><br><span class="line"></span><br><span class="line">    color:#000;</span><br><span class="line"></span><br><span class="line">    font-style:italic;</span><br><span class="line"></span><br><span class="line">    font-weight:bold;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">del &#123;</span><br><span class="line"></span><br><span class="line">    text-decoration: line-through;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">abbr[title], dfn[title] &#123;</span><br><span class="line"></span><br><span class="line">    border-bottom:1px dotted #000;</span><br><span class="line"></span><br><span class="line">    cursor:help;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">table &#123;</span><br><span class="line"></span><br><span class="line">    border-collapse:collapse;</span><br><span class="line"></span><br><span class="line">    border-spacing:0;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hr &#123;</span><br><span class="line"></span><br><span class="line">    display:block;</span><br><span class="line"></span><br><span class="line">    height:1px;</span><br><span class="line"></span><br><span class="line">    border:0;</span><br><span class="line"></span><br><span class="line">    border-top:1px solid #cccccc;</span><br><span class="line"></span><br><span class="line">    margin:1em 0;</span><br><span class="line"></span><br><span class="line">    padding:0;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">input, select &#123;</span><br><span class="line"></span><br><span class="line">    vertical-align:middle;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="到底要不要用CSS－reset"><a href="#到底要不要用CSS－reset" class="headerlink" title="到底要不要用CSS－reset"></a><a href="#到底要不要用CSS－reset" title="到底要不要用CSS－reset"></a>到底要不要用CSS－reset</h3><p>那些所谓的需要重置的标签<br>我现在问您一个问题，在您制作的或参与开发的页面中，h1~h6标签您使用了几个，我想不可能全部都使用吧，使用三种类型的标题标签就不多了。您有必要对h1~h6所有标签都使用<code>margin</code>的清除吗？ OK，我们现在换个角度思考，假如我们没有对h1~h6标签设置<code>{ margin:0; }</code>的重置怎么办？从SEO的角度讲，一个页面最多只能出现一个h1标签，所以，显然，h1标签的CSS reset完全没有必要，页面什么地方用就设置相应的样式，只要你记住，h1标签是有个默认的<code>margin-top</code>与<code>margin-bottom</code>值的，所以，我们就可以由这样的属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">h1&#123;margin:10px 0 0;&#125;</span><br></pre></td></tr></table></figure>
-<p>对比下CSS reset下的使用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1, h2, h3, h4, h5, h6&#123;margin:0;&#125;</span><br><span class="line"></span><br><span class="line">h1&#123;margin-top:10px;&#125;</span><br></pre></td></tr></table></figure>
-<p>使用CSS reset不仅文件大小增加了，CSS代码属性也发生了重置，CSS渲染也增加了。显然不及没有CSS reset来的高效。我们将这些标签重置，在后面的css中很大程度上又要重新设置它，这反而增加了浏览器的渲染，与其这样，还不如在使用它的地方直接将它设定到合适的值，这样不仅达到了效果，反而减少了渲染。回过来，就算有一些差异，为何非得在头部CSS reset的位置统一呢？当需要的时候，再设置，反而更合理，更高效！</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><a href="#总结" title="总结"></a>总结</h3><p>对于CSS－reset,我也觉得没有太大的使用必要，在开发过程中，开发者只要熟悉各个标签的默认样式，对于需要重新设置的属性在合适的地方显式的设置。在学习过程中渐渐熟悉在不同浏览器中表现有所不同的标签，并且合理的设置属性值就可以了。</p>
-
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2016/03/01/CSS-reset/#more" class="more-link">Read More</a>
+          </div>
         
         
         <div class="alignright">
@@ -420,127 +493,23 @@
 
     <div class="entry">
       
-        
-    <div id="toc">
-        
-    </div>
-
         <p>水平垂直居中是前端CSS编码中很常见的需求，本文将总结几种不同的写法。</p>
 <p>一、垂直居中</p>
 <p>1.line-height</p>
 <p>如果元素内容是单行文本元素，将父元素的高度和行高设为一样就能实现垂直居中效果：</p>
 <iframe height="265" scrolling="no" title="eVZaRN" src="//codepen.io/no1024/embed/eVZaRN/?height=265&theme-id=0&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/no1024/pen/eVZaRN/" target="_blank" rel="noopener">eVZaRN</a> by shengxihu (<a href="https://codepen.io/no1024" target="_blank" rel="noopener">@no1024</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
-
-<p>如果要居中元素是行内元素或者行内块级元素，居中方法为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.father_class &#123;</span><br><span class="line">    /* $height为父元素高度 */</span><br><span class="line">    height: $height;</span><br><span class="line">    line-height: $height;</span><br><span class="line">    font-size: 0;</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">.child_class &#123;</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>居中效果如下：</p>
-<iframe height="265" scrolling="no" title="KQzLVE" src="//codepen.io/no1024/embed/KQzLVE/?height=265&theme-id=0&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/no1024/pen/KQzLVE/" target="_blank" rel="noopener">KQzLVE</a> by shengxihu (<a href="https://codepen.io/no1024" target="_blank" rel="noopener">@no1024</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
-
-<p>2.absolute + 负margin</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.father_class &#123;</span><br><span class="line">    /* $height_father为父元素高度 */</span><br><span class="line">    height: $height_father;</span><br><span class="line">    position: relative;</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">.child_class &#123;</span><br><span class="line">    /* $height_child为子元素高度 */</span><br><span class="line">    height: $height_child;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 50%;</span><br><span class="line">    margin-top: -($height_child/2);</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>position: absolute + margin: auto<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.father_class &#123;</span><br><span class="line">    /* $height_father为父元素高度 */</span><br><span class="line">    height: $height_father;</span><br><span class="line">    position: relative;</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">.child_class &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    margin: auto;</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>居中效果如下：</p>
-<iframe height="265" scrolling="no" title="aqNgbL" src="//codepen.io/no1024/embed/aqNgbL/?height=265&theme-id=0&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/no1024/pen/aqNgbL/" target="_blank" rel="noopener">aqNgbL</a> by shengxihu (<a href="https://codepen.io/no1024" target="_blank" rel="noopener">@no1024</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
-
-<p>4.absolute + calc<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.father_class &#123;</span><br><span class="line">    /* $height_father为父元素高度 */</span><br><span class="line">    height: $height_father;</span><br><span class="line">    position: relative;</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">.child_class &#123;</span><br><span class="line">    /* $height_child为父元素高度 */</span><br><span class="line">    height: $height_child;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: calc(50% -$height_child/2);</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>居中效果如图：</p>
-<iframe height="265" scrolling="no" title="mXPNdJ" src="//codepen.io/no1024/embed/mXPNdJ/?height=265&theme-id=0&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/no1024/pen/mXPNdJ/" target="_blank" rel="noopener">mXPNdJ</a> by shengxihu (<a href="https://codepen.io/no1024" target="_blank" rel="noopener">@no1024</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
-
-<p>5.absolute + transform</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.father_class &#123;</span><br><span class="line">    /* $height_father为父元素高度 */</span><br><span class="line">    height: $height_father;</span><br><span class="line">    position: relative;</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">.child_class &#123;</span><br><span class="line">    /* $height_child为父元素高度 */</span><br><span class="line">    height: $height_child;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 50%;</span><br><span class="line">    transform: translateY(-50%);</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>居中效果如下：</p>
-<iframe height="265" scrolling="no" title="RQaXaW" src="//codepen.io/no1024/embed/RQaXaW/?height=265&theme-id=0&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/no1024/pen/RQaXaW/" target="_blank" rel="noopener">RQaXaW</a> by shengxihu (<a href="https://codepen.io/no1024" target="_blank" rel="noopener">@no1024</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
-
-<p>6.table + vertical-align:middle<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.father_class &#123;</span><br><span class="line">    display:table-cell;</span><br><span class="line">    vertical-align:middle;</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>居中效果如下：</p>
-<iframe height="265" scrolling="no" title="table-cell" src="//codepen.io/no1024/embed/LQZVjW/?height=265&theme-id=0&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/no1024/pen/LQZVjW/" target="_blank" rel="noopener">table-cell</a> by shengxihu (<a href="https://codepen.io/no1024" target="_blank" rel="noopener">@no1024</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
-
-<p>7.css table</p>
-<p>将要居中的元素包裹在完整的表结构中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;tbody&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td class=&quot;box&quot;&gt;</span><br><span class="line">                &lt;p class=&quot;content&quot;&gt;Hello World!!!&lt;/p&gt;</span><br><span class="line">            &lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">    &lt;/tbody&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
-<p>居中效果如下：</p>
-<iframe height="265" scrolling="no" title="css table" src="//codepen.io/no1024/embed/XZKmVz/?height=265&theme-id=0&default-tab=html,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/no1024/pen/XZKmVz/" target="_blank" rel="noopener">css table</a> by shengxihu (<a href="https://codepen.io/no1024" target="_blank" rel="noopener">@no1024</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
-
-<p>8.flex</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.father_class &#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    align-items: center;</span><br><span class="line">    /* 子元素样式 */</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>居中效果如下:</p>
-<iframe height="265" scrolling="no" title="flex" src="//codepen.io/no1024/embed/zRBrOJ/?height=265&theme-id=0&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/no1024/pen/zRBrOJ/" target="_blank" rel="noopener">flex</a> by shengxihu (<a href="https://codepen.io/no1024" target="_blank" rel="noopener">@no1024</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2016/02/05/水平垂直居中/#more" class="more-link">Read More</a>
+          </div>
         
         
         <div class="alignright">
           <a href="/2016/02/05/水平垂直居中/#comment" class="comment-link">Comments</a>
-        </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-        <div class="icon"></div>
-        
-        <time datetime="2015-11-20T15:57:34.000Z"><a href="/2015/11/20/The-poem-and-song/">2015-11-20</a></time>
-        
-  
-    <h1 class="title"><a href="/2015/11/20/The-poem-and-song/">The poem and song</a></h1>
-  
-
-    </header>
-
-    <div class="entry">
-      
-        
-    <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#今天听了一首歌"><span class="toc-text">今天听了一首歌</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#博客又出问题了"><span class="toc-text">博客又出问题了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#看书学习"><span class="toc-text">看书学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不错的博文"><span class="toc-text">不错的博文</span></a></li></ol>
-    </div>
-
-        <ol>
-<li><a href="#今天听了一首歌">今天听了一首歌</a></li>
-<li><a href="#博客又出问题了">博客又出问题了</a></li>
-<li><a href="#看书学习">看书学习</a></li>
-<li><a href="#不错的博文">不错的博文</a></li>
-</ol>
-<h3 id="今天听了一首歌"><a href="#今天听了一首歌" class="headerlink" title="今天听了一首歌"></a><a href="#今天听了一首歌" title="今天听了一首歌"></a>今天听了一首歌</h3><hr>
-<p>今天听了一首歌：诗与岁月同歌<br>有回忆过去的怀旧感，然而感性大于理性是不好的👎。<br>那时我们有梦，关于文学，关于爱情，关于穿越世界的旅行。如今我们深夜饮酒，杯子碰到一起，都是梦破碎的声音。 —北岛《波兰来客》</p>
-<blockquote>
-<p>推一扇被晨昏折旧的木漆门，<br>点一盏被时光淹没的夜星灯，<br>照一纸冬夜梦醒的来路与归程。<br>谁会记得你，爱恨都如此认真。<br>听杯酒碰撞后的可是梦碎声？<br>看荒原盛开过的可是心中城？<br>路过的青川孤岛都曾唤作天真。<br>谁还记得你，眉宇之间擦过多少人。<br>诗与岁月同歌，<br>爱情随风吟哦。<br>一瓣落红没入长河，<br>倒映你眼眸如昔明澈。<br>诗与岁月同歌，<br>天涯只身跋涉。<br>一如远山长青巍峨，<br>那个你却再无人记得。<br>折朵玫瑰写封信寄给旧时分，<br>衔枝翠羽裁寸光送给梦里人。<br>才看清那无畏赤诚已刻作掌纹。<br>也终于明白，原来这残酷便是人生。<br>诗与岁月同歌，<br>天涯只身跋涉。<br>一如远山长青巍峨，<br>那个你如果有人识得。<br>诗与岁月同歌，<br>都是浪子归客。<br>一样平凡一样独特，<br>光彩耀目或隐忍沉默。<br>万千人里，你，是哪个？<br>万千人里，你，是那个？</p>
-</blockquote>
-<h3 id="博客又出问题了"><a href="#博客又出问题了" class="headerlink" title="博客又出问题了"></a><a href="#博客又出问题了" title="博客又出问题了"></a>博客又出问题了</h3><hr>
-<blockquote>
-<p>昨天晚上第一次写了一篇博客，确发现图片无法正常显示，后来把它放到theme的images里面解决了，应该还有其他的解决方法的，关键是路径，尝试了一下没有搞出来其它的方法。把它和主题的图片放在一起可能会带来维护问题。<br>然后今天上午值班的时候又发现（卧槽）点击题目链接直接返回404.由摸索了好久。上传原文件到Github啦，以后再也不怕再出什么问题。</p>
-</blockquote>
-<h3 id="看书学习"><a href="#看书学习" class="headerlink" title="看书学习"></a><a href="#看书学习" title="看书学习"></a>看书学习</h3><hr>
-<blockquote>
-<p>下午就是看书学习了（值班真特么浪费时间），看《javascript高级程序设计》第五章（这章好长啊）里面的函数章节，函数是对象，所以函数具有所有引用类型的方法和属性，明天要总结一下。<br>也看了一下慕课网对bootstrap框架的简单介绍，框架虽好，但是不是长久之计哈！</p>
-</blockquote>
-<h3 id="不错的博文"><a href="#不错的博文" class="headerlink" title="不错的博文"></a><a href="#不错的博文" title="不错的博文"></a>不错的博文</h3><hr>
-<ul>
-<li>下学期该多逃课：<a href="http://selfboot.cn/2015/11/25/skip-classes/#more" target="_blank" rel="noopener">让我们一起愉快地逃课吧</a></li>
-<li>各种大学生创业比赛：<a href="https://www.v2ex.com/t/245821#reply49" target="_blank" rel="noopener">如今这各种大学生创业比赛啊</a>。。。人心开始越来越浮躁了 ~</li>
-<li>刻意练习：<a href="https://www.v2ex.com/t/246749#reply3" target="_blank" rel="noopener">通过「刻意练习」，你才能成为顶尖的程序员</a></li>
-</ul>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-        <div class="alignright">
-          <a href="/2015/11/20/The-poem-and-song/#comment" class="comment-link">Comments</a>
         </div>
         
       
@@ -556,6 +525,8 @@
   
     <a href="/" class="alignleft prev">Prev</a>
   
+  
+    <a href="/page/3/" class="alignright next">Next</a>
   
   <div class="clearfix"></div>
 </nav>
@@ -587,7 +558,7 @@
   
   <div class="widget tag">
     <h3 class="title">归档</h3>
-	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">公元 2017 年</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">公元 2016 年</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">公元 2015 年</a><span class="archive-list-count">1</span></li></ul>
+	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">公元 2019 年</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">公元 2017 年</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">公元 2016 年</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">公元 2015 年</a><span class="archive-list-count">1</span></li></ul>
   </div>
 
 </aside>
@@ -597,7 +568,7 @@
   <footer id="footer"><div class="footer-content inner">
   <div class="alignleft">
   
-    &copy; 2018 2XI
+    &copy; 2019 2XI
     
   </div>
   <div class="alignright">

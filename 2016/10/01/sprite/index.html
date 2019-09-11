@@ -6,16 +6,9 @@
   <title>sprite | Shengxihu&#39;s Blog</title>
   <meta name="author" content="2XI">
   
-  <meta name="description" content="sprite
-关于雪碧图
-制作雪碧图
-使用background-position调整雪碧图
-无自适应效果的雪碧图
-容器大小自适应
-图片大小自适应
-图片偏移量自适应（background-position）
-
-做移动开发的时候，有时会遇到使用很多图片的需求，然而过多图片会导致很多的http请求，带来很">
+  <meta name="description" content="sprite做移动开发的时候，有时会遇到使用很多图片的需求，然而过多图片会导致很多的http请求，带来很差的用户体验，为了解决这个问题，我们目前解决的办法是将图片合并成雪碧图，然后设置雪碧图为容器背景图。
+关于雪碧图参考：雪碧图
+CSS雪碧图即CSS Sprite，也有人叫它CSS精灵，是一种CSS图像合并技术，该方法是将小图标和背景图像合并到一张图片上，然后利用css的背景定位backgroun-position和background-size来控制显示需要显示的图片部分。为了减少http请求数量，加速网页内容显示，很多网站的导航栏图标、登录框图片等，使用的并不是&amp;lt;img&amp;gt;标签，而是CSS Sprite雪碧图。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -105,18 +98,10 @@
         <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sprite"><span class="toc-text">sprite</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#关于雪碧图"><span class="toc-text">关于雪碧图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#制作雪碧图"><span class="toc-text">制作雪碧图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用background-position调整雪碧图"><span class="toc-text">使用background-position调整雪碧图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无自适应效果的雪碧图"><span class="toc-text">无自适应效果的雪碧图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#容器大小自适应"><span class="toc-text">容器大小自适应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片大小自适应"><span class="toc-text">图片大小自适应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片偏移量自适应（background-position）"><span class="toc-text">图片偏移量自适应（background-position）</span></a></li></ol></li></ol>
     </div>
 
-        <h1 id="sprite"><a href="#sprite" class="headerlink" title="sprite"></a>sprite</h1><ol>
-<li><a href="#关于雪碧图">关于雪碧图</a></li>
-<li><a href="#制作雪碧图">制作雪碧图</a></li>
-<li><a href="#使用background-position调整雪碧图">使用background-position调整雪碧图</a></li>
-<li><a href="#无自适应效果的雪碧图">无自适应效果的雪碧图</a></li>
-<li><a href="#容器大小自适应">容器大小自适应</a></li>
-<li><a href="#图片大小自适应">图片大小自适应</a></li>
-<li><a href="#图片偏移量自适应（background-position）">图片偏移量自适应（background-position）</a></li>
-</ol>
-<p>做移动开发的时候，有时会遇到使用很多图片的需求，然而<strong>过多图片会导致很多的http请求</strong>，带来很差的用户体验，为了解决这个问题，我们目前解决的办法是将图片合并成雪碧图，然后设置雪碧图为容器背景图。</p>
+        <h1 id="sprite"><a href="#sprite" class="headerlink" title="sprite"></a>sprite</h1><p>做移动开发的时候，有时会遇到使用很多图片的需求，然而<strong>过多图片会导致很多的http请求</strong>，带来很差的用户体验，为了解决这个问题，我们目前解决的办法是将图片合并成雪碧图，然后设置雪碧图为容器背景图。</p>
 <h2 id="关于雪碧图"><a href="#关于雪碧图" class="headerlink" title="关于雪碧图"></a><a href="#关于雪碧图" title="关于雪碧图"></a>关于雪碧图</h2><p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/CSS_Image_Sprites" target="_blank" rel="noopener">雪碧图</a></p>
 <p>CSS雪碧图即CSS Sprite，也有人叫它CSS精灵，是一种CSS图像合并技术，该方法是将小图标和背景图像合并到一张图片上，然后利用css的背景定位<code>backgroun-position</code>和<code>background-size</code>来控制显示需要显示的图片部分。为了<strong>减少http请求数量，加速网页内容显示</strong>，很多网站的导航栏图标、登录框图片等，使用的并不是<code>&lt;img&gt;</code>标签，而是CSS Sprite雪碧图。</p>
+<a id="more"></a>
 <p><img src="http://res.cloudinary.com/da4uixfcu/image/upload/v1478744586/u9z0nzc5s3s4g7ja27uf.png" alt="sprite合成图片-1"></p>
 <h2 id="制作雪碧图"><a href="#制作雪碧图" class="headerlink" title="制作雪碧图"></a><a href="#制作雪碧图" title="制作雪碧图"></a>制作雪碧图</h2><p>首先需要使用雪碧图制作工具来生成雪碧图，gulp、grunt、webpack都有相关工具。关键是要得到每个子图片在整张雪碧图中的<strong>高度、宽度、偏移量以及整张雪碧图的宽度和高度</strong>，然后再对这些值做计算<strong>转换</strong>使其可以适应页面。</p>
 <p>下面我将以<code>webpack</code>+<code>webpack-spritesmith</code>为例来讲解如何制作雪碧图：</p>
@@ -268,7 +253,7 @@
   
   <div class="widget tag">
     <h3 class="title">归档</h3>
-	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">公元 2017 年</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">公元 2016 年</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">公元 2015 年</a><span class="archive-list-count">1</span></li></ul>
+	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">公元 2019 年</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">公元 2017 年</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">公元 2016 年</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">公元 2015 年</a><span class="archive-list-count">1</span></li></ul>
   </div>
 
 </aside>
@@ -278,7 +263,7 @@
   <footer id="footer"><div class="footer-content inner">
   <div class="alignleft">
   
-    &copy; 2018 2XI
+    &copy; 2019 2XI
     
   </div>
   <div class="alignright">

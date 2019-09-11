@@ -6,24 +6,8 @@
   <title>JavaScript Scope | Shengxihu&#39;s Blog</title>
   <meta name="author" content="2XI">
   
-  <meta name="description" content="JavaScript Scope
-构造块作用域：
-let
-const
-提升
-变量提升
-
-
-
-
-函数优先
-闭包
-块作用域与闭包
-使用IIFE来创建块作用域
-模块
-
-构造块作用域：letlet创建块作用域的例子：
-1234567891011if(i)&amp;#123;    let bar=i\*2; /\*">
+  <meta name="description" content="JavaScript Scope构造块作用域：letlet创建块作用域的例子：
+1234567891011if(i)&amp;#123;    let bar=i\*2; /\*let会将bar绑定在&amp;#123;......&amp;#125;之间*/    bar =something(bar);    console.log(bar);&amp;#125; &amp;lt;!-- 并且let声明的变量不会被提升 --&amp;gt;">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -113,24 +97,9 @@ const
         <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript-Scope"><span class="toc-text">JavaScript Scope</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造块作用域："><span class="toc-text">构造块作用域：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#let"><span class="toc-text">let</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const"><span class="toc-text">const</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提升"><span class="toc-text">提升</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#变量提升"><span class="toc-text">变量提升</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数优先"><span class="toc-text">函数优先</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包"><span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#块作用域与闭包"><span class="toc-text">块作用域与闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用IIFE来创建块作用域"><span class="toc-text">使用IIFE来创建块作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模块"><span class="toc-text">模块</span></a></li></ol></li></ol></li></ol>
     </div>
 
-        <h1 id="JavaScript-Scope"><a href="#JavaScript-Scope" class="headerlink" title="JavaScript Scope"></a>JavaScript Scope</h1><ol>
-<li><a href="#构造块作用域：">构造块作用域：</a></li>
-<li><a href="#let">let</a></li>
-<li><a href="#const">const</a></li>
-<li><a href="#提升">提升</a><ol>
-<li><a href="#变量提升">变量提升</a></li>
-</ol>
-</li>
-</ol>
-<ul>
-<li><a href="#函数优先">函数优先</a></li>
-<li><a href="#闭包">闭包</a></li>
-<li><a href="#块作用域与闭包">块作用域与闭包</a></li>
-<li><a href="#使用IIFE来创建块作用域">使用IIFE来创建块作用域</a></li>
-<li><a href="#模块">模块</a></li>
-</ul>
-<h3 id="构造块作用域："><a href="#构造块作用域：" class="headerlink" title="构造块作用域："></a><a href="#构造块作用域：" title="构造块作用域："></a>构造块作用域：</h3><h3 id="let"><a href="#let" class="headerlink" title="let"></a><a href="#let" title="let"></a>let</h3><p>let创建块作用域的例子：</p>
+        <h1 id="JavaScript-Scope"><a href="#JavaScript-Scope" class="headerlink" title="JavaScript Scope"></a>JavaScript Scope</h1><h3 id="构造块作用域："><a href="#构造块作用域：" class="headerlink" title="构造块作用域："></a><a href="#构造块作用域：" title="构造块作用域："></a>构造块作用域：</h3><h3 id="let"><a href="#let" class="headerlink" title="let"></a><a href="#let" title="let"></a>let</h3><p>let创建块作用域的例子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">if(i)&#123;</span><br><span class="line"></span><br><span class="line">    let bar=i\*2; /\*let会将bar绑定在&#123;......&#125;之间*/</span><br><span class="line"></span><br><span class="line">    bar =something(bar);</span><br><span class="line"></span><br><span class="line">    console.log(bar);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> &lt;!-- 并且let声明的变量不会被提升 --&gt;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="const"><a href="#const" class="headerlink" title="const"></a><a href="#const" title="const"></a>const</h3><p>const创建块作用域的例子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(i)&#123;</span><br><span class="line"></span><br><span class="line">    const bar=2; /\*let会将bar绑定在&#123;......&#125;之间\*/</span><br><span class="line"></span><br><span class="line">    console.log(bar);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&lt;!-- const创建的作用变量为常量，不能被修改,并且let声明的变量不会被提升 –&gt;</p>
@@ -229,7 +198,7 @@ const
   
   <div class="widget tag">
     <h3 class="title">归档</h3>
-	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">公元 2017 年</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">公元 2016 年</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">公元 2015 年</a><span class="archive-list-count">1</span></li></ul>
+	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">公元 2019 年</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">公元 2017 年</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">公元 2016 年</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">公元 2015 年</a><span class="archive-list-count">1</span></li></ul>
   </div>
 
 </aside>
@@ -239,7 +208,7 @@ const
   <footer id="footer"><div class="footer-content inner">
   <div class="alignleft">
   
-    &copy; 2018 2XI
+    &copy; 2019 2XI
     
   </div>
   <div class="alignright">

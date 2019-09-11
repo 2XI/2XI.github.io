@@ -6,7 +6,7 @@
   <title>FED Interview | Shengxihu&#39;s Blog</title>
   <meta name="author" content="2XI">
   
-  <meta name="description" content="定位  position的值：  absolute, relative, fixed, static, sticky, inherit. 
+  <meta name="description" content="定位  position的值：  absolute, relative, fixed, static, sticky, inherit.
 
 
 
@@ -22,7 +22,19 @@ absolute
 
 
 relative
-生成相对定位的元素">
+生成相对定位的元素，相对于其正常位置进行定位。
+
+
+fixed
+生成绝对定位的元素，相对于浏览器窗口进行定位。
+
+
+static
+默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）.
+
+
+sticky(css3草案)
+盒位置根据正常流计算(这称为正常流动中的位置)，然后相对于该元素在流中的 flow root（BFC）和 containing block（最近的块级祖先元素）定位。在所有情况下，该元素定位均不对后续元素造成影响。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -113,7 +125,7 @@ relative
     </div>
 
         <ul>
-<li>定位<br>  position的值：<br>  absolute, relative, fixed, static, sticky, inherit. </li>
+<li>定位<br>  position的值：<br>  absolute, relative, fixed, static, sticky, inherit.</li>
 </ul>
 <table>
 <thead>
@@ -145,6 +157,7 @@ relative
 </tr>
 </tbody>
 </table>
+<a id="more"></a>
 <ul>
 <li>跨域问题</li>
 </ul>
@@ -216,7 +229,7 @@ relative
 <li>css3新增内容</li>
 </ul>
 <p>元素选择器：E[foo^=”bar”]，E[foo$=”bar”]，E[foo*=”bar”]，E:root，E:nth-child(n)，E:nth-last-child(n)，E:nth-of-type(n)，E:nth-last-of-type(n)，E:last-child，E:first-of-type，E:last-of-type，E:only-child，E:only-of-type，E:empty，E~F，E:not(s)，E:target</p>
-<p>状态选择器：E:enabled，E:disabled，E:checked    </p>
+<p>状态选择器：E:enabled，E:disabled，E:checked</p>
 <p>值和单位：em，ex，ch，rem，vh，vw，vmin，vmax</p>
 <p>字体：@Font-face</p>
 <p>文本属性：text-shadow，text-overflow，word-wrap，</p>
@@ -356,7 +369,7 @@ relative
   
   <div class="widget tag">
     <h3 class="title">归档</h3>
-	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">公元 2017 年</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">公元 2016 年</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">公元 2015 年</a><span class="archive-list-count">1</span></li></ul>
+	<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">公元 2019 年</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">公元 2018 年</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">公元 2017 年</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">公元 2016 年</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">公元 2015 年</a><span class="archive-list-count">1</span></li></ul>
   </div>
 
 </aside>
@@ -366,7 +379,7 @@ relative
   <footer id="footer"><div class="footer-content inner">
   <div class="alignleft">
   
-    &copy; 2018 2XI
+    &copy; 2019 2XI
     
   </div>
   <div class="alignright">
